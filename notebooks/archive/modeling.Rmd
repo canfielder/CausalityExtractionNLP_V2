@@ -1,0 +1,423 @@
+---
+title: "Modeling"
+author: "Evan Canfield"
+date: "11/12/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+The purpose of this notebook is to recreate in R the machine learning modeling efforts of the Causality Extraction NLP project. This notebook will use the training data which was manually generated for the python project.
+
+This notebook will go through actions step by step. A seperate, streamlined notebook will execute these steps via compiled functions.
+
+# Import
+## Libraries
+```{r import_libraries}
+if (!require(pacman)) {install.packages('pacman')} 
+p_load(
+  dplyr,
+  LiblineaR,
+  Matrix, 
+  pdftools,
+  quanteda,
+  readr,
+  readxl,
+  rJava,
+  SparseM,
+  stringr,
+  tabulizer,
+  textstem,
+  tidyr,
+  tidytext,
+  tokenizers
+)
+
+source("../R/process_text_JB.R")
+source("../R/extract_hypo.R")
+```
+
+
+## Data
+```{r import_data}
+train_raw <- read_excel(path = "../data/training_data.xlsx", sheet = "training_data")
+```
+
+
+# EDA
+```{r}
+train_raw %>% head()
+```
+
+```{r}
+train_raw %>% glimpse()
+```
+
+## Find Index of Unique String for Testing
+```{r}
+test_string <- "hypo 3: the interaction of quality-enhancing strategy and commitment configuration will further enhance organizational performance, and the interaction with market configuration will reduce organizational performance."
+
+test_index <- match(test_string, train_raw$sentence)
+print(test_index)
+
+test_df_row <- train_raw %>% slice(test_index)
+test_df_row
+```
+
+
+## Node 1 Missing
+
+```{r}
+test_n1_missing <- train_raw %>% slice(411)
+test_n1_missing
+```
+
+
+# Processing
+# Drop NA
+```{r}
+train_001 <- train_raw %>% 
+  drop_na()
+
+train_001 %>% select(causal_relationship)
+```
+
+
+## Normalize
+```{r}
+train_001.1 <- train_001 %>%
+# train_001 <- test_df_row %>% 
+  mutate(
+    sentence = tolower(sentence), 
+    node_1 = tolower(node_1),
+    node_2 = tolower(node_2)
+  )
+```
+
+## Entity Replacement
+
+### Remove Punctuation
+
+Before we perform entity replacement, we need to remove punctuation from the node terms. At least one row contains punctuation, which is causing errors downstream.
+```{r}
+regex_punct <- "[.!?]"
+
+train_002 <- train_001.1 %>% 
+  mutate(
+    node_1 = str_remove_all(node_1, pattern = regex_punct),
+    node_2 = str_remove_all(node_2, pattern = regex_punct)
+   )
+```
+
+Then we can replace the set patterns with node1 and node2
+```{r}
+train_003 <- train_002 %>% 
+  mutate(
+    sentence = str_replace_all(sentence, pattern = node_1, replacement = "node1"),
+    sentence = str_replace_all(sentence, pattern = node_2, replacement = "node2"),
+  )
+```
+
+
+```{r}
+train_003 %>% slice(411)
+```
+
+
+## Remove Punctuation, Space
+
+The tidytext function unnest_tokens automatically removeds spaces and punctuation.
+```{r}
+train_004 <- train_003 %>% unnest_tokens(word, sentence)
+```
+
+
+## Remove Stopwords
+We remove stopwords via anti-join.
+```{r}
+data(stop_words)
+
+train_005 <- train_004 %>%
+  anti_join(stop_words, by = "word")
+```
+
+## Lemmenize
+```{r}
+train_006 <- train_005 %>% 
+  mutate(
+    word = lemmatize_words(word)
+  )
+```
+
+## Recombine Sentences
+We will need to rejoin the words intos sentences in order to trim.
+```{r}
+train_007 <- train_006 %>% 
+  group_by(file_name, hypothesis_num) %>% 
+  mutate(
+    sentence = str_c(word, collapse = " ")
+    ) %>% 
+  ungroup() %>% 
+  select(-word) %>% 
+  distinct()
+
+train_007
+```
+
+## Trimming
+The Python code trims the strings in a unique way. First, the location of the instances of **node1** and **node**2 are detected. Then, all of the tokens after the * first instance of **node2** to follow **node1*** are concatenated into a single token
+
+
+We will use the extracted test string from above to create this function.
+
+```{r}
+
+demo_str <- train_007 %>% head(1) %>% select(sentence) %>% pull()
+print(demo_str)
+
+demo_tokens <- str_split(demo_str, pattern =  " ") %>% unlist()
+demo_tokens
+
+node_1_index_all <- which(demo_tokens %in% "node1")
+node_1_index_all
+
+node_1_index_init <- min(node_1_index_all)
+node_1_index_init
+
+node_2_index_all <- which(demo_tokens %in% "node2")
+node_2_index_all
+
+
+### IF MAX Node2 is BEFORe MIN Node 1 Dont Execute
+
+logical_n2 <- (node_2_index_all) > node_1_index_init
+logical_n2
+
+# Drop Node  Instances Before Node 1
+node_2_index_post_n1_all <- node_2_index_all[logical_n2]
+
+# First Instance of Node 2 After Node 1
+node_2_index_init_post_n1 <- min(node_2_index_post_n1_all)
+
+token_count <- length(demo_tokens)
+
+output <- demo_str
+
+if(token_count > node_2_index_init_post_n1){
+  trim_tokens <- str_c(demo_tokens[node_2_index_init_post_n1:token_count], collapse = "")
+  trim_tokens
+  output <-c(demo_tokens[1:node_2_index_init_post_n1], trim_tokens)
+}
+
+
+output
+
+```
+
+### Function
+```{r}
+trim_strings <- function(input_string, key_1="node1", key_2="node2"){
+  
+  # Convert String into Word Tokens
+  tokens <-  str_split(input_string, pattern =  " ") %>% unlist()
+  
+  # Determine All Indices of Key 1 and Key 2
+  index_k1_all <- which(tokens %in% key_1)
+  index_k2_all <- which(tokens %in% key_2)
+  if(length(index_k1_all) == 0 | length(index_k2_all) == 0){
+    print("Length Zero")
+    print(index_k1_all)
+    print(index_k2_all)
+    
+  }
+  
+  # Verify An Instance of Key 2 exists After Key 1
+  # If Not, No Action
+  if(length(index_k1_all) == 0 | length(index_k2_all) == 0){
+    return(input_string)
+  }
+  else if (max(index_k2_all) < min(index_k1_all)){
+    return(input_string)
+  }
+
+  # Reduce Key 2 Indices to First Instance After Key 1 Intial Instance
+  logical_k2 <- (index_k2_all) > min(index_k1_all)
+  index_k2_post_k1 <- min(index_k2_all[logical_k2])
+  
+  # Determine String Length
+  num_tokens <- length(tokens)
+  
+  # Initialize
+  output_string <- input_string
+  
+  # Trim String After Key 2
+  if(num_tokens > index_k2_post_k1){
+    # Collapse Tokens
+    index_trim_start <- index_k2_post_k1 + 1
+    tokens_trim <- str_c(tokens[index_trim_start:num_tokens], collapse = "")
+    
+    string_maintain <- str_c(tokens[1:index_k2_post_k1], collapse = " ")
+    
+    # Replace Tokens With Collapsed Trim
+    output_vec <- c(string_maintain, tokens_trim)
+    output_string <- str_c(output_vec, collapse = " ")
+  }
+  
+  output_string <- unname(output_string)
+  return(output_string)
+}
+
+trim_strings_vec <- Vectorize(trim_strings)
+```
+
+### Test Function
+#### String
+```{r}
+
+for (i in 1:10){
+  print(i)
+  demo_str <- train_007 %>% slice(i) %>% select(sentence) %>% pull()
+  print(demo_str)
+  demo_str_trim <- trim_strings(demo_str)
+  print(demo_str_trim)
+  print("")
+}
+```
+
+#### Vectorized
+```{r}
+input <- train_007
+
+output <- input %>% 
+  mutate(
+    sentence = trim_strings_vec(sentence)
+  )
+
+train_008 <- output
+```
+
+
+```{r}
+train_008 %>% select(causal_relationship)
+```
+
+```{r}
+process_data(train_raw) %>% select(causal_relationship)
+```
+
+
+# Feature Generation
+## Bag of Words
+### Generate Unique ID
+We need to create a corpus. We'll generate a unique identifier for each column first.
+
+```{r}
+input <- train_008
+
+input %>% glimpse()
+
+output <- input %>% 
+  mutate(
+    hyp_id = str_c(file_name, hypothesis_num, row_number(), sep = "_")
+  )
+
+output %>% head()
+
+train_009 <- output
+```
+
+
+### Generate Corpus
+With a unique ID column we can now generate a corpus. 
+```{r}
+input <- train_009
+
+output <- corpus(
+  x = input,
+  text_field = "sentence", 
+  docid_field = "hyp_id"
+)
+
+corpus_hyp <- output
+```
+
+### Create DTM
+With the corpus, we can tokenize into the n_gram level we want, and then convert to DTM.
+
+```{r}
+input <- corpus_hyp
+
+tokens_hyp <- quanteda::tokens(input)
+
+tokens_hyp_ngram <- tokens_ngrams(tokens_hyp, n = 3:3)
+
+# Create DTM Object
+dtm <- dfm(tokens_hyp_ngram)
+
+# Convert to Dataframe
+df_dtm <- convert(x = dtm, to = "data.frame")
+```
+
+# Modeling
+## Bag of Words
+### Logistic Regressoin
+The default logistic regression algorithm for R and Sci-Kit Learn in python are different. So, we're going to try the Liblearner package to try and get the same algoritm.
+
+```{r}
+df_dtm
+```
+
+#### Create Sparse Matrix
+```{r}
+
+
+df_dtm_tidy <- tidy(dtm)
+df_dtm_tidy
+
+sm_dtm <- df_dtm_tidy %>% 
+  cast_sparse(document, term, count)
+
+labels_mtx <- as.matrix(labels)
+
+sm_dtm.csr <- as.matrix.csr(as.matrix(df_dtm))
+
+
+dim(sm_dtm.csr)
+
+```
+
+
+```{r}
+a <- rnorm(20*5)
+A <- matrix(a,20,5)
+
+as.matrix.csr(A)
+```
+
+
+```{r}
+df_dtm %>% head()
+
+
+mtx_dtm <- as.matrix(x = df_dtm %>%  select(-doc_id))
+
+dim(mtx_dtm)
+
+sm_dtm <- as.matrix.csr(mtx_dtm)
+
+```
+
+
+```{r}
+
+model <- LiblineaR(sm_dtm, labels_mtx)
+model
+```
+
+
+
+

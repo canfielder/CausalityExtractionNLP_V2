@@ -1,0 +1,171 @@
+---
+title: "Package / Shiny Model Tests"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+
+```
+
+# Purpose
+The purpose of this notebook is to test the intended final functions of this package and shiny model. 
+
+# Import
+## Libraries
+Direct Library import has been moved to the script R/install.R in order to maintain consistent library management across multiple project actions.
+```{r import_libraries}
+# Import All Scripts
+script_path <- "../R/"
+file_paths <- list.files(path = script_path, pattern = ".R", full.names = TRUE)
+
+# # Execute All Scripts
+# for (file in file_paths){
+#   source(file)
+# }
+
+source("./../R/process_text_JB.R")
+source("./../R/install.R")
+source("./../R/extract_hypo.R")
+source("./../R/modeling.R")
+
+# Load Libraries
+project_install_packages()
+```
+
+## Set Seed and Random States
+```{r set_seed}
+rs <- as.integer(5590)
+set.seed(rs)
+```
+
+## Data
+We'll import a random pdf from the available dataset to use as our example input.
+We built our processing steps around the resultant text from the **Tabulizer** package. We'll convert from pdf to text immediately on the import, and then process this raw text.
+
+We also need to upload our patterns reference, which will be used to remove specific custom patterns.
+
+```{r import_data}
+# PDF Input
+## Define Path
+pdf_path <- "./../data/input_pdfs/afglmm10hrm.pdf"
+
+## Import and Convert to Text
+sample <- extract_text(pdf_path)
+
+# Patterns File
+patterns_col <- c("remove","comments")
+patterns_raw <- read_excel(path = "../data/patterns.xlsx", col_names = patterns_col, )
+patterns <- patterns_raw %>% pull(remove)
+```
+
+# Pre-Process Steps
+## Process Data
+With our pdf now converted to text, we'll process this raw text data.
+```{r process_data}
+text_processed <- process_text(input_text = sample, 
+                                  removal_patterns = patterns)
+text_processed[0:5]
+```
+
+## Extract Hypothesis
+```{r extract_hypothesis}
+hypo_xtr <- extract_hypothesis(text_processed)
+hypo_xtr
+```
+
+
+# Analyze
+```{r}
+virtualenv_list <-  reticulate::virtualenv_list()
+
+virtualenv_list
+
+virtualenv_dir = Sys.getenv('VIRTUALENV_NAME')
+python_path = Sys.getenv('PYTHON_PATH')
+
+PYTHON_DEPENDENCIES = c("numpy", "joblib", "scikit-learn", "fasttext")
+
+# Create New Virtual Evironment if Needed
+if (!(virtualenv_dir %in% virtualenv_list)){
+  reticulate::virtualenv_create(envname = virtualenv_dir, python = python_path)
+}
+
+reticulate::virtualenv_install(virtualenv_dir, packages = PYTHON_DEPENDENCIES, ignore_installed=TRUE)
+
+reticulate::use_virtualenv(virtualenv_dir, required = TRUE)
+```
+
+
+### Import Python Modules
+```{r import_python_modules}
+# General
+## Numpy
+# np <- import("numpy")
+
+# Modeling
+## Sci-Kit Learn Model Selection
+skl <- import("sklearn")
+
+joblib <- import("joblib")
+
+## Fast Text
+# fasttext <- import("fasttext")
+```
+
+## Hypothesis Classification
+
+## Causality Classification
+We need to do a little more pre-processing before modeling. 
+
+### Pre-modeling Processing
+The following is some basic text processing.
+```{r}
+hypo_xtr_pr <- process_data_general(hypo_xtr)
+hypo_xtr_pr
+write.csv(x = hypo_xtr_pr, file = "./../data/r_output_testing/causality_classification_input.csv", row.names = FALSE)
+```
+
+
+#### Export
+
+
+### Vectorization
+```{r}
+input_bow <- gen_dtm_bow(hypo_xtr_pr) %>% select(-h_id)
+
+# Transpose
+input_bow <- as.data.frame(t(as.matrix(input_bow)))
+rownames(input_bow) <- c()
+
+input_bow_py <- r_to_py(input_bow)
+```
+
+
+### Load Model and Vectorizer
+```{r}
+vectorizer <- joblib$load("./../data/output_models/vectorizer_causality_classification.pkl")
+clf_svc <- joblib$load("./../data/output_models/bow_svc.pkl")
+clf_svc_prob <- joblib$load("./../data/output_models/bow_svc_prob.pkl")
+clf_log <- joblib$load("./../data/output_models/bow_log_reg.pkl")
+```
+
+### vectorize Hypothesis
+```{r}
+input_bow_py_vec <- vectorizer$transform(input_bow_py)
+
+input_bow_py_vec
+```
+
+
+### Predict
+```{r}
+clf_svc_prob$predict_proba(input_bow_py_vec)
+```
+
+
+## Entity Extraction

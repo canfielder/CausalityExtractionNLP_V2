@@ -1,0 +1,182 @@
+---
+title: "Walkthrough - Step 3 - Hypothesis Classification"
+author: "Evan Canfield"
+date: "11/10/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Purpose
+The purpose of this notebook is to replicate the process of the Causality Extractiuon NLP repository, step by step. This notebook tackles the third step:
+
+3. Hypothesis Classification
+
+
+# Import
+## Libraries
+```{r import_libraries}
+if (!require(pacman)) {install.packages('pacman')} 
+p_load(
+  dplyr,
+  pdftools,
+  quanteda,
+  readr,
+  readxl,
+  rJava,
+  stringr,
+  tabulizer,
+  tokenizers
+)
+
+source("../R/process_text_JB.R")
+source("../R/extract_hypo.R")
+```
+
+
+## Data
+```{r import_data}
+demo_path_mult_col <- "../data/input_pdfs/bl00amj.pdf"
+demo_path_single_col <- "../data/input_pdfs/bb95jibs.pdf"
+
+# Import Single Document
+text_raw <- extract_text(demo_path_mult_col)
+
+# Patterns
+patterns_col <- c("remove","comments")
+patterns_raw <- read_excel(path = "../data/patterns.xlsx", col_names = patterns_col, )
+patterns_raw <- patterns_raw %>% pull(remove)
+```
+
+## Helper Functions
+```{r}
+# Insepct Vector
+inspect_vector <- function(vector, start = 1, end = 10){
+  print(vector[start:end])
+}
+
+# Print Pre and Post Vector Length
+vector_length_comp <- function(vector_pre, vector_post){
+
+  output_pre <- paste0("Vector Length - Pre:   ",
+                       length(vector_pre))
+  
+  output_post <- paste0("Vector Length - Post:  ",
+                     length(vector_post))
+  print(output_pre)
+  print(output_post)
+  print("")
+}
+```
+
+# Processing - JB Method
+The following function takes raw text and processes it for hypothesis classification.
+```{r}
+text_processed <- process_text_JB(input_text = text_raw, 
+                                  removal_patterns = patterns_raw)
+inspect_vector(text_processed)
+```
+
+```{r}
+text_processed[86]
+```
+
+
+# Extract Hypotheses - JB Method
+Extra## Sentence Tokenize
+```{r}
+input <- text_processed
+
+# Concatenate All Vector Elements, Separated By Line Split
+output <- str_c(input, collapse = " ")
+output <- tokenize_sentences(output, strip_punct = FALSE) %>% unlist()
+
+# Replace Double Spaces
+output<- str_replace_all(string = output, pattern = "  ", replacement = " ")
+
+vector_length_comp(input, output)
+inspect_vector(output)
+
+extract_hypo_001 <- output
+```
+
+##### Determine Location of Hypo
+```{r}
+seach_term <- "<split>Hypo"
+logical_hypo <- str_detect(output, seach_term)
+
+index_hypo <- min(which(logical_hypo == TRUE))
+
+output[index_hypo]
+```
+
+
+## Normalize Text 
+```{r}
+input <- extract_hypo_001
+
+output <- tolower(input)
+
+vector_length_comp(input, output)
+inspect_vector(output)
+
+extract_hypo_002 <- output
+```
+
+```{r}
+output[index_hypo]
+```
+
+
+# Split Based On Hypothesis Identification
+```{r}
+input <- extract_hypo_002
+
+# Define Possible Hypothesis Patterns
+hypothesis_patterns <- "(hypo)|(h\\d+)"
+
+# Create Logical Vector Identifying Sentences Matching Hypothesis Terms
+logical_hypothesis <- str_detect(input, hypothesis_patterns)
+
+which(logical_hypothesis == TRUE)
+
+output <- input[logical_hypothesis]
+
+vector_length_comp(input, output)
+inspect_vector(output)
+
+extract_hypo_003 <- output
+```
+
+## Split on <split>. Drop All Without Hypo
+```{r}
+input <- extract_hypo_003
+
+split_indicator <- "<split>"
+
+# Split on Indicator
+output <- str_split(string = input, pattern = split_indicator) %>% unlist()
+
+# Remove Split Sentences That Do Not Contain Hypothesis
+logical_hypo <- str_detect(output, "hypo")
+
+# Inspect
+which(logical_hypo == TRUE)
+
+output <- output[logical_hypo]
+output <- output[!is.na(output)]
+
+vector_length_comp(input, output)
+inspect_vector(output, end = length(output))
+
+extract_hypo_004 <- output
+```
+
+# Test Function
+```{r}
+extract_hypothesis(text_processed)
+```
+
+

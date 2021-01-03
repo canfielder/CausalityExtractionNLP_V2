@@ -1,0 +1,76 @@
+---
+title: "Walkthrough - Step 1 and 2 - Import and Process Text"
+author: "Evan Canfield"
+date: "11/10/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Purpose
+The purpose of this notebook to test cleaning and extracting hypothesis from a folder of pdfs.
+
+# Import
+## Libraries
+```{r import_libraries}
+if (!require(pacman)) {install.packages('pacman')} 
+p_load(
+  dplyr,
+  stringr,
+  tabulizer
+)
+
+source("../R/process_text_JB.R")
+source("../R/extract_hypo.R")
+```
+
+## Data
+```{r}
+# Patterns
+patterns_col <- c("remove","comments")
+patterns_raw <- read_excel(path = "../data/patterns.xlsx", col_names = patterns_col, )
+patterns_raw <- patterns_raw %>% pull(remove)
+```
+
+# Process and Extract Hypotheses
+## Define Path
+```{r}
+pdf_path <- "../data/input_pdfs/"
+file_names <- list.files(path = pdf_path, pattern = ".pdf")
+file_paths <- list.files(path = pdf_path, pattern = ".pdf", full.names = TRUE)
+```
+
+
+```{r}
+num_pdf <- 20
+
+extracted_hypotheses <- list()
+
+for (file in file_names[1:num_pdf]){
+  path <- paste0(pdf_path, file)
+  print(path)
+  try({
+    # Read PDF
+    text_raw <- extract_text(path)
+    
+    # Process Text
+    text_processed <-  process_text_JB(input_text = text_raw, 
+                                    removal_patterns = patterns_raw)
+    
+    # Extract Hypotheses
+    extract <- extract_hypothesis(text_processed)
+    # print(extract)
+    file_name <- str_remove(file, pattern = ".pdf")
+    extracted_hypotheses[[file_name]] <- extract
+    
+  })
+}
+```
+
+
+```{r}
+extracted_hypotheses
+```
+

@@ -1,0 +1,968 @@
+---
+title: "Walkthrough - Step 1 and 2 - Import and Process Text"
+author: "Evan Canfield"
+date: "11/10/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Purpose
+The purpose of this notebook is to replicate the process of the Causality Extractiuon NLP repository, step by step. This notebook tackles the first two steps:
+
+1. Import Text from PDF
+2. Process Raw Text
+
+# Import
+## Libraries
+```{r import_libraries}
+if (!require(pacman)) {install.packages('pacman')} 
+p_load(
+  dplyr,
+  pdftools,
+  quanteda,
+  readr,
+  readxl,
+  rJava,
+  stringr,
+  tabulizer,
+  tokenizers
+)
+
+```
+
+## Helper Functions
+```{r}
+# Insepct Vector
+inspect_vector <- function(vector, start = 1, end = 10){
+  print(vector[start:end])
+}
+
+# Print Pre and Post Vector Length
+vector_length_comp <- function(vector_pre, vector_post){
+
+  output_pre <- paste0("Vector Length - Pre:   ",
+                       length(vector_pre))
+  
+  output_post <- paste0("Vector Length - Post:  ",
+                     length(vector_post))
+  print(output_pre)
+  print(output_post)
+  print("")
+}
+```
+
+## Functions - Transformation
+```{r}
+
+# Generate Regex
+# The following function takes a chacter vector and generates
+# a regex string. The string with either identify and partial
+# or exact match, based on input.
+
+gen_regex <- function(input_vector, match){
+  
+  if (match == "exact"){
+    input_vector_exact <- c()
+    for (item in input_vector){
+      item_exact <- paste0("^",item,"$")
+      input_vector_exact <- append(input_vector_exact, item_exact)
+      }
+    # Reassign Input Variable
+    input_vector <- input_vector_exact
+  }
+  regex_string <- paste0("\\b(", paste(input_vector, collapse="|"), ")\\b")
+  
+  return(regex_string)
+}
+
+
+# Remove Line If String Detected
+## This only requires a partial match of the input data string. 
+
+## Location input must be start, end, or any
+## Match input must be partial or exact
+## If Regex Provided, then Override vector
+remove_if_detect <- function(input_vector, regex = NULL, remove_vector = NULL, 
+                             location = "any", match = "partial",
+                             logical_method = "normal"){
+  
+  # Generate Regex Input Based on Vector If One Is Not Provided
+  if (is.null(regex)){
+    regex <- gen_regex(remove_vector, match)
+  }
+  
+    logical_vector = c()
+  if (location == "start"){
+    # Check Start of String
+    logical_vector <- str_starts(input_vector, regex)
+    
+  } else if ( location == "end") {
+    # Check End of String
+    logical_vector <- str_ends(input_vector, regex)
+    
+  } else {
+    logical_vector <- str_detect(input_vector, regex)
+  }
+    
+  
+  # Drop Elements NOT Identified in Logical Vector
+  # If Inverse Match is Selected, Elements that ARE Identified are dropped
+   
+  if (logical_method == "inverse") {
+    output_vector <- input_vector[logical_vector]
+    
+  } else{
+    output_vector <- input_vector[!logical_vector]
+  }
+  
+  
+  # Drop any NA
+  output_vector <- output_vector[!is.na(output_vector)]
+  
+  return(output_vector)
+}
+
+# Concatenate Two Strings Together, Dropping Tail Hyphen
+# of first string
+concat_hyphen_string <- function(string_1, string_2){
+  # Remove Last Hyphen 
+  string_1 <- str_sub(string_1, 1, nchar(string_1)-1)
+  
+  # Concatenate Strings
+  output <- str_c(string_1, string_2)
+  
+  # Return Concatenated Strings
+  return(output)
+}
+
+# Execute concat_hyphen_string where appropriate across a vector
+concat_hypen_vector <- function(input){
+  # Initialize 
+  i <- 1
+  j <- 1
+  output = c()
+  
+  while (i <= length(input)){
+    item = input[i]
+    # Test if Element Ends in Hyphen
+    hyphen_test <- str_ends(item, "-")
+    
+    # Execute if Test = True
+    while (hyphen_test){
+      # Concatenate Element i with Element i+1
+      item <- concat_hyphen_string(item, input[i+j])
+      
+      # Test if New Element Ends in Hyphen
+      hyphen_test <- str_ends(item, "-")
+      
+      j = j + 1
+      }
+    output <- append(output, item)
+  i = i + j 
+  j = 1
+  }
+  return(output)
+}
+
+
+# The following function searches for a hypothesis in each sentence, based on 
+# the possible hypothesis formatting defined in the regex patterns. It then
+# replaces the identified pattern with a standard format, 
+# **<split>Hypo <num>**, with the number # being the number identified in 
+# the original Hypothesis.
+
+replace_hypo <- function(input_string, regex_hypothesis_vec){
+  
+  # Define Regex for Identifying Numbers
+  regex_num <- "(\\d)+"
+  
+  # Create String to Identify Hypothesis
+  regex_hypo_str <- gen_regex(regex_hypo_vec, match = "partial")
+  
+  
+  # Extract Identified Value
+  extract_phrase <- str_extract(input_string, regex_hypo_str)
+  
+  # Check if Hypothesis Detected
+  if (!is.na(extract_phrase)){
+    
+    # Extract Hypothesis Number
+    extact_number <- str_extract(extract_phrase, regex_num)
+    
+    # Create New String
+    replacement_string <- paste0("<split>Hypo ", extact_number, ": ")
+    
+    # Replace Hypothesis with New Value
+    output_string <- str_replace(string = input_string, 
+                                 pattern = regex_hypo_str, 
+                                 replacement = replacement_string)
+    
+  } else{
+    output_string <- input_string
+    
+  }
+    
+  return(output_string)
+   
+}
+
+replace_hypo <- Vectorize(replace_hypo)
+```
+
+### Test Functions
+#### gen_regex
+No issues detected.
+```{r}
+sample_input_vector <- c("a", "B", "Cd", "e", "123")
+
+sample_input_vector
+
+# Partial
+gen_regex(sample_input_vector, match = "partial")
+
+# Exact
+gen_regex(sample_input_vector, match = "exact")
+```
+
+#### remove_if_detect
+No issues detected
+```{r}
+sample_input_vector <- c("The the lazy dog",
+                         "dog lazy the",
+                         "12","123", "1234", "1234 01234",
+                         "abcdefg")
+
+sample_remove_vector <- c("a", "B", "ABCD", "123", "the")
+
+# Partial
+## Start
+remove_if_detect(input_vector = sample_input_vector, 
+                  remove_vector = sample_remove_vector, 
+                  location = "start", match = "partial")
+
+## Anywhere
+remove_if_detect(input_vector = sample_input_vector, 
+                  remove_vector = sample_remove_vector, 
+                  location = "any", match = "partial")
+
+## End
+remove_if_detect(input_vector = sample_input_vector, 
+                  remove_vector = sample_remove_vector, 
+                  location = "end", match = "partial")
+
+# Exact
+## Start
+remove_if_detect(input_vector = sample_input_vector, 
+                  remove_vector = sample_remove_vector, 
+                  location = "start", match = "exact")
+
+## Anywhere
+remove_if_detect(input_vector = sample_input_vector, 
+                  remove_vector = sample_remove_vector, 
+                  location = "any", match = "exact")
+
+## End
+remove_if_detect(input_vector = sample_input_vector, 
+                  remove_vector = sample_remove_vector, 
+                  location = "end", match = "exact")
+
+
+```
+
+```{r}
+
+str_ends(sample_input_vector[2],"the")
+
+```
+
+
+## Data
+```{r import_data}
+demo_path <- "../data/input_pdfs/a94amj.pdf"
+
+# Import Single Document
+demo_pdf_raw <- pdf_text(demo_path)
+demo_tab_raw <- extract_text(demo_path)
+demo_tiak_raw <- tika_text(demo_path)
+
+# Patterns
+patterns_col <- c("remove","comments")
+patterns_raw <- read_excel(path = "../data/patterns.xlsx", col_names = patterns_col, )
+patterns_raw <- patterns_raw %>% pull(remove)
+```
+
+# Pre-Processing
+## PDF Tools
+First, we will try to use the R package **PDFtools**. This is the easiest pdf conversion tool to use with R
+### Convert Into List of Strings Based on New Line
+```{r}
+demo_pdf_001 <- demo_pdf_raw %>% 
+  str_split(pattern = "\r\n")
+demo_pdf_001[1]
+```
+
+
+### Append to Single List of Lines
+```{r}
+demo_pdf_002 <- list()
+for (page in demo_pdf_001){
+  # print(page)
+  for (line in page){
+    demo_pdf_002 = append(demo_pdf_002, line)
+  }
+}
+
+demo_pdf_003 <- unlist(demo_pdf_002)
+
+inspect_vector(demo_pdf_003, end = 50)
+```
+
+
+### Normalize
+```{r}
+demo_pdf_004 <- tolower(demo_pdf_003)
+inspect_vector(demo_pdf_004, end = 20)
+```
+
+## PDF Tools w/ Line Split Method
+```{r}
+ibrary(pdftools)
+src <- ""
+trim <- function (x) gsub("^\\s+|\\s+$", "", x)
+
+QTD_COLUMNS <- 2
+read_text <- function(text) {
+  result <- ''
+  #Get all index of " " from page.
+  lstops <- gregexpr(pattern =" ",text)
+  #Puts the index of the most frequents ' ' in a vector.
+  stops <- as.integer(names(sort(table(unlist(lstops)),decreasing=TRUE)[1:2]))
+  #Slice based in the specified number of columns (this can be improved)
+  for(i in seq(1, QTD_COLUMNS, by=1))
+  {
+    temp_result <- sapply(text, function(x){
+      start <- 1
+      stop <-stops[i] 
+      if(i > 1)            
+        start <- stops[i-1] + 1
+      if(i == QTD_COLUMNS)#last column, read until end.
+        stop <- nchar(x)+1
+      substr(x, start=start, stop=stop)
+    }, USE.NAMES=FALSE)
+    temp_result <- trim(temp_result)
+    result <- append(result, temp_result)
+  }
+  result
+}
+
+txt <- pdf_text(src)
+result <- ''
+for (i in 1:length(txt)) { 
+  page <- txt[i]
+  t1 <- unlist(strsplit(page, "\n"))      
+  maxSize <- max(nchar(t1))
+  t1 <- paste0(t1,strrep(" ", maxSize-nchar(t1)))
+  result = append(result,read_text(t1))
+}
+result
+```
+
+
+### PDF Tools Results
+The package **pdftools** does not work for pdfs with text in mutliple columns. Different columns simply get concatenated together. Therefore, we need to try a different method for pdf conversion.
+
+## Tabulizer
+**VERDICT**: Since **pdftools** did not perform well enough, we will try to package **Tabulizer**, which also requires **RJava** to be installed.
+
+### Convert into List of Strings
+```{r}
+input <- demo_tab_raw
+output <- input %>% 
+  str_split(pattern = "\r\n") %>% 
+  unlist()
+
+inspect_vector(output)
+
+demo_tab_001 <- output
+```
+
+# Remove Patterns Dataset
+#### Split New Lines
+The data comes with an Excel spreadsheet filled with specific strings known in the available data that are to be dropped. The patterns have already been imported. Next, any element in the vecotr which contains a newline, is split into two (or more), separate vectors. 
+```{r}
+patterns <- str_split(patterns_raw, "\r\n") %>% unlist()
+```
+
+#### Emply and Missing Elements
+Drop any empty vector elements ("") and NA elements,
+```{r}
+patterns <- patterns[patterns!=""]
+patterns <- patterns[!is.na(patterns)]
+
+inspect_vector(patterns)
+```
+
+
+#### Processing
+We need to apply the same processing to the removal patterns that we have already applied to the text data. 
+```{r}
+patterns <- patterns %>% 
+  str_squish()
+
+inspect_vector(patterns)
+```
+
+
+# Build_TrainSet_Hypho_Class.py
+The following section will walk through the data processing steps in file **Build_TrainSet_Hypho_Class.py**.
+
+## Function: clean_and_convert_to_sentence
+The following function is used to create the Cleaned Text via JB, per **Build_TrainSet_Hypho_Class.py**.
+### Remove Any Text After References / Bibiography
+We will include  multiple test strings string to ensure this method works, as a References of Bibliography section may not be part of each paper.
+```{r}
+# test_doc <- demo_tab_001[1:10]
+# test_str_1 <- "^resources may be seen as a source of$"
+# test_str_2 <- "^lying assumption is that human resources$"
+# 
+# ## The ^ $ for a regex complete match
+# ref_bib_key <- c("^references$", "^bibliography$", test_str_1, test_str_2)
+# 
+# # Create Or Regex Search for All Possible Values
+# test_regex <- paste(ref_bib_key, collapse = "|")
+# 
+# # Return Logical Vector if string was matched
+# ref_bib_logical <- str_detect(test_doc, test_regex)
+# 
+# # Return Latest Index Where True
+# index <- max(which(ref_bib_logical == TRUE))
+# 
+# test_doc_trim <- test_doc[1:index-1]
+# test_doc_trim
+```
+
+### General Case: Remove References / Bibliograph Section
+The above example uses known list values to test that lines were correctly dropped. The following will be a general case, only using the expected terms in the final case.
+```{r}
+input <- demo_tab_001
+
+## The ^ $ for a regex complete match
+section_key <- c("References", "Bibliography",
+                 "REFERENCES", "BIBIOGRAPHY")
+
+regex_section <- gen_regex(input_vector = section_key, match = "exact")
+
+# Return Logical Vector if string was matched
+logical_section <- str_detect(input, regex_section)
+
+# Return Latest Index Where True
+
+if (any(logical_section)){
+  index <- max(which(logical_section == TRUE))
+  output <- input[1:index-1]
+}
+
+vector_length_comp(input, output)
+inspect_vector(output)
+
+clean_text_JB_001 <- output
+```
+
+### Drop Elements in Text Which Match Removal Patterns
+With our patterns dataset now processed, we will drop any line in our journal text data that matches a line in the patterns vector.
+
+```{r}
+input <- clean_text_JB_001
+  
+output <- input[!input %in% patterns]
+
+vector_length_comp(input, output)
+inspect_vector(output)
+
+clean_text_JB_002 <- output
+```
+
+### Drop Elements With Only Number or Symbols
+```{r}
+input <- clean_text_JB_002
+
+regex_letters <- '[a-zA-Z]'
+
+output <- remove_if_detect(
+  input_vector = input, 
+  regex_letters,
+  logical_method = "inverse"
+  )
+
+vector_length_comp(input, output)
+inspect_vector(output)
+
+clean_text_JB_003 <- output
+```
+
+### Drop Elements With Length of Only 1
+```{r}
+input <- clean_text_JB_003
+
+logical_length <- nchar(input) > 1
+
+output <- input[logical_length]
+
+# Drop NA
+output <- output[!is.na(output)]
+
+vector_length_comp(input, output)
+inspect_vector(output)
+
+clean_text_JB_004 <- output
+```
+
+### Drop Element Which Starts with Month
+The month must be ALL CAPS
+```{r}
+input <- clean_text_JB_004
+
+output <- remove_if_detect(
+  input_vector = input, 
+  remove_vector = toupper(month.name),
+  location = "start"
+  )
+
+output <- output[!is.na(output)]
+
+vector_length_comp(input, output)
+inspect_vector(output)
+
+clean_text_JB_005 <- output
+```
+
+### Concatenate Adjacent Elements If Initial Element Ends With Hyphen
+```{r}
+input <- clean_text_JB_005
+
+output <- concat_hypen_vector(input)
+
+vector_length_comp(input, output)
+inspect_vector(output)
+
+clean_text_JB_006 <- output
+```
+
+### Remove Lines Which Contain Terms Related to Downloading 
+```{r}
+input <- clean_text_JB_006
+
+elements_download <- c('This content downloaded','http','jsto','DOI','doi')
+
+output <- remove_if_detect(
+  input_vector = input, 
+  remove_vector = elements_download,
+  location = "any"
+  )
+
+vector_length_comp(input, output)
+inspect_vector(output)
+
+clean_text_JB_007 <- output
+```
+
+### Remove Lines Containing IP Address
+```{r}
+input <- clean_text_JB_007
+
+regex_ip <- "(?:[\\d]{1,3})\\.(?:[\\d]{1,3})\\.(?:[\\d]{1,3})\\.(?:[\\d]{1,3})"
+
+output <- remove_if_detect(
+  input_vector = input, 
+  regex = regex_ip,
+  location = "any"
+  )
+
+vector_length_comp(input, output)
+inspect_vector(output)
+
+clean_text_JB_008 <- output
+```
+
+### Remove Text In Paranthesis
+```{r}
+input <- clean_text_JB_008
+
+# Define Term to Identify Line Splits
+line_split_indicator <- " -LINESPLIT-"
+
+# Concatenate All Vector Elements, Separated By Line Split
+output <- str_c(input, collapse = line_split_indicator)
+
+# Define Regex Expression to Identify Parenthesis and Contents Within
+regex_parens <- "\\(([^()]+)\\)"
+
+# Remove Content Within Parenthesis
+output <- str_remove_all(string = output, pattern = regex_parens)
+
+# Split Single String Back into Character Vector
+output <- str_split(output, pattern = line_split_indicator) %>% unlist()
+
+vector_length_comp(input, output)
+inspect_vector(output)
+
+clean_text_JB_009 <- output
+```
+
+### Drop Empty Vectors
+Drop any empty vector elements ("") and NA elements,
+```{r}
+input <- clean_text_JB_009
+
+output <- input[input!=""]
+output <- output[!is.na(output)]
+
+vector_length_comp(input, output)
+inspect_vector(output)
+
+clean_text_JB_010 <- output
+```
+
+### Drop Elements With Only Number or Symbols - Second Time
+```{r}
+input <- clean_text_JB_010
+
+regex_letters <- '[a-zA-Z]'
+
+output <- remove_if_detect(
+  input_vector = input, 
+  regex_letters,
+  logical_method = "inverse"
+  )
+
+vector_length_comp(input, output)
+inspect_vector(output)
+
+clean_text_JB_011 <- output
+```
+
+
+### Tokenize Sentences
+```{r}
+input <- clean_text_JB_011
+
+# Concatenate All Vector Elements, Separated By Line Split
+output <- str_c(input, collapse = " ")
+output <- tokenize_sentences(output, strip_punct = FALSE) %>% unlist()
+
+# Replace Double Spaces
+output<- str_replace_all(string = output, pattern = "  ", replacement = " ")
+
+vector_length_comp(input, output)
+inspect_vector(output)
+
+clean_text_JB_012 <- output
+```
+
+### Remove Lines Which Contain Terms Related to Downloading - Second Time
+```{r}
+input <- clean_text_JB_012
+
+elements_download <- c('This content downloaded','http','jsto','DOI','doi')
+
+output <- remove_if_detect(
+  input_vector = input, 
+  remove_vector = elements_download,
+  location = "any"
+  )
+
+vector_length_comp(input, output)
+inspect_vector(output)
+
+clean_text_JB_013 <- output
+```
+
+### Drop Elements With Only Number or Symbols - Third Time
+This is not in the original python code. This third pass is recommended due to the sentence tokenizer step occuring previously.
+```{r}
+input <- clean_text_JB_013
+
+regex_letters <- '[a-zA-Z]'
+
+output <- remove_if_detect(
+  input_vector = input, 
+  regex_letters,
+  logical_method = "inverse"
+  )
+
+vector_length_comp(input, output)
+inspect_vector(output)
+
+clean_text_JB_013.1 <- output
+```
+
+### Replace Cases of Hypthesis with Hypo 
+#### Initialize Regex Expressions
+```{r}
+regex_hypo_vec <-c('h[0-9]{1,3}[a-zA-Z]\\:',
+                   'H[0-9]{1,3}[a-zA-Z]\\:',
+                   'h[0-9]{1,3}[a-zA-Z]\\.',
+                   'H[0-9]{1,3}[a-zA-Z]\\.',
+                   'h[0-9]{1,3}[a-zA-Z]',
+                   'H[0-9]{1,3}[a-zA-Z]',
+                   'hypothesis [0-9]{1,3}[a-zA-Z]\\:',
+                   'Hypothesis [0-9]{1,3}[a-zA-Z]\\:',
+                   'hypothesis [0-9]{1,3}[a-zA-Z]\\.',
+                   'Hypothesis [0-9]{1,3}[a-zA-Z]\\.',
+                   'hypothesis [0-9]{1,3}[a-zA-Z]',
+                   'Hypothesis [0-9]{1,3}[a-zA-Z]',
+                   'h[0-9]{1,3}\\:',
+                   'H[0-9]{1,3}\\:',
+                   'h[0-9]{1,3}\\.',
+                   'H[0-9]{1,3}\\.',
+                   'h[0-9]{1,3}',
+                   'H[0-9]{1,3}',
+                   'hypothesis [0-9]{1,3}\\:',
+                   'Hypothesis [0-9]{1,3}\\:',
+                   'hypothesis [0-9]{1,3}\\.',
+                   'Hypothesis [0-9]{1,3}\\.',
+                   'hypothesis [0-9]{1,3}',
+                   'Hypothesis [0-9]{1,3}') 
+
+regex_hypo_str <- gen_regex(regex_hypo_vec, match = "partial")
+
+# Regex - Numbers in a String
+regex_return_num <- "(\\d)+"
+
+```
+
+#### Extract Detected Hypothesis
+##### Determine Which Indexes Contain Hypothesis
+```{r}
+input <- clean_text_JB_013.1
+
+# Check Which Strings Contain a Hypothesis
+extract_hypo <- str_extract(string = input, pattern = regex_hypo_str)
+
+index_hypo <- 86
+extract_hypo[index_hypo]
+
+```
+
+##### Test 
+```{r}
+input <- clean_text_JB_013.1
+
+input_demo <- input[index_hypo]
+
+input_demo
+
+extract_demo <- str_extract(input_demo, regex_hypo_str)
+extract_demo_num <- str_extract(extract_demo, regex_return_num)
+extract_demo_replace <- paste0("<split>Hypo ", extract_demo_num)
+output_demo  <- str_replace_all(string = input_demo, pattern = regex_hypo_str, replacement = extract_demo_replace)
+input_demo
+output_demo
+
+paste0("<split>Hypo ", extract_demo_num)
+str_replace(string = input_demo, pattern = regex_hypo_str, replacement = regex_return_num)
+```
+
+#### Final Transformation
+```{r}
+input <- clean_text_JB_013.1
+
+output <- replace_hypo(input)
+output <- unname(output)
+
+vector_length_comp(input, output)
+inspect_vector(output)
+
+clean_text_JB_014 <- output
+```
+
+
+```{r}
+output[index_hypo]
+```
+
+
+### Replace Colon Colon (: :) Instances
+```{r}
+input <- clean_text_JB_014
+
+output <- str_replace_all(input, pattern = ": :", replacement = ":")
+
+vector_length_comp(input, output)
+inspect_vector(output)
+
+clean_text_JB_015 <- output
+```
+
+
+```{r}
+output[index_hypo]
+```
+
+### Remove Extra Whitespace
+```{r}
+input <- clean_text_JB_015
+output <- str_squish(string = input)
+
+vector_length_comp(input, output)
+inspect_vector(output)
+
+clean_text_JB_016 <- output
+```
+
+```{r}
+output[index_hypo]
+```
+
+
+### Replace Colon Period (: .) Instances
+```{r}
+input <- clean_text_JB_016
+
+## Double Stroke Is To Escpae The Period as a Metacharacter
+output <- str_replace_all(input, pattern = ": \\.", replacement = ":")
+
+vector_length_comp(input, output)
+inspect_vector(output)
+
+clean_text_JB_017 <- output
+```
+
+
+```{r}
+output[index_hypo]
+```
+
+## Function: rm_breaks
+The following function is used to create the Cleaned Text via VF, per **Build_TrainSet_Hypho_Class.py**.
+
+### Convert to Lower Case
+```{r}
+input <- demo_tab_001
+
+output <- input %>% tolower()
+
+vector_length_comp(input, output)
+inspect_vector(output)
+
+
+clean_text_VF_001 <- output
+```
+
+### Remove Commas
+```{r}
+input <- clean_text_VF_001
+
+output <- str_remove_all(input, ",")
+
+vector_length_comp(input, output)
+inspect_vector(output)
+
+
+clean_text_VF_002 <- output
+```
+
+### Remove DOIs
+```{r}
+input <- clean_text_VF_002 
+
+regex_doi_1 <- '\\d+\\.\\d+/\\w+'
+regex_doi_2 <- 'doi:*'
+
+output <- str_remove_all(string = input, pattern = regex_doi_1)
+output <- str_remove_all(string = output, pattern = regex_doi_2)
+
+vector_length_comp(input, output)
+inspect_vector(output)
+
+clean_text_VF_003 <- output
+
+```
+
+### Replace / Recode Hypotheses
+```{r}
+input <- clean_text_VF_003
+
+regex_hypo_2 <- "hypothesis (?=\\d+)"
+
+output <- str_replace_all(string = input, pattern = "hypotheses", replacement = "hypothesis")
+output <- str_replace_all(string = output, pattern = regex_doi_2, replacement = "h")
+
+vector_length_comp(input, output)
+inspect_vector(output)
+
+clean_text_VF_004 <- output
+
+```
+
+### Remove Numbers That Do Not Have a Character Directly Preceding
+```{r}
+input <- clean_text_VF_004
+
+regex_alphanum_1 <- "\\W+\\d+"
+regex_alphanum_2 <- "\\d{2,4}"
+
+output <- str_remove_all(string = input, regex_alphanum_1)
+output <- str_remove_all(string = output, regex_alphanum_2)
+
+vector_length_comp(input, output)
+inspect_vector(output)
+
+clean_text_VF_005 <- output
+```
+
+### Remove JSTOR Link
+```{r}
+input <- clean_text_VF_005
+
+regex_jstor_link <- 'https?://.+'
+regex_jstor_2 <- '\\.{2,}|:'
+regex_jstor_3 <- 'this\\scontent.+'
+
+output <- str_replace_all(string = input, pattern = regex_jstor_link, replacement = "jstor. ")
+output <- str_remove_all(string = output, pattern = regex_jstor_2) 
+output <- str_remove_all(string = output, pattern = regex_jstor_3) 
+output <- str_remove_all(string = output, pattern = '.*jstor.*') 
+
+
+vector_length_comp(input, output)
+inspect_vector(output)
+
+clean_text_VF_006 <- output
+```
+
+
+### Remove Word Interuptions
+```{r}
+input <- clean_text_VF_006
+
+regex_interuptions <- '-\\s*\\n\\s*'
+
+output <- str_remove_all(string = input, regex_interuptions)
+
+vector_length_comp(input, output)
+inspect_vector(output)
+
+clean_text_VF_007 <- output
+
+```
+
+### Remove Line Breaks
+```{r}
+input <- clean_text_VF_007
+
+regex_line_break_1 <- "\\r\\n"
+regex_line_break_2 <- "\\n"
+
+output <- str_remove_all(string = input, regex_line_break_1)
+output <- str_remove_all(string = output, regex_line_break_2)
+
+vector_length_comp(input, output)
+inspect_vector(output)
+
+clean_text_VF_008 <- output
+```
+

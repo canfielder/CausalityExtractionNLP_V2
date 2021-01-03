@@ -1,0 +1,68 @@
+---
+title: "Keras - Entity Extraction"
+author: "Evan Canfield"
+date: "12/30/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+The purpose of this notebook is to test the Keras / Entity Extraction part of the paper.
+
+
+
+# Import
+## Libraries
+Direct Library import has been moved to the script R/install.R in order to maintain consistent library management across multiple project actions.
+```{r import_libraries}
+# Import All Scripts
+script_path <- "../R/"
+file_paths <- list.files(recursive = TRUE, path = script_path, pattern = ".R", full.names = TRUE)
+
+# Execute All Scripts
+for (file in file_paths){
+  source(file)
+}
+
+# Load Libraries
+# project_install_packages()/
+```
+
+```{r}
+  if (!require(pacman)) {install.packages('pacman')}
+  p_load(
+    dplyr,
+    keras,
+    purrr,
+    quanteda,
+    rtika,
+    stringr,
+    tensorflow,
+    textstem,
+    tidyr,
+    tidytext,
+    tokenizers
+  )
+```
+
+
+## Set Seed and Random States
+```{r set_seed}
+rs <- as.integer(5590)
+set.seed(rs)
+```
+
+# Model
+The Entity Extraction model was trained in Python. We exported the Python model, and will attempt to load the model in R.
+```{r}
+path_keras_model <- "./../data/models_py/entity_extraction_keras/"
+
+model <- keras::load_model_tf(path_keras_model, compile = FALSE)
+```
+
+```{r}
+summary(model)
+```
+
