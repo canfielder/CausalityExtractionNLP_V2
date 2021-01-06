@@ -1,0 +1,247 @@
+---
+title: "Entity Extraction Performance Evaluation - R & Python"
+author: "Evan Canfield"
+date: "12/30/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Purpose
+The purpose of this notebook is to test how to implement the Entity Extraction model 
+
+# Import
+## Libraries
+```{r import_libraries}
+  if (!require(pacman)) {install.packages('pacman')}
+  p_load(
+    dplyr,
+    readxl,
+    reticulate,
+    rtika,
+    stringr,
+    tokenizers,
+    tidyr
+  )
+```
+
+## Source Files
+The following imports functions defined in the sourced R scripts.
+```{r}
+# Import All Scripts
+script_path <- "../R/"
+file_paths <- list.files(recursive = TRUE, 
+                         path = script_path, pattern = ".R", 
+                         full.names = TRUE)
+
+for (file in file_paths){
+  source(file)
+}
+```
+
+## Data
+```{r import_data}
+# PDF Input
+## Define Path
+pdf_path <- "./../data/acadmic_papers_pdf_sample/ap81asq.pdf"
+
+## Import and Convert to Text
+pdf_txt_raw <- tika_text(pdf_path)
+
+# Patterns File
+patterns_col <- c("remove","comments")
+patterns_raw <- read_excel(path = "./../data/patterns.xlsx", col_names = patterns_col, )
+patterns <- patterns_raw %>% pull(remove)
+```
+
+## Python Modules
+In order to use the Entity Extraction model in R, we need to import the Tensorflow Python package via the Reticulate Package. In addition, to ensure the training/test split is equivalent, we will also use the Sci-kit Learn Module.
+
+**Note**: In order to load Python modules in R, a Virtual Environment or Conda Environment must be created, connected to, and the relevant packages loaded. Those steps occurred before executing this notebooks
+```{r import_python_module, warning = FALSE}
+# General
+np <- import("numpy")
+
+tf <- import("tensorflow")
+```
+
+## Entity Extraction Model
+With Tensorflow loaded, we can upload the Entity Extraction model.
+```{r import_model, warning=FALSE, message=FALSE}
+path_model <- "./../data/models_python/entity_extraction_w_processing_keras/"
+
+model <- tf$keras$models$load_model(path_model)
+```
+
+## Set Seed /Random State
+```{r set_seed}
+rs <- as.integer(5590)
+np$random$seed(rs)
+tf$random$set_seed(rs)
+```
+
+# Process Data
+## Process Text and Extract Hypotheses
+```{r}
+text_processed <- process_text(input_text = pdf_txt_raw, 
+                                  removal_patterns = patterns)
+
+hypo_xtr <- extract_hypothesis(text_processed)
+hypo_xtr_df <- hypo_xtr %>% select(hypothesis)
+hypo_xtr_vec <- hypo_xtr_df %>% pull()
+
+hypo_xtr_np <- np$array(hypo_xtr_vec)
+```
+
+## Generate Predictions
+```{r gen_predictions, warning=FALSE}
+# Convert to Numpy Array
+pred_classes_ar <- model$predict_classes(hypo_xtr_np)
+```
+
+The Entity Extraction model returns the predictions as a 2D array. For easier downstream use, we will convert this structure into a list of vector, with each vector being the class predictions for a hypothesis.
+```{r convert_predictions}
+# Initialize Output List
+pred_classes_lst <- vector(mode = "list", length = dim(pred_classes_ar)[1])
+
+for (i in  1:dim(pred_classes_ar)[1]){
+  # Initialize Hypothesis Vector
+  hypothesis_classes <- vector(mode = "integer", length = dim(pred_classes_ar)[2])
+
+  for (j in 1:dim(pred_classes_ar)[2]){
+    hypothesis_classes[j] <- pred_classes_ar[i,j]
+    # print(y_pred[i,j])
+  }
+  # print(hypothesis_classes)
+  pred_classes_lst[[i]] <- hypothesis_classes
+}
+```
+
+```{r}
+hypo_xtr_np
+```
+
+```{r}
+text_vectorizor <- model$get_layer("text_vectorization")
+vocab <- text_vectorizor$get_vocabulary()
+text_vectorizor(hypo_xtr_np)
+
+```
+```{r}
+vocab[106]
+```
+
+
+
+```{r}
+hypo_xtr_vec %>% str_split(" ")
+
+tokenize_words(hypo_xtr_vec, strip_punct = TRUE)
+```
+
+
+# Extract Entities
+```{r}
+length(pred_classes_lst[[1]])
+
+for (idx in 1:length(pred_classes_lst[[1]])){
+  print(pred_classes_lst[[1]][idx])
+  print(hypo_xtr_vec[idx])
+}
+```
+
+For final evaluations we need to convert both test and predictions set from a list of vectors to a individual vectors, each observation appended to each other..
+```{r list_to_vector}
+
+# List to Vector Function
+list_to_vector <- function(input_list){
+  
+  # Determine Length of Output Vector
+  output_vector_len <- sum(lengths(y_pred_lst))
+
+  # Initialize
+  output_vector <- c()
+  
+  # Combine List Element Vectors into Single Vector
+  for (vector in input_list){
+    output_vector <- c(output_vector, vector)
+  } 
+  
+  return(output_vector)
+}
+
+# Convert 
+y_pred_vec <- list_to_vector(y_pred_lst)
+y_test_vec <- list_to_vector(y_test_lst)
+```
+
+# Evaluate Model
+With our data in the correct format, we can finally evaluate the performance of the model against the test set, in order to compare the model performance to what was observed in Python.
+
+## Caret Package
+```{r eval_caret}
+y_test_pred_df <- data.frame(y_pred_vec, y_test_vec) %>% 
+  rename(obs = y_test_vec,
+         pred = y_pred_vec) %>% 
+  mutate(
+    obs = as.factor(obs),
+    pred = as.factor(pred)
+  )
+
+caret::confusionMatrix(y_test_pred_df$pred, 
+                       y_test_pred_df$obs)
+```
+
+## Manual Calculation
+```{r eval_manual}
+
+# Initialize Vectors
+num1 = c()
+num2 = c()
+error = c()
+false_1 = c()
+false_2 = c()
+
+
+for (i in 1:length(y_pred_vec)) {
+  
+  if (y_test_vec[i] == 1){
+    num1 = append(num1, 1)
+  }
+  
+  if (y_test_vec[i] == 2){
+    num2 = append(num2, 1)
+  }
+  
+  if (y_test_vec[i] == y_pred_vec[i]){
+    error = append(error, 0)
+  } else{
+    error = append(error, 1)
+      if (y_test_vec[i] == 1){
+        false_1 = append(false_1, 1)
+      } else {
+        false_1 = append(false_1, 0)
+      }
+      if (y_test_vec[i] == 2){
+        false_2 = append(false_2, 1)
+      } else {
+        false_2 = append(false_2, 0)
+      }
+  }
+}
+
+# Accuracy - Overall
+acc_overall <- 1 - sum(error)/length(error)
+print(paste0("Accuracy - Overall: ", round(acc_overall*100,1), "%"))
+
+# Sensitivity - Node 1 Classification
+sen_node_1 <- 1 - sum(false_1)/sum(num1)
+print(paste0("Sensitivity - Node 1: ", round(sen_node_1*100,1), "%"))
+
+# Sensitivity - Node 2
+sen_node_2 <- 1 - sum(false_2)/sum(num2)
+print(paste0("Sensitivity - Node 2: ", round(sen_node_2*100,1), "%"))
+```
+
