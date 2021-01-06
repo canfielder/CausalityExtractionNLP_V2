@@ -45,7 +45,7 @@ for (file in file_paths){
 ```{r import_data}
 # PDF Input
 ## Define Path
-pdf_path <- "./../data/acadmic_papers_pdf_sample/ap81asq.pdf"
+pdf_path <- "./../data/acadmic_papers_pdf_sample/am79amj.pdf"
 
 ## Import and Convert to Text
 pdf_txt_raw <- tika_text(pdf_path)
@@ -85,71 +85,131 @@ tf$random$set_seed(rs)
 # Process Data
 ## Process Text and Extract Hypotheses
 ```{r}
+# Process Text
 text_processed <- process_text(input_text = pdf_txt_raw, 
                                   removal_patterns = patterns)
 
-hypo_xtr <- extract_hypothesis(text_processed)
-hypo_xtr_df <- hypo_xtr %>% select(hypothesis)
-hypo_xtr_vec <- hypo_xtr_df %>% pull()
+# Extract Hypothesis
+hypo_xtr <- extract_hypothesis(text_processed) 
 
+%>% 
+  select(hypothesis) %>% 
+  pull()
+
+# Convert to Numpy Array
 hypo_xtr_np <- np$array(hypo_xtr_vec)
 ```
 
 ## Generate Predictions
-```{r gen_predictions, warning=FALSE}
-# Convert to Numpy Array
-pred_classes_ar <- model$predict_classes(hypo_xtr_np)
-```
 
 The Entity Extraction model returns the predictions as a 2D array. For easier downstream use, we will convert this structure into a list of vector, with each vector being the class predictions for a hypothesis.
-```{r convert_predictions}
-# Initialize Output List
-pred_classes_lst <- vector(mode = "list", length = dim(pred_classes_ar)[1])
-
-for (i in  1:dim(pred_classes_ar)[1]){
-  # Initialize Hypothesis Vector
-  hypothesis_classes <- vector(mode = "integer", length = dim(pred_classes_ar)[2])
-
-  for (j in 1:dim(pred_classes_ar)[2]){
-    hypothesis_classes[j] <- pred_classes_ar[i,j]
-    # print(y_pred[i,j])
+```{r}
+# Function - 2D Array to Vector
+array_to_vec_lst <- function (input_array) {
+  # Initialize Output List
+   output_lst <- vector(mode = "list", length = dim(input_array)[1])
+  
+  for (i in  1:dim(input_array)[1]){
+    # Initialize Temporary Vector
+    temp_vector <- vector(mode = "integer", length = dim(input_array)[2])
+  
+    for (j in 1:dim(input_array)[2]){
+      temp_vector[j] <- input_array[i,j]
+    }
+    output_lst[[i]] <- temp_vector
+    
+  return(output_lst)
   }
-  # print(hypothesis_classes)
-  pred_classes_lst[[i]] <- hypothesis_classes
 }
 ```
+
+We now generate predictions.
+```{r gen_predictions, warning=FALSE}
+# Generate Predictions
+pred_classes_ar <- model$predict_classes(hypo_xtr_np)
+
+# Convert to List of Vectors
+pred_classes_lst <- array_to_vec_lst(pred_classes_ar)
+```
+
+We also need the model pre-processing output, so we can connect target classes with the model input tokens.
+```{r vocab_linking}
+# Extract Text Vectorization Layer
+text_vectorizor <- model$get_layer("text_vectorization")
+
+# Extract Vocabulary
+vocab <- text_vectorizor$get_vocabulary()
+
+# Extract Token Integers
+hypo_xtr_ints <- text_vectorizor(hypo_xtr_np)
+hypo_xtr_ints_ar <- np$array(hypo_xtr_ints)
+hypo_xtr_ints_lst <- array_to_vec_lst(hypo_xtr_ints_ar)
+```
+
+# Extract Entities
+Now that we have the predicted target classes, the pre-processed hypothesis statements, and the vocabulary look-up key, we can extract Node 1 and Node 2 entities from the hypotheses.
 
 ```{r}
 hypo_xtr_np
 ```
 
 ```{r}
-text_vectorizor <- model$get_layer("text_vectorization")
-vocab <- text_vectorizor$get_vocabulary()
-text_vectorizor(hypo_xtr_np)
+class_vec <- pred_classes_lst[[1]]
+
+tapply(seq_along(class_vec),class_vec,max)['1']
+tapply(seq_along(class_vec),class_vec,max)['2']
 
 ```
+
 ```{r}
-vocab[106]
+min_1 <- tapply(seq_along(class_vec),class_vec,min)['1']
+max_1 <- tapply(seq_along(class_vec),class_vec,max)['1']
+min_2 <- tapply(seq_along(class_vec),class_vec,min)['2']
+max_2 <- tapply(seq_along(class_vec),class_vec,max)['2']
+
+node_1_tokens <- str_split(hypo_xtr_vec, " ")[[1]][min_1:max_1]
+
+node_2_tokens <- str_split(hypo_xtr_vec, " ")[[1]][min_2:max_2]
+
+paste0(node_1_tokens, sep = " ")
+max_1 - min_1
+max_2 - min_2
+```
+
+```{r}
+str_c(node_1_tokens, collapse = " ")
+str_c(node_2_tokens, collapse = " ")
 ```
 
 
 
 ```{r}
-hypo_xtr_vec %>% str_split(" ")
-
-tokenize_words(hypo_xtr_vec, strip_punct = TRUE)
-```
-
-
-# Extract Entities
-```{r}
-length(pred_classes_lst[[1]])
+node_1 <- c()
+node_2 <- c()
 
 for (idx in 1:length(pred_classes_lst[[1]])){
-  print(pred_classes_lst[[1]][idx])
-  print(hypo_xtr_vec[idx])
+  token_class <- pred_classes_lst[[1]][idx]
+  vocab_index <- hypo_xtr_ints_lst[[1]][idx]
+
+  token <- vocab[vocab_index + 1]
+
+  
+  if (token_class == 1) {
+    node_1 = c(node_1, token)
+  }
+  
+  if (token_class == 2) {
+    node_2 = c(node_2, token)
+  }
+  
+  # print(idx)
+  # print(vocab_index)
+  # print(vocab[vocab_index + 1])
+  # print(token_class)
 }
+
+print(node_1)
+print(node_2)
 ```
 
 For final evaluations we need to convert both test and predictions set from a list of vectors to a individual vectors, each observation appended to each other..

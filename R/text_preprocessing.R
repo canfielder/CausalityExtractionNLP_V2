@@ -5,15 +5,9 @@
 #'
 
 # Library ---------------------------------------------------------------------
-if (!require(pacman)) {install.packages('pacman')}
-p_load(
-  dplyr,
-  stringr,
-  rJava,
-  stringr,
-  tabulizer,
-  tokenizers
-)
+library(dplyr)
+library(stringr)
+library(tokenizers)
 
 # REGEX Strings ---------------------------------------------------------------
 ## Identify Letters

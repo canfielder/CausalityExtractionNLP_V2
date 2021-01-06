@@ -63,14 +63,16 @@ extract_hypothesis <- function(input_text){
   # Create Dataframe with Hypothesis Number and Hypothesis
   df_hypothesis <- as.data.frame(hypothesis_statements,
                                  stringsAsFactors = FALSE)
+  
+  print(names(df_hypothesis))
 
-  # Rename and add Hypothesis Numner
+  # Rename and add Hypothesis Number
   df_hypothesis <- df_hypothesis %>%
     rename(hypothesis = hypothesis_statements) %>%
     mutate(
       h_id = paste0("h_", row_number())
     ) %>%
-    select(h_id,hypothesis )
+    select(h_id, hypothesis)
 
   return(df_hypothesis)
 

@@ -3,17 +3,13 @@
 #
 
 # Library ---------------------------------------------------------------------
-if (!require(pacman)) {install.packages('pacman')}
-p_load(
-  caTools,
-  dplyr,
-  quanteda,
-  reticulate,
-  stringr,
-  textstem,
-  tidyr,
-  tidytext
-)
+library(caTools)
+library(dplyr)
+# library(quanteda)
+library(reticulate)
+library(stringr)
+# library(textstem)
+library(tidytext)
 
 # Python Modules----------------------------------------------------------------
 ## Assign Python Binary
