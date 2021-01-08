@@ -45,7 +45,7 @@ for (file in file_paths){
 ```{r import_data}
 # PDF Input
 ## Define Path
-pdf_path <- "./../data/acadmic_papers_pdf_sample/am79amj.pdf"
+pdf_path <- "./../data/acadmic_papers_pdf_sample/afglmm10hrm.pdf"
 
 ## Import and Convert to Text
 pdf_txt_raw <- tika_text(pdf_path)
@@ -90,91 +90,234 @@ text_processed <- process_text(input_text = pdf_txt_raw,
                                   removal_patterns = patterns)
 
 # Extract Hypothesis
-hypo_xtr <- extract_hypothesis(text_processed) 
-
-%>% 
+hypo_xtr_vec <- extract_hypothesis(text_processed) %>% 
   select(hypothesis) %>% 
   pull()
 
 # Convert to Numpy Array
 hypo_xtr_np <- np$array(hypo_xtr_vec)
+
+hypo_xtr_np
 ```
 
 ## Generate Predictions
-
 The Entity Extraction model returns the predictions as a 2D array. For easier downstream use, we will convert this structure into a list of vector, with each vector being the class predictions for a hypothesis.
 ```{r}
 # Function - 2D Array to Vector
 array_to_vec_lst <- function (input_array) {
   # Initialize Output List
    output_lst <- vector(mode = "list", length = dim(input_array)[1])
-  
+  # print(dim(input_array)[1])
+  # print(dim(input_array)[2])
   for (i in  1:dim(input_array)[1]){
     # Initialize Temporary Vector
     temp_vector <- vector(mode = "integer", length = dim(input_array)[2])
-  
     for (j in 1:dim(input_array)[2]){
       temp_vector[j] <- input_array[i,j]
     }
     output_lst[[i]] <- temp_vector
-    
-  return(output_lst)
   }
+ return(output_lst)
 }
 ```
 
 We now generate predictions.
 ```{r gen_predictions, warning=FALSE}
 # Generate Predictions
-pred_classes_ar <- model$predict_classes(hypo_xtr_np)
+hypo_entity_classes_ar<- model$predict_classes(hypo_xtr_np)
 
 # Convert to List of Vectors
-pred_classes_lst <- array_to_vec_lst(pred_classes_ar)
+hypo_entity_classes_lst <- array_to_vec_lst(hypo_entity_classes_ar)
+
+hypo_entity_classes_lst
 ```
+
+```{r}
+hypo_xtr_vec
+```
+
 
 We also need the model pre-processing output, so we can connect target classes with the model input tokens.
 ```{r vocab_linking}
-# Extract Text Vectorization Layer
-text_vectorizor <- model$get_layer("text_vectorization")
-
-# Extract Vocabulary
-vocab <- text_vectorizor$get_vocabulary()
-
-# Extract Token Integers
-hypo_xtr_ints <- text_vectorizor(hypo_xtr_np)
-hypo_xtr_ints_ar <- np$array(hypo_xtr_ints)
-hypo_xtr_ints_lst <- array_to_vec_lst(hypo_xtr_ints_ar)
+# # Extract Text Vectorization Layer
+# text_vectorizor <- model$get_layer("text_vectorization")
+# 
+# # Extract Vocabulary
+# vocab <- text_vectorizor$get_vocabulary()
+# 
+# # Extract Token Integers
+# hypo_xtr_ints <- text_vectorizor(hypo_xtr_np)
+# hypo_xtr_ints_ar <- np$array(hypo_xtr_ints)
+# hypo_xtr_ints_lst <- array_to_vec_lst(hypo_xtr_ints_ar)
 ```
 
 # Extract Entities
 Now that we have the predicted target classes, the pre-processed hypothesis statements, and the vocabulary look-up key, we can extract Node 1 and Node 2 entities from the hypotheses.
 
 ```{r}
-hypo_xtr_np
-```
-
-```{r}
-class_vec <- pred_classes_lst[[1]]
+class_vec <- hypo_entity_classes_lst[[2]]
+class_vec
 
 tapply(seq_along(class_vec),class_vec,max)['1']
 tapply(seq_along(class_vec),class_vec,max)['2']
-
 ```
 
 ```{r}
-min_1 <- tapply(seq_along(class_vec),class_vec,min)['1']
-max_1 <- tapply(seq_along(class_vec),class_vec,max)['1']
-min_2 <- tapply(seq_along(class_vec),class_vec,min)['2']
-max_2 <- tapply(seq_along(class_vec),class_vec,max)['2']
+min_1 <- tapply(seq_along(class_vec),class_vec, min)['1']
+max_1 <- tapply(seq_along(class_vec),class_vec, max)['1']
+min_2 <- tapply(seq_along(class_vec),class_vec, min)['2']
+max_2 <- tapply(seq_along(class_vec),class_vec, max)['2']
 
 node_1_tokens <- str_split(hypo_xtr_vec, " ")[[1]][min_1:max_1]
 
 node_2_tokens <- str_split(hypo_xtr_vec, " ")[[1]][min_2:max_2]
 
 paste0(node_1_tokens, sep = " ")
-max_1 - min_1
-max_2 - min_2
+node1_span = max_1 - min_1
+node2_span = max_2 - min_2
 ```
+```{r}
+length(node_1_index)
+
+node_1_index <- which(class_vec %in% 1) 
+min_node_1 <- min(node_1_index)
+max_node_1 <- max(node_1_index)
+span_node_1 = max_node_1 - min_node_1
+
+node_2_index <- which(class_vec %in% 2)  
+min_node_2 <- min(node_2_index)
+max_node_2 <- max(node_2_index)
+span_node_2 = max_node_2 - min_node_2
+print(span_node_2)
+
+node_index <- vector(mode = "list", length = 2)
+
+node_index[[1]] = node_1_index
+node_index[[2]] = node_2_index
+
+(max_node_1 < min_node_2) | (min_node_1 > max_node_2)
+
+(max_node_1 > min_node_2) 
+
+node_1_range = min_node_1:max_node_1
+node_2_range = min_node_2:max_node_2
+
+node_1_range
+
+node_2_range
+
+range_overlap = intersect(node_1_range,node_2_range )
+length(range_overlap)
+
+length(range_overlap) == 0
+
+```
+
+```{r}
+trim_overlapping_entities <- function(node_index){
+  node_1_index <- node_index[[1]]
+  node_2_index <- node_index[[2]]
+  
+  min_node_1 <- min(node_1_index)
+  max_node_1 <- max(node_1_index)
+  min_node_2 <- min(node_2_index)
+  max_node_2 <- max(node_2_index)
+  
+  # Determine if Entities Overlap
+  node_1_range <- min_node_1:max_node_1
+  node_2_range <- min_node_2:max_node_2
+  range_overlap <- intersect(node_1_range,node_2_range )
+
+  if (length(range_overlap) == 0) {
+    
+    return(node_index)
+    
+  } else {
+    print("Else Statement")
+    span_node_1 = max_node_1 - min_node_1
+    span_node_2 = max_node_2 - min_node_2
+    
+    # Determine Median of Node 1/2 Indices to See What Direction to Move
+    med_node_1_idx <- median(node_1_index)
+    med_node_2_idx <- median(node_2_index)
+    
+    # Node 1 Comes First
+    if (med_node_1_idx < med_node_2_idx) {
+        if (span_node_2 >= span_node_1){
+          node_2_index <- node_2_index[-1]
+          
+          } else {
+          node_1_dim <- length(node_1_index)
+          node_2_index <- node_2_index[-node_1_dim]
+          }
+      # Node 2 Comes First
+    } else {
+        if (span_node_2 >= span_node_1){
+          node_2_dim <- length(node_2_index)
+          node_2_index <- node_2_index[-node_2_dim]
+          
+          } else {
+             node_1_index <- node_1_index[-1]
+          }
+    }
+    # Reset List
+    node_index_update <- vector(mode = "list", length = 2)
+    node_index_update[[1]] = node_1_index
+    node_index_update[[2]] = node_2_index
+    return(trim_overlapping_entities(node_index_update))
+  }
+}
+```
+
+```{r}
+node_index <- trim_overlapping_entities(node_index)
+node_index
+```
+
+
+```{r}
+trim_outlier_indexes <- function(node_index) {
+  i = 1 
+  node_index_update <- vector(mode = "list", length = 2)
+  
+  for (index in node_index){
+    print(index)
+    summary <- as.vector(summary(index))
+
+    iqr.range <- summary[5] - summary[2]
+    upper <- summary[5] + iqr.range * 1.5
+    lower <- summary[2] - iqr.range * 1.5
+    
+    index <- index[index > lower]
+    index <- index[index < upper]
+    
+    node_index_update[[i]] <- index
+    i = i + 1
+  }
+  
+  return(node_index_update)
+}
+```
+
+```{r}
+
+trim_outlier_indexes(node_index)
+
+```
+
+
+```{r}
+n2 <- as.vector(summary(node_index_update[[2]]))
+n2
+
+n2_iqr.range <- n1[5]-n1[2]
+n2_upper <- n2[5]+n2_iqr.range*1.5
+n2_lower <- n2[2]-n2_iqr.range*1.5
+n2_upper
+n2_lower
+```
+
+
 
 ```{r}
 str_c(node_1_tokens, collapse = " ")
@@ -212,96 +355,4 @@ print(node_1)
 print(node_2)
 ```
 
-For final evaluations we need to convert both test and predictions set from a list of vectors to a individual vectors, each observation appended to each other..
-```{r list_to_vector}
-
-# List to Vector Function
-list_to_vector <- function(input_list){
-  
-  # Determine Length of Output Vector
-  output_vector_len <- sum(lengths(y_pred_lst))
-
-  # Initialize
-  output_vector <- c()
-  
-  # Combine List Element Vectors into Single Vector
-  for (vector in input_list){
-    output_vector <- c(output_vector, vector)
-  } 
-  
-  return(output_vector)
-}
-
-# Convert 
-y_pred_vec <- list_to_vector(y_pred_lst)
-y_test_vec <- list_to_vector(y_test_lst)
-```
-
-# Evaluate Model
-With our data in the correct format, we can finally evaluate the performance of the model against the test set, in order to compare the model performance to what was observed in Python.
-
-## Caret Package
-```{r eval_caret}
-y_test_pred_df <- data.frame(y_pred_vec, y_test_vec) %>% 
-  rename(obs = y_test_vec,
-         pred = y_pred_vec) %>% 
-  mutate(
-    obs = as.factor(obs),
-    pred = as.factor(pred)
-  )
-
-caret::confusionMatrix(y_test_pred_df$pred, 
-                       y_test_pred_df$obs)
-```
-
-## Manual Calculation
-```{r eval_manual}
-
-# Initialize Vectors
-num1 = c()
-num2 = c()
-error = c()
-false_1 = c()
-false_2 = c()
-
-
-for (i in 1:length(y_pred_vec)) {
-  
-  if (y_test_vec[i] == 1){
-    num1 = append(num1, 1)
-  }
-  
-  if (y_test_vec[i] == 2){
-    num2 = append(num2, 1)
-  }
-  
-  if (y_test_vec[i] == y_pred_vec[i]){
-    error = append(error, 0)
-  } else{
-    error = append(error, 1)
-      if (y_test_vec[i] == 1){
-        false_1 = append(false_1, 1)
-      } else {
-        false_1 = append(false_1, 0)
-      }
-      if (y_test_vec[i] == 2){
-        false_2 = append(false_2, 1)
-      } else {
-        false_2 = append(false_2, 0)
-      }
-  }
-}
-
-# Accuracy - Overall
-acc_overall <- 1 - sum(error)/length(error)
-print(paste0("Accuracy - Overall: ", round(acc_overall*100,1), "%"))
-
-# Sensitivity - Node 1 Classification
-sen_node_1 <- 1 - sum(false_1)/sum(num1)
-print(paste0("Sensitivity - Node 1: ", round(sen_node_1*100,1), "%"))
-
-# Sensitivity - Node 2
-sen_node_2 <- 1 - sum(false_2)/sum(num2)
-print(paste0("Sensitivity - Node 2: ", round(sen_node_2*100,1), "%"))
-```
 
