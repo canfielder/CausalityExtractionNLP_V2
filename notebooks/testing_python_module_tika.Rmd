@@ -1,0 +1,83 @@
+---
+title: "Entity Extraction Performance Evaluation - R & Python"
+author: "Evan Canfield"
+date: "12/30/2020"
+output:
+  html_document:
+    df_print: kable
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Purpose
+The purpose of this notebook is to test using the Tika module via Python, instead of R. The Python package allows for use for Apache Tika REST API, Use of Python would mean we would not need to locally install the Tika jar.
+
+# Import
+## Libraries
+```{r import_libraries, message=FALSE}
+  if (!require(pacman)) {install.packages('pacman')}
+  p_load(
+    data.table,
+    dplyr,
+    readxl,
+    reticulate,
+    rtika,
+    stringr,
+    tidyr
+  )
+```
+
+## Source Files
+The following imports functions defined in the sourced R scripts.
+```{r load_source_files, warning=FALSE, message=FALSE}
+# Import All Scripts
+script_path <- "../R/"
+file_paths <- list.files(recursive = TRUE, 
+                         path = script_path, pattern = ".R", 
+                         full.names = TRUE)
+
+for (file in file_paths){
+  source(file)
+}
+```
+
+## Python Modules
+```{r}
+parser <- import("tika.parser")
+```
+
+## Data
+```{r import_data}
+# PDF Input
+## Define Path
+pdf_path <- "./../data/acadmic_papers_pdf_sample/a94amj.pdf"
+
+
+# Patterns File
+patterns_col <- c("remove","comments")
+patterns_raw <- read_excel(path = "./../data/patterns.xlsx", col_names = patterns_col, )
+patterns <- patterns_raw %>% pull(remove)
+```
+
+
+
+# Test Tika
+## R
+The follow processes the sample PDF using Tika via the R package.
+```{r}
+pdf_txt_raw_r <- tika_text(pdf_path)
+
+pdf_txt_raw_r %>% substr(1,100)
+```
+
+## Python
+```{r}
+pdf_tika_py <- parser$from_file(pdf_path)
+
+pdf_txt_raw_py <- pdf_tika_py$content
+
+pdf_txt_raw_py %>% substr(1,100)
+```
+

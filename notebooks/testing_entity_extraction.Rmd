@@ -2,7 +2,9 @@
 title: "Entity Extraction Performance Evaluation - R & Python"
 author: "Evan Canfield"
 date: "12/30/2020"
-output: html_document
+output:
+  html_document:
+    df_print: kable
 ---
 
 ```{r setup, include=FALSE}
@@ -10,26 +12,26 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 # Purpose
-The purpose of this notebook is to test how to implement the Entity Extraction model 
+The purpose of this notebook is to test how to implement the Entity Extraction model to convert hypotheses into entities.
 
 # Import
 ## Libraries
-```{r import_libraries}
+```{r import_libraries, message=FALSE}
   if (!require(pacman)) {install.packages('pacman')}
   p_load(
+    data.table,
     dplyr,
     readxl,
     reticulate,
     rtika,
     stringr,
-    tokenizers,
     tidyr
   )
 ```
 
 ## Source Files
 The following imports functions defined in the sourced R scripts.
-```{r}
+```{r load_source_files, warning=FALSE, message=FALSE}
 # Import All Scripts
 script_path <- "../R/"
 file_paths <- list.files(recursive = TRUE, 
@@ -45,7 +47,7 @@ for (file in file_paths){
 ```{r import_data}
 # PDF Input
 ## Define Path
-pdf_path <- "./../data/acadmic_papers_pdf_sample/afglmm10hrm.pdf"
+pdf_path <- "./../data/acadmic_papers_pdf_sample/a94amj.pdf"
 
 ## Import and Convert to Text
 pdf_txt_raw <- tika_text(pdf_path)
@@ -59,32 +61,10 @@ patterns <- patterns_raw %>% pull(remove)
 ## Python Modules
 In order to use the Entity Extraction model in R, we need to import the Tensorflow Python package via the Reticulate Package. In addition, to ensure the training/test split is equivalent, we will also use the Sci-kit Learn Module.
 
-**Note**: In order to load Python modules in R, a Virtual Environment or Conda Environment must be created, connected to, and the relevant packages loaded. Those steps occurred before executing this notebooks
-```{r import_python_module, warning = FALSE}
-# General
-np <- import("numpy")
-
-tf <- import("tensorflow")
-```
-
-## Entity Extraction Model
-With Tensorflow loaded, we can upload the Entity Extraction model.
-```{r import_model, warning=FALSE, message=FALSE}
-path_model <- "./../data/models_python/entity_extraction_w_processing_keras/"
-
-model <- tf$keras$models$load_model(path_model)
-```
-
-## Set Seed /Random State
-```{r set_seed}
-rs <- as.integer(5590)
-np$random$seed(rs)
-tf$random$set_seed(rs)
-```
-
 # Process Data
 ## Process Text and Extract Hypotheses
-```{r}
+First, we process our raw input and extract hypotheses.
+```{r process_extract_hypothesis}
 # Process Text
 text_processed <- process_text(input_text = pdf_txt_raw, 
                                   removal_patterns = patterns)
@@ -93,266 +73,103 @@ text_processed <- process_text(input_text = pdf_txt_raw,
 hypo_xtr_vec <- extract_hypothesis(text_processed) %>% 
   select(hypothesis) %>% 
   pull()
+```
 
-# Convert to Numpy Array
-hypo_xtr_np <- np$array(hypo_xtr_vec)
-
-hypo_xtr_np
+# Hypothesis Selection
+For the following process, one hypothesis will be selected as a indicative sample. We will use this hypothesis to work through the process of turning a hypothesis into two extracted entities. Once the process is solidified, we can apply it across all available hypothesis.
+```{r select_exmample_hypothesis}
+n = 1
+hypothesis <- hypo_xtr_vec[n]
+hypothesis
 ```
 
 ## Generate Predictions
-The Entity Extraction model returns the predictions as a 2D array. For easier downstream use, we will convert this structure into a list of vector, with each vector being the class predictions for a hypothesis.
-```{r}
-# Function - 2D Array to Vector
-array_to_vec_lst <- function (input_array) {
-  # Initialize Output List
-   output_lst <- vector(mode = "list", length = dim(input_array)[1])
-  # print(dim(input_array)[1])
-  # print(dim(input_array)[2])
-  for (i in  1:dim(input_array)[1]){
-    # Initialize Temporary Vector
-    temp_vector <- vector(mode = "integer", length = dim(input_array)[2])
-    for (j in 1:dim(input_array)[2]){
-      temp_vector[j] <- input_array[i,j]
-    }
-    output_lst[[i]] <- temp_vector
-  }
- return(output_lst)
-}
-```
+We now generate predicted Entity class for the hypothesis. The model return a 1D array for each input hypothesis, so we must convert the 1D array to a vector.
 
-We now generate predictions.
-```{r gen_predictions, warning=FALSE}
-# Generate Predictions
-hypo_entity_classes_ar<- model$predict_classes(hypo_xtr_np)
+```{r generate_classes}
+pred_classes <- gen_entity_class(hypothesis)
 
-# Convert to List of Vectors
-hypo_entity_classes_lst <- array_to_vec_lst(hypo_entity_classes_ar)
-
-hypo_entity_classes_lst
-```
-
-```{r}
-hypo_xtr_vec
-```
-
-
-We also need the model pre-processing output, so we can connect target classes with the model input tokens.
-```{r vocab_linking}
-# # Extract Text Vectorization Layer
-# text_vectorizor <- model$get_layer("text_vectorization")
-# 
-# # Extract Vocabulary
-# vocab <- text_vectorizor$get_vocabulary()
-# 
-# # Extract Token Integers
-# hypo_xtr_ints <- text_vectorizor(hypo_xtr_np)
-# hypo_xtr_ints_ar <- np$array(hypo_xtr_ints)
-# hypo_xtr_ints_lst <- array_to_vec_lst(hypo_xtr_ints_ar)
+pred_classes
 ```
 
 # Extract Entities
-Now that we have the predicted target classes, the pre-processed hypothesis statements, and the vocabulary look-up key, we can extract Node 1 and Node 2 entities from the hypotheses.
-
+With our example hypothesis selected, our first step is to generate a list of indexes fo where Node 1 and Node 2 were predicted.
 ```{r}
-class_vec <- hypo_entity_classes_lst[[2]]
-class_vec
-
-tapply(seq_along(class_vec),class_vec,max)['1']
-tapply(seq_along(class_vec),class_vec,max)['2']
+index_entities <- gen_entity_class_index(pred_classes)
 ```
+With the indexes of each Node identified, some processing has to occur. Generally, the Node 1 and Node 2 indexes are grouped with the sample class, and distinct from each other. A sample seletion of the Entity Extraction model output might look like the following:
 
+* 0, 0, 1, 1, 1, 0, 0, 2, 2, 2, 2, 0, 0, 0 
+
+From the above model output, we can clearly see where the Node 1 and Node 2 entities are, and we can go forward and extract from from the hypothesis text. 
+
+Unfortunately the model output is not always so clear. The following are possible issues that need to be addressed:
+
+* Node 1 and Node 2 indexes overlap
+ * 0, 0, 1, 1, 2, 1, 0, 0, 2, 2, 2, 0, 0, 0 
+ 
+* Node 1 or Node 2 contain a predicted index that is far from the majority of the cases(outliers)
+ * 0, 0, 1, 1, 1, 0, 0, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 2
+ 
+In order to extract distinct entities, we need to process any predictions experiencing the above issues.
+
+## Overlap
+For overlapping entities we define a function. When there is overlap, the function trims one of the overlapping indexes. This process repeats until there is no overlap. The Node which get's trimmed is the Node with the longest span. In the case of equal length nodes, Node 2 is trimmed.
+
+With the function defined, we can execute on the sample hypothesis.
 ```{r}
-min_1 <- tapply(seq_along(class_vec),class_vec, min)['1']
-max_1 <- tapply(seq_along(class_vec),class_vec, max)['1']
-min_2 <- tapply(seq_along(class_vec),class_vec, min)['2']
-max_2 <- tapply(seq_along(class_vec),class_vec, max)['2']
+print("Nodes Indexes - Pre")
+print(index_entities)
 
-node_1_tokens <- str_split(hypo_xtr_vec, " ")[[1]][min_1:max_1]
+# Verify Both Entities Detected
+both_entity_present <- vector_is_empty(index_entities[[1]]) & 
+  vector_is_empty(index_entities[[2]])
 
-node_2_tokens <- str_split(hypo_xtr_vec, " ")[[1]][min_2:max_2]
-
-paste0(node_1_tokens, sep = " ")
-node1_span = max_1 - min_1
-node2_span = max_2 - min_2
-```
-```{r}
-length(node_1_index)
-
-node_1_index <- which(class_vec %in% 1) 
-min_node_1 <- min(node_1_index)
-max_node_1 <- max(node_1_index)
-span_node_1 = max_node_1 - min_node_1
-
-node_2_index <- which(class_vec %in% 2)  
-min_node_2 <- min(node_2_index)
-max_node_2 <- max(node_2_index)
-span_node_2 = max_node_2 - min_node_2
-print(span_node_2)
-
-node_index <- vector(mode = "list", length = 2)
-
-node_index[[1]] = node_1_index
-node_index[[2]] = node_2_index
-
-(max_node_1 < min_node_2) | (min_node_1 > max_node_2)
-
-(max_node_1 > min_node_2) 
-
-node_1_range = min_node_1:max_node_1
-node_2_range = min_node_2:max_node_2
-
-node_1_range
-
-node_2_range
-
-range_overlap = intersect(node_1_range,node_2_range )
-length(range_overlap)
-
-length(range_overlap) == 0
-
-```
-
-```{r}
-trim_overlapping_entities <- function(node_index){
-  node_1_index <- node_index[[1]]
-  node_2_index <- node_index[[2]]
-  
-  min_node_1 <- min(node_1_index)
-  max_node_1 <- max(node_1_index)
-  min_node_2 <- min(node_2_index)
-  max_node_2 <- max(node_2_index)
-  
-  # Determine if Entities Overlap
-  node_1_range <- min_node_1:max_node_1
-  node_2_range <- min_node_2:max_node_2
-  range_overlap <- intersect(node_1_range,node_2_range )
-
-  if (length(range_overlap) == 0) {
-    
-    return(node_index)
-    
-  } else {
-    print("Else Statement")
-    span_node_1 = max_node_1 - min_node_1
-    span_node_2 = max_node_2 - min_node_2
-    
-    # Determine Median of Node 1/2 Indices to See What Direction to Move
-    med_node_1_idx <- median(node_1_index)
-    med_node_2_idx <- median(node_2_index)
-    
-    # Node 1 Comes First
-    if (med_node_1_idx < med_node_2_idx) {
-        if (span_node_2 >= span_node_1){
-          node_2_index <- node_2_index[-1]
-          
-          } else {
-          node_1_dim <- length(node_1_index)
-          node_2_index <- node_2_index[-node_1_dim]
-          }
-      # Node 2 Comes First
-    } else {
-        if (span_node_2 >= span_node_1){
-          node_2_dim <- length(node_2_index)
-          node_2_index <- node_2_index[-node_2_dim]
-          
-          } else {
-             node_1_index <- node_1_index[-1]
-          }
-    }
-    # Reset List
-    node_index_update <- vector(mode = "list", length = 2)
-    node_index_update[[1]] = node_1_index
-    node_index_update[[2]] = node_2_index
-    return(trim_overlapping_entities(node_index_update))
-  }
-}
-```
-
-```{r}
-node_index <- trim_overlapping_entities(node_index)
-node_index
-```
-
-
-```{r}
-trim_outlier_indexes <- function(node_index) {
-  i = 1 
-  node_index_update <- vector(mode = "list", length = 2)
-  
-  for (index in node_index){
-    print(index)
-    summary <- as.vector(summary(index))
-
-    iqr.range <- summary[5] - summary[2]
-    upper <- summary[5] + iqr.range * 1.5
-    lower <- summary[2] - iqr.range * 1.5
-    
-    index <- index[index > lower]
-    index <- index[index < upper]
-    
-    node_index_update[[i]] <- index
-    i = i + 1
-  }
-  
-  return(node_index_update)
-}
-```
-
-```{r}
-
-trim_outlier_indexes(node_index)
-
-```
-
-
-```{r}
-n2 <- as.vector(summary(node_index_update[[2]]))
-n2
-
-n2_iqr.range <- n1[5]-n1[2]
-n2_upper <- n2[5]+n2_iqr.range*1.5
-n2_lower <- n2[2]-n2_iqr.range*1.5
-n2_upper
-n2_lower
-```
-
-
-
-```{r}
-str_c(node_1_tokens, collapse = " ")
-str_c(node_2_tokens, collapse = " ")
-```
-
-
-
-```{r}
-node_1 <- c()
-node_2 <- c()
-
-for (idx in 1:length(pred_classes_lst[[1]])){
-  token_class <- pred_classes_lst[[1]][idx]
-  vocab_index <- hypo_xtr_ints_lst[[1]][idx]
-
-  token <- vocab[vocab_index + 1]
-
-  
-  if (token_class == 1) {
-    node_1 = c(node_1, token)
-  }
-  
-  if (token_class == 2) {
-    node_2 = c(node_2, token)
-  }
-  
-  # print(idx)
-  # print(vocab_index)
-  # print(vocab[vocab_index + 1])
-  # print(token_class)
+# Trim Overlap
+if (both_entity_present) {
+  index_entities <- trim_overlapping_entities(index_entities)
 }
 
-print(node_1)
-print(node_2)
+
+print("Nodes Indexes - Post")
+print(index_entities)
 ```
 
+## Outliers
+For outlier predicted classes, we use the standard Box Plot outlier definition, *1.5 x Interquartile Range*. We define a function which identifies outlier indexes and the trims them.
 
+```{r}
+print("Nodes Indexes - Pre")
+print(index_entities)
+index_entities <- trim_outlier_indexes(index_entities)
+print("Nodes Indexes - Post")
+print(index_entities)
+```
+## Convert Index to Strings
+With out entity nodes processed, we can now convert index lists to text strings.
+The following function inputs the original hypothesis text, and outputs the extracted entities.
+```{r}
+paste0("Entity 1 - Index: ", index_entities[[1]])
+paste0("Entity 2 - Index: ", index_entities[[2]])
+str_entites <- index_to_entity(hypothesis, index_entities)
+str_entites
+
+paste0("Entity 1 - Text: ", str_entites[1])
+paste0("Entity 2 - Text: ", str_entites[2])
+```
+
+# Wrapper Functions
+## Individual Hypothesis
+The following code block executes the complete Entity Extraction process for a individual hypothesis.
+
+```{r}
+wrapper_test_indv <- wrapper_entity_extraction_indv(hypothesis)
+wrapper_test_indv
+```
+
+## Multiple Hypotheses
+The followings tests the Entity Extraction process on a list of extracted hypotheses.
+```{r}
+wrapper_test_mult <- wrapper_entity_extraction_mult(hypo_xtr_vec)
+wrapper_test_mult
+```

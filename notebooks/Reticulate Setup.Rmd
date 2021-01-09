@@ -15,10 +15,6 @@ library(reticulate)
 reticulate::py_config()
 ```
 
-```{r}
-virtualenv_dir
-```
-
 
 ```{r}
 virtualenv_dir = Sys.getenv('VIRTUALENV_NAME')
@@ -26,14 +22,17 @@ python_path = Sys.getenv('PYTHON_PATH')
 
 virtualenv_list <-  reticulate::virtualenv_list()
 
-PYTHON_DEPENDENCIES = c("numpy", "joblib", "scikit-learn", "tensorflow")
+PYTHON_DEPENDENCIES = c("numpy", "joblib", "scikit-learn", "tensorflow",
+                        "tika")
 
 # Create New Virtual Environment if Needed
 # if (!(virtualenv_dir %in% virtualenv_list)){
-#   reticulate::virtualenv_create(envname = virtualenv_dir, python = python_path)
+#   reticulate::virtualenv_create(envname = virtualenv_dir, 
+                                  # python = python_path)
 # }
 
-reticulate::virtualenv_install(virtualenv_dir, packages = PYTHON_DEPENDENCIES, ignore_installed=TRUE)
+reticulate::virtualenv_install(virtualenv_dir, packages = PYTHON_DEPENDENCIES, 
+                               ignore_installed=TRUE)
 
 reticulate::use_virtualenv(virtualenv_dir, required = TRUE)
 ```
