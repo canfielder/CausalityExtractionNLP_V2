@@ -3,8 +3,6 @@
 script_path <- "./www/R"
 file_paths <- list.files(path = script_path, pattern = "*.R", full.names = TRUE)
 
-print(file_paths)
-
 for (file in file_paths){
     source(file)
 }
@@ -12,18 +10,17 @@ for (file in file_paths){
 # Install Packages
 shiny_install_packages()
 
-# Install Tika Jar File
-tika_install_jar()
-
 # Import LIME Explainer
 explainer <- import_lime_explainer()
-print(explainer)
 
 # Import Patterns File
 patterns_col <- c("remove","comments")
 patterns_raw <- read_excel(path = "./www/data/text_processing/patterns.xlsx",
                            col_names = patterns_col)
 patterns <- patterns_raw %>% pull(remove)
+
+PYTHON_DEPENDENCIES = c('numpy', 'fasttext', 'sklearn', 'joblib',
+                        'tensorflow', 'tika')
 
 
 # UI --------------------------------------------------------------------------
@@ -79,7 +76,20 @@ ui <- fluidPage(
 # Server ----------------------------------------------------------------------
 server <- function(input, output) {
     
-    # - Reactive Values -------------------------------------------------------
+    # --- VIRTUALENV Setup -------------------------------------------------- #
+    
+    virtualenv_dir = Sys.getenv('VIRTUALENV_NAME')
+    python_path = Sys.getenv('PYTHON_PATH')
+    
+    # Create virtual env and install dependencies
+    reticulate::virtualenv_create(envname = virtualenv_dir, 
+                                  python = python_path)
+    reticulate::virtualenv_install(virtualenv_dir, 
+                                   packages = PYTHON_DEPENDENCIES, 
+                                   ignore_installed=TRUE)
+    reticulate::use_virtualenv(virtualenv_dir, required = T)
+    
+    # --- Reactive Values --------------------------------------------------- #
     
     # Convert Uploaded PDF to Text
     pdf_txt_reactive <- reactive({
@@ -140,7 +150,7 @@ server <- function(input, output) {
         hypo_xtr
     })
     
-    ## Outputs to UI ----------------------------------------------------------
+    # --- Outputs to UI ----------------------------------------------------- #
     
     output$pdf_view <- renderUI({
         tags$iframe(style="height:800px; width:100%; scrolling=yes", 
