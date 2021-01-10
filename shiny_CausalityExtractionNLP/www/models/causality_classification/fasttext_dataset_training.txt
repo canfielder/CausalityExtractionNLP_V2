@@ -1,0 +1,810 @@
+__label__1 to test the globalization   ,  we consider the variables that relate more generally to the openness of a firm and how they impact on environmental management . 
+__label__1  that firms that embark on direct investment abroad are more likely to exhibit higher levels of environmental management . 
+__label__1  that those firms that export a certain proportion of their output are more likely to be influenced by international competition and the pervasive forces of globalization and hence will be more receptive to innovative production technologies or goods . 
+__label__1  that the higher the physical capital intensity of a firm the more likely it is to have highly capital-intensive and complex production facilities . 
+__label__1  that firm size will have a positive impact on environmental management  . 
+__label__1 as a result ,   that the lower the average age of a firm ' s employees ,  the more likely the firm will be to implement environmental policies and practices .  the expected sign is therefore negative . 
+__label__1   stakeholder management will have a positive effect on ceo compensation levels . 
+__label__1   stakeholder management and ﬁnancial performance interact to predict ceo compensation levels ,  such that ceos simultaneously achieving higher levels of both will be the most highly compensated . 
+__label__1   commitment configuration is positively associated with firm performance . 
+__label__1   cost-reduction strategy is positively associated with compliance . 
+__label__1   the interaction of quality-enhancing strategy and commitment configuration will further enhance organizational performance ,  and the interaction with market configuration will reduce organizational performance . 
+__label__1   the interaction of quality-enhancing strategy and commitment configuration will further enhance organizational performance ,  and the interaction with market configuration will reduce organizational performance . 
+__label__1   the interaction of innovation strategy with commitment ,  market ,  and collaboration configuration will further enhance organizational performance . 
+__label__1   the interaction of innovation strategy with commitment ,  market ,  and collaboration configuration will further enhance organizational performance . 
+__label__1   the interaction of innovation strategy with commitment ,  market ,  and collaboration configuration will further enhance organizational performance . 
+__label__1   the interaction of innovation strategy with commitment ,  market ,  and collaboration configuration will further enhance organizational performance . 
+__label__1   the interaction of cost-reduction strategy with compliance configuration will further enhance organizational performance . 
+__label__1   the interaction of quality-enhancing strategy and commitment configuration will further enhance organizational performance ,  and the interaction with market configuration will reduce organizational performance . 
+__label__1   the interaction of innovation strategy with commitment ,  market ,  and collaboration configuration will further enhance organizational performance . 
+__label__1   both inducement-hr and involvement-hr systems are positively associated with performance outcomes and negatively associated with turnover rate . 
+__label__1   both inducement-hr and involvement-hr systems are positively associated with performance outcomes and negatively associated with turnover rate . 
+__label__1   a bureaucratic culture combining both inducement and involvement hr shows no signiﬁcant relationship to performance and turnover . 
+__label__1   a bureaucratic culture combining both inducement and involvement hr shows no signiﬁcant relationship to performance and turnover . 
+__label__1   a supportive culture combined with inducement-hr is signiﬁcantly and positively related to performance outcome and negatively associated with turnover . 
+__label__1   a supportive culture combined with inducement-hr is signiﬁcantly and positively related to performance outcome and negatively associated with turnover . 
+__label__1   firms pursuing a quality strategy with both inducement-hr and involvement-hr systems will be positively associated with performance outcome and negatively with staff turnover . 
+__label__1   firms pursuing a quality strategy with both inducement-hr and involvement-hr systems will be positively associated with performance outcome and negatively with staff turnover . 
+__label__1   firms pursuing an innovation strategy with involvement-hr will be positively associated with performance outcome and negatively with staff turnover . 
+__label__1 in certain circumstances ,  however ,  slack   la: brand name reputation and interfirm cooperation will be negatively related . 
+__label__1   lb: top management team experience and interfirm cooperation will be negatively related . 
+__label__1   ic: slack capital and interfirm cooperation will be negatively related . 
+__label__1   outlet-level asset specificity and interfirm cooperation will be positively related . 
+__label__1   geographic dispersion and interfirm cooperation will be positively related . 
+__label__1   the combination of high resource levels and unfavorable exchange conditions will be negatively related to interfirm cooperation . 
+__label__1   top management team experience and performance will be positively related . 
+__label__1   the congenital learning of the venture team as measured by prestart level of education and years of industry experience is positively associated with venture performance . 
+__label__1   participation of team members in knowledge-acquisition activities is positively related to venture performance . 
+__label__1   the grafting of new management team members after venture start-up is positively related to venture performance . 
+__label__1   task environment dynamism is a positive moderator of the relationship between congenital learning as measured by education and venture performance . 
+__label__1   task environment dynamism is a positive moderator of the relationship between congenital learning as measured by experience and venture performance . 
+__label__1   task environment dynamism is a positive moderator of the relationship between participation of team members in vicarious learning and search-andnotice learning and venture performance . 
+__label__1   task environment dynamism is a positive moderator of the relationship between grafting and venture performance . 
+__label__1   high-performance work systems is positively related to employees’ shared climate perception about the unit’s concern for customers . 
+__label__1   high-performance work systems is positively related to employees’ shared climate perception about the unit’s concern for employees . 
+__label__1   employees’ shared climate perception of the unit’s concern for customers is positively related to collective employee service performance . 
+__label__1   employees’ shared climate perception of the unit’s concern for employees is positively related to collective employee helping behavior . 
+__label__1   collective employee helping behavior contributes to the business unit’s market performance . 
+__label__1   environmental performance and the level of discretionary environmental disclosures are positively associated ,  as implied by economics based voluntary disclosure theories . 
+__label__1   valuable human capital is positively associated with innovative performance . 
+__label__1   unique human capital is positively associated with innovative performance . 
+__label__1   the relational side of social capital has a positive effect on valuable human capital . 
+__label__1   the relational side of social capital has a positive effect on unique human capital . 
+__label__1   human resource management practices ,  such as selection processes based on interpersonal skills ,  have a positive inﬂuence on social capital . 
+__label__1   human resource management practices ,  such as selection processes based on employees’ potential to learn ,  have a positive inﬂuence on the value and uniqueness of human capital . 
+__label__1   developmental human resource management practices ,  such as speciﬁc training ,  career management ,  mentoring programmes and feedback appraisals ,  have a positive inﬂuence on the value and uniqueness of human capital . 
+__label__1   developmental human resource management practices ,  such as empowerment and employees’ participation in decision making ,  have a positive inﬂuence on social capital . 
+__label__1   human resource management practices ,  such as the use of individual compensation incentives ,  have a positive inﬂuence on the value and uniqueness of human capital . 
+__label__1   human resource management practices such as the use of team-based incentives in compensation have a positive inﬂuence on the ﬁrm’s social capital . 
+__label__1   0: innovative performance is positively associated with a higher level of ﬁrm performance . 
+__label__1   commitment-based hr practices are positively related to an organization ' s social climates for trust ,  cooperation ,  and shared codes and language . 
+__label__1   organizational social climates for trust ,  cooperation ,  and shared codes and language are positively related to firm performance through their effects on knowledge exchange and combination . 
+__label__1   a ﬁrm’s quality of products / services is positively related to organizational reputation . 
+__label__1   a ﬁrm’s quality of products / services is positively related to customers’ satisfaction . 
+__label__1   customers’ satisfaction is positively related to organizational reputation . 
+__label__1   organizational reputation is positively related to the ﬁrm’s growth . 
+__label__1   market share is positively related to the ﬁrm’s ﬁnancial strength . 
+__label__1   organizational reputation is positively related to the accumulation of customers’ orders  . 
+__label__1   accumulation of customer ' s orders is positively related to the ﬁrm’s growth . 
+__label__1   accumulation of customer ' s orders is positively related to market share . 
+__label__1   the ﬁrm’s growth related to market share . 
+__label__1   the ﬁrm’s growth positively related to the ﬁrm’s proﬁtability . 
+__label__1   market share is positively related to the ﬁrm’s proﬁtability . 
+__label__1   the ﬁrm’s proﬁtability is positively related to its ﬁnancial strength . 
+__label__1   organizational reputation is positively related to the accumulation of customers’ orders  . 
+__label__1   a capability of stakeholder management will be positively associated with the development of proactive environmental strategies by smes . 
+__label__1   a capability of strategic proactivity will be positively associated with the development of proactive environmental strategies by smes . 
+__label__1   proactive environmental strategies will be positively associated with ﬁnancial performance of smes . 
+__label__1    ,  regarding the inﬂuence of a strategic proactivity capability on environmental proactiveness ,  was also supported by the parameter estimates  . 
+__label__1   stakeholder relations are positively associated with the persistence of superior ﬁnancial performance .  
+__label__1   stakeholder relations are negatively associated with the persistence of inferior ﬁnancial performance . 
+__label__1   a high environmental management strategy level of a firm is positively associated with firm competitiveness . 
+__label__1   a high  green product strategy level of a firm is positively associated with firm competitiveness . 
+__label__1   environmental collaboration with customers moderates the relationship between ems and the competitiveness of a firm . 
+__label__1   environmental collaboration with customers moderates the relationship between gps and the competitiveness of a firm . 
+__label__1   the greater the ﬁrm’s eco-organizational innovation ,  the greater its eco-process innovation . 
+__label__1   the greater the ﬁrm’s eco-organizational innovation ,  the greater its eco-product innovation . 
+__label__1   the greater the ﬁrm’s eco-process innovation ,  the greater its business performance . 
+__label__1   the greater the ﬁrm’s eco-organizational innovation ,  the greater its business performance . 
+__label__1 given that performance is measured by roa and media reputation by the coefﬁcient of media favorableness ,  the proposition that ﬁrms with more favorable media reputations have higher performance is tested with the following  :  : the coefﬁcient of media favorableness is positively related to roa . 
+__label__1   training and perceived organizational performance are related to each other and are not time-speciﬁc . 
+__label__1   employee participation and perceived organizational performance are related to each other and are not time-speciﬁc . 
+__label__1   compensation and perceived organizational performance are related to each other and are not time-speciﬁc . 
+__label__1   internal labor market and perceived organizational performance are related to each other and are not time-speciﬁc . 
+__label__1   as predicted ,  ilm inﬂuenced organizational performance positively and signiﬁcantly ,  and the coefﬁcient values for the two years did not show any signiﬁcant difference in their relative strength . 
+__label__1   assumes a stable positive relationship between employee participation and perceived organizational performance across time . 
+__label__1    ,  employee participation is positively related to organizational performance . 
+__label__1   predicted that compensation and perceived organizational performance are related to each other and are not time-speciﬁc . 
+__label__1   predicted that internal labor market and perceived organizational performance are related to each other and are not time-speciﬁc . 
+__label__1   predicted that selection and perceived organizational performance are related to each other and are not time-speciﬁc . 
+__label__1   there is a positive relationship between a firm’s size and the social information disclosed on its website . 
+__label__1   there is a relationship between the industry in which a firm operates and the social information disclosed on the firm’s website . 
+__label__1   there is a positive relationship between a firm’s profitability and the social information disclosed on its website . 
+__label__1   there is a negative relationship between the ownership concentration of a firm and the social information disclosed on its website . 
+__label__1   state-owned corporations disclose less information on their websites than other corporations do . 
+__label__1   in settings requiring high levels of knowledge exploitation ,  turnover will ,  on average ,  have a negative effect on operating performance . 
+__label__1   in settings requiring high levels of the level of process conforknowledge exploitation ,  performance will moderate the impact of turnover on operating performance . 
+__label__1   using turnover rates for the prior three months ,  on average ,  turnover has a negative effect on both measures of store performance . 
+__label__1   among small us ﬁrms there is a negative association between the use of hpws and workforce turnover . 
+__label__1   among small us ﬁrms there is a positive association between the use of hpws and labor productivity . 
+__label__1   results indicate a negative association between hpws and workforce turnover  . 
+__label__1 little ,  if any ,  research has utilized rigorous designs to test the   that employing progressive hrm systems actually results in higher organizational performance in a causal sense . 
+__label__1 although clearly not a true test of the spurious variable   ,  these ﬁndings suggest an unmeasured attribute of the bank branches concurrently drove performance ,  use of hr practices ,  and employee turnover  . 
+__label__1 one would be hard pressed to   that companies investing in hr practices produces greater geographical socioeconomic conditions . 
+__label__1   environmental munificence will be negatively associated with turnover within the top management team . 
+__label__1   environmental instability will be positively associated with turnover within the top management team . 
+__label__1   environmental complexity will be positively associated with turnover within the top management team . 
+__label__1 hypotheis 4b: environmental instability will be negatively associated with firm performance . 
+__label__1   environmental complexity will be negatively associated with firm performance . 
+__label__1   firm performance will be negatively associated with turnover within the top management team . 
+__label__1   environmental munificence will be negatively associated with strategic change . 
+__label__1   environmental instability will be positively associated with strategic change . 
+__label__1   environmental complexity will be positively associated with strategic change . 
+__label__1   strategic change will be positively associated with turnover within the top management team . 
+__label__1   6: demographic heterogeneity will be positively associated with turnover within the top management team . 
+__label__1   human resource practices that consist of an emphasis on selection ,  training ,  appraisal and compensation should be positively related to the skills and motivation of the workforce . 
+__label__1   emphasis on selection ,  training ,  appraisal ,  compensation systems should be positively related to organizational performance . 
+__label__1   employee participation will be positively related to organizational performance . 
+__label__1   stated that the hr practices emphasizing selection ,  training ,  appraisal and compensation would be positively related to the skills and motivation of the operators . 
+__label__1   stated that the hr practices would be positively related to the financial performance of the reneries . 
+__label__1   corporate philanthropy is positively related to a firm ' s financial performance  . 
+__label__1   the positive relationship between corporate philanthropy and a firm ' s financial performance increases with its advertising intensity . 
+__label__1   the positive relationship between corporate philanthropy and a firm ' s financial performance increases with the level of development of the market in which the firm operates . 
+__label__1   the positive relationship between corporate philanthropy and a firm ' s financial performance increases with the level of the firm ' s past financial performance . 
+__label__1   predicts that past financial performance positively moderates the relationship between corporate giving and financial performance . 
+__label__1   global retailers’ government-aimed csr leads to a positive effect on their retail performance in china . 
+__label__1   global retailers’ consumer-aimed csr leads to a positive effect on their retail performance in china . 
+__label__1   proposes a positive association between retailers’ government-aimed csr and their retail performance in china . 
+__label__1   which suggests that consumer-aimed csr will also have a positive and direct impact on retailers’ performance in china ,  turns out to be insigniﬁcant and even shows some negative direction  . 
+__label__1 hence ,  the   that customer satisfaction has a positive effect on reputation is strongly supported . 
+__label__1   layoffs moderate the relationship between high-involvement work practices and productivity in such a way that workplaces with more extensive high-involvement work practices suffer greater effects from layoffs than workplaces with less extensive highinvolvement work practices . 
+__label__1 the results provide support for the   interaction ,  suggesting that high-involvement workplaces threaten their competitive advantage through people when conducting layoffs . 
+__label__1   levels of the government driving force positively inﬂuence the environmental performance of smes . 
+__label__1   levels of society driving force are positively associated with the environmental performance of smes . 
+__label__1   levels of market driving force are positively associated with the environmental performance of smes . 
+__label__1   levels of enterprise driving force are positively associated with the environmental performance of smes . 
+__label__1   government’s driving forces impact signiﬁcantly on the economic performance of smes . 
+__label__1   society driving forces impact signiﬁcantly on the economic performance of smes . 
+__label__1   market driving forces impact signiﬁcantly on the economic performance of smes . 
+__label__1   enterprise driving forces impact signiﬁcantly on the economic performance of smes . 
+__label__1   for smes with high-pollution level: environmental performance is positively associated with their economic performance . 
+__label__1   use of internal hr-based manufacturing sources leads to successful tc . 
+__label__1   use of external hr-based manufacturing sources leads to successful tc . 
+__label__1   use of internal technical manufacturing sources leads to successful tc . 
+__label__1   use of external technical manufacturing sources leads to successful tc . 
+__label__1   the effect of internal hr sources on tc success is signiﬁcantly higher when integration is high rather than when it is low . 
+__label__1   the effect of external hr sources on tc success is signiﬁcantly higher when integration is high rather than when it is low . 
+__label__1   the effect of internal manufacturing technology sources on tc success is signiﬁcantly higher when integration is high rather than when it is low . 
+__label__1   external hr manufacturing sources were also positively and signiﬁcantly related to the number of new products and tc speed  . 
+__label__1   however ,  external hr sources were negatively related to the number of patents and radicalness of new products  ,  which contradicted 
+__label__1   the use of internal technological sources was positively and signiﬁcantly related to the number of new products  ,  radical new products  ,  patents  ,  and tc speed  . 
+__label__1   focusing on external technological sources ,  outsourcing and alliances were positively and significantly related to new product radicalness and tc speed . 
+__label__1   outsourcing was signiﬁcantly but negatively associated with product radicalness and patents  ,  contradicting 
+__label__1   suggested that the effect of internal hr sources on tc will be signiﬁcantly higher under higher than lower integration . 
+__label__1   suggested that the effect of external hr sources on tc will be signiﬁcantly higher under higher than lower integration . 
+__label__1   posited that the effect of internal manufacturing sources on tc would be signiﬁcantly higher when integration was high than low . 
+__label__1   suggested that the effect of external manufacturing sources on tc would be signiﬁcantly higher when integration was high rather than low . 
+__label__1   ethical leadership is positively related to csr . 
+__label__1   csr is positively related to firm reputation . 
+__label__1   firm reputation is positively related to firm performance . 
+__label__1   ethical leadership moderates the relationship between csr and firm reputation such that perceived csr positively affects firm reputation when leaders display strong but not weak ethical display strong ,  but not weak ,  ethical leadership . 
+__label__1 based on these   ,  it is logical to predict that strong ethical leadership will have an indirect effect on firm reputation through csr . 
+__label__1   ethical leadership moderates the indirect effect of csr on firm performance through firm reputation . 
+__label__1    ,  under strong ethical leadership ,  csr was positively related to firm reputation ,  while under weak ethical leadership ,  the two were not related . 
+__label__1   privately controlled ﬁrms are more likely than other types of ﬁrms to issue csr reports . 
+__label__1   firms whose chief executive ofﬁcers are members of national political councils are more likely to issue csr reports . 
+__label__1   the effect of private control on a ﬁrm’s csr reporting will be stronger for ﬁrms whose ceos are members of national political councils . 
+__label__1   older ﬁrms are less likely to issue csr reports . 
+__label__1   the effect of private control on csr reporting will be weaker for older ﬁrms . 
+__label__1   firms with greater ﬁnancial resources are more likely to issue csr reports . 
+__label__1   the effect of private control on csr reporting will be enhanced for ﬁrms with greater ﬁnancial resources  . 
+__label__1   firms whose leaders hold positions as government ofﬁcials will be more likely to engage in more substantive csr reporting . 
+__label__1   firms headquartered in more institutionally developed regions will be more likely to engage in more substantive csr reporting . 
+__label__1   the favorable csr towards stakeholders will positively impact the ﬁrms’ fp and nfp . 
+__label__1   1: the favorable csr towards employees will positively impact the ﬁrms’ fp and nfp . 
+__label__1   2: the favorable csr towards customers will positively impact the ﬁrms’ fp and nfp . 
+__label__1   3: the favorable csr towards investors will positively impact the ﬁrms’ fp and nfp . 
+__label__1   4: the favorable csr towards community will positively impact the ﬁrms’ fp and nfp . 
+__label__1   5: the favorable csr towards environment will positively impact the ﬁrms’ fp and nfp . 
+__label__1   6: the favorable csr towards suppliers will positively impact the ﬁrms’ fp and nfp control variable first ,  ﬁrms that are listed in stock exchanges tend to disclose more csr related information compared to the non-listed ﬁrms as performance of listed ﬁrms is continuously monitored and evaluated by multiple stakeholders investors ,  ﬁnancial analysts ,  such as and higher media ,  and the like . 
+__label__1   board gender diversity is positively related to ﬁrm innovation . 
+__label__1   board racial diversity is positively related to ﬁrm innovation . 
+__label__1   board gender diversity is positively related to ﬁrm reputation . 
+__label__1   board racial diversity is positively related to ﬁrm reputation . 
+__label__1   firms which screen for personality pay higher wages ,  are more likely to provide their workforce additional beneﬁts ,  should have a higher likelihood to provide their workers higher amounts of on-the-job training ,  in particular more general training ,  and should be more inclined to provide job security to their employees . 
+__label__1   firms which screen for personality should have more leeway to organise tasks in teams and should perform better in the market . 
+__label__1   country origin of mncs will influence the human resource practices used by firms . 
+__label__1   local chinese rms will provide less structural training and development than american ,  british ,  and japanese rms 
+__label__1   american and british mncs will rely more on retention-oriented compensation than will local chinese or japanese  rms . 
+__label__1   japanese and local chinese mncs will emphasize seniority-based compensation more than will american and british  rms . 
+__label__1   local rms will have less diversity in staff composition than japanese ,  american ,  or british rms . 
+__label__1   the human resource practices of mncs will be related to rm performance . 
+__label__1   the extent of structural training and development will be positively related to rm performance . 
+__label__1   firms with more retention-oriented compensation plans will have better performance . 
+__label__1   mncs that emphasize diversity will have higher performance ,  particularly in new product development . 
+__label__1   firms with more comprehensive bundles of work-family policies will have higher organizational performance than firms with less comprehensive bundles . 
+__label__1   firms with high reputation are less likely to generate positive material earnings surprises than firms that do not possess this asset . 
+__label__1   firms with high reputation are less likely to generate negative material earnings surprises than firms that do not possess this asset . 
+__label__1   firms with celebrity are more likely to generate positive material earnings surprises than firms that do not possess this asset . 
+__label__1   firms with celebrity are more likely to generate negative material earnings surprises than firms that do not possess this asset . 
+__label__1   high-reputation firms experience more positive investor reactions to their material positive earnings surprises than firms that do not possess either high reputation or celebrity . 
+__label__1   celebrity firms experience more positive investor reactions to their material positive earnings surprises than firms that do not possess either celebrity or high reputation . 
+__label__1   high-reputation firms experience less negative investor reactions to their material negative earnings surprises than firms that do not possess either high reputation or celebrity . 
+__label__1   celebrity firms experience less negative investor reactions to their material negative earnings surprises than firms that do not possess either celebrity or high reputation . 
+__label__1   csr is not positively related to ﬁnancial performance in emerging economies . 
+__label__1   csr is positively related to employee commitment in emerging economies . 
+__label__1   csr is not positively related to corporate reputation in emerging economies . 
+__label__1   high levels of environmental performance will be associated with enhanced profitability . 
+__label__1   the level of an industry ' s growth will moderate the relationship between the environmental performance and profitability of firms in that industry; the greater the industry growth ,  the greater the positive impact of environmental performance on firm profitability . 
+__label__1   there will be a positive association between the number of selected formal human resource practices and reported firm performance  . 
+__label__1   there will be a positive association between the number of selected formal human resource practices and reported firm performance  . 
+__label__1   outsider successors will be negatively associated with postsuccession operational performance . 
+__label__1   senior executive turnover following a contender succession will be positively associated with postsuccession operational performance . 
+__label__1   senior executive turnover following an outsider succession will be negatively associated with postsuccession operational performance . 
+__label__1   there is a negative relationship between a store ' s overall turnover rate and store performance . 
+__label__1   there is a significant ,  negative relationship between voluntary turnover and workforce performance . 
+__label__1   the rate of unit-level voluntary and involuntary turnover will be negatively related to customer satisfaction . 
+__label__1   customer satisfaction will be positively related to unit-level financial performance . 
+__label__1   strategic customer integration is positively associated with manufacturing competitive capabilities . 
+__label__1   strategic integration is positively associated with manufacturing competitive capabilities . 
+__label__1   product-process technology integration is positively associated with manufacturing competitive capabilities . 
+__label__1   corporate strategy integration is positively associated with manufacturing competitive capabilities . 
+__label__1   manufacturing competitive capabilities are positively associated with business performance . 
+__label__1   among high-performing ,  technology-based ventures ,  the experience of the entrepreneurial team will be signiﬁcantly related to the strategies pursued by those ﬁrms . 
+__label__1   entrepreneurial team experience will not be directly related to the performance of technology-based new ventures . 
+__label__1   the ﬁt between strategy and entrepreneurial team experience will be signiﬁcantly related to the performance of technology-based new ventures . 
+__label__1   customer co-production will be negatively related to human capital . 
+__label__1   customer contact will be positively related to human capital . 
+__label__1   plants with commitment human resource systems will have better manufacturing performance than plants with control human resource systems . 
+__label__1   turnover will be higher in control human resource systems than in commitment human resource systems . 
+__label__1   there will be a stronger negative relationship between turnover level and manufacturing performance in commitment human resource systems than in control human resource systems . 
+__label__1   predicts that the presence of a commitment human resource system will be related to significantly higher manufacturing performance than the presence of a control system . 
+__label__1 the second   predicts that turnover will be higher in minimills with control systems than in those with commitment systems . 
+__label__1   states that the negative relationship between turnover and manufacturing performance will be higher in commitment human resource systems than in control systems . 
+__label__1   increased use of high performance work systems results in increased labor productivity ,  increased workforce innovation ,  and decreased voluntary employee turnover . 
+__label__1   increased use of diversity / equality management systems results in increased labor productivity ,  workforce innovation ,  and decreased voluntary employee turnover ,  over and above the contribution of high performance work systems . 
+__label__1    ,  which predicted that increased use of hpws would result in increased labor productivity ,  increased workforce innovation ,  and decreased voluntary employee turnover . 
+__label__1 these results support   2 ,  which predicted that increased use of diversity / equality management systems would result in increased labor productivity and workforce innovation and decreased t t a b l e i i multiple regression analysis on labor productivity ,  workplace innovation ,  and employee turnover labor productivity workplace innovation employee turnover model 1 model 2 model 3 model 4 model 5 model 6 variables control variables country of ownership agric / energy / const . 
+__label__1 thus ,  it was   that organizations whose members were strongly committed would have both high participation and high production . 
+__label__1   firms that adopt a more strategic approach to hrm will have higher levels of performance . 
+__label__1   in general ,  the results indicated that larger ﬁrms tend to be more associated with higher level of overall ﬁrm performance . 
+__label__1   financial and competitive pressure is positively related to the level of reverse logistics adoption . 
+__label__1   demanding customer / stakeholders pressure is positively related to the level of reverse logistics adoption . 
+__label__1   regulatory pressure is positively related to the level of reverse logistics adoption . 
+__label__1 therefore ,  it is  es that manufacturers will implement or increase the current level of reverse logistics adoption due the corporate citizenship pressure . 
+__label__1   corporate citizenship pressure is positively related to the level of reverse logistics adoption . 
+__label__1   the level of reverse logistics adoption has a positive impact on firm’s performance . 
+__label__1   there is a positive relationship between a ﬁrm’s commitment to iso 14001 and its performance . 
+__label__1   there is a positive relationship between a ﬁrm’s orientation to iso 14001 and its performance . 
+__label__1   there is a positive relationship between a ﬁrm’s culture of iso 14001 and its performance . 
+__label__1   the implementation cost of iso 14001 is well worth the expenditure of resources ,  and is positively correlated with a ﬁrm’s performance . 
+__label__1   suggested that all dimensions of commitment to iso 14001 were positively related to a ﬁrm’s performance . 
+__label__1    ,  it was postulated that ﬁrms going for iso 14001 certiﬁcation will increase their performance due to a better orientation of iso 14001 practices . 
+__label__1   the third   of this research postulated that ﬁrms going for iso 14001 certiﬁcation would improve their performance due to better culture practices . 
+__label__1 except for production efﬁciency and quality of products ,  which are not supported from   testing ,  iso 14000 greatly improves every dimension of performance . 
+__label__1   there is a positive relationship between commitment to iso 14001 and a ﬁrm’s performance 
+__label__1   commitment to iso 14001 is positively related to perceived economic / environmental impact 
+__label__1   commitment to iso 14001 is positively related to perceived customer satisfaction 
+__label__1   commitment to iso 14001 is positively related to perceived market position 
+__label__1   there is a positive relationship between a ﬁrm’s orientation towards iso 14001 and its performance 
+__label__1   orientation of iso 14001 is positively related to perceived economic / environmental impact 
+__label__1   orientation of iso 14001 is positively related to perceived customer satisfaction 
+__label__1   orientation of iso 14001 is positively related to perceived market position 
+__label__1   there is a positive relationship between a ﬁrm’s culture of iso 14001 and its performance 
+__label__1   culture of iso 14001 is positively related to perceived economic / environmental impact 
+__label__1   culture of iso 14001 is positively related to perceived customer satisfaction 
+__label__1   culture of iso 14001 is positively related to perceived market position 
+__label__1 finally ,  central control ,  high degrees of formalization ,  and elaborate control systems are   to promote organizational effectiveness . 
+__label__1   japanese subsidiaries with ideal matches between business strategy and hrm strategy will experience higher levels of employee morale than subsidiaries with mismatches . 
+__label__1   japanese subsidiaries with ideal matches between business strategy and hrm strategy will have higher levels of average employee tenure than subsidiaries with mismatches . 
+__label__1   japanese subsidiaries with ideal matches between business strategy and hrm strategy will have higher rates of employee promotion than subsidiaries with mismatches . 
+__label__1   japanese subsidiaries with ideal matches between business strategy and hrm strategy will experience lower rates of employee turnover than subsidiaries with mismatches . 
+__label__1   japanese subsidiaries with ideal matches between business strategy and hrm strategy will achieve higher profits than subsidiaries with mismatches . 
+__label__1   japanese subsidiaries with ideal matches between business strategy and hrm strategy will experience higher sales growth than subsidiaries with mismatches . 
+__label__1   japanese subsidiaries with ideal matches between business strategy and hrm strategy will experience higher levels of performance on parent-prescribed objectives than sub-sidiaries with mismatches . 
+__label__1   japanese subsidiaries with ideal matches between business strategy and hrm strategy will achieve higher overall performance than subsidiaries with mismatches . 
+__label__1   japanese subsidiaries with ideal matches between business strategy and hrm strategy will perform better relative to their competitors than will subsidiaries with mismatches . 
+__label__1   subsidiaries with matched strategies experienced substantially lower rates of turnover than their unmatched counterparts . 
+__label__1    ,  which stated that matched firms would experience higher sales growth than unmatched firms ,  there arose a question as to whether the weak findings might not reflect the possibility that growth was directly links between business & hrm strategy influenced by the business strategy ,  the logic being that prospectors might possi-bly experience higher levels of growth than analyzers or defenders . 
+__label__1   work organization practices that enhance employee discretion and group collaboration will be associated with lower quit rates and lower dismissal rates . 
+__label__1   performance-enhancing practices will be positively related to both quit rates and dismissal rates . 
+__label__1   high involvement work organization ,  investment and inducement practices ,  and performance-enhancing expectations will each individually be associated with higher levels of operational performance . 
+__label__1   the interactions of high involvement work ,  investment and inducement practices ,  and performance-enhancing expectations will be associated with higher levels of operational performance than the simple additive effect of these hr practices . 
+__label__1   quit and dismissal rates will be negatively related to operational performance: these theoretical arguments also suggest that whether turnover mediates the relationship between hr practices and performance may depend upon the contingencies discussed above . 
+__label__1   the hr performance relationship will be mediated by the additive effect of quit rates and dismissal rates . 
+__label__1   the investments and inducements index is significantly associated with lower quits  ,  dismissals  ,  and total turnover  . 
+__label__1   the high involvement index has a significant positive association with customer satisfaction  ,  but the other two indexes are not significant . 
+__label__1 one notable finding is that both electronic monitoring and commission pay have significant positive effects on quits ,  dismissals ,  and total turnover ,  which corresponds to our   and findings for the performance-enhancing practice index . 
+__label__1   marketing competence mediates the relationship between csr toward society and firm performance . 
+__label__1   marketing competence mediates the relationship between csr toward customers and firm performance . 
+__label__1   the greater the competitive intensity ,  the stronger the positive effect of csr toward society on a firm’s marketing competence . 
+__label__1   the greater the competitive intensity ,  the weaker the positive effect of csr toward employees on a firm’s marketing competence . 
+__label__1   the greater the competitive intensity ,  the stronger the positive effect of csr toward customers on a firm’s marketing competence . 
+__label__1   the greater the market turbulence ,  the stronger the effect of csr toward customers on a firm’s marketing competence . 
+__label__1   figure 2 further shows that the effect of csr toward society on marketing competence is stronger when competitive intensity is high and the effect is less when competitive intensity is low  . 
+__label__1    ,  which suggests that marketing competence reduces the positive effect of csr toward employees on marketing competence ,  receives support . 
+__label__1   predicts the moderating effect of market turbulence on the relationship between csr toward customers and marketing competence . 
+__label__1   employee skill flexibility is positively related to firm financial performance . 
+__label__1   employee behavior flexibility is positively related to firm financial performance . 
+__label__1   hr practice flexibility is positively related to firm financial performance . 
+__label__1   skill flexibility is positively related to cost-efficiency . 
+__label__1   behavior flexibility is positively related to cost-efficiency . 
+__label__1    ,  that skill flexibility will be related to firm performance ,  is supported . 
+__label__1   predicts that behavior flexibility is positively related with firm financial performance . 
+__label__1   4a ,  4b ,  and 4c postulate that skill ,  behavior ,  and hr practice flexibility will be positively related with cost-efficiency ,  which implies that greater flexibility is associated with lower costs . 
+__label__1 although all three dimensions are negatively related to costs ,  we find significant support for these   only in relation to skill flexibility  . 
+__label__1 testing our   on the individual components of the firm financial performance index ,  we found that all three measures of hr flexibility are positively associated with return on sales ,  operating profit per employee ,  and sales per employee . 
+__label__1   an organization with a management that strongly values hrm and people as a source of competitive advantage is more likely to use high-involvement hrm strategies . 
+__label__1   organizations with differentiation strategies are more likely to have high involvement hrm strategies . 
+__label__1   the extent to which a firm pursues a differentiation strategy is positively related to firm performance . 
+__label__1   the speed of firm activities and services for internal and external customers is positively related to firm performance . 
+__label__1   the presence of a high-involvement hrm strategy is positively related to firm performance . 
+__label__1 in conclusion ,  our empirical analysis strongly supports our main  : high-involvement hrm strategies increase firm performance  . 
+__label__1   there is a positive relationship between the level of a firm’s philanthropic expenditures and its reputation . 
+__label__1   firms that involve employees in their philanthropic activities have better reputations . 
+__label__1   that focus firms their philanthropic expenditures upon causes that are congruent with broad societal preferences have better reputations . 
+__label__1   the better is a firm’s current financial performance ,  the better its reputation . 
+__label__1   the greater is a firm’s degree of leverage ,  the worse its reputation . 
+__label__1   the more non-executive directors as firm has ,  the better its reputation . 
+__label__1   0 the larger the ﬁrm ,  the better its reputation . 
+__label__1   1 a ﬁrm’s media exposure inﬂuences its reputation . 
+__label__1   2 a firm’s reputation is partly determined by the nature of its principle business activities . 
+__label__1   the relationship between female presence at board level and reputation varies across sectors . 
+__label__1   is mixed in that there is a positive reputational eﬀect of a female presence at board level in only the consumer services sector . 
+__label__1   there is an insignificant relationship between profit / sales in time period t and customer satisfaction at time period t .  although the conclusions above concern the relationship between customer satisfaction and financial performance ,  conclusions have also been drawn concerning the relationship between customer satisfaction and nonfinancial performance . 
+__label__1   there is a positive relationship between customer satisfaction at time period t and behavior intent at time period t .  employee satisfaction and profits equally mixed results were found concerning the relationship between customer satisfaction and profits; mixed results were also found concerning the relationship between employee satisfaction and profits . 
+__label__1   there is an insignificant relationship between employee satisfaction at time period t and profit / sales in time period t .  customer satisfaction and employee satisfaction the relationship between customer satisfaction and employee satisfaction is the one relationship that does not seem to yield conflicting results . 
+__label__1   there is a positive relationship between customer satisfaction at time period t and employee satisfaction at method time period t .  longitudinal view as previously suggested ,  the conflicting relationships between customer satisfaction and performance and employee satisfaction and performance may be attributable to the fact that in all these studies cross-firm data collected at one point in time were analyzed . 
+__label__1    ,  customer satisfaction and behavioral intention are positively related . 
+__label__1   there is a positive relationship between a change in customer satisfaction in previous time periods and a change in current profits / sales . 
+__label__1    ,  a change in customer satisfaction will be correlated with a change in financial performance ,  a time series analysis was conducted . 
+__label__1   industrial sector moderates the relationship between social performance and reputation ,  such that the relationship is stronger in sectors that are associated with salient social and environmental issues . 
+__label__1 hence ,  we   that the ﬁt between a corporation’s social performance activities and its business environment inﬂuences the link between social performance and reputation . 
+__label__1   industrial sector and type of social performance interact to inﬂuence the relationship between social performance and reputation ,  such that the link between reputation and community performance is stronger in sectors that are associated with salient social issues . 
+__label__1 accordingly ,  we   that reputation is increasing in a ﬁrm’s research and development and advertising intensities . 
+__label__1   hpws will have a positive effect on organizational performance . 
+__label__1   hr flexibility will mediate the relationship between hpws and organizational performance . 
+__label__1   and lending support to previous studies that demonstrate the relevance of adopting hpws to firm success  . 
+__label__1   market orientation has a positive association with business performance . 
+__label__1   csr has a positive inﬂuence on the relationship between market orientation and business performance such that at a higher level of csr ,  market orientation has a stronger association with performance than at a lower level of csr . 
+__label__1   csr has a positive inﬂuence on the relationship between customer orientation and performance such that at a higher level of csr ,  the association between customer orientation and performance is stronger than at a lower level of csr . 
+__label__1   csr does not signiﬁcantly inﬂuence the relationship between inter-functional orientation and performance . 
+__label__1 firm age **p < 0 . 01; *p < 0 . 0 .  support the ﬁrst   in step 2 ,  this study tested for the main effect of market orientation on business performance . 
+__label__1   em is directly and positively related to the firm’s new product success in its principal market segment . 
+__label__1   new product success is directly and positively related to changes in market share in the firm’s principal market segment . 
+__label__1   market turbulence is directly and positively related to the firm’s new product success . 
+__label__1   proposed a direct effect of new product success on change in market share . 
+__label__1   maintained that market turbulence would directly affect new product success . 
+__label__1   stated that new product success is positively related to change in market share . 
+__label__1   there will be an inverted u-shaped relationship between pay levels and an organization ' s financial performance: financial performance will be lower with low pay levels and lower with high pay levels . 
+__label__1   organizational performance will have an inverted u-shaped relationship with the degree of hierarchy in a pay structure . 
+__label__1   the relationship between pay structure and resource efficiency will be moderated by pay level: pay structure will be less strongly related to resource efficiency at higher pay levels . 
+__label__1   the relationship between pay structure and patient care outcomes will be moderated by pay level: pay structure will be less strongly related to patient care outcomes at higher pay levels . 
+__label__1   as pay levels increase ,  for all pay hierarchies ,  the expected resource efficiency improves and patient care outcomes increase . 
+__label__1   as shown in table 4 ,  pay level did not explain significantly more variance in roa either linearly or nonlinearly  . 
+__label__1   there will be a positive relationship between technological competence and ﬁrm performance . 
+__label__1   imitability of ﬁrm knowledge has an inverse relationship with ﬁrm performance . 
+__label__1   marketing competencies have a positive relationship with ﬁrm performance . 
+__label__1   regulatory competencies have a positive relationship with ﬁrm performance . 
+__label__1   there will be a positive relationship between financial performance and the use of internal career ladders ,  formal training systems ,  results-oriented appraisal ,  performance-based compensation ,  employment security ,  employee voice ,  and broadly defined jobs . 
+__label__1   the relationship between human resource practices and financial performance will be contingent on an organization ' s strategy . 
+__label__1   the greater the similarity to the ideal-type employment system that is most similar to an organization ' s employment system ,  the higher the financial performance . 
+__label__1   an employment system ' s similarity to the one ideal-type employment system that is appropriate for an organization ' s strategy will be positively related to financial performance . 
+__label__1   states that the relationships between hr practices and performance are contingent on an organization ' s strategy
+__label__1    ,  states that similarity to the one ideal-type employment system most similar to an organization ' s employment system will be positively related to organizational performance
+__label__1   posits that similarity to the one ideal-type employment system that was appropriate for an organization ' s strategy would be positively related to organizational performance
+__label__1    ,  predicts that similarity to the one hybrid employment system appropriate for an organization ' s strategy will be positively related to organizational performance
+__label__1   the degree of implementation of tqm practices in a hospital is positively related to the hospital ' s performance
+__label__1   in a hospital characterized by a greater focus on control in its structure ,  the degree of implementation of tqm practices will be more strongly ,  positively related to hospital performance
+__label__1   in a hospital characterized by a greater focus on exploration in its structure ,  the degree of implementation of tqm practices will be more strongly ,  positively related to hospital performance . 
+__label__1 with respect to our principal   ,  we found strong empirical support for a positive relationship between the degree of tqm implementation and organizational performance . 
+__label__1   development of client-speciﬁc capabilities based on repeated interaction with clients is positively related to project performance . 
+__label__1 theoretical background and research   by integrating rbv with contingency theory ,  we propose that the relationship between emss and ﬁnancial performance may depend on certain market conditions ,  particularly sc and ci . 
+__label__1   there is a positive relationship between emss and ﬁnancial performance . 
+__label__1   sc negatively moderates the relationship between emss and ﬁnancial performance . 
+__label__1   sc and ci have a negative joint moderating effect on the relationship between emss and ﬁnancial performance . 
+__label__1   the impact of a layoff on a firm’s reputation will be negative . 
+__label__1   the negative impact of a layoff on a firm’s reputation will be moderated by firm performance . 
+__label__1   the negative impact of a layoff on a firm’s reputation will be moderated by firm age . 
+__label__1   the negative impact of a layoff on a firm’s reputation will be moderated by firm size . 
+__label__1    ,  that firm size moderates the relationship between layoffs and overall reputation . 
+__label__1   the greater a firm ' s current market performance ,  the better its reputation . 
+__label__1   the greater a firm ' s current performance adjusted market risk ,  the worse its reputation . 
+__label__1   the greater a firm ' s current dividend yield ,  the worse its reputation . 
+__label__1   the greater a firm ' s prior performance adjusted accounting risk ,  the worse its reputation . 
+__label__1   the greater the concentration of a firm ' s equity among institutions ,  the better its reputation . 
+__label__1   the greater a firm ' s contributions to social welfare ,  the better its reputation . 
+__label__1   the greater a firm ' s current media visibility ,  the better its reputation . 
+__label__1   the more nonnegative a firm ' s current media coverage ,  the better its reputation . 
+__label__1   0: nonnegative coverage and visibility have a positive ,  interactive effect on reputation . 
+__label__1   1: the larger the firm ,  the better its reputation . 
+__label__1   2: the greater a firm ' s advertising intensity ,  the better its reputation . 
+__label__1   3: the greater a firm ' s unrelated diversification ,  the worse its reputation . 
+__label__1   residual information embodied in firms '  beta coefficients does not appear to influence reputations . 
+__label__1   predicts that institutional ownership will positively affect reputations . 
+__label__1 model 1 corroborates the   that publics tend to assign higher reputations to firms with a high proportion of stock held by banks ,  insurance companies ,  and mutual funds . 
+__label__1   with size controlled ,  model 1 suggests that the higher a firms '  visibility per unit of sales and hence the greater the scrutiny of the firm by the press ,  the worse its reputation . 
+__label__1    ,  stating that the greater the volume of nonnegative coverage ,  the better a firm ' s reputation . 
+__label__1   publics assign higher reputations to firms that have foundations and give proportionally more to charity than other firms . 
+__label__1 the results support the overarching   that hr practices lead to superior organizational performance  . 
+__label__1   the environmental legislation exerts a positive inﬂuence on the manager’s perception about the environment as a competitive opportunity . 
+__label__1   a stronger pressure exerted by stakeholders on the ﬁrm has a positive impact on the perception of managers about the environment as a competitive opportunity . 
+__label__1   a greater collaboration of stakeholders with the ﬁrm has a positive impact on the perception of managers about the environment as a competitive opportunity . 
+__label__1   the complementary resources and capabilities available to the ﬁrm positively inﬂuence the perception of managers about the environment as a competitive opportunity . 
+__label__1   the higher the degree to which the manager sees the natural environment as a competitive opportunity ,  the higher the likelihood of developing a proactive environmental management scheme . 
+__label__1   the greater the availability of complementary resources and capabilities in the ﬁrm ,  the higher the likelihood of developing a proactive environmental management scheme . 
+__label__1   a positive relationship exists between proactive environmental management and environmental performance improvement . 
+__label__1   the ﬁrm resources generated through proactive environmental management mediate the positive relationship between proactive environmental management and cost competitive advantage . 
+__label__1   the ﬁrm resources generated through proactive environmental management mediate the positive relationship between environmental performance improvement and cost competitive advantage . 
+__label__1   cost competitive advantage has a positive effect on ﬁnancial performance . 
+__label__1   differentiation competitive advantage has a positive effect on ﬁnancial performance . 
+__label__1    ,  there is a positive effect of available resources and capabilities and the managerial perception . 
+__label__1    ,  when the availability of complementary resources and capabilities in the ﬁrm is greater ,  higher is the likelihood of developing a proactive environmental management . 
+__label__1   and   8 ,  there is a positive effect of proactive environmental management and environmental performance on differentiation competitive advantage and that effect copyright © 2010 john wiley & sons ,  ltd .  int . 
+__label__1   the overall relationship between employee turnover and firm performance has an inverted u-shape . 
+__label__1   there will be an association between greater use of hr practices and higher labour productivity . 
+__label__1   proposed a relationship between greater use of hr and lower labour turnover ,  higher labour productivity and higher proﬁt per employee . 
+__label__1   proposed a relationship between greater use of hr and lower labour turnover ,  higher labour productivity and higher proﬁt per employee . 
+__label__1   proposing an association between hrm and productivity . 
+__label__1 contrary to our   ,  we found no overall effect of announced environmental initiatives on stock returns . 
+__label__1   announcements of product-driven environmental initiatives will have a more positive impact on anticipated ﬁrm performance than will announcements of process-driven initiatives . 
+__label__1   and much prior research ,  our results suggest that ,  on average ,  corporate environmental initiatives have no direct effect on the market’s perception of the ﬁrm’s future economic performance . 
+__label__1 my initial summary   can be stated as follows: la: systems of high performance work prac-  tices will diminish employee turnover and increase productivity and corporate financial performance . 
+__label__1 my initial summary   can be stated as follows: la: systems of high performance work prac-  tices will diminish employee turnover and increase productivity and corporate financial performance . 
+__label__1   complementarities or synergies among high performance work practices will diminish employee turnover and increase productivity and corporate financial performance . 
+__label__1   alignment of a firm ' s system of high performance work practices with its competitive strategy will diminish employee turnover and increase produc-tivity and corporate financial performance . 
+__label__1   alignment of a firm ' s system of high performance work practices with its competitive strategy will diminish employee turnover and increase productivity and corporate financial performance . 
+__label__1 our   is that high environmental performance is likely to be more costly for manufacturing ﬁrms because they normally operate in environmentally sensitive sectors . 
+__label__1   there will be a positive relationship between the level of integration of environmental issues into the strategic planning process and the ﬁrm’s environmental performance . 
+__label__1   there will be a positive relationship between the amount of resources provided to attend to natural environmental issues and the level of integration of environmental issues into the strategic planning process . 
+__label__1   there will be a positive relationship between the degree of functional coverage of natural environmental issues and the level of integration of environmental issues into the strategic planning process . 
+__label__1   the degree of involvement in csr will be positively related to the adoption of performance-based pay . 
+__label__1 based on the evidence from these studies ,  we   that ﬁrms engaged in csr are more likely to adopt efﬁciency-based work practices than those without csr . 
+__label__1   the degree of involvement in csr will be positively related to the degree of adaptation of efﬁciency based work practices . 
+__label__1   the degree of involvement in csr will be positively related to organizational restructuring . 
+__label__1   the degree of involvement in csr will be positively related to the use of contingent employment . 
+__label__1   a mastery orientation is positively related to in-role job performance . 
+__label__1   a performance orientation is positively related to in-role job performance . 
+__label__1   a mastery orientation is positively related to innovative job performance . 
+__label__1   a performance orientation is negatively related to innovative job performance . 
+__label__1 hence ,  we   that a mastery orientation is positively related to job satisfaction ,  whereas a negative relationship was expected between performance orientation and job satisfaction . 
+__label__1 hence ,  we   that a mastery orientation is positively related to job satisfaction ,  whereas a negative relationship was expected between performance orientation and job satisfaction . 
+__label__1   a mastery orientation is positively related to job satisfaction . 
+__label__1   a performance orientation is negatively related to job satisfaction . 
+__label__1   a subordinate ' s mastery orientation is positively related to the quality of leader-member exchange . 
+__label__1   a subordinate ' s performance orientation is negatively related to the quality of leader-member exchange . 
+__label__1   predicts ,  a mastery orientation was found to be positively related to the mediating variable of leader-member exchange . 
+__label__1 in line with   6 and 8 ,  a performance orientation was negatively related to job satisfaction and leader-member exchange . 
+__label__1 furthermore ,  the quality of leader-member exchange was   to mediate the effects of goal orientation on job performance and job satisfaction . 
+__label__1 furthermore ,  since performance orientation was not significantly related to the outcome variable of innovative job performance ,  the results provided no support for   12 ,  predicting leader-member exchange to be a mediator variable in the negative effect of performance orientation on innovative job performance . 
+__label__1    ,  which predicts a positive relationship between performance orientation and in-role job performance . 
+__label__1   management leadership is positively related to training . 
+__label__1   management leadership is positively related to employee relations . 
+__label__1   management leadership is positively related to supplier quality management . 
+__label__1   management leadership is positively related to product design . 
+__label__1   training is positively related to employee relations . 
+__label__1   training is positively related to quality data and reporting . 
+__label__1   employee relations is positively related to quality data and reporting . 
+__label__1   quality data and reporting is positively related to supplier quality management . 
+__label__1   quality data and reporting is positively related to product / service design . 
+__label__1   quality data and reporting is positively related to process management . 
+__label__1   supplier quality management is positively related to product / service design . 
+__label__1 thus ,  we are led to the following  : that successful customer / supplier cooperation can result in inventory reduction beneﬁts for both parties . 
+__label__1   supplier quality management is positively related to inventory management performance . 
+__label__1   product design is positively related to process management . 
+__label__1   supplier quality management is positively related to process management . 
+__label__1   product design is positively related to quality performance . 
+__label__1   inventory management performance is positively related to quality performance . 
+__label__1   quality performance is positively related to ﬁnancial and market performance . 
+__label__1   management turnover is positively related to crew turnover . 
+__label__1   crew turnover is related to longer customer wait time . 
+__label__1   manager turnover is related to longer customer wait time . 
+__label__1   manager turnover is related to higher food waste . 
+__label__1   customer wait time is negatively related to sales . 
+__label__1   customer wait time is negatively related to profit . 
+__label__1   food waste is negatively related to profit . 
+__label__1   crew turnover was significantly related to both wait time and food waste ,  indicating support for   2 and 3 . 
+__label__1 moving on to the efficiency-performance link ,  we found that customer wait time was significantly and negatively related to both sales and profit ,  find ings lending support for   6 and 7 . 
+__label__1   a positive relationship exists between hrm outcomes and organizational performance in greek organizations . 
+__label__1   a positive relationship exists between hrm systems and hrm outcomes in the greek context . 
+__label__1   a positive relationship exists between hrm systems and organizational performance in greek ﬁrms . 
+__label__1   4 from the regression results in model 4 ,  we see that both hrm systems and hrm outcomes positively affect organizational performance ,  thus supporting 
+__label__1   2 from the regression results in models 6b ,  7b and 8b ,  we see that the hrm systems of resourcing-development and reward-relations positively affect the hrm outcomes of skills ,  attitudes and behaviours ,  thus supporting 
+__label__1   3 from the regression results in model 9b ,  we see that the hrm outcomes of skills and for attitudes positively affect organizational performance ,  providing support 
+__label__1   the effect of behaviours on organizational performance is negative ,  and thus this is not supporting 
+__label__1   a positive relationship exists between hrm outcomes and organizational performance 
+__label__1   a positive relationship exists between hrm systems and hrm outcomes 
+__label__1   a positive relationship exists between hrm systems and organizational performance 
+__label__1   furthermore ,  it is seen that employee skills and attitudes positively affect overall organizational performance ,  thus partially supporting 
+__label__1   this ﬁnding demonstrates that the relationships between hrm systems and organizational performance may be mediated by hrm outcomes such as employee skills and attitudes . 
+__label__1   speciﬁcally ,  it is generally accepted that according to human capital theory higher employee skills or competences lead to greater capabilities of the pool of human capital under the ﬁrm’s in developing more efﬁcient means of control katou and budhwar: human resource management  . 
+__label__1   the more a ﬁrm prevents waste ,  the higher its ﬁnancial performance . 
+__label__1   the less a ﬁrm treats waste onsite ,  the higher its ﬁnancial performance . 
+__label__1   gscm orientation is positively related to partner’s trust . 
+__label__1   gscm orientation is positively related to the sharing of partners’ risk information and product information . 
+__label__1   partner’s trust is positively related to the sharing of the risk information and the product information . 
+__label__1   partner’s trust is positively related to customer service performance ,  operational effectiveness ,  and financial performance . 
+__label__1   risk information sharing with supply chain partners is positively related to customer service performance ,  operational effectiveness ,  and financial performance . 
+__label__1   product information sharing with supply chain partners is positively related to customer service performance ,  operational effectiveness ,  and financial performance . 
+__label__1   gscm orientation also exhibits strong impact on risk information sharing and on product information sharing  . 
+__label__1   and 3b predicted a positive relationship between partner’s trust and risk and product information sharing . 
+__label__1    ,  that risk information sharing has a positive effect on customer service performance ,  operational effectiveness ,  and financial performance . 
+__label__1   a low-cost business strategy is inversely associated with environmental performance . 
+__label__1   a low-cost business strategy is inversely associated with economic performance . 
+__label__1   a low-cost business strategy is inversely associated with intangible performance . 
+__label__1   a quality and time-based business strategy is positively associated with environmental performance . 
+__label__1   a quality and time-based business strategy is positively associated with intangible performance . 
+__label__1   product-related eco-design has a positive impact on environmental performance . 
+__label__1   0: reverse logistics has a positive impact on environmental performance . 
+__label__1   1: legislation and regulation have a positive impact on environmental performance . 
+__label__1   2: green purchasing has a positive impact on economic performance . 
+__label__1   3: product-related eco-design has a positive impact on economic performance . 
+__label__1   4: packaging-related eco-design has a positive impact on economic performance . 
+__label__1   6: legislation and regulation have a positively impact on economic performance . 
+__label__1   9: packaging-related eco-design has a positive impact on intangible performance . 
+__label__1   0: reverse logistics has a positive impact on intangible performance . 
+__label__1   1: legislation and regulation have a positive impact on intangible performance . 
+__label__1   the results show that a low-cost strategy has negative relationships with all three dimensions of performance but none of these relationships are statistically significant . 
+__label__1   in contrast ,  the results indicate that a quality and time-based strategy is positively related to environmental performance  ,  economic performance  ,  and intangible performance  . 
+__label__1   1 ,  it is interesting to note that legislation and regulation are positively related to all dimensions of performance while reverse logistics practices are not significantly associated with any of the dimensions of performance . 
+__label__1 despite this observation ,  it is possible to adhere to the   of the existence of a positive link between the volume of innovations and economic performance  . 
+__label__1 this conclusion means that ,  in opposition to the theoretical   of arthur  ,  the firms have to develop both technical and strategic hrm activities to achieve higher performances . 
+__label__1   the greater the involvement of suppliers ,  the design greater performance ,  and market performance . 
+__label__1   supplier involvement creates a stronger ,  positive relationship with design and market performance when the involvement of third party research institutions or universities is high . 
+__label__1   customer involvement creates a stronger ,  positive relationship with design and market performance when the involvement of third party research institutions or universities is high . 
+__label__1 the   external organization involvement enhance product innovation performance ,  we found that customer involvement was significantly related to market performance  . 
+__label__1   downsizing positively affects a firm’s ascribed reputation . 
+__label__1   posits  ,  there is still reason to predict that the technical efficacy of such actions will be consequential in determining their reputational consequences . 
+__label__1   downsizing has a more positive effect on a firm’s reputation as ascribed by stock analysts than on its reputation as ascribed by peer firm executives . 
+__label__1   predicts that prior reputation would ameliorate downsizing’s effect on firm reputation . 
+__label__1   quality management practices are likely to have a direct positive impact on ﬁnancial performance in restaurants . 
+__label__1   quality management practices are likely to have a direct positive impact on market success factors in restaurants . 
+__label__1   environmental management practices are likely to have a direct positive impact on ﬁnancial performance in restaurants . 
+__label__1   environmental management practices are likely to have a direct positive impact on market success factors in restaurants . 
+__label__1   adoption of qmps impacts positively on the adoption of emps in restaurants . 
+__label__1   market success factors impacts positively on ﬁnancial performance in restaurants . 
+__label__1   market demand is positively associated with green product innovation performance 
+__label__1   market demand is positively associated with environmental performance 
+__label__1   market demand is positively associated with products 
+__label__1   market demand is positively associated with economic report a signiﬁcant increase in green production innovation in today’s businesses . 
+__label__1   green product innovation performance is positively associated with ﬁrm performance 
+__label__1   green products is positively associated with ﬁrm 
+__label__1   economic performance is positively associated with ﬁrm
+__label__1   market demand is positively associated with ﬁrm
+__label__1   market demand is positively associated with environmental performance 
+__label__1   market demand is positively associated with products 
+__label__1   environmental performance is positively associated with ﬁrm performance 
+__label__1   green products is positively associated with ﬁrm 
+__label__1   economic performance is positively associated with ﬁrm performance 
+__label__1   market demand is positively associated with ﬁrm support product innovation in order to improve their organizational performance . 
+__label__1 as   ,  serving culture was positively related both to restaurant performance and employee job performance ,  creativity ,  and customer service behaviors ,  and negatively related to turnover intentions ,  both directly and through employee identification with the restaurant . 
+__label__1   store manager servant leadership is positively related to serving culture . 
+__label__1   serving culture is positively related to store performance  . 
+__label__1   serving culture is positively related to employee identification with the store . 
+__label__1   employee identification with the store is positively related to employee inrole performance ,  creativity ,  and customer service behaviors ,  and negatively related to turnover intentions . 
+__label__1   serving culture is positively related to employee in-role performance ,  creativity ,  and customer service behaviors ,  and negatively related to turnover intentions . 
+__label__1    ,  serving culture related positively with store performance  . 
+__label__1   a ﬁrm’s entrepreneurial orientation is related proactive positively strategy . 
+__label__1   the interaction effect between entrepreneurial orientation and intensity of government regulations will be related positively to a pes . 
+__label__1   the interaction effect between entrepreneurial orientation and customers’ sensitivity to environmental issues will be related positively to a pes . 
+__label__1   a proactive environmental strategy will be positively related to sales growth and proﬁt growth . 
+__label__1   higher levels of ﬁnancial performance granger cause higher levels of corporate social performance figure 1 illustrates our conceptual model . 
+__label__1   financial returns will be positively inﬂuenced by the interaction between oce and information processing . 
+__label__1   financial returns will be positively inﬂuenced by the interaction between oce and collaboration . 
+__label__1   neo will be related positively to an organization’s profit after tax . 
+__label__1   neo will be related positively to an organization’s market share . 
+__label__1   posits that higher order construct of neo will be related positively to sales growth . 
+__label__0 although spicer found statistically significant association at the  . 05 level on three out of the five measures with the 1970 pollution control indices ,  the same results are not obtained when 1972 pollution control indices were correlated with financial data of a later period . 
+__label__0 testa ,  f .  and iraldo ,  f .   ,  “shadows and lights of gscm : determinants and effects of these practices based on a multinational study” ,  journal of cleaner production ,  vol . 
+__label__0 looking for products that are fuel efﬁcient ,  and environment friendly . 
+__label__0 the gri checklist is steadily growing and ,  according to ﬁ nancial analysts ,  this could create difﬁ culties for the effective use of these reports  . 
+__label__0 as a result ,  access to critical resources and legitimacy are very important to a young firm ,  and efficiency considerations may be less pressing . 
+__label__0 greater visibility can be expected of firms operating in controversial product-market domains  ,  in national and regional public policy debates  ,  and in risky technologies  . 
+__label__0 this makes clear that the reputation is one of the most difficult to accumulate resources . 
+__label__0 study 2: results response bias checks we used data from the blue book and logistic regressions to compare the characteristics of responding and nonresponding organizations . 
+__label__0 the paper ends with a summary of the research and managerial implications . 
+__label__0 we also included a dummy variable in the longitudinal analyses for those establishments that had switched to commission pay between the two time periods  . 
+__label__0 we have reached some quite clear-cut results ,  but careful measurement has been needed to reveal the true relationships . 
+__label__0 in these circumstances ,  the company has naturally adopted centralized management . 
+__label__0 structural equation models are able to incorporate estimates of measurement error into the study with the result of reducing possible bias in the parameter estimates via the use of multiple indicators . 
+__label__0 relating the resource-based view and organizational economics broadly speaking ,  two patterns can be seen in the literature that help define how the rbv and oe are related . 
+__label__0 similar relative performance measures are also used in clarkson et al . 
+__label__0 the assumption of the stakeholder theory is that any development in corporate environmental practices will be reﬂected positively in its proﬁtability . 
+__label__0 concerns have been raised about the boundaries and potential contributions of the rbv  . 
+__label__0 taken together the four items of good news ,  bad news ,  environmental disclosures and social disclosures in table i suggest one conclusion regarding the qualitative measures . 
+__label__0 job descriptions are the centerpiece for the socalled “post wage system”  ,  which developed from the reward system reform in chinese enterprises  . 
+__label__0 the company sets product prices below those of competitors the company surpasses competitors via enhancing operation efﬁciency or lowering production costs the company enforces strict labor cost control quality enhancement the company has quality control teams the company sets up minimum standard for production and service quality the company has very strict quality management procedures innovation the company frequently develops new products and technology the company invests a huge amount of capital to carry out innovative production process and service process innovation the company is usually the ﬁrst to introduce new products or services in the market eigenvalue % variance explained able and objective financial figures turned out to not be directly comparable in a study like this ,  which covers a wide variety of types of organizations . 
+__label__0 a similar item was also included ,  using a diﬀerent question  ,  in the measure of the quality of the ﬁrm’s products and / or services . 
+__label__0 the third section reports the results . 
+__label__0 : the involvement of supply chain partners in new product development 3 . 3 reliability and validity  ,  we deleted this study used lisrel 8 . 72 to analyze the research model . 
+__label__0 moreover ,  model 3 indicates that the coefﬁcient for the two-way interaction between emss and ci is positive and signiﬁcant  . 
+__label__0 conversely ,  organizations that adopt a quality and time-based strategy are more likely to invest in green supply chain practices that will lead to a significant positive association with the three dimensions of performance . 
+__label__0 employees are directly involved in the implementation of qmps ,  and for this reason it is essential that they should be committed and motivated to operating internal processes ,  so that the customer can perceive and value highly the service received ,  resulting in a positive buzz of the kind that can be considered as the world’s cheapest marketing tool  . 
+__label__0 a firm ' s debt ratio reflects the financial constraints its managers face ,  which in turn affect their discretion in making charitable contributions  . 
+__label__0 3 . 2 . 
+__label__0 coding the articles entailed identifying and rating recording units  . 
+__label__0 this approach is also consistent with reputation and celebrity theory ,  in that the value of these assets is related to their level of accumulation  . 
+__label__0 ‘building a supply chain relationship’ ,  supply chain management review ,  vol . 
+__label__0 lee ,  m . a .  ,  & mather ,  m .   . 
+__label__0 at the micro-organizational level ,  layoffs are suggested to have almost entirely negative influences on the employees who survive the layoffs . 
+__label__0 table 2 . 
+__label__0 however ,  we reveal signiﬁcant variation in this reputational effect across business activities and various dimensions of social performance . 
+__label__0 first ,  roa and roe were used as the dependent variables in a set of hierarchical regressions . 
+__label__0 they suggest that the following conditions must be met to establish mediation . 
+__label__0 because the results of the overall regression model for scrap rate are not significant ,  however ,  the significance of the human resource system variable in this model must be interpreted with some caution . 
+__label__0 b rungtusanatham et al . 
+__label__0 empirical research that tries to relate corporate rep utation and competitive advantage ,  the information sources employed are mainly secondary  . 
+__label__0 for smaller firms ,  each individual publicized event provides more insight into the abilities of the firm and therefore has a larger impact on the reputation . 
+__label__0 deegan and rankin examined how prosecutions for environmental offences were related to changes in environmental reporting in annual reports . 
+__label__0 the greater the time or the larger the set of visible prior actions that make up the stock ,  the more developed and stable will be the reputation . 
+__label__0 education was measured on a 5-point scale: less than high school ,  high school or ged ,  some college or trade school education ,  4-year degree ,  and graduate degree . 
+__label__0 control variables included union status ,  industry ,  and country of origin . 
+__label__0 organizational effectiveness is contingent on hr systems with an appropriate culture and aligning with business strategy . 
+__label__0 third ,  after china’s accession into the world trade organization where foreign direct investments are permitted ,  major global retailers are now operating in china ,  and they are usually one of the few major employers  . 
+__label__0 we used the log-transformed values of the number of shares outstanding and the average trading volume of a stock to capture differences between value and growth stocks ,  which finance researchers have found are treated differently by investors when the firms issuing the stocks report earnings surprises number of analysts . 
+__label__0 overall ,  these results suggest that there has not been a surge in the up-take of  ' high commitment '  practices other than teamworking and promotion from within  . 
+__label__0 however ,  this methodology assumes that there is a direct causal relationship from hrm systems to organizational performance . 
+__label__0 firms may acquire external knowledge and apply this knowledge to their own understanding . 
+__label__0 & lai ,  k .   ,  “green supply chain management: pressures ,  practices and performance within the chinese automobile industry” ,  journal of cleaner production ,  vol . 
+__label__0 thus ,  the purpose of this study is to assess how hr practices and employee participation in uence the performance of petro-chemical re neries in the united states . 
+__label__0 thus ,  companies withgovernment  . 
+__label__0 in these analyses ,  return on assets is regressed against oce ,  uncertainty ,  industry dummies ,  and the three process dimensions ,  respectively . 
+__label__0 if one as-sumes that these returns accrue over a five-year period at an 8 percent discount rate ,  then such an investment would provide an annuity of $4 , 669 per employee per year . 
+__label__0 one way to reduce labor costs is to seek numerical ﬂexibility ,  and organizational restructuring is one of the most widely used practices to achieve this . 
+__label__0 researchers have provided empirical support for the impact of ethical leaders on their followers’ perceptions in the stakeholder view of csr  . 
+__label__0 hirschhorn l .  beyond mechanization: work and technology in a postindustrial age . 
+__label__0 the most often researched areas are congenital learning and experimental learning  . 
+__label__0 the organization size variable was measured by the number of employees in the ﬁrm . 
+__label__0 industrial and labor relations review ,  44: 241-260 .  in delaney ,  j .  t .  in press . 
+__label__0 washington ,  d . c . : u . s .  department of labor . 
+__label__0 past research on production processes has mostly examined the throughput aspect of produc tion ,  in particular the use of technology in effi ciency gains  . 
+__label__0 stockholders / owners 6 . 
+__label__0 such a focus on practicing job components can interfere with innovation and learning as indi viduals possess a fixed number of attentional re sources that can be allocated to a variety of job components  . 
+__label__0 triplets are accepted if the average congruence between pairs of items in the triplet exceeds the specified minimum . 
+__label__0 control variables several industry- ,  ﬁrm- ,  and ceo-speciﬁc control variables used in prior research were included in our study to enhance conﬁdence in our ﬁndings . 
+__label__0 the results were similar using the late post measures  ,  indicating support for the basic idea that both hr practices and affective organizational commitment are positively related to measures of organizational performance . 
+__label__0 nakamura ,  m .  ,  takahashi ,  t .  ,  vertinsky ,  i .  ,  2001 . 
+__label__0 each regional office in this sample was a semi-autonomous unit with its own annual objectives and performance metrics . 
+__label__0 the more institutional investors there are ,  the more likely some publics are to view firms favorably ,  taking it for granted that careful screening by well-informed portfolio analysts led to the institutional purchase decision . 
+__label__0 moreover ,  with its first sustainability report published in 2003 ,  csr movements emerged as a major social agenda in korea . 
+__label__0 all 12 interaction terms for internal and external hr sources are positive and signiﬁcant . 
+__label__0 voluntary disclosure ,  however ,  is low for fear that investors will react negatively to excessive social expenditures . 
+__label__0 if social capital at the collective level is created when relationships facilitate instrumental action among people  ,  it is also lost when these relation ships among people are dissolved . 
+__label__0 this may reflect the ready availability of a replacement labor pool and relatively modest training costs in the transit industry . 
+__label__0 studies on the influence of hr flexibility on organizational performance and on the relevance of hpws to fostering hr flexibility provide a basis for the consideration of hr flexibility as a mediating variable in the hpws–performance linkage . 
+__label__0 furthermore ,  also suggested here that the quality of products / services and customer satisfaction have diﬀerent eﬀects on organizational reputation . 
+__label__0 table 2: beneﬁts for the employee poisson o .  probit probit probit bottom wage bottom wage training gen .  training job security ols pers . 
+__label__0 the theta matrix was also examined ,  and it was conﬁrmed that no item cross-loads more highly on another construct than on its associated constructs  . 
+__label__0 127–148 issn 1047-7039 issn 1526-5455 © 2014 informs corporate social responsibility reporting in china: symbol or substance ? 
+__label__0 a “strong form” of this argument implies that reputational change their effectively reduces to performance change and that firm actions are actually epiphenomenal to the process . 
+__label__0 we suggest that the halo-removed technique demonstrated in this article is generalizable beyond its current use and that researchers consider its application before using measures derived from any survey results that may be heavily influenced by factors extraneous to the construct of interest . 
+__label__0 a firm’s age may affect how the company performs . 
+__label__0 delery and doty identify three ways in which researchers have examined the extent of  ' internal fit '  ,  namely ,  the universalistic . 
+__label__0 when ﬁrms have diverse ties ,  they are better able to innovate  . 
+__label__0 1 . 
+__label__0 osterman ,  for example ,  argued that employers view turnover “…as a strategic variable – part of a larger set of personnel policies that the firm manipulates to achieve its ends… . 
+__label__0 while the coefficients for the following industries were negative in the panel sample when all of the industries were entered in as separate coefficients and ‘management consultants’ : ‘restaurants and mobile food services’ and ‘beverage serving activities’  ,  none of the sectors’ effects were statistically significant . 
+__label__0 2 the moderating effect of competitive intensity on the effect of csr toward society on marketing competence low ci high ci low high csr toward society fig . 
+__label__0 dividends should be included in measuring the return to the investor . 
+__label__0 advancement of women 10 . 
+__label__0 notes standard deviations enclosed within parenthesis . 
+__label__0 we calculated the weights using the inverse of the probability of selection and employed these weights in calculating all results presented below . 
+__label__0 specifically ,  the core of a firm’s environment is represented by its competitors ,  suppliers ,  and customers . 
+__label__0 for the negative attenuated effect to be mediated by the out-of-service percentage ,  term should be significantly related to the financial performance outcomes but should be reduced when the out-ofservice percentage is entered . 
+__label__0 the research is based on a sample of 178 organizations operating in the greek manufacturing sector . 
+__label__0 managing across borders: the transnational solution . 
+__label__0 one common solution is to engage in interfirm cooperation in order to grow with the aid of a partner ' s resources  . 
+__label__0 it can impose the costs of measuring and verifying social impacts ,  as well as the administrative burden of collating and publishing such information  . 
+__label__0 further research also should explore the relationship between high-performance work practices and hr flexibility . 
+__label__0 human resources managers in the 234 ﬁrms were surveyed in this way . 
+__label__0 we classify these statements as soft because they involve claims about environmental management control systems without details or substantiation . 
+__label__0 following koys ' s approach ,  we used the fact that we had data covering several years and con ducted two "mirrored" analyses ,  one in which turnover preceded performance and one in which it followed performance . 
+__label__0 legitimacy theory begins with the assumption that an organization has no inherent right to exist . 
+__label__0 the correlations are positive ,  as expected ,  with the exception of mean team tenure ,  firm performance ,  and environmental munificence . 
+__label__0 thus ,  higher values represent better outcomes . 
+__label__0 to enhance their external validity ,  we encourage similar investigations in other regions or countries . 
+__label__0 when defenders pursue new products ,  they import the technology from outside the organization . 
+__label__0 478-496 . 
+__label__0 this is consistent with the observation that higher levels of environmental dynamism create greater knowledge demands for the venture team  . 
+__label__0 we calculated sales per employee by taking the store ' s quarterly sales and dividing it by the average number of relevant employee positions for 2003  . 
+__label__0 in order to maintain consistency of our data ,  we have used the seven-category keji index scores from 2002 . 
+__label__0 zatzick and iverson within the resource-based view ,  the dynamic capabilities approach suggests that high-involvement firms “may require different skill sets implying a release of some existing employees . 
+__label__0 selection refers to an organization ' s efforts to increase its human capital by hiring employees with high levels of education and exper tise from the external labor market . 
+__label__0 who state that ‘an appropriately conﬁgured and supportive organizational environment may need to be in place before the beneﬁcial aspects of gender diversity can by fully realized’ . 
+__label__0 on the other hand ,  the second partial result stemming from our mediating model refers to the impact that hpws have on hr flexibility ,  as recent studies in the field suggest  . 
+__label__0 for example ,  three recent studies link proactive environmental management to superior stock performance: hamilton  ,  white  ,  and klassen and mclaughlin all use event study methodology to demonstrate that news of high levels of toxic emissions results in signiﬁcant negative abnormal returns; ﬁrms with strong environmental management practices have better stock price returns than ﬁrms with poor practices after a major environmental disaster ,  such as the exxon valdez accident; and environmental performance awards result in signiﬁcant positive abnormal returns . 
+__label__0 three measures were used . 
+__label__0 respondents indicated the country origins of their  rms . 
+__label__0 as predicted ,  mills with lowcost business strategies were more likely to have control human resource systems ,  and mills with differentiation strategies were more likely to have commitment human resource systems . 
+__label__0 finally ,  motwani ,  sower ,  and brashier prescribed a structured ,  standardized approach for the successful implementation of tqm in hospitals . 
+__label__0 we coded radically new products as 1 and incremental products as zero . 
+__label__0 the scale for each category of disclosure items is presented in brackets . 
+__label__0 organizational social climate . 
+__label__0 as noted ,  political strategy research has focused on governmental activities such as regulation ,  subsidies ,  and taxation  ,  showing that ﬁrms are strategic in managing their relationships with government entities so as to enhance their own positions  . 
+__label__0 with regard to environmental disclosure and proﬁtability ,  freedman and jaggi and neu et al . 
+__label__0 customer-satisfaction data for these units were collected in june 2007 through a telephone-survey of a random sample of contact persons working for the customer organizations . 
+__label__0 for ownership status ,  1 - "private , " 0 = "public"; for profit status ,  1 = "profit , " 0 = "not for profit . "
+__label__0 the answer almost certainly is yes . 
+__label__0 © blackwell publishing ltd 2006 method s .  j .  brammer and s .  pavelin our sample consists of 210 uk plcs chosen largely according to the availability of reputation data  . 
+__label__0 this has consequences for the quitting behaviour of different persons and will also mean that people who have been in a job for a long time will be more likely to stay . 
+__label__0 conceptual model manage the firm’s affairs ,  they may feel pressure to leave the firm . 
+__label__0 although implementing emss competition produces pressure on ﬁrms to improve efﬁciency and lower prices ,  which may lead to tighter margins”  . 
+__label__0 in 2011 ,  it was found that 13 out of the 18 human resource interventions were positively and significantly associated with performance: four in relation to financial performance and innovation ; and five in relation to labour turnover . 
+__label__0 table 1 . 
+__label__0 aggregation although organizational climate is measured through individual per-ceptions ,  the appropriate unit of analysis is the organization or organi-zational subunit . 
+__label__0 therefore ,  non-government-owned firms have a greater need to gain political access through charitable activities and are thus likely to benefit more from corporate philanthropy . 
+__label__0 salancik ,  g .  r .  and j .  pfeffer  . 
+__label__0 we took several steps to minimize error and to increase the reliability of key informant reports  . 
+__label__0 4 results for the measurement model confirmatory factor analysis was performed to evaluate the reliability and validity of values between measures and constructs  . 
+__label__0 organizational research methods . 
+__label__0 4  ,  pp . 
+__label__0 “yes” responses were coded as 1; “no” responses were coded as zeros . 
+__label__0 sig . 
+__label__0 independent veriﬁcation / assurance about environmental information disclosed in the ep report / web 3 . 
+__label__0 on a five-point scale ranging from "very low level of performance" to "very high level of performance , " managers were asked to indicate the level of their sub-sidiary ' s performance with regard to specific outcomes . 
+__label__0 hospitals that exhibited strong emphasis on structural control of procedures ,  operations ,  and work activities exhibited a stronger relationship between their tqm implementation and financial performance . 
+__label__0 gri = an indicator variable showing whether a ﬁ rm based its reporting on global reporting initiative guidelines . 
+__label__0 1 . 
+__label__0 introduction japanese management practices have received considerable attention and notoriety over the past fifteen years as westerners have searched for the key to japan ' s meteoric economic success . 
+__label__0 frequent ceo successions may disrupt organizational continuity and hurt firm performance  . 
+__label__0 however ,  the scales developed to measure corporate environmentalism have remained limited in their operational capacity . 
+__label__0 this is important for firms ,  because of the associated costs and benefits . 
+__label__0 collaboration-based consistent with the collective chinese cultural value . 
+__label__0 n = 68 . 
+__label__0 however ,  there seems to be no unanimity of the number or the nature of such practices included in the list  . 
+__label__0 stra-tegic management journal ,  19: 269-290 . 
+__label__0 chow earned her mba and phd from georgia state university . 
+__label__0 energy saving environmental accounting disclosure of environmental statement structure environmental friendly products environmental cooperation disclosure of chemical treatment iso 14001 overall environmental management measures the structure of the costs associated with managing environmental programs . 
+__label__0 consistent with previous research ,  using hpws significantly predicts firm outcomes; in this case ,  the practices of labor productivity ,  workforce innovation ,  and voluntary firm outcomes—all in the expected direction . 
+__label__0 customer responsibilities • provide all customers with very high quality service • provide all customers with the information needed to make sound purchasing decisions maignan and ferrell table iii continued mean range b . 
+__label__0 the authors begin with the analysis by deﬁning the event day and the related periods for our study . 
+__label__0 understanding the informational medium from which publics construct reputations helps explain sources of mobility barriers within industries that originate in external perceptions . 
+__label__0 barney ,  jay . 
+__label__0 the coef cient alpha reliability for this scale was  . 75 . 
+__label__0 the pension variable is a dichotomous variable ,  which equals 1 if employees are covered by a defined benefit pension plan ,  a type of long-term deferred compensation benefit used to tie employees to the firm . 
+__label__0 marketing / sales 3 . 
+__label__0 a technological competence may become a liability if it prevents the ﬁrm from expanding outside a particular knowledge trajectory to sustain competitive advantage . 
+__label__0 therefore ,  one would expect the extent of disclosure activity to be determined by the relative costs and beneﬁts of disclosing such information  . 
+__label__0 *p< . 05; **p< . 01; ***p< . 001 . 
+__label__0 their actual responses to the practice would thus provide valuable insight into how people’s parochial interests and beliefs color their reputational judgments . 
+__label__0 because defenders concentrate on efficiency in current products and markets ,  effective employment practices should emphasize a long-term commitment to an organization . 
+__label__0 geographical context may be important ,  as canada has a bigger “safety net” than some other countries . 
+__label__0 involvement-hr is designed to foster high levels of autonomy ,  discretion ,  challenge and motivation ,  so that employees can make a meaningful and creative contribution . 
+__label__0 an important reason for outsider succes-sion is the judgment by directors that no competent successor candidate is available within their firm  . 
+__label__0 previous studies have focused on the linkage between generic business strategy and hrm types  . 
+__label__0 furthermore ,  environmental initiatives likely have value in and of themselves . 
+__label__0 3 one could construct a similar argument using oe; brand name is a specific asset that must be protected from potential opportunism through company ownership  . 
+__label__0 ann intern med 52 . 
+__label__0 given the level of attractiveness of working in food service and the often short duration of employment in the industry ,  employees are more likely to de velop loyalty to their manager than to their organ ization . 
+__label__0 this study shows that there may also be strategic business reasons to consider both racial and gender demographic diversity in board selection decisions . 
+__label__0 26 ,  no . 
+__label__0 ‘accessing information sharing and information quality in supply chain management’ ,  decision support system ,  vol . 
+__label__0 note also ,  that this is true for personality tests ,  but not for the other two proxies that we employ to capture sophisticated hrm practises ,  competency tests and variable payments . 30 in order to substantiate the ﬁnding that ﬁrms using personality tests have fewer low wage earners ,  we amend our analysis and in column also show results for a regression assuming a poisson distribution – accounting for the large probability mass at and near zero – which conﬁrms our ﬁndings from the ols model . 31 firms which screen their job candidates for personality also oﬀer signiﬁcantly more days of on-the-job training per year  )  and are more likely to train their employees with general skills which are beneﬁcial for their future working life  )  . 32 similarly to low wages ,  neither competency tests nor incentive payments predict the amount of on-the-job training . 
+__label__0 ethical leaders commit themselves to setting high ethical standards and acting in accordance with them . 
+__label__0 for our continuous measure of ﬁnancial reputation ,  ols estimates yielded a durbin-watson statistic of 1 . 02 . 
+__label__0 in other words ,  ﬁrm performance is clearly a multidimensional construct ,  and ceos performing well simultaneously on multiple dimensions will be most highly compensated . 
+__label__0  . 
+__label__0 this strategic perspective has led wright and his colleagues to urge organizations to focus on the serial steps of recruitment ,  compensation ,  and training in order to attract and develop competent employ-ees following this approach ,  we identify recruitment as the first critical strat-egy that hr-oriented firms will employ ,  because effective recruitment efforts help the company “locate the relevant competencies and attract them to the organization”  . 
+__label__0 or ,  is it the case that increases in a ﬁrm’s tobin’s q result in higher environmental standards ? 
+__label__0 we also tabulated the month-to-month distribution of articles for a 10 percent random sample of firms to check for bias in the timing of articles during the year . 
+__label__0 market driving forces play an important role in improving performance of contamination control and prevention ,  in which pressure from competitors is particularly signiﬁcant . 
+__label__0 ichniowski ,  c .  1990 . 
+__label__0 some service researchers have proposed that customers are influ-enced by the attitudes expressed by the service employees they encounter  . 
+__label__0 one or more of these three explanations account for the observed increase in schedule slippage that in turn contributed to reduced project proﬁtability . 
+__label__0 “quality” was measured as number of pieces per error where each piece represents a carton of product . 
+__label__0 exists between the hotel industry has been traditionally considered one that does not have a great impact on the natural environment compared to manufacturing industry . 
+__label__0 future studies that explore the relative contribution of neo on performance should include other strategic orientations . 
+__label__0 however ,  in the second time period ,  these measures did not relate signiﬁcantly to the measures of performance . 
+__label__0 buttressing this argument are the high correlations between all seven of the tqm practices and the financial performance measure ; only five of the seven tqm practices were correlated with the expert-rated-measure ,  however  . 
+__label__0 second ,  as recommended by huselid and becker and wright et al . 
+__label__0 unsurprisingly ,  human resources is regarded as a pivotal input to the resource base of the firm  . 
+__label__0 the article suggests how the hrm systems influences the economic performances of the firm ,  and the „waterfall performance approach” could be a useful pathway for scholars pursuing this line of research . 
+__label__0 it is this commitment to the environment that we believe defines the strength of organizations’ em efforts and its ultimate influence on corporate behavior . 
+__label__0 in addition ,  the long-chain mediation tests revealed that a unit’s hpws was indirectly and positively related to the unit’s market performance ﬁrst via establishing favorable dual climates of concern for employees and concern for customers ,  and then via motivating employee service performance and helping behavior . 
+__label__0 in addition to its direct contribution to the stakeholder management and corporate social responsibility literature ,  this study also contributes to the rbv . 
+__label__0 in addition ,  strong ﬁndings could have practical implications for managers seeking to improve new venture performance through assembling appropriate entrepreneurial teams . 
+__label__0 csr reporting substantiveness is an overall rating of csr activities as portrayed in the report . 
+__label__0 very low quit rates can result in workforce skill stagnation ,  closed-mindedness ,  and “trained incapacity” that in the aggregate reduce organizational productivity and increase accidents . 
+__label__0 managers can establish the mechanisms that encourage the involvement of the ﬁrm’s manufacturing activities within tc by using specialized and cross-functional task forces that combine and coordinate the use of different manufacturing sources . 
+__label__0 as a consequence ,  they now span the full spectrum of jobs from highly labor-intensive code migration work such as the integration of old mainframe-based systems into new e-commerce platforms ,  or developing new code for pre-designed applications and software tools ,  to projects that involve both conceptual design and implementation of customer relationship applications and supply-chain management systems . 
+__label__0 in sum ,  we predict that ,  among restaurant chains ,  strategic resources and performance will be positively related . 
+__label__0 thus combining different aspects of csr activities cannot capture variations in firm performance that can be explained by the multi-dimensional approach . 
+__label__0 this can best be understood by identifying distinct ,  internally consistent sets of hr practices and their relationships to organization’s business strategy and performance outcomes . 
+__label__0 these data were obtained from the uk labour force survey ,  which is based on samples of individuals 16 to 65 years of age in 63 u . k .  counties . 
+__label__0 use of clean technologies also adds complexity to production or delivery processes and requires increased skills from workers at all levels of the firm  . 
+__label__0 to this end ,  these procedures produced a sample of 611 ﬁrms . 
+__label__0 this result is consistent with the discretionary disclosure theories of verrecchia and dye  ,  but inconsistent with the negative association predicted by socio-political theories . 
+__label__0  . 
+__label__0 defender banks would most likely not be able to match the variety of opportunities ,  given their focus on stable markets ,  and consequently they would focus on other aspects for recruitment . 
+__label__0 thus ,  taking this into account ,  we believe the variance explained in our study is similar to other studies . 
+__label__0 second ,  we correlated a statement in the 1999 survey with the ﬁgures that managers reported about the speed of their new product introductions . 
+__label__0 the best of both worlds ? 
+__label__0 building upon the resource-based view of the ﬁrm ,  some recent work regards a ﬁrm’s good relations with its stakeholders as valuable ,  rare ,  inimitable ,  and non-substitutable resources that contribute to the ﬁrm’s gaining and sustaining a performance advantage  . 
+__label__0 overall ,  therefore ,  aggrega-tion to the bdg level seems justified on both substantive and statistical grounds and ,  accordingly ,  bdg climate scores were calculated by aver-aging individual climate scores within each bdg . 
+__label__0 and if researchers limit cases to only those firms that will allow application of the most rigorous methodological standards ,  the sample of firms considered may be skewed and quite unrepresentative of the general population . 
+__label__0 dalton ,  d .  r .  ,  & kesner ,  i .  f .  1985 . 
+__label__0 the results are consistent with those in table a1: ﬁrms that “default to local environmental standards” pollute statistically signiﬁcantly more than ﬁrms that apply “an internal global standard;” ﬁrms that “default to local environmental standards” pollute more than ﬁrms that apply “u . s . 
+__label__0 the four cluster groupings identified in table 1 were entered as the independent variables; the three firm performance measures were entered as the dependent variables; and all of the control variables were entered as covariates . 
+__label__0 1-12 . 
+__label__0 ‘some correlates of communication roles in organizations’ ,  academy of management journal ,  22 ,  pp . 42-57 . 
+__label__0 recently ,  others ,  such as selmer and de leon and skene  ,  have supported the earlier ﬁndings by amante by providing additional empirical evidence supporting the evolution of personnel management to hrm in the philippines . 
