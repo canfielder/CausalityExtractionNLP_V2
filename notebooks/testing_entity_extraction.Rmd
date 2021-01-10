@@ -66,8 +66,7 @@ In order to use the Entity Extraction model in R, we need to import the Tensorfl
 First, we process our raw input and extract hypotheses.
 ```{r process_extract_hypothesis}
 # Process Text
-text_processed <- process_text(input_text = pdf_txt_raw, 
-                                  removal_patterns = patterns)
+text_processed <- process_text(input_text = pdf_txt_raw)
 
 # Extract Hypothesis
 hypo_xtr_vec <- extract_hypothesis(text_processed) %>% 

@@ -104,17 +104,17 @@ extract_hypothesis <- function(input_text){
     if (is.na(num)){
       
       logical_hypothesis_3[i] = FALSE
-      tracker[i] <- -1
+      h_tracker[i] <- -1
       
     } else if (num %in% tracker) {
       
       logical_hypothesis_3[i] = FALSE
-      tracker[i] <- -1
+      h_tracker[i] <- -1
       
     } else {
       
       logical_hypothesis_3[i] = TRUE
-      tracker[i] <- num
+      h_tracker[i] <- num
       
     }
   }
