@@ -11,7 +11,7 @@ np <- import("numpy")
 tf <- import("tensorflow")
 
 ## Entity Extraction Model
-path_model <- "./www/models/entity_extraction/"
+path_model <- "./../models/entity_extraction/"
 model <- tf$keras$models$load_model(path_model)
 
 #' Functions -------------------------------------------------------------------

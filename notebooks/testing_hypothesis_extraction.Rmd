@@ -41,19 +41,32 @@ for (file in file_paths){
 }
 ```
 
+## Python Modules
+```{r}
+parser <- import("tika.parser")
+```
+
 ## Data
 ```{r import_data}
 # PDF Input
 ## Define Path
-pdf_path <- "./../data/acadmic_papers_pdf_sample/afglmm10hrm.pdf"
+pdf_path <- "./../data/acadmic_papers_pdf_sample/jv04amj.pdf"
 
 ## Import and Convert to Text
-pdf_txt_raw <- tika_text(pdf_path)
+pdf_tika_package <- parser$from_file(pdf_path)
+
+pdf_txt_raw <- pdf_tika_package$content
 
 # Patterns File
 patterns_col <- c("remove","comments")
-patterns_raw <- read_excel(path = "./../data/patterns.xlsx", col_names = patterns_col, )
+patterns_raw <- read_excel(path = "./../data/patterns.xlsx", 
+                           col_names = patterns_col, )
 patterns <- patterns_raw %>% pull(remove)
+
+# Error Word Splits
+df_word_split_error <- read.csv(file ="./../data/next_line_split_error.csv")
+
+word_split_error <- df_word_split_error %>% select(word) %>% pull
 ```
 
 # Process Data
@@ -64,6 +77,7 @@ text_processed <- process_text(input_text = pdf_txt_raw,
                                   removal_patterns = patterns)
 
 input_text <- text_processed
+
 ```
 
 ```{r}
@@ -81,6 +95,49 @@ input_text <- text_processed
   processing_text <- tolower(processing_text)
 ```
 
+
+
+```{r}
+# test <- processing_text[65]
+# test
+# 
+# split_pattern <- "<split>h"
+# 
+# h_index <- test %>% 
+#   str_locate_all(split_pattern) 
+# 
+# output_vector <- c()
+# 
+# for (sentence in test) {
+#   num_split <- str_count(string = sentence, pattern = split_pattern)
+#   
+#   if (num_split > 1) {
+#     idx_array <- str_locate_all(sentence, (split_pattern))
+#     
+#     idx <- as.vector(idx_array[[1]][,1])
+# 
+#     
+#     sentence_length <- nchar(sentence)
+#     idx <- c(idx, sentence_length)
+# 
+#     n <- 0
+#     for (i in 1:num_split){
+#       if (i == num_split){
+#         n <- 1
+#       }
+#       
+#       
+#       temp_sentence <- substr(sentence, idx[i], idx[i + 1] - n)
+#       print(temp_sentence)
+#       output_vector <- c(output_vector, temp_sentence)
+#     }
+#   } else{
+#     output_vector <- c(output_vector, temp_sentence)
+#   }
+# }
+```
+
+
 ```{r}
 # Regex - Between Hypo and Colon
 regex_hypo_marker <- "<split>hypo (.*?):"
@@ -88,7 +145,7 @@ regex_hypo_marker <- "<split>hypo (.*?):"
 # Hypothesis Extraction -----------------------------------------------------
   # Identify Lines with Hypothesis Pattern
   h_match <- processing_text %>% str_match(regex_hypo_marker)
-  
+  h_match
   # Extract Hypotheses Number
   h_match_num <- h_match[,2]
   
@@ -109,8 +166,7 @@ regex_hypo_marker <- "<split>hypo (.*?):"
   
   # Reduce Text to Only Initial Hypothesis Instances
   h_statements <- processing_text[h_initial]
-  
-  h_statements
+
 ```
 
 ```{r}
@@ -134,10 +190,78 @@ regex_hypo_marker <- "<split>hypo (.*?):"
 ```
 
 ```{r}
+h_statements
+
+detect_string <- ".*: "
+
+h_statements %>% 
+  str_extract("hypo (.*?):") %>% 
+  str_remove_all("hypo ") %>% 
+  str_remove_all(":") %>% 
+  as.integer()
+
+
+
+h_number <- h_statements %>% 
+  str_extract(detect_string) %>% 
+  str_remove_all("hypo ") %>% 
+  str_remove_all(": ") %>% 
+  as.integer()
+
+h_number
+
+output <- vector(mode = "logical", length = length(h_number))
+tracker <- vector(mode = "integer", length = length(h_number))
+tracker
+for (i in seq_along(h_number)) {
+  num <- h_number[i]
+
+  if (is.na(num)){
+    
+    output[i] = FALSE
+    tracker[i] <- -1
+    
+  } else if (num %in% tracker) {
+    
+    output[i] = FALSE
+    tracker[i] <- -1
+    
+  } else {
+    
+    output[i] = TRUE
+    tracker[i] <- num
+
+  }
+}
+
+h_statements <- h_statements[output]
+```
+
+```{r}
+
+  for (i in seq_along(word_split_error)) {
+    word_split <- word_split_error[i]
+    word_fix <- str_replace_all(string = word_split, 
+                                  pattern = " ",
+                                  replacement = "")
+    
+    h_statements <- h_statements %>% 
+      str_replace_all(pattern = word_split, replacement = word_fix)
+  }
+
+h_statements
+```
+
+
+
+```{r}
   # Drop ~Hypo #:~
   h_statements <- gsub(".*: ","",h_statements)
+
+  # Drop Empty Strings
+  h_statements <- h_statements[h_statements != ""]
   
-  h_statements
+  h_statements <- str_to_sentence(h_statements, locale = "en")
 ```
 
 
@@ -151,49 +275,3 @@ regex_hypo_marker <- "<split>hypo (.*?):"
 ```{r}
 df_hypothesis
 ```
-
-
-```{r}
-gsub(".*: ","",h_statements)
-```
-
-
-```{r}
-
-
-  # Identify Hypothesis Statements --------------------------------------------
-  ## Return Logical Vector
-  logical_hypothesis_1 <- str_detect(processing_text, regex_hypothesis)
-
-  ## Reduce Document to Only Hypothesis Statements
-  hypothesis_statements <- processing_text[logical_hypothesis_1]
-
-  # Split Statements On Indicator (Defined in Processing) ---------------------
-  ## Define
-  split_indicator <- "<split>"
-
-  ## Split on Indicator
-  hypothesis_statements <- str_split(string = hypothesis_statements,
-                                     pattern = split_indicator) %>%
-    unlist()
-
-  ## Detect Statements Which Contain "Hypo"
-  logical_hypothesis_2 <- str_detect(hypothesis_statements, "hypo")
-
-  ## Drop Statements that Do Not Include "Hypo"
-  hypothesis_statements <- hypothesis_statements[logical_hypothesis_2]
-
-  # Create Dataframe with Hypothesis Number and Hypothesis
-  df_hypothesis <- as.data.frame(hypothesis_statements,
-                                 stringsAsFactors = FALSE)
-
-
-  # Rename and add Hypothesis Number
-  df_hypothesis <- df_hypothesis %>%
-    rename(hypothesis = hypothesis_statements) %>%
-    mutate(
-      h_id = paste0("h_", row_number())
-    ) %>%
-    select(h_id, hypothesis)
-```
-

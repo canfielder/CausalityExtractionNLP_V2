@@ -259,7 +259,7 @@ process_text <- function(input_text, removal_patterns){
   ## Return Logical Vector
   logical_length <- nchar(processing_text) > 1
 
-  ## Drop All Lines Lentgh of 1 or Less
+  ## Drop All Lines Length of 1 or Less
   processing_text <- processing_text[logical_length]
 
   ## Drop Any NA Elements
