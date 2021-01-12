@@ -20,7 +20,6 @@ The purpose of this notebook is to test how to implement the Entity Extraction m
     dplyr,
     readxl,
     reticulate,
-    rtika,
     stringr,
     tokenizers,
     tidyr
@@ -40,10 +39,11 @@ for (file in file_paths){
   source(file)
 }
 ```
-
-## Python Modules
+## fastText Model
 ```{r}
-parser <- import("tika.parser")
+## Load Model
+path_ft_model <- "./../models/fasttext_model.bin"
+ft_model <- fastTextR::ft_load(path_ft_model)
 ```
 
 ## Data
@@ -52,34 +52,25 @@ parser <- import("tika.parser")
 ## Define Path
 pdf_path <- "./../data/acadmic_papers_pdf_sample/jv04amj.pdf"
 
-## Import and Convert to Text
-pdf_tika_package <- parser$from_file(pdf_path)
+pdf_txt_raw <- pdf_to_text(pdf_path)
 
-pdf_txt_raw <- pdf_tika_package$content
-
-# Patterns File
-patterns_col <- c("remove","comments")
-patterns_raw <- read_excel(path = "./../data/patterns.xlsx", 
-                           col_names = patterns_col, )
-patterns <- patterns_raw %>% pull(remove)
 
 # Error Word Splits
-df_word_split_error <- read.csv(file ="./../data/next_line_split_error.csv")
-
+df_word_split_error <- read.csv(file ="./../data/next_line_split_error.csv", 
+                                stringsAsFactors = FALSE)
 word_split_error <- df_word_split_error %>% select(word) %>% pull
 ```
 
 # Process Data
-## Process Text and Extract Hypotheses
+## Preprocess Text Steps
 ```{r}
 # Process Text
-text_processed <- process_text(input_text = pdf_txt_raw, 
-                                  removal_patterns = patterns)
+text_processed <- process_text(input_text = pdf_txt_raw)
 
 input_text <- text_processed
-
 ```
 
+## Processing - Hypothesis Exrtaction
 ```{r}
   # Concatenate All Vector Elements, Separated By Line Split
   processing_text <- str_c(input_text, collapse = " ")
@@ -95,49 +86,6 @@ input_text <- text_processed
   processing_text <- tolower(processing_text)
 ```
 
-
-
-```{r}
-# test <- processing_text[65]
-# test
-# 
-# split_pattern <- "<split>h"
-# 
-# h_index <- test %>% 
-#   str_locate_all(split_pattern) 
-# 
-# output_vector <- c()
-# 
-# for (sentence in test) {
-#   num_split <- str_count(string = sentence, pattern = split_pattern)
-#   
-#   if (num_split > 1) {
-#     idx_array <- str_locate_all(sentence, (split_pattern))
-#     
-#     idx <- as.vector(idx_array[[1]][,1])
-# 
-#     
-#     sentence_length <- nchar(sentence)
-#     idx <- c(idx, sentence_length)
-# 
-#     n <- 0
-#     for (i in 1:num_split){
-#       if (i == num_split){
-#         n <- 1
-#       }
-#       
-#       
-#       temp_sentence <- substr(sentence, idx[i], idx[i + 1] - n)
-#       print(temp_sentence)
-#       output_vector <- c(output_vector, temp_sentence)
-#     }
-#   } else{
-#     output_vector <- c(output_vector, temp_sentence)
-#   }
-# }
-```
-
-
 ```{r}
 # Regex - Between Hypo and Colon
 regex_hypo_marker <- "<split>hypo (.*?):"
@@ -145,7 +93,6 @@ regex_hypo_marker <- "<split>hypo (.*?):"
 # Hypothesis Extraction -----------------------------------------------------
   # Identify Lines with Hypothesis Pattern
   h_match <- processing_text %>% str_match(regex_hypo_marker)
-  h_match
   # Extract Hypotheses Number
   h_match_num <- h_match[,2]
   
@@ -261,6 +208,33 @@ h_statements
   # Drop Empty Strings
   h_statements <- h_statements[h_statements != ""]
   
+  
+  h_statements
+```
+```{r}
+# Fasttext Verification
+hypothesis_pred <- fastTextR::ft_predict(ft_model, 
+                                         newdata = h_statements, 
+                                         rval = "dense") %>% 
+        as.data.frame()
+
+col_names <- names(hypothesis_pred)
+
+if ("__label__0" %in% col_names) {
+  response <- hypothesis_pred %>% 
+    mutate(
+        Response = if_else(.[[1]] > .[[2]], FALSE, TRUE)
+    ) %>% pull(Response)
+  
+  h_statements <- h_statements[response]
+}
+
+h_statements
+```
+
+
+```{r}
+# Convert Text
   h_statements <- str_to_sentence(h_statements, locale = "en")
 ```
 

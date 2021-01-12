@@ -6,8 +6,13 @@
 
 # Library ----------------------------------------------------------------------
 library(dplyr)
+library(readxl)
+library(reticulate)
 library(stringr)
 library(tokenizers)
+
+## Python Modules
+parser <- import("tika.parser")
 
 # Data -------------------------------------------------------------------------
 # Patterns File
@@ -58,6 +63,18 @@ regex_return_num <- "(\\d)+"
 
 
 # Functions -------------------------------------------------------------------
+
+#' Convert PDF to Text
+#' The following function converts a PDF file into raw text.
+#
+
+pdf_to_text <- function(path_pdf) {
+  pdf_tika_package <- parser$from_file(pdf_path)
+  
+  pdf_txt <- pdf_tika_package$content
+
+  return(pdf_txt)
+}
 
 # Generate Regex From Vector
 # The following function takes a character vector and generates

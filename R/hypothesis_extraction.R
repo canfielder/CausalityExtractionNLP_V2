@@ -3,17 +3,22 @@
 #
 
 # Library ---------------------------------------------------------------------
-if (!require(pacman)) {install.packages('pacman')}
-p_load(
-  dplyr,
-  stringr,
-  tokenizers
-)
+library(dplyr)
+library(fastTextR)
+library(stringr)
+library(tokenizers)
+
 
 # Data -------------------------------------------------------------------------
-df_word_split_error <- read.csv(file ="./../data/next_line_split_error.csv")
+## Table for correcting incorrectly split words
+df_word_split_error <- read.csv(file ="./../data/next_line_split_error.csv", 
+                                stringsAsFactors = FALSE)
 
 word_split_error <- df_word_split_error %>% select(word) %>% pull
+
+## Hypothesis Classification Model
+path_ft_model <- "./../models/fasttext_model.bin"
+ft_model <- ft_load(path_ft_model)
 
 # REGEX Strings ---------------------------------------------------------------
 
@@ -106,7 +111,7 @@ extract_hypothesis <- function(input_text){
       logical_hypothesis_3[i] = FALSE
       h_tracker[i] <- -1
       
-    } else if (num %in% tracker) {
+    } else if (num %in% h_tracker) {
       
       logical_hypothesis_3[i] = FALSE
       h_tracker[i] <- -1
@@ -130,7 +135,6 @@ extract_hypothesis <- function(input_text){
   h_statements <- h_statements[h_statements != ""]
   
   # Fix Words Split over New Line
-  
   for (i in seq_along(word_split_error)) {
     # Select Incorrect and Fixed Words
     word_split <- word_split_error[i]
@@ -144,8 +148,25 @@ extract_hypothesis <- function(input_text){
                       replacement = word_fix)
   }
   
-  # Convert to Sentence Case
-  h_statements <- str_to_sentence(h_statements, locale = "en")
+  # Verify Hypothesis Class with fastText Model
+  ## Generate Hypothesis Prediction Dataframe
+  hypothesis_pred <- ft_predict(ft_model, 
+                                newdata = h_statements, 
+                                rval = "dense") %>% 
+    as.data.frame()
+  
+  # Prediction Column Names
+  col_names <- names(hypothesis_pred)
+  
+  # Drop any statements were predicted as non-hypothesis class. 
+  if ("__label__0" %in% col_names) {
+    response <- hypothesis_pred %>% 
+      mutate(
+        Response = if_else(.[[1]] > .[[2]], FALSE, TRUE)
+      ) %>% pull(Response)
+    
+    h_statements <- h_statements[response]
+  }
   
   # Create Dataframe with Hypothesis Number and Hypothesis
   df_hypothesis <- as.data.frame(h_statements,

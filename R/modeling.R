@@ -11,14 +11,6 @@ library(stringr)
 # library(textstem)
 library(tidytext)
 
-# Python Modules----------------------------------------------------------------
-## Assign Python Binary
-use_python(python = "./../.causalityextractionnlp/bin/python")
-
-## Import Modules
-# gensim <- import("gensim")
-
-
 # Functions -------------------------------------------------------------------
 
 #' Trim Strings

@@ -119,8 +119,8 @@ trim_overlapping_entities <- function(entity_index_input){
     # If Overlap Exists, Trim Longest Node Range
   } else {
     # Define Node Range Length
-    span_entity_1 = length(entity_range_1)
-    span_entity_2 = length(entity_range_2)
+    span_entity_1 <- length(entity_range_1)
+    span_entity_2 <- length(entity_range_2)
     
     # Determine Median of Node Indexes 
     # to Determine Which Direction to Move
@@ -134,7 +134,7 @@ trim_overlapping_entities <- function(entity_index_input){
         
       } else {
         entity_1_dim <- length(entity_idx_1)
-        entity_idx_2 <- entity_idx_2[-entity_1_dim]
+        entity_idx_1 <- entity_idx_1[-entity_1_dim]
       }
       # First Node in Hypothesis - Node 2
     } else {
@@ -147,12 +147,12 @@ trim_overlapping_entities <- function(entity_index_input){
       }
     }
     # Store Trimmed Indexes For Output
-    entity_index_input <- vector(mode = "list", length = 2)
-    entity_index_input[[1]] = entity_idx_1
-    entity_index_input[[2]] = entity_idx_2
+    entity_index_trim <- vector(mode = "list", length = 2)
+    entity_index_trim[[1]] = entity_idx_1
+    entity_index_trim[[2]] = entity_idx_2
     
     # Recursively Execute Function
-    return(trim_overlapping_entities(entity_index_input))
+    return(trim_overlapping_entities(entity_index_trim))
   }
 }
 
@@ -264,7 +264,7 @@ index_to_entity <- function(hypothesis, entity_index_input) {
 #'     List containing the extracted entity text (list)
 #
 
-wrapper_entity_extraction_indv <- function(hypothesis) {
+entity_extraction_indv <- function(hypothesis) {
   # Generate Entity Class Predictions
   pred_classes <- gen_entity_class(hypothesis)
 
@@ -272,8 +272,12 @@ wrapper_entity_extraction_indv <- function(hypothesis) {
     
   # Trim Overlapping Entities
   ## Verify Both Entities Detected
-  both_entity_present <- vector_is_empty(index_entities[[1]]) & 
-    vector_is_empty(index_entities[[2]])
+  if (
+    !(vector_is_empty(index_entities[[1]])) & 
+    !(vector_is_empty(index_entities[[2]]))
+  ) {
+    both_entity_present = TRUE
+  }
   
   ## Trim Overlap
   if (both_entity_present) {
@@ -303,7 +307,7 @@ wrapper_entity_extraction_indv <- function(hypothesis) {
 #'     List containing the extracted entity text of all hypotheses(dataframe)
 #
 
-wrapper_entity_extraction_mult <- function(lst_hypothesis){
+entity_extraction_mult <- function(lst_hypothesis){
   # Initialize Output List
   num_hypothesis <- length(lst_hypothesis)
   
@@ -314,15 +318,28 @@ wrapper_entity_extraction_mult <- function(lst_hypothesis){
     hypothesis <- lst_hypothesis[[i]]
     
     # Extract Entities
-    entity_text_output <- wrapper_entity_extraction_indv(hypothesis)
+    entity_text_output <- entity_extraction_indv(hypothesis)
     
     # Store in Output List
     lst_entity_text_output[[i]] <- entity_text_output
   }
   # Convert List of Lists to Dataframe
+  # Convert List of Lists to Dataframe
   df_entity_text_output <- as.data.frame(
     do.call(rbind, lapply(lst_entity_text_output, as.vector))) %>% 
-    rename(node_1 = V1, node_2 = V2)
+    rename(cause = V1, effect = V2)
+  
+  # Replace Missing Entity Tag
+  missing_entity_tag <- "<Entity Not Detected>"
+  
+  df_entity_text_output <- df_entity_text_output %>% 
+    mutate(
+      cause = na_if(cause, missing_entity_tag),
+      effect = na_if(effect, missing_entity_tag)
+    ) %>% 
+    mutate(
+      effect = str_remove_all(effect, "\\.")
+    )
   
   return(df_entity_text_output)
 }
