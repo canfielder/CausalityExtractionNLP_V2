@@ -1,0 +1,129 @@
+---
+title: "Entity Extraction Performance Evaluation - R & Python"
+author: "Evan Canfield"
+date: "12/30/2020"
+output:
+  html_document:
+    df_print: kable
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Purpose
+The purpose of this notebook is to test how to implement the complete Causality Extraction NLP project.
+
+# Import
+## Libraries
+```{r import_libraries, message=FALSE}
+  if (!require(pacman)) {install.packages('pacman')}
+  p_load(
+    dplyr,
+    purrr,
+    quanteda,
+    stringr,
+    tidyr,
+    tidytext
+  )
+```
+
+## Source Files
+The following imports functions defined in the sourced R scripts.
+```{r load_source_files, warning=FALSE, message=FALSE}
+# Import All Scripts
+script_path <- "../R/"
+file_paths <- list.files(recursive = TRUE, 
+                         path = script_path, pattern = ".R", 
+                         full.names = TRUE)
+
+for (file in file_paths){
+  source(file)
+}
+```
+
+## Data
+```{r import_data}
+# PDF Input
+## Define Path
+pdf_path_a <- "./../data/acadmic_papers_pdf_sample/jv04amj.pdf"
+pdf_path_b <- "./../data/acadmic_papers_pdf_sample/wq11amj.pdf"
+pdf_path_c <- "test_name.pdf"
+pdf_paths <- c(pdf_path_a, pdf_path_b)
+
+pdf_path <- pdf_paths[2]
+```
+
+## Python Modules
+```{r}
+np <- import("numpy")
+joblib <- import("joblib")
+nltk_stem <- import("nltk.stem")
+```
+
+# PDF Name
+```{r}
+last(str_split(pdf_path_a, pattern = "/")[[1]])
+```
+
+# Steps
+
+* Text Pre-processing
+* Hypothesis Extraction
+* Entity Extraction
+* Causality Classification
+* Final Output Table
+
+```{r warning=FALSE}
+
+lst_output <- vector(mode = "list", length = length(pdf_paths))
+for (i in seq_along(pdf_paths)) {
+  pdf <- pdf_paths[i]
+
+  # Generate Final Table Components
+  ## File Name
+  file_name <- last(str_split(pdf, pattern = "/")[[1]])
+  print(file_name)
+  
+  ## Text Pre-processing
+  text_processed <- process_text(pdf)
+  
+  ## Hypothesis Classification
+  hypothesis <- hypothesis_extraction(text_processed)
+  
+  ## Entity Extraction
+  entities <- entity_extraction(hypothesis)
+  
+  ## Causality Classification
+  causality_class <- causality_classification(hypothesis)
+  causality_class <- data.frame(causality_class)
+  
+  # Compile Table
+  iter_df <- cbind(hypothesis, entities) %>% drop_na()
+  iter_df <- cbind(iter_df, causality_class)
+  iter_df$file_name <- file_name
+  
+  # Modify Headers and Format
+  iter_df <- iter_df %>% 
+    rename(
+      hypothesis_num = h_id,
+      causal_relationship = causality_pred
+      ) %>% 
+    select(
+      file_name, hypothesis_num, hypothesis, cause, 
+      effect, causal_relationship
+      ) %>% 
+    modify_if(is.factor, as.character)
+  
+  # Store in List
+  lst_output[[i]] <- iter_df
+}
+
+output_df <- bind_rows(lst_output)
+output_df
+```
+
+```{r}
+
+```
+

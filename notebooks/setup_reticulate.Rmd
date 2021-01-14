@@ -22,8 +22,8 @@ python_path = Sys.getenv('PYTHON_PATH')
 
 virtualenv_list <-  reticulate::virtualenv_list()
 
-PYTHON_DEPENDENCIES = c("numpy", "joblib", "scikit-learn", "tensorflow",
-                        "tika", "pdfminer")
+PYTHON_DEPENDENCIES = c("numpy", "joblib", "scikit-learn = 0.23.2", "tensorflow",
+                        "tika", "pdfminer", "nltk", "scipy")
 
 # Create New Virtual Environment if Needed
 if (!(virtualenv_dir %in% virtualenv_list)){
@@ -36,6 +36,15 @@ reticulate::virtualenv_install(virtualenv_dir, packages = PYTHON_DEPENDENCIES,
 
 reticulate::use_virtualenv(virtualenv_dir, required = TRUE)
 ```
+
+# Download Wordnet from NLTK
+
+```{r}
+nltk <- import("nltk")
+
+nltk$download('wordnet')
+```
+
 
 ```{r}
 py_config()

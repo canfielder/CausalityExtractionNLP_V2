@@ -12,7 +12,7 @@ tf <- import("tensorflow")
 
 ## Entity Extraction Model
 path_model <- "./../models/entity_extraction/"
-model <- tf$keras$models$load_model(path_model)
+model_entity <- tf$keras$models$load_model(path_model)
 
 #' Functions -------------------------------------------------------------------
 #' VECTOR IS EMPTY
@@ -49,7 +49,7 @@ gen_entity_class <- function(hypothesis) {
   hypothesis_np <- np$array(hypothesis)
   
   # Generate Predictions
-  pred_classes_array<- model$predict_classes(hypothesis_np)
+  pred_classes_array<- model_entity$predict_classes(hypothesis_np)
   
   # Convert Predictions to Vector
   pred_classes <- as.vector(pred_classes_array)
@@ -195,8 +195,8 @@ trim_outlier_indexes <- function(entity_index_input) {
     lower <- summary[2] - iqr.range * 1.5
     
     # Drop if Index is Outlier
-    index <- index[index > lower]
-    index <- index[index < upper]
+    index <- index[index >= lower]
+    index <- index[index <= upper]
     
     entity_index_output[[i]] <- index
   }
@@ -272,6 +272,7 @@ entity_extraction_indv <- function(hypothesis) {
     
   # Trim Overlapping Entities
   ## Verify Both Entities Detected
+  both_entity_present = FALSE
   if (
     !(vector_is_empty(index_entities[[1]])) & 
     !(vector_is_empty(index_entities[[2]]))
@@ -299,23 +300,26 @@ entity_extraction_indv <- function(hypothesis) {
 #' hypotheses.
 #'
 #' INPUT
-#' * lst_hypothesis:
-#'     List of extracted hypotheses (list)
+#' * hypothesis_df:
+#'     Dataframe output from Extract Hypothesis process
 #' 
 #' OUTPUT
 #' * df_entity_text_output:
 #'     List containing the extracted entity text of all hypotheses(dataframe)
 #
 
-entity_extraction_mult <- function(lst_hypothesis){
+entity_extraction <- function(hypothesis_df){
+  # Extract Entity Extraction Input as Vector
+  hypothesis_vec <- hypothesis_df %>% pull(hypothesis)
+  
   # Initialize Output List
-  num_hypothesis <- length(lst_hypothesis)
+  num_hypothesis <- length(hypothesis_vec)
   
   lst_entity_text_output <- vector(mode = "list", length = num_hypothesis)
   
-  for (i in seq_along(lst_hypothesis)){
+  for (i in seq_along(hypothesis_vec)){
     # Extract Hypothesis Test
-    hypothesis <- lst_hypothesis[[i]]
+    hypothesis <- hypothesis_vec[i]
     
     # Extract Entities
     entity_text_output <- entity_extraction_indv(hypothesis)

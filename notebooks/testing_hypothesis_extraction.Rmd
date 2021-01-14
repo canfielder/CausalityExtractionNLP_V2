@@ -38,6 +38,8 @@ file_paths <- list.files(recursive = TRUE,
 for (file in file_paths){
   source(file)
 }
+
+file_paths
 ```
 ## fastText Model
 ```{r}
@@ -52,11 +54,8 @@ ft_model <- fastTextR::ft_load(path_ft_model)
 ## Define Path
 pdf_path <- "./../data/acadmic_papers_pdf_sample/jv04amj.pdf"
 
-pdf_txt_raw <- pdf_to_text(pdf_path)
-
-
 # Error Word Splits
-df_word_split_error <- read.csv(file ="./../data/next_line_split_error.csv", 
+df_word_split_error <- read.csv(file ="./../data/processing_next_line_split_error.csv", 
                                 stringsAsFactors = FALSE)
 word_split_error <- df_word_split_error %>% select(word) %>% pull
 ```
@@ -65,7 +64,7 @@ word_split_error <- df_word_split_error %>% select(word) %>% pull
 ## Preprocess Text Steps
 ```{r}
 # Process Text
-text_processed <- process_text(input_text = pdf_txt_raw)
+text_processed <- process_text(pdf_path)
 
 input_text <- text_processed
 ```
@@ -159,7 +158,7 @@ h_number
 
 output <- vector(mode = "logical", length = length(h_number))
 tracker <- vector(mode = "integer", length = length(h_number))
-tracker
+
 for (i in seq_along(h_number)) {
   num <- h_number[i]
 
@@ -202,19 +201,17 @@ h_statements
 
 
 ```{r}
-  # Drop ~Hypo #:~
-  h_statements <- gsub(".*: ","",h_statements)
 
-  # Drop Empty Strings
-  h_statements <- h_statements[h_statements != ""]
-  
-  
-  h_statements
+  # Maintain Data 
+  hypothesis_causality_input <- h_statements
+
+  # Drop ~Hypo #:~
+  hypothesis <- gsub(".*: ","",h_statements)
 ```
 ```{r}
 # Fasttext Verification
 hypothesis_pred <- fastTextR::ft_predict(ft_model, 
-                                         newdata = h_statements, 
+                                         newdata = hypothesis, 
                                          rval = "dense") %>% 
         as.data.frame()
 
@@ -226,26 +223,25 @@ if ("__label__0" %in% col_names) {
         Response = if_else(.[[1]] > .[[2]], FALSE, TRUE)
     ) %>% pull(Response)
   
-  h_statements <- h_statements[response]
+  hypothesis_causality_input <- hypothesis_causality_input[response]
+  hypothesis <- hypothesis[response]
 }
 
-h_statements
+hypothesis_causality_input
 ```
 
 
 ```{r}
 # Convert Text
-  h_statements <- str_to_sentence(h_statements, locale = "en")
+  hypothesis <- str_to_sentence(hypothesis, locale = "en")
 ```
 
 
 ```{r}
   # Create Dataframe with Hypothesis Number and Hypothesis
-  df_hypothesis <- as.data.frame(h_statements,
-                                 stringsAsFactors = FALSE)
-```
+  df_hypothesis <- data.frame(hypothesis,
+                                 hypothesis_causality_input, 
+                              stringsAsFactors = FALSE)
 
-
-```{r}
 df_hypothesis
 ```

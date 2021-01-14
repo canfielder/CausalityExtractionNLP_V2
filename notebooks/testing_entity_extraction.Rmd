@@ -12,8 +12,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 # Purpose
-The purpose of this notebook is to test how to implement the Entity Extraction model to convert hypotheses into entities.
-
+The purpose of this notebook is to test the Entity Extraction Process
 # Import
 ## Libraries
 ```{r import_libraries, message=FALSE}
@@ -45,32 +44,35 @@ for (file in file_paths){
 ```{r import_data}
 # PDF Input
 ## Define Path
-pdf_path <- "./../data/acadmic_papers_pdf_sample/jv04amj.pdf"
+pdf_path_a <- "./../data/acadmic_papers_pdf_sample/jv04amj.pdf"
+pdf_path_b <- "./../data/acadmic_papers_pdf_sample/wq11amj.pdf"
 
-pdf_txt_raw <- pdf_to_text(pdf_path)
+pdf_paths <- c(pdf_path_a, pdf_path_b)
+
+pdf_path <- pdf_paths[2]
 ```
 
 ## Python Modules
 In order to use the Entity Extraction model in R, we need to import the Tensorflow Python package via the Reticulate Package. In addition, to ensure the training/test split is equivalent, we will also use the Sci-kit Learn Module.
 
 # Process Data
-## Process Text and Extract Hypotheses
+## Preceding Steps
 First, we process our raw input and extract hypotheses.
 ```{r process_extract_hypothesis}
 # Process Text
-text_processed <- process_text(input_text = pdf_txt_raw)
+text_processed <- process_text(pdf_path)
 
 # Extract Hypothesis
-hypo_xtr_vec <- extract_hypothesis(text_processed) %>% 
-  select(hypothesis) %>% 
-  pull()
+hypothesis_df <- hypothesis_extraction(text_processed) 
 ```
 
 # Hypothesis Selection
 For the following process, one hypothesis will be selected as a indicative sample. We will use this hypothesis to work through the process of turning a hypothesis into two extracted entities. Once the process is solidified, we can apply it across all available hypothesis.
 ```{r select_exmample_hypothesis}
-n = 9
-hypothesis <- hypo_xtr_vec[n]
+n = 3
+
+hypothesis_vec <- hypothesis_df %>% pull(hypothesis)
+hypothesis <- hypothesis_vec[n]
 hypothesis
 ```
 
@@ -114,7 +116,7 @@ print("Nodes Indexes - Pre")
 index_entities
 
 # Verify Both Entities Detected
-
+  both_entity_present = FALSE
 if (
   !(vector_is_empty(index_entities[[1]])) & 
   !(vector_is_empty(index_entities[[2]]))
@@ -122,58 +124,14 @@ if (
   both_entity_present = TRUE
 }
 
+a <- !(vector_is_empty(index_entities[[1]]))
+b <- !(vector_is_empty(index_entities[[2]]))
 
-# Trim Overlap
-if (both_entity_present) {
-  index_entities <- trim_overlapping_entities(index_entities)
-}
-
-
-print("Nodes Indexes - Post")
-print(index_entities)
+both_entity_present
 ```
 
-
 ```{r}
-entity_index_input <- index_entities
-
-  entity_idx_1 <- entity_index_input[[1]]
-  entity_idx_2 <- entity_index_input[[2]]
-  
-  entity_range_1 <- min(entity_idx_1):max(entity_idx_1)
-  entity_range_1
-  entity_range_2 <- min(entity_idx_2):max(entity_idx_2)
-  entity_range_2
-  
-  range_overlap <- intersect(entity_range_1,entity_range_2 )
-  range_overlap
-  
-  span_entity_1 = length(entity_range_1)
-  span_entity_1
-  span_entity_2 = length(entity_range_2)
-  span_entity_2
-
-  med_entity_1_idx <- median(entity_idx_1)
-  med_entity_1_idx
-  
-  med_entity_2_idx <- median(entity_idx_2)
-  med_entity_2_idx
-  
-  entity_1_dim <- length(entity_idx_1)
-  entity_1_dim
-  entity_idx_1 <- entity_idx_1[-entity_1_dim]
-  entity_idx_1
-  
-    entity_index_trim <- vector(mode = "list", length = 2)
-    entity_index_trim[[1]] = entity_idx_1
-    entity_index_trim[[2]] = entity_idx_2
-    
-    entity_index_trim
-```
-
-
-```{r}
-trim_overlapping_entities <- function(entity_index_input){
+trim_overlapping_entities_local <- function(entity_index_input){
   # Extract Node 1 and node 2 Index
   entity_idx_1 <- entity_index_input[[1]]
   entity_idx_2 <- entity_index_input[[2]]
@@ -228,25 +186,27 @@ trim_overlapping_entities <- function(entity_index_input){
     return(trim_overlapping_entities(entity_index_trim))
   }
 }
-
-trim_overlapping_entities(index_entities)
 ```
-
 
 ```{r}
-trim_overlapping_entities(index_entities)
-```
 
+if (both_entity_present) {
+  index_entities_global <- trim_overlapping_entities(index_entities)
+  index_entities_local <- trim_overlapping_entities_local(index_entities)
+  index_entities_global
+  index_entities_local
+}
+```
 
 ## Outliers
 For outlier predicted classes, we use the standard Box Plot outlier definition, *1.5 x Interquartile Range*. We define a function which identifies outlier indexes and the trims them.
 
 ```{r}
-print("Nodes Indexes - Pre")
-print(index_entities)
-index_entities <- trim_outlier_indexes(index_entities)
-print("Nodes Indexes - Post")
-print(index_entities)
+# print("Nodes Indexes - Pre")
+# print(index_entities)
+# index_entities <- trim_outlier_indexes(index_entities)
+# print("Nodes Indexes - Post")
+# print(index_entities)
 ```
 
 ```{r}
@@ -276,11 +236,13 @@ entity_index_input <- index_entities
     print(upper)
     print(lower)
     # Drop if Index is Outlier
-    index <- index[index > lower]
-    index <- index[index < upper]
+    index <- index[index >= lower]
+    index <- index[index <= upper]
     
     entity_index_output[[i]] <- index
   }
+
+entity_index_output
 ```
 
 
@@ -309,7 +271,7 @@ wrapper_test_indv
 ## Multiple Hypotheses
 The followings tests the Entity Extraction process on a list of extracted hypotheses.
 ```{r}
-wrapper_test_mult <- wrapper_entity_extraction_mult(hypo_xtr_vec)
+wrapper_test_mult <- entity_extraction(hypothesis_df)
 wrapper_test_mult
 ```
 

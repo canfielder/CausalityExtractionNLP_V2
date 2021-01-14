@@ -4,6 +4,7 @@
 #' academic paper.
 #'
 
+
 # Library ----------------------------------------------------------------------
 library(dplyr)
 library(readxl)
@@ -11,15 +12,17 @@ library(reticulate)
 library(stringr)
 library(tokenizers)
 
-## Python Modules
-parser <- import("tika.parser")
+## Python Scripts
+source_python("./../source/pdf_to_text.py")
+
 
 # Data -------------------------------------------------------------------------
 # Patterns File
 patterns_col <- c("remove","comments")
-patterns_raw <- read_excel(path = "./../data/patterns.xlsx", 
+patterns_raw <- read_excel(path = "./../data/processing_patterns.xlsx", 
                            col_names = patterns_col)
 removal_patterns <- patterns_raw %>% pull(remove)
+
 
 # REGEX Strings ----------------------------------------------------------------
 ## Identify Letters
@@ -61,26 +64,12 @@ regex_hypo <- c('h[0-9]{1,3}[a-zA-Z]\\:',
 regex_return_num <- "(\\d)+"
 
 
-
-# Functions -------------------------------------------------------------------
-
-#' Convert PDF to Text
-#' The following function converts a PDF file into raw text.
-#
-
-pdf_to_text <- function(path_pdf) {
-  pdf_tika_package <- parser$from_file(pdf_path)
-  
-  pdf_txt <- pdf_tika_package$content
-
-  return(pdf_txt)
-}
+# Functions --------------------------------------------------------------------
 
 # Generate Regex From Vector
 # The following function takes a character vector and generates
 # a regex string. The string with either identify and partial
 # or exact match, based on input.
-
 
 gen_regex <- function(input_vector, match){
   input_vector_exact <- c()
@@ -230,20 +219,23 @@ standardize_hypothesis <- Vectorize(standardize_hypothesis)
 
 
 #' Process Text
-#' The following function executes all steps in the text
-#' pre-processing steps.
+#' The following function converts the PDF into raw text and executes 
+#' all steps in the text pre-processing steps.
 #'
 
-process_text <- function(input_text){
+process_text <- function(input_path){
+  
+  # Convert --------------------------------------------------------------------
+  input_text <- pdf_to_text_pdfminer(input_path)
 
-  # Vectorize -----------------------------------------------------------------
+  # Vectorize ------------------------------------------------------------------
   ## Split Text into Character Vector
   processing_text <- input_text %>%
     str_split(pattern = "\r\n") %>% # Tabulizer
     str_split(pattern = "\n") %>% # Tika
     unlist()
 
-  # References / Bibliography -------------------------------------------------
+  # References / Bibliography --------------------------------------------------
   ## Remove Anything From References / Bibliography to End
   ## Define Sections
   section_key <- c("References", "Bibliography",

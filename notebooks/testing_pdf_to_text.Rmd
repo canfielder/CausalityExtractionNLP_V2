@@ -23,7 +23,6 @@ The purpose of this notebook is to test using different methods for converting r
     dplyr,
     readxl,
     reticulate,
-    rtika,
     stringr,
     tidyr
   )
@@ -47,7 +46,6 @@ for (file in file_paths){
 ```{r}
 parser <- import("tika.parser")
 
-# PDF Miner
 ```
 
 ## Data
@@ -60,18 +58,28 @@ pdf_path <- "./../data/acadmic_papers_pdf_sample/jv04amj.pdf"
 # R - RTika
 The follow processes the sample PDF using Tika via the R package.
 ```{r}
-pdf_txt_raw_r <- tika_text(pdf_path)
-
-pdf_txt_raw_r %>% substr(1,100)
+# pdf_txt_raw_r <- tika_text(pdf_path)
+# 
+# pdf_txt_raw_r %>% substr(1,100)
 ```
 
 # Python - Tika
 ```{r}
 pdf_tika_py <- parser$from_file(pdf_path)
 
-pdf_txt_raw_py <- pdf_tika_py$content
+pdf_txt_raw_py_tika <- pdf_tika_py$content
 
-pdf_txt_raw_py %>% substr(1,100)
+pdf_txt_raw_py_tika %>% substr(1,100)
 ```
 
 # Python - PDF Miner
+
+```{r}
+# Source PDFMiner Script
+source_python("./../source/pdf_to_text.py")
+
+pdf_txt_raw_py_pdfminer <- pdf_to_text(pdf_path)
+
+pdf_txt_raw_py_pdfminer %>% substr(1,100)
+```
+

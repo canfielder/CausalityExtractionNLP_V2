@@ -11,7 +11,8 @@ library(tokenizers)
 
 # Data -------------------------------------------------------------------------
 ## Table for correcting incorrectly split words
-df_word_split_error <- read.csv(file ="./../data/next_line_split_error.csv", 
+path_split <-  "./../data/processing_next_line_split_error.csv"
+df_word_split_error <- read.csv(file = path_split, 
                                 stringsAsFactors = FALSE)
 
 word_split_error <- df_word_split_error %>% select(word) %>% pull
@@ -32,7 +33,7 @@ regex_hypo_marker <- "<split>hypo (.*?):"
 #' and returns hypothesis statements.
 #
 
-extract_hypothesis <- function(input_text){
+hypothesis_extraction <- function(input_text){
   # Tokenize, Sentence --------------------------------------------------------
 
   # Concatenate All Vector Elements, Separated By Line Split
@@ -127,13 +128,6 @@ extract_hypothesis <- function(input_text){
   ## Drop Duplicates and Non-Hypotheses
   h_statements <- h_statements[logical_hypothesis_3]
   
-  
-  # Drop ~Hypo #:~
-  h_statements <- gsub(".*: ","",h_statements)
-  
-  # Drop Empty Strings
-  h_statements <- h_statements[h_statements != ""]
-  
   # Fix Words Split over New Line
   for (i in seq_along(word_split_error)) {
     # Select Incorrect and Fixed Words
@@ -148,37 +142,47 @@ extract_hypothesis <- function(input_text){
                       replacement = word_fix)
   }
   
+  # Save Current State
+  hypothesis_causality <- h_statements
+  
+  
+  # Drop ~Hypo #:~
+  hypothesis_entity <- gsub(".*: ","", h_statements)
+  
+
   # Verify Hypothesis Class with fastText Model
   ## Generate Hypothesis Prediction Dataframe
   hypothesis_pred <- ft_predict(ft_model, 
-                                newdata = h_statements, 
+                                newdata = hypothesis_entity, 
                                 rval = "dense") %>% 
     as.data.frame()
   
-  # Prediction Column Names
+  ## Prediction Column Names
   col_names <- names(hypothesis_pred)
   
-  # Drop any statements were predicted as non-hypothesis class. 
+  ## Drop any statements were predicted as non-hypothesis class. 
   if ("__label__0" %in% col_names) {
     response <- hypothesis_pred %>% 
       mutate(
         Response = if_else(.[[1]] > .[[2]], FALSE, TRUE)
       ) %>% pull(Response)
     
-    h_statements <- h_statements[response]
+    hypothesis_entity <- hypothesis_entity[response]
+    hypothesis_causality <- hypothesis_causality[response]
   }
   
   # Create Dataframe with Hypothesis Number and Hypothesis
-  df_hypothesis <- as.data.frame(h_statements,
-                                 stringsAsFactors = FALSE)
+  df_hypothesis <- data.frame(hypothesis_entity,
+                              hypothesis_causality,
+                              stringsAsFactors = FALSE)
 
   # Rename and add Hypothesis Number
   df_hypothesis <- df_hypothesis %>%
-    rename(hypothesis = h_statements) %>%
+    rename(hypothesis = hypothesis_entity) %>%
     mutate(
       h_id = paste0("h_", row_number())
     ) %>%
-    select(h_id, hypothesis)
+    select(h_id, hypothesis, hypothesis_causality)
 
   return(df_hypothesis)
 
