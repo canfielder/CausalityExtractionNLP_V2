@@ -112,7 +112,10 @@ gen_causality_model_input <- function(hypothesis) {
 #
 gen_causality_class <- function(model_input) {
   
-  causality_pred <- model_causality$predict(model_input)
+  # Convert to Numpy Array
+  model_input_np <- np$array(model_input)
+  
+  causality_pred <- model_causality$predict(model_input_np)
   
   return(causality_pred)
   

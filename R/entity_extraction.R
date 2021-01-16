@@ -327,7 +327,7 @@ entity_extraction <- function(hypothesis_df){
     # Store in Output List
     lst_entity_text_output[[i]] <- entity_text_output
   }
-  # Convert List of Lists to Dataframe
+
   # Convert List of Lists to Dataframe
   df_entity_text_output <- as.data.frame(
     do.call(rbind, lapply(lst_entity_text_output, as.vector))) %>% 
@@ -343,7 +343,8 @@ entity_extraction <- function(hypothesis_df){
     ) %>% 
     mutate(
       effect = str_remove_all(effect, "\\.")
-    )
+    ) %>% 
+    mutate(cause = as.character(cause))
   
   return(df_entity_text_output)
 }

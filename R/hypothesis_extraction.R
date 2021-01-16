@@ -28,12 +28,70 @@ regex_hypo_marker <- "<split>hypo (.*?):"
 
 # Functions -------------------------------------------------------------------
 
+# FASTTEXT MODEL CLASSIFICATION CHECK
+
+apply_fasttext <- function(hypothesis_entity, hypothesis_causality) {
+  # Verify Hypothesis Class with fastText Model
+  ## Generate Hypothesis Prediction Dataframe
+  
+  print("Appy fastText")
+  hypothesis_pred <- ft_predict(ft_model, 
+                                newdata = hypothesis_entity, 
+                                rval = "dense") %>% 
+    as.data.frame()
+  
+  ## Prediction Column Names
+  col_names <- names(hypothesis_pred)
+  
+  ## Drop any statements were predicted as non-hypothesis class. 
+  
+  if (!("__label__0" %in% col_names)) {
+    
+    response <- vector(mode = "logical", length = length(hypothesis_entity))
+    
+    for (i in seq_along(hypothesis_entity)){
+      
+      response[i] <- TRUE
+    
+      }
+    
+  } else if (!("__label__1" %in% col_names)) {
+    
+    response <- vector(mode = "logical", length = length(hypothesis_entity))
+    
+    for (i in seq_along(hypothesis_entity)){
+      
+      response[i] <- FALSE
+    
+      }
+    
+  } else {
+    
+    response <- hypothesis_pred %>% 
+      mutate(
+        Response = if_else(.[[1]] > .[[2]], FALSE, TRUE)
+      ) %>% pull(Response)
+  
+  }
+  
+  hypothesis_causality <- hypothesis_causality[response]
+  hypothesis_entity <- hypothesis_entity[response]
+  
+  output_hypothesis <- vector(mode = "list", length = 2)
+  output_hypothesis[[1]] <- hypothesis_causality
+  output_hypothesis[[2]] <- hypothesis_entity
+  
+  return(output_hypothesis)
+}
+
+
 #' Extract Hypotheses
 #' The following function accepts processed text in character vector form
 #' and returns hypothesis statements.
 #
 
-hypothesis_extraction <- function(input_text){
+
+hypothesis_extraction <- function(input_text, fasttext_tag = TRUE){
   # Tokenize, Sentence --------------------------------------------------------
 
   # Concatenate All Vector Elements, Separated By Line Split
@@ -145,32 +203,23 @@ hypothesis_extraction <- function(input_text){
   # Save Current State
   hypothesis_causality <- h_statements
   
-  
   # Drop ~Hypo #:~
   hypothesis_entity <- gsub(".*: ","", h_statements)
   
-
-  # Verify Hypothesis Class with fastText Model
-  ## Generate Hypothesis Prediction Dataframe
-  hypothesis_pred <- ft_predict(ft_model, 
-                                newdata = hypothesis_entity, 
-                                rval = "dense") %>% 
-    as.data.frame()
+  # Apply fasttext?
+   if (fasttext_tag) {
   
-  ## Prediction Column Names
-  col_names <- names(hypothesis_pred)
+    # Filter by Fasttext Model
+    if (!(purrr::is_empty(hypothesis_entity))) {
+      
+      output_hypothesis <- apply_fasttext(hypothesis_entity, hypothesis_causality)
   
-  ## Drop any statements were predicted as non-hypothesis class. 
-  if ("__label__0" %in% col_names) {
-    response <- hypothesis_pred %>% 
-      mutate(
-        Response = if_else(.[[1]] > .[[2]], FALSE, TRUE)
-      ) %>% pull(Response)
+      hypothesis_causality <- output_hypothesis[[1]]
+      hypothesis_entity <- output_hypothesis[[2]]
+    }
+     
+   }
     
-    hypothesis_entity <- hypothesis_entity[response]
-    hypothesis_causality <- hypothesis_causality[response]
-  }
-  
   # Create Dataframe with Hypothesis Number and Hypothesis
   df_hypothesis <- data.frame(hypothesis_entity,
                               hypothesis_causality,
