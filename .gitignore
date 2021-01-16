@@ -37,3 +37,7 @@ vignettes/*.pdf
 
 # R Environment Variables
 .Renviron
+
+
+# PDF Data
+/data/academic_papers_pdf/
