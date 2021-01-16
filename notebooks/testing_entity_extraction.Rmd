@@ -43,13 +43,13 @@ for (file in file_paths){
 ## Data
 ```{r import_data}
 # PDF Input
-## Define Path
-pdf_path_a <- "./../data/acadmic_papers_pdf_sample/jv04amj.pdf"
-pdf_path_b <- "./../data/acadmic_papers_pdf_sample/wq11amj.pdf"
-
-pdf_paths <- c(pdf_path_a, pdf_path_b)
-
-pdf_path <- pdf_paths[2]
+folder_path <- "./../data/acadmic_papers_pdf_sample/"
+pdf_paths <- list.files(recursive = FALSE, 
+                       path = folder_path, 
+                       pattern = ".pdf", 
+                       full.names = TRUE)
+pdf_path <-pdf_paths[2]
+print(pdf_path)
 ```
 
 ## Python Modules
@@ -61,9 +61,13 @@ First, we process our raw input and extract hypotheses.
 ```{r process_extract_hypothesis}
 # Process Text
 text_processed <- process_text(pdf_path)
+text_processed
 
 # Extract Hypothesis
 hypothesis_df <- hypothesis_extraction(text_processed) 
+empty_hypothesis_check <- hypothesis_df %>% pull(hypothesis)
+
+purrr::is_empty(empty_hypothesis_check)
 ```
 
 # Hypothesis Selection

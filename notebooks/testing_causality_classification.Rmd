@@ -46,7 +46,11 @@ for (file in file_paths){
 ```{r import_data}
 # PDF Input
 ## Define Path
-pdf_path <- "./../data/acadmic_papers_pdf_sample/jv04amj.pdf"
+folder_path <- "./../data/acadmic_papers_pdf_sample/"
+pdf_paths <- list.files(recursive = FALSE, 
+                       path = folder_path, 
+                       pattern = ".pdf", 
+                       full.names = TRUE)
 ```
 
 ## Python Modules
@@ -70,17 +74,17 @@ Before Causality Classification occurs, the following steps happen:
 
 ```{r}
 # Text Pre-processing
+pdf_path <- pdf_paths[8]
+pdf_path
 text_processed <- process_text(pdf_path)
 
 # Hypothesis Classification
-hypothesis <- extract_hypothesis(text_processed)
-
+hypothesis <- hypothesis_extraction(text_processed, fasttext_tag = FALSE)
 
 hypothesis_causality <- hypothesis %>% select(hypothesis_causality)
-hypothesis_entity <- hypothesis %>% pull(hypothesis)
 
 # Entity Extraction
-entities <- entity_extraction_mult(hypothesis_entity)
+entities <- entity_extraction(hypothesis)
 
 entities
 hypothesis_causality
@@ -151,7 +155,7 @@ causality_03 <- causality_02 %>%
   distinct() %>% 
   pull(sentence)
 
-causality_03
+
 ```
 
 # Model
@@ -173,7 +177,9 @@ model_causality$predict_proba(input)
 
 ## Actual Data
 ```{r}
-causality_pred <- model_causality$predict(causality_03)
+causality_04 <- np_array(causality_03)
+
+causality_pred <- model_causality$predict(causality_04)
 
 causality <- data.frame(causality_pred) %>% rename(causality = causality_pred)
 

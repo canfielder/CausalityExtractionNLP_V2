@@ -51,8 +51,13 @@ ft_model <- fastTextR::ft_load(path_ft_model)
 ## Data
 ```{r import_data}
 # PDF Input
-## Define Path
-pdf_path <- "./../data/acadmic_papers_pdf_sample/jv04amj.pdf"
+folder_path <- "./../data/acadmic_papers_pdf_sample/"
+pdf_paths <- list.files(recursive = FALSE, 
+                       path = folder_path, 
+                       pattern = ".pdf", 
+                       full.names = TRUE)
+pdf_path <-pdf_paths[9]
+print(pdf_path)
 
 # Error Word Splits
 df_word_split_error <- read.csv(file ="./../data/processing_next_line_split_error.csv", 
@@ -112,6 +117,7 @@ regex_hypo_marker <- "<split>hypo (.*?):"
   
   # Reduce Text to Only Initial Hypothesis Instances
   h_statements <- processing_text[h_initial]
+  h_statements
 
 ```
 
@@ -184,18 +190,18 @@ h_statements <- h_statements[output]
 ```
 
 ```{r}
-
-  for (i in seq_along(word_split_error)) {
-    word_split <- word_split_error[i]
-    word_fix <- str_replace_all(string = word_split, 
-                                  pattern = " ",
-                                  replacement = "")
-    
-    h_statements <- h_statements %>% 
-      str_replace_all(pattern = word_split, replacement = word_fix)
-  }
-
-h_statements
+# 
+#   for (i in seq_along(word_split_error)) {
+#     word_split <- word_split_error[i]
+#     word_fix <- str_replace_all(string = word_split, 
+#                                   pattern = " ",
+#                                   replacement = "")
+#     
+#     h_statements <- h_statements %>% 
+#       str_replace_all(pattern = word_split, replacement = word_fix)
+#   }
+# 
+# h_statements
 ```
 
 
@@ -203,45 +209,41 @@ h_statements
 ```{r}
 
   # Maintain Data 
-  hypothesis_causality_input <- h_statements
+  hypothesis_causality <- h_statements
 
   # Drop ~Hypo #:~
-  hypothesis <- gsub(".*: ","",h_statements)
+  hypothesis_entity <- gsub(".*: ","",h_statements)
+  hypothesis_entity
 ```
+
 ```{r}
-# Fasttext Verification
-hypothesis_pred <- fastTextR::ft_predict(ft_model, 
-                                         newdata = hypothesis, 
-                                         rval = "dense") %>% 
-        as.data.frame()
+fasttext_tag = FALSE
+# fasttext_tag = TRUE
 
-col_names <- names(hypothesis_pred)
-
-if ("__label__0" %in% col_names) {
-  response <- hypothesis_pred %>% 
-    mutate(
-        Response = if_else(.[[1]] > .[[2]], FALSE, TRUE)
-    ) %>% pull(Response)
+if (fasttext_tag) {
+  output_hypothesis <- apply_fasttext(hypothesis_entity, hypothesis_causality)
   
-  hypothesis_causality_input <- hypothesis_causality_input[response]
-  hypothesis <- hypothesis[response]
+  hypothesis_causality = output_hypothesis[[1]]
+  hypothesis_entity = output_hypothesis[[2]]
 }
 
-hypothesis_causality_input
+hypothesis_entity
+hypothesis_causality
 ```
 
 
 ```{r}
 # Convert Text
-  hypothesis <- str_to_sentence(hypothesis, locale = "en")
+hypothesis_entity <- str_to_sentence(hypothesis_entity, locale = "en")
+hypothesis_entity
 ```
 
 
 ```{r}
   # Create Dataframe with Hypothesis Number and Hypothesis
-  df_hypothesis <- data.frame(hypothesis,
-                                 hypothesis_causality_input, 
-                              stringsAsFactors = FALSE)
+df_hypothesis <- data.frame(hypothesis_entity,
+                            hypothesis_causality, 
+                            stringsAsFactors = FALSE)
 
 df_hypothesis
 ```
