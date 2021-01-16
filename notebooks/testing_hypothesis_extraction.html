@@ -410,11 +410,19 @@ file_paths &lt;- list.files(recursive = TRUE,
 
 for (file in file_paths){
   source(file)
-}
-
-file_paths</code></pre>
-<pre><code>## [1] &quot;../R//entity_extraction.R&quot;     &quot;../R//hypothesis_extraction.R&quot;
-## [3] &quot;../R//text_preprocessing.R&quot;</code></pre>
+}</code></pre>
+<pre><code>## Package version: 2.1.2</code></pre>
+<pre><code>## Parallel computing: 2 of 8 threads used.</code></pre>
+<pre><code>## See https://quanteda.io for tutorials and examples.</code></pre>
+<pre><code>## 
+## Attaching package: &#39;quanteda&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:utils&#39;:
+## 
+##     View</code></pre>
+<pre class="r"><code>file_paths</code></pre>
+<pre><code>## [1] &quot;../R//causality_classification.R&quot; &quot;../R//complete_process.R&quot;        
+## [3] &quot;../R//entity_extraction.R&quot;        &quot;../R//hypothesis_extraction.R&quot;   
+## [5] &quot;../R//text_preprocessing.R&quot;</code></pre>
 </div>
 <div id="fasttext-model" class="section level2">
 <h2>fastText Model</h2>
@@ -425,14 +433,15 @@ ft_model &lt;- fastTextR::ft_load(path_ft_model)</code></pre>
 <div id="data" class="section level2">
 <h2>Data</h2>
 <pre class="r"><code># PDF Input
-## Define Path
-pdf_path &lt;- &quot;./../data/acadmic_papers_pdf_sample/jv04amj.pdf&quot;
-
-# source_python(&quot;./../source/pdf_to_text.py&quot;)
-# 
-# pdf_txt_raw &lt;- pdf_to_text_pdfminer(pdf_path)
-
-# Error Word Splits
+folder_path &lt;- &quot;./../data/acadmic_papers_pdf_sample/&quot;
+pdf_paths &lt;- list.files(recursive = FALSE, 
+                       path = folder_path, 
+                       pattern = &quot;.pdf&quot;, 
+                       full.names = TRUE)
+pdf_path &lt;-pdf_paths[3]
+print(pdf_path)</code></pre>
+<pre><code>## [1] &quot;./../data/acadmic_papers_pdf_sample//afglmm10hrm.pdf&quot;</code></pre>
+<pre class="r"><code># Error Word Splits
 df_word_split_error &lt;- read.csv(file =&quot;./../data/processing_next_line_split_error.csv&quot;, 
                                 stringsAsFactors = FALSE)
 word_split_error &lt;- df_word_split_error %&gt;% select(word) %&gt;% pull</code></pre>
@@ -486,7 +495,10 @@ regex_hypo_marker &lt;- &quot;&lt;split&gt;hypo (.*?):&quot;
   }
   
   # Reduce Text to Only Initial Hypothesis Instances
-  h_statements &lt;- processing_text[h_initial]</code></pre>
+  h_statements &lt;- processing_text[h_initial]
+  h_statements</code></pre>
+<pre><code>## [1] &quot;guided by previous evidence, we test the following hypothesis: &lt;split&gt;hypo 1: increased use of high performance work systems results in increased labor productivity, increased workforce innovation, and decreased voluntary employee turnover.&quot;                
+## [2] &quot;more formally: &lt;split&gt;hypo 2: increased use of diversity/equality management systems results in increased labor productivity, workforce innovation, and decreased voluntary employee turnover, over and above the contribution of high performance work systems.&quot;</code></pre>
 <pre class="r"><code>  # Split Statements On Indicator (Defined in Processing) ---------------------
   ## Define
   split_indicator &lt;- &quot;&lt;split&gt;&quot;
@@ -503,49 +515,13 @@ regex_hypo_marker &lt;- &quot;&lt;split&gt;hypo (.*?):&quot;
   h_statements &lt;- h_statements[logical_hypothesis_2]
   
   h_statements</code></pre>
-<pre><code>##  [1] &quot;accordingly, the following hypotheses were formed: &quot;                                                                                                                                                                                                                                                                                                                      
-##  [2] &quot;hypo 1: a mastery orientation is posi tively related to in-role job performance. &quot;                                                                                                                                                                                                                                                                                        
-##  [3] &quot;hypo 2: a performance orientation is positively related to in-role job performance.&quot;                                                                                                                                                                                                                                                                                      
-##  [4] &quot;this line of reasoning about the relationship be tween goal orientation and innovative job perfor mance led to the following hypotheses: &quot;                                                                                                                                                                                                                                
-##  [5] &quot;hypo 3: a mastery orientation is posi tively related to innovative job performance. &quot;                                                                                                                                                                                                                                                                                     
-##  [6] &quot;hypo 4: a performance orientation is negatively related to innovative job perfor mance. is in itself indicative of success .&quot;                                                                                                                                                                                                                                             
-##  [7] &quot;hence, we hypothe sized that a mastery orientation is positively related to job satisfaction, whereas a negative relationship was expected between performance orientation and job satisfaction. &quot;                                                                                                                                                                        
-##  [8] &quot;hypo 5: a mastery orientation is posi tively related to job satisfaction. &quot;                                                                                                                                                                                                                                                                                               
-##  [9] &quot;hypo 6: a performance orientation is negatively related to job satisfaction.&quot;                                                                                                                                                                                                                                                                                             
-## [10] &quot;this theorizing on goal orientations&#39; influence on how employees establish social exchanges with their supervisors led to the following hypotheses: &quot;                                                                                                                                                                                                                     
-## [11] &quot;hypo 7: a subordinate&#39;s mastery orien tation is positively related to the quality of leader-member exchange. &quot;                                                                                                                                                                                                                                                            
-## [12] &quot;hypo 8: a subordinate&#39;s performance orientation is negatively related to the quality of leader-member exchange.&quot;                                                                                                                                                                                                                                                          
-## [13] &quot;indeed, previ ous research has consistently indicated that higher quality levels of leader-member exchange produce higher levels of job satisfaction among employees 2004 janssen and van yperen 373 this line of reasoning on the interpersonal mech anism of leader-member exchange led to the fol lowing three hypotheses: &quot;                                           
-## [14] &quot;hypo 9: leader-member exchange medi ates the positive relationship between a subor dinate&#39;s mastery orientation and in-role job performance. &quot;                                                                                                                                                                                                                            
-## [15] &quot;hypo 10: leader-member exchange me diates the positive relationship between a sub ordinate&#39;s mastery orientation and innovative job performance. &quot;                                                                                                                                                                                                                        
-## [16] &quot;hypo 11: leader-member exchange me diates the positive relationship between a sub ordinate&#39;s mastery orientation and job satisfac tion.&quot;                                                                                                                                                                                                                                  
-## [17] &quot;these argu ments suggest the following hypotheses: &quot;                                                                                                                                                                                                                                                                                                                      
-## [18] &quot;hypo 12: leader-member exchange me diates the negative relationship between a sub ordinate&#39;s performance orientation and inno vative job performance. &quot;                                                                                                                                                                                                                   
-## [19] &quot;hypo 13: leader-member exchange me diates the negative relationship between a subordinate&#39;s performance orientation and job satisfaction.&quot;                                                                                                                                                                                                                                
-## [20] &quot;hypo 13: , leader-member exchange mediated the negative relationship be 378 academy of management journal june tween performance orientation and job satisfaction supplementary analyses the modest correlation between mastery and performance orientations indi cates that trying to attain mastery is not necessarily inconsistent with striving to outperform others.&quot;
-## [21] &quot;hypo 2: , which predicts a positive relationship between per formance orientation and in-role job performance.&quot;</code></pre>
+<pre><code>## [1] &quot;guided by previous evidence, we test the following hypothesis: &quot;                                                                                                                                                                           
+## [2] &quot;hypo 1: increased use of high performance work systems results in increased labor productivity, increased workforce innovation, and decreased voluntary employee turnover.&quot;                                                                
+## [3] &quot;hypo 2: increased use of diversity/equality management systems results in increased labor productivity, workforce innovation, and decreased voluntary employee turnover, over and above the contribution of high performance work systems.&quot;</code></pre>
 <pre class="r"><code>h_statements</code></pre>
-<pre><code>##  [1] &quot;accordingly, the following hypotheses were formed: &quot;                                                                                                                                                                                                                                                                                                                      
-##  [2] &quot;hypo 1: a mastery orientation is posi tively related to in-role job performance. &quot;                                                                                                                                                                                                                                                                                        
-##  [3] &quot;hypo 2: a performance orientation is positively related to in-role job performance.&quot;                                                                                                                                                                                                                                                                                      
-##  [4] &quot;this line of reasoning about the relationship be tween goal orientation and innovative job perfor mance led to the following hypotheses: &quot;                                                                                                                                                                                                                                
-##  [5] &quot;hypo 3: a mastery orientation is posi tively related to innovative job performance. &quot;                                                                                                                                                                                                                                                                                     
-##  [6] &quot;hypo 4: a performance orientation is negatively related to innovative job perfor mance. is in itself indicative of success .&quot;                                                                                                                                                                                                                                             
-##  [7] &quot;hence, we hypothe sized that a mastery orientation is positively related to job satisfaction, whereas a negative relationship was expected between performance orientation and job satisfaction. &quot;                                                                                                                                                                        
-##  [8] &quot;hypo 5: a mastery orientation is posi tively related to job satisfaction. &quot;                                                                                                                                                                                                                                                                                               
-##  [9] &quot;hypo 6: a performance orientation is negatively related to job satisfaction.&quot;                                                                                                                                                                                                                                                                                             
-## [10] &quot;this theorizing on goal orientations&#39; influence on how employees establish social exchanges with their supervisors led to the following hypotheses: &quot;                                                                                                                                                                                                                     
-## [11] &quot;hypo 7: a subordinate&#39;s mastery orien tation is positively related to the quality of leader-member exchange. &quot;                                                                                                                                                                                                                                                            
-## [12] &quot;hypo 8: a subordinate&#39;s performance orientation is negatively related to the quality of leader-member exchange.&quot;                                                                                                                                                                                                                                                          
-## [13] &quot;indeed, previ ous research has consistently indicated that higher quality levels of leader-member exchange produce higher levels of job satisfaction among employees 2004 janssen and van yperen 373 this line of reasoning on the interpersonal mech anism of leader-member exchange led to the fol lowing three hypotheses: &quot;                                           
-## [14] &quot;hypo 9: leader-member exchange medi ates the positive relationship between a subor dinate&#39;s mastery orientation and in-role job performance. &quot;                                                                                                                                                                                                                            
-## [15] &quot;hypo 10: leader-member exchange me diates the positive relationship between a sub ordinate&#39;s mastery orientation and innovative job performance. &quot;                                                                                                                                                                                                                        
-## [16] &quot;hypo 11: leader-member exchange me diates the positive relationship between a sub ordinate&#39;s mastery orientation and job satisfac tion.&quot;                                                                                                                                                                                                                                  
-## [17] &quot;these argu ments suggest the following hypotheses: &quot;                                                                                                                                                                                                                                                                                                                      
-## [18] &quot;hypo 12: leader-member exchange me diates the negative relationship between a sub ordinate&#39;s performance orientation and inno vative job performance. &quot;                                                                                                                                                                                                                   
-## [19] &quot;hypo 13: leader-member exchange me diates the negative relationship between a subordinate&#39;s performance orientation and job satisfaction.&quot;                                                                                                                                                                                                                                
-## [20] &quot;hypo 13: , leader-member exchange mediated the negative relationship be 378 academy of management journal june tween performance orientation and job satisfaction supplementary analyses the modest correlation between mastery and performance orientations indi cates that trying to attain mastery is not necessarily inconsistent with striving to outperform others.&quot;
-## [21] &quot;hypo 2: , which predicts a positive relationship between per formance orientation and in-role job performance.&quot;</code></pre>
+<pre><code>## [1] &quot;guided by previous evidence, we test the following hypothesis: &quot;                                                                                                                                                                           
+## [2] &quot;hypo 1: increased use of high performance work systems results in increased labor productivity, increased workforce innovation, and decreased voluntary employee turnover.&quot;                                                                
+## [3] &quot;hypo 2: increased use of diversity/equality management systems results in increased labor productivity, workforce innovation, and decreased voluntary employee turnover, over and above the contribution of high performance work systems.&quot;</code></pre>
 <pre class="r"><code>detect_string &lt;- &quot;.*: &quot;
 
 h_statements %&gt;% 
@@ -553,7 +529,7 @@ h_statements %&gt;%
   str_remove_all(&quot;hypo &quot;) %&gt;% 
   str_remove_all(&quot;:&quot;) %&gt;% 
   as.integer()</code></pre>
-<pre><code>##  [1] NA  1  2 NA  3  4 NA  5  6 NA  7  8 NA  9 10 11 NA 12 13 13  2</code></pre>
+<pre><code>## [1] NA  1  2</code></pre>
 <pre class="r"><code>h_number &lt;- h_statements %&gt;% 
   str_extract(detect_string) %&gt;% 
   str_remove_all(&quot;hypo &quot;) %&gt;% 
@@ -562,7 +538,7 @@ h_statements %&gt;%
 <pre><code>## Warning in h_statements %&gt;% str_extract(detect_string) %&gt;% str_remove_all(&quot;hypo
 ## &quot;) %&gt;% : NAs introduced by coercion</code></pre>
 <pre class="r"><code>h_number</code></pre>
-<pre><code>##  [1] NA  1  2 NA  3  4 NA  5  6 NA  7  8 NA  9 10 11 NA 12 13 13  2</code></pre>
+<pre><code>## [1] NA  1  2</code></pre>
 <pre class="r"><code>output &lt;- vector(mode = &quot;logical&quot;, length = length(h_number))
 tracker &lt;- vector(mode = &quot;integer&quot;, length = length(h_number))
 
@@ -599,24 +575,16 @@ h_statements &lt;- h_statements[output]</code></pre>
   }
 
 h_statements</code></pre>
-<pre><code>##  [1] &quot;hypo 1: a mastery orientation is positively related to in-role job performance. &quot;                                                                   
-##  [2] &quot;hypo 2: a performance orientation is positively related to in-role job performance.&quot;                                                                
-##  [3] &quot;hypo 3: a mastery orientation is positively related to innovative job performance. &quot;                                                                
-##  [4] &quot;hypo 4: a performance orientation is negatively related to innovative job performance. is in itself indicative of success .&quot;                        
-##  [5] &quot;hypo 5: a mastery orientation is positively related to job satisfaction. &quot;                                                                          
-##  [6] &quot;hypo 6: a performance orientation is negatively related to job satisfaction.&quot;                                                                       
-##  [7] &quot;hypo 7: a subordinate&#39;s mastery orientation is positively related to the quality of leader-member exchange. &quot;                                       
-##  [8] &quot;hypo 8: a subordinate&#39;s performance orientation is negatively related to the quality of leader-member exchange.&quot;                                    
-##  [9] &quot;hypo 9: leader-member exchange mediates the positive relationship between a subordinate&#39;s mastery orientation and in-role job performance. &quot;        
-## [10] &quot;hypo 10: leader-member exchange mediates the positive relationship between a subordinate&#39;s mastery orientation and innovative job performance. &quot;    
-## [11] &quot;hypo 11: leader-member exchange mediates the positive relationship between a subordinate&#39;s mastery orientation and job satisfaction.&quot;               
-## [12] &quot;hypo 12: leader-member exchange mediates the negative relationship between a subordinate&#39;s performance orientation and innovative job performance. &quot;
-## [13] &quot;hypo 13: leader-member exchange mediates the negative relationship between a subordinate&#39;s performance orientation and job satisfaction.&quot;</code></pre>
+<pre><code>## [1] &quot;hypo 1: increased use of high performance work systems results in increased labor productivity, increased workforce innovation, and decreased voluntary employee turnover.&quot;                                                                
+## [2] &quot;hypo 2: increased use of diversity/equality management systems results in increased labor productivity, workforce innovation, and decreased voluntary employee turnover, over and above the contribution of high performance work systems.&quot;</code></pre>
 <pre class="r"><code>  # Maintain Data 
   hypothesis_causality_input &lt;- h_statements
 
   # Drop ~Hypo #:~
-  hypothesis &lt;- gsub(&quot;.*: &quot;,&quot;&quot;,h_statements)</code></pre>
+  hypothesis &lt;- gsub(&quot;.*: &quot;,&quot;&quot;,h_statements)
+  hypothesis</code></pre>
+<pre><code>## [1] &quot;increased use of high performance work systems results in increased labor productivity, increased workforce innovation, and decreased voluntary employee turnover.&quot;                                                                
+## [2] &quot;increased use of diversity/equality management systems results in increased labor productivity, workforce innovation, and decreased voluntary employee turnover, over and above the contribution of high performance work systems.&quot;</code></pre>
 <pre class="r"><code># Fasttext Verification
 hypothesis_pred &lt;- fastTextR::ft_predict(ft_model, 
                                          newdata = hypothesis, 
@@ -635,56 +603,28 @@ if (&quot;__label__0&quot; %in% col_names) {
   hypothesis &lt;- hypothesis[response]
 }
 
-hypothesis_causality_input</code></pre>
-<pre><code>##  [1] &quot;hypo 1: a mastery orientation is positively related to in-role job performance. &quot;                                                                   
-##  [2] &quot;hypo 2: a performance orientation is positively related to in-role job performance.&quot;                                                                
-##  [3] &quot;hypo 3: a mastery orientation is positively related to innovative job performance. &quot;                                                                
-##  [4] &quot;hypo 4: a performance orientation is negatively related to innovative job performance. is in itself indicative of success .&quot;                        
-##  [5] &quot;hypo 5: a mastery orientation is positively related to job satisfaction. &quot;                                                                          
-##  [6] &quot;hypo 6: a performance orientation is negatively related to job satisfaction.&quot;                                                                       
-##  [7] &quot;hypo 7: a subordinate&#39;s mastery orientation is positively related to the quality of leader-member exchange. &quot;                                       
-##  [8] &quot;hypo 8: a subordinate&#39;s performance orientation is negatively related to the quality of leader-member exchange.&quot;                                    
-##  [9] &quot;hypo 9: leader-member exchange mediates the positive relationship between a subordinate&#39;s mastery orientation and in-role job performance. &quot;        
-## [10] &quot;hypo 10: leader-member exchange mediates the positive relationship between a subordinate&#39;s mastery orientation and innovative job performance. &quot;    
-## [11] &quot;hypo 11: leader-member exchange mediates the positive relationship between a subordinate&#39;s mastery orientation and job satisfaction.&quot;               
-## [12] &quot;hypo 12: leader-member exchange mediates the negative relationship between a subordinate&#39;s performance orientation and innovative job performance. &quot;
-## [13] &quot;hypo 13: leader-member exchange mediates the negative relationship between a subordinate&#39;s performance orientation and job satisfaction.&quot;</code></pre>
+hypothesis_pred</code></pre>
+<pre><code>##   __label__0 __label__1
+## 1  0.0000000  0.3998216
+## 2  0.4073434  0.0000000</code></pre>
+<pre class="r"><code>hypothesis_pred</code></pre>
+<pre><code>##   __label__0 __label__1
+## 1  0.0000000  0.3998216
+## 2  0.4073434  0.0000000</code></pre>
 <pre class="r"><code># Convert Text
-  hypothesis &lt;- str_to_sentence(hypothesis, locale = &quot;en&quot;)</code></pre>
+  hypothesis &lt;- str_to_sentence(hypothesis, locale = &quot;en&quot;)
+hypothesis</code></pre>
+<pre><code>## [1] &quot;Increased use of high performance work systems results in increased labor productivity, increased workforce innovation, and decreased voluntary employee turnover.&quot;</code></pre>
 <pre class="r"><code>  # Create Dataframe with Hypothesis Number and Hypothesis
   df_hypothesis &lt;- data.frame(hypothesis,
                                  hypothesis_causality_input, 
                               stringsAsFactors = FALSE)
 
 df_hypothesis</code></pre>
-<pre><code>##                                                                                                                                    hypothesis
-## 1                                                                    A mastery orientation is positively related to in-role job performance. 
-## 2                                                                 A performance orientation is positively related to in-role job performance.
-## 3                                                                 A mastery orientation is positively related to innovative job performance. 
-## 4                         A performance orientation is negatively related to innovative job performance. is in itself indicative of success .
-## 5                                                                           A mastery orientation is positively related to job satisfaction. 
-## 6                                                                        A performance orientation is negatively related to job satisfaction.
-## 7                                        A subordinate&#39;s mastery orientation is positively related to the quality of leader-member exchange. 
-## 8                                     A subordinate&#39;s performance orientation is negatively related to the quality of leader-member exchange.
-## 9         Leader-member exchange mediates the positive relationship between a subordinate&#39;s mastery orientation and in-role job performance. 
-## 10     Leader-member exchange mediates the positive relationship between a subordinate&#39;s mastery orientation and innovative job performance. 
-## 11                Leader-member exchange mediates the positive relationship between a subordinate&#39;s mastery orientation and job satisfaction.
-## 12 Leader-member exchange mediates the negative relationship between a subordinate&#39;s performance orientation and innovative job performance. 
-## 13            Leader-member exchange mediates the negative relationship between a subordinate&#39;s performance orientation and job satisfaction.
-##                                                                                                                             hypothesis_causality_input
-## 1                                                                     hypo 1: a mastery orientation is positively related to in-role job performance. 
-## 2                                                                  hypo 2: a performance orientation is positively related to in-role job performance.
-## 3                                                                  hypo 3: a mastery orientation is positively related to innovative job performance. 
-## 4                          hypo 4: a performance orientation is negatively related to innovative job performance. is in itself indicative of success .
-## 5                                                                            hypo 5: a mastery orientation is positively related to job satisfaction. 
-## 6                                                                         hypo 6: a performance orientation is negatively related to job satisfaction.
-## 7                                         hypo 7: a subordinate&#39;s mastery orientation is positively related to the quality of leader-member exchange. 
-## 8                                      hypo 8: a subordinate&#39;s performance orientation is negatively related to the quality of leader-member exchange.
-## 9          hypo 9: leader-member exchange mediates the positive relationship between a subordinate&#39;s mastery orientation and in-role job performance. 
-## 10     hypo 10: leader-member exchange mediates the positive relationship between a subordinate&#39;s mastery orientation and innovative job performance. 
-## 11                hypo 11: leader-member exchange mediates the positive relationship between a subordinate&#39;s mastery orientation and job satisfaction.
-## 12 hypo 12: leader-member exchange mediates the negative relationship between a subordinate&#39;s performance orientation and innovative job performance. 
-## 13            hypo 13: leader-member exchange mediates the negative relationship between a subordinate&#39;s performance orientation and job satisfaction.</code></pre>
+<pre><code>##                                                                                                                                                           hypothesis
+## 1 Increased use of high performance work systems results in increased labor productivity, increased workforce innovation, and decreased voluntary employee turnover.
+##                                                                                                                                                   hypothesis_causality_input
+## 1 hypo 1: increased use of high performance work systems results in increased labor productivity, increased workforce innovation, and decreased voluntary employee turnover.</code></pre>
 </div>
 </div>
 

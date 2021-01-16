@@ -13,7 +13,7 @@
 
 <meta name="date" content="2020-12-30" />
 
-<title>Entity Extraction Performance Evaluation - R &amp; Python</title>
+<title>Complete Process Performance Walkthrough</title>
 
 <script>/*! jQuery v1.11.3 | (c) 2005, 2015 jQuery Foundation, Inc. | jquery.org/license */
 !function(a,b){"object"==typeof module&&"object"==typeof module.exports?module.exports=a.document?b(a,!0):function(a){if(!a.document)throw new Error("jQuery requires a window with a document");return b(a)}:b(a)}("undefined"!=typeof window?window:this,function(a,b){var c=[],d=c.slice,e=c.concat,f=c.push,g=c.indexOf,h={},i=h.toString,j=h.hasOwnProperty,k={},l="1.11.3",m=function(a,b){return new m.fn.init(a,b)},n=/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g,o=/^-ms-/,p=/-([\da-z])/gi,q=function(a,b){return b.toUpperCase()};m.fn=m.prototype={jquery:l,constructor:m,selector:"",length:0,toArray:function(){return d.call(this)},get:function(a){return null!=a?0>a?this[a+this.length]:this[a]:d.call(this)},pushStack:function(a){var b=m.merge(this.constructor(),a);return b.prevObject=this,b.context=this.context,b},each:function(a,b){return m.each(this,a,b)},map:function(a){return this.pushStack(m.map(this,function(b,c){return a.call(b,c,b)}))},slice:function(){return this.pushStack(d.apply(this,arguments))},first:function(){return this.eq(0)},last:function(){return this.eq(-1)},eq:function(a){var b=this.length,c=+a+(0>a?b:0);return this.pushStack(c>=0&&b>c?[this[c]]:[])},end:function(){return this.prevObject||this.constructor(null)},push:f,sort:c.sort,splice:c.splice},m.extend=m.fn.extend=function(){var a,b,c,d,e,f,g=arguments[0]||{},h=1,i=arguments.length,j=!1;for("boolean"==typeof g&&(j=g,g=arguments[h]||{},h++),"object"==typeof g||m.isFunction(g)||(g={}),h===i&&(g=this,h--);i>h;h++)if(null!=(e=arguments[h]))for(d in e)a=g[d],c=e[d],g!==c&&(j&&c&&(m.isPlainObject(c)||(b=m.isArray(c)))?(b?(b=!1,f=a&&m.isArray(a)?a:[]):f=a&&m.isPlainObject(a)?a:{},g[d]=m.extend(j,f,c)):void 0!==c&&(g[d]=c));return g},m.extend({expando:"jQuery"+(l+Math.random()).replace(/\D/g,""),isReady:!0,error:function(a){throw new Error(a)},noop:function(){},isFunction:function(a){return"function"===m.type(a)},isArray:Array.isArray||function(a){return"array"===m.type(a)},isWindow:function(a){return null!=a&&a==a.window},isNumeric:function(a){return!m.isArray(a)&&a-parseFloat(a)+1>=0},isEmptyObject:function(a){var b;for(b in a)return!1;return!0},isPlainObject:function(a){var b;if(!a||"object"!==m.type(a)||a.nodeType||m.isWindow(a))return!1;try{if(a.constructor&&!j.call(a,"constructor")&&!j.call(a.constructor.prototype,"isPrototypeOf"))return!1}catch(c){return!1}if(k.ownLast)for(b in a)return j.call(a,b);for(b in a);return void 0===b||j.call(a,b)},type:function(a){return null==a?a+"":"object"==typeof a||"function"==typeof a?h[i.call(a)]||"object":typeof a},globalEval:function(b){b&&m.trim(b)&&(a.execScript||function(b){a.eval.call(a,b)})(b)},camelCase:function(a){return a.replace(o,"ms-").replace(p,q)},nodeName:function(a,b){return a.nodeName&&a.nodeName.toLowerCase()===b.toLowerCase()},each:function(a,b,c){var d,e=0,f=a.length,g=r(a);if(c){if(g){for(;f>e;e++)if(d=b.apply(a[e],c),d===!1)break}else for(e in a)if(d=b.apply(a[e],c),d===!1)break}else if(g){for(;f>e;e++)if(d=b.call(a[e],e,a[e]),d===!1)break}else for(e in a)if(d=b.call(a[e],e,a[e]),d===!1)break;return a},trim:function(a){return null==a?"":(a+"").replace(n,"")},makeArray:function(a,b){var c=b||[];return null!=a&&(r(Object(a))?m.merge(c,"string"==typeof a?[a]:a):f.call(c,a)),c},inArray:function(a,b,c){var d;if(b){if(g)return g.call(b,a,c);for(d=b.length,c=c?0>c?Math.max(0,d+c):c:0;d>c;c++)if(c in b&&b[c]===a)return c}return-1},merge:function(a,b){var c=+b.length,d=0,e=a.length;while(c>d)a[e++]=b[d++];if(c!==c)while(void 0!==b[d])a[e++]=b[d++];return a.length=e,a},grep:function(a,b,c){for(var d,e=[],f=0,g=a.length,h=!c;g>f;f++)d=!b(a[f],f),d!==h&&e.push(a[f]);return e},map:function(a,b,c){var d,f=0,g=a.length,h=r(a),i=[];if(h)for(;g>f;f++)d=b(a[f],f,c),null!=d&&i.push(d);else for(f in a)d=b(a[f],f,c),null!=d&&i.push(d);return e.apply([],i)},guid:1,proxy:function(a,b){var c,e,f;return"string"==typeof b&&(f=a[b],b=a,a=f),m.isFunction(a)?(c=d.call(arguments,2),e=function(){return a.apply(b||this,c.concat(d.call(arguments)))},e.guid=a.guid=a.guid||m.guid++,e):void 0},now:function(){return+new Date},support:k}),m.each("Boolean Number String Function Array Date RegExp Object Error".split(" "),function(a,b){h["[object "+b+"]"]=b.toLowerCase()});function r(a){var b="length"in a&&a.length,c=m.type(a);return"function"===c||m.isWindow(a)?!1:1===a.nodeType&&b?!0:"array"===c||0===b||"number"==typeof b&&b>0&&b-1 in a}var s=function(a){var b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u="sizzle"+1*new Date,v=a.document,w=0,x=0,y=ha(),z=ha(),A=ha(),B=function(a,b){return a===b&&(l=!0),0},C=1<<31,D={}.hasOwnProperty,E=[],F=E.pop,G=E.push,H=E.push,I=E.slice,J=function(a,b){for(var c=0,d=a.length;d>c;c++)if(a[c]===b)return c;return-1},K="checked|selected|async|autofocus|autoplay|controls|defer|disabled|hidden|ismap|loop|multiple|open|readonly|required|scoped",L="[\\x20\\t\\r\\n\\f]",M="(?:\\\\.|[\\w-]|[^\\x00-\\xa0])+",N=M.replace("w","w#"),O="\\["+L+"*("+M+")(?:"+L+"*([*^$|!~]?=)"+L+"*(?:'((?:\\\\.|[^\\\\'])*)'|\"((?:\\\\.|[^\\\\\"])*)\"|("+N+"))|)"+L+"*\\]",P=":("+M+")(?:\\((('((?:\\\\.|[^\\\\'])*)'|\"((?:\\\\.|[^\\\\\"])*)\")|((?:\\\\.|[^\\\\()[\\]]|"+O+")*)|.*)\\)|)",Q=new RegExp(L+"+","g"),R=new RegExp("^"+L+"+|((?:^|[^\\\\])(?:\\\\.)*)"+L+"+$","g"),S=new RegExp("^"+L+"*,"+L+"*"),T=new RegExp("^"+L+"*([>+~]|"+L+")"+L+"*"),U=new RegExp("="+L+"*([^\\]'\"]*?)"+L+"*\\]","g"),V=new RegExp(P),W=new RegExp("^"+N+"$"),X={ID:new RegExp("^#("+M+")"),CLASS:new RegExp("^\\.("+M+")"),TAG:new RegExp("^("+M.replace("w","w*")+")"),ATTR:new RegExp("^"+O),PSEUDO:new RegExp("^"+P),CHILD:new RegExp("^:(only|first|last|nth|nth-last)-(child|of-type)(?:\\("+L+"*(even|odd|(([+-]|)(\\d*)n|)"+L+"*(?:([+-]|)"+L+"*(\\d+)|))"+L+"*\\)|)","i"),bool:new RegExp("^(?:"+K+")$","i"),needsContext:new RegExp("^"+L+"*[>+~]|:(even|odd|eq|gt|lt|nth|first|last)(?:\\("+L+"*((?:-\\d)?\\d*)"+L+"*\\)|)(?=[^-]|$)","i")},Y=/^(?:input|select|textarea|button)$/i,Z=/^h\d$/i,$=/^[^{]+\{\s*\[native \w/,_=/^(?:#([\w-]+)|(\w+)|\.([\w-]+))$/,aa=/[+~]/,ba=/'|\\/g,ca=new RegExp("\\\\([\\da-f]{1,6}"+L+"?|("+L+")|.)","ig"),da=function(a,b,c){var d="0x"+b-65536;return d!==d||c?b:0>d?String.fromCharCode(d+65536):String.fromCharCode(d>>10|55296,1023&d|56320)},ea=function(){m()};try{H.apply(E=I.call(v.childNodes),v.childNodes),E[v.childNodes.length].nodeType}catch(fa){H={apply:E.length?function(a,b){G.apply(a,I.call(b))}:function(a,b){var c=a.length,d=0;while(a[c++]=b[d++]);a.length=c-1}}}function ga(a,b,d,e){var f,h,j,k,l,o,r,s,w,x;if((b?b.ownerDocument||b:v)!==n&&m(b),b=b||n,d=d||[],k=b.nodeType,"string"!=typeof a||!a||1!==k&&9!==k&&11!==k)return d;if(!e&&p){if(11!==k&&(f=_.exec(a)))if(j=f[1]){if(9===k){if(h=b.getElementById(j),!h||!h.parentNode)return d;if(h.id===j)return d.push(h),d}else if(b.ownerDocument&&(h=b.ownerDocument.getElementById(j))&&t(b,h)&&h.id===j)return d.push(h),d}else{if(f[2])return H.apply(d,b.getElementsByTagName(a)),d;if((j=f[3])&&c.getElementsByClassName)return H.apply(d,b.getElementsByClassName(j)),d}if(c.qsa&&(!q||!q.test(a))){if(s=r=u,w=b,x=1!==k&&a,1===k&&"object"!==b.nodeName.toLowerCase()){o=g(a),(r=b.getAttribute("id"))?s=r.replace(ba,"\\$&"):b.setAttribute("id",s),s="[id='"+s+"'] ",l=o.length;while(l--)o[l]=s+ra(o[l]);w=aa.test(a)&&pa(b.parentNode)||b,x=o.join(",")}if(x)try{return H.apply(d,w.querySelectorAll(x)),d}catch(y){}finally{r||b.removeAttribute("id")}}}return i(a.replace(R,"$1"),b,d,e)}function ha(){var a=[];function b(c,e){return a.push(c+" ")>d.cacheLength&&delete b[a.shift()],b[c+" "]=e}return b}function ia(a){return a[u]=!0,a}function ja(a){var b=n.createElement("div");try{return!!a(b)}catch(c){return!1}finally{b.parentNode&&b.parentNode.removeChild(b),b=null}}function ka(a,b){var c=a.split("|"),e=a.length;while(e--)d.attrHandle[c[e]]=b}function la(a,b){var c=b&&a,d=c&&1===a.nodeType&&1===b.nodeType&&(~b.sourceIndex||C)-(~a.sourceIndex||C);if(d)return d;if(c)while(c=c.nextSibling)if(c===b)return-1;return a?1:-1}function ma(a){return function(b){var c=b.nodeName.toLowerCase();return"input"===c&&b.type===a}}function na(a){return function(b){var c=b.nodeName.toLowerCase();return("input"===c||"button"===c)&&b.type===a}}function oa(a){return ia(function(b){return b=+b,ia(function(c,d){var e,f=a([],c.length,b),g=f.length;while(g--)c[e=f[g]]&&(c[e]=!(d[e]=c[e]))})})}function pa(a){return a&&"undefined"!=typeof a.getElementsByTagName&&a}c=ga.support={},f=ga.isXML=function(a){var b=a&&(a.ownerDocument||a).documentElement;return b?"HTML"!==b.nodeName:!1},m=ga.setDocument=function(a){var b,e,g=a?a.ownerDocument||a:v;return g!==n&&9===g.nodeType&&g.documentElement?(n=g,o=g.documentElement,e=g.defaultView,e&&e!==e.top&&(e.addEventListener?e.addEventListener("unload",ea,!1):e.attachEvent&&e.attachEvent("onunload",ea)),p=!f(g),c.attributes=ja(function(a){return a.className="i",!a.getAttribute("className")}),c.getElementsByTagName=ja(function(a){return a.appendChild(g.createComment("")),!a.getElementsByTagName("*").length}),c.getElementsByClassName=$.test(g.getElementsByClassName),c.getById=ja(function(a){return o.appendChild(a).id=u,!g.getElementsByName||!g.getElementsByName(u).length}),c.getById?(d.find.ID=function(a,b){if("undefined"!=typeof b.getElementById&&p){var c=b.getElementById(a);return c&&c.parentNode?[c]:[]}},d.filter.ID=function(a){var b=a.replace(ca,da);return function(a){return a.getAttribute("id")===b}}):(delete d.find.ID,d.filter.ID=function(a){var b=a.replace(ca,da);return function(a){var c="undefined"!=typeof a.getAttributeNode&&a.getAttributeNode("id");return c&&c.value===b}}),d.find.TAG=c.getElementsByTagName?function(a,b){return"undefined"!=typeof b.getElementsByTagName?b.getElementsByTagName(a):c.qsa?b.querySelectorAll(a):void 0}:function(a,b){var c,d=[],e=0,f=b.getElementsByTagName(a);if("*"===a){while(c=f[e++])1===c.nodeType&&d.push(c);return d}return f},d.find.CLASS=c.getElementsByClassName&&function(a,b){return p?b.getElementsByClassName(a):void 0},r=[],q=[],(c.qsa=$.test(g.querySelectorAll))&&(ja(function(a){o.appendChild(a).innerHTML="<a id='"+u+"'></a><select id='"+u+"-\f]' msallowcapture=''><option selected=''></option></select>",a.querySelectorAll("[msallowcapture^='']").length&&q.push("[*^$]="+L+"*(?:''|\"\")"),a.querySelectorAll("[selected]").length||q.push("\\["+L+"*(?:value|"+K+")"),a.querySelectorAll("[id~="+u+"-]").length||q.push("~="),a.querySelectorAll(":checked").length||q.push(":checked"),a.querySelectorAll("a#"+u+"+*").length||q.push(".#.+[+~]")}),ja(function(a){var b=g.createElement("input");b.setAttribute("type","hidden"),a.appendChild(b).setAttribute("name","D"),a.querySelectorAll("[name=d]").length&&q.push("name"+L+"*[*^$|!~]?="),a.querySelectorAll(":enabled").length||q.push(":enabled",":disabled"),a.querySelectorAll("*,:x"),q.push(",.*:")})),(c.matchesSelector=$.test(s=o.matches||o.webkitMatchesSelector||o.mozMatchesSelector||o.oMatchesSelector||o.msMatchesSelector))&&ja(function(a){c.disconnectedMatch=s.call(a,"div"),s.call(a,"[s!='']:x"),r.push("!=",P)}),q=q.length&&new RegExp(q.join("|")),r=r.length&&new RegExp(r.join("|")),b=$.test(o.compareDocumentPosition),t=b||$.test(o.contains)?function(a,b){var c=9===a.nodeType?a.documentElement:a,d=b&&b.parentNode;return a===d||!(!d||1!==d.nodeType||!(c.contains?c.contains(d):a.compareDocumentPosition&&16&a.compareDocumentPosition(d)))}:function(a,b){if(b)while(b=b.parentNode)if(b===a)return!0;return!1},B=b?function(a,b){if(a===b)return l=!0,0;var d=!a.compareDocumentPosition-!b.compareDocumentPosition;return d?d:(d=(a.ownerDocument||a)===(b.ownerDocument||b)?a.compareDocumentPosition(b):1,1&d||!c.sortDetached&&b.compareDocumentPosition(a)===d?a===g||a.ownerDocument===v&&t(v,a)?-1:b===g||b.ownerDocument===v&&t(v,b)?1:k?J(k,a)-J(k,b):0:4&d?-1:1)}:function(a,b){if(a===b)return l=!0,0;var c,d=0,e=a.parentNode,f=b.parentNode,h=[a],i=[b];if(!e||!f)return a===g?-1:b===g?1:e?-1:f?1:k?J(k,a)-J(k,b):0;if(e===f)return la(a,b);c=a;while(c=c.parentNode)h.unshift(c);c=b;while(c=c.parentNode)i.unshift(c);while(h[d]===i[d])d++;return d?la(h[d],i[d]):h[d]===v?-1:i[d]===v?1:0},g):n},ga.matches=function(a,b){return ga(a,null,null,b)},ga.matchesSelector=function(a,b){if((a.ownerDocument||a)!==n&&m(a),b=b.replace(U,"='$1']"),!(!c.matchesSelector||!p||r&&r.test(b)||q&&q.test(b)))try{var d=s.call(a,b);if(d||c.disconnectedMatch||a.document&&11!==a.document.nodeType)return d}catch(e){}return ga(b,n,null,[a]).length>0},ga.contains=function(a,b){return(a.ownerDocument||a)!==n&&m(a),t(a,b)},ga.attr=function(a,b){(a.ownerDocument||a)!==n&&m(a);var e=d.attrHandle[b.toLowerCase()],f=e&&D.call(d.attrHandle,b.toLowerCase())?e(a,b,!p):void 0;return void 0!==f?f:c.attributes||!p?a.getAttribute(b):(f=a.getAttributeNode(b))&&f.specified?f.value:null},ga.error=function(a){throw new Error("Syntax error, unrecognized expression: "+a)},ga.uniqueSort=function(a){var b,d=[],e=0,f=0;if(l=!c.detectDuplicates,k=!c.sortStable&&a.slice(0),a.sort(B),l){while(b=a[f++])b===a[f]&&(e=d.push(f));while(e--)a.splice(d[e],1)}return k=null,a},e=ga.getText=function(a){var b,c="",d=0,f=a.nodeType;if(f){if(1===f||9===f||11===f){if("string"==typeof a.textContent)return a.textContent;for(a=a.firstChild;a;a=a.nextSibling)c+=e(a)}else if(3===f||4===f)return a.nodeValue}else while(b=a[d++])c+=e(b);return c},d=ga.selectors={cacheLength:50,createPseudo:ia,match:X,attrHandle:{},find:{},relative:{">":{dir:"parentNode",first:!0}," ":{dir:"parentNode"},"+":{dir:"previousSibling",first:!0},"~":{dir:"previousSibling"}},preFilter:{ATTR:function(a){return a[1]=a[1].replace(ca,da),a[3]=(a[3]||a[4]||a[5]||"").replace(ca,da),"~="===a[2]&&(a[3]=" "+a[3]+" "),a.slice(0,4)},CHILD:function(a){return a[1]=a[1].toLowerCase(),"nth"===a[1].slice(0,3)?(a[3]||ga.error(a[0]),a[4]=+(a[4]?a[5]+(a[6]||1):2*("even"===a[3]||"odd"===a[3])),a[5]=+(a[7]+a[8]||"odd"===a[3])):a[3]&&ga.error(a[0]),a},PSEUDO:function(a){var b,c=!a[6]&&a[2];return X.CHILD.test(a[0])?null:(a[3]?a[2]=a[4]||a[5]||"":c&&V.test(c)&&(b=g(c,!0))&&(b=c.indexOf(")",c.length-b)-c.length)&&(a[0]=a[0].slice(0,b),a[2]=c.slice(0,b)),a.slice(0,3))}},filter:{TAG:function(a){var b=a.replace(ca,da).toLowerCase();return"*"===a?function(){return!0}:function(a){return a.nodeName&&a.nodeName.toLowerCase()===b}},CLASS:function(a){var b=y[a+" "];return b||(b=new RegExp("(^|"+L+")"+a+"("+L+"|$)"))&&y(a,function(a){return b.test("string"==typeof a.className&&a.className||"undefined"!=typeof a.getAttribute&&a.getAttribute("class")||"")})},ATTR:function(a,b,c){return function(d){var e=ga.attr(d,a);return null==e?"!="===b:b?(e+="","="===b?e===c:"!="===b?e!==c:"^="===b?c&&0===e.indexOf(c):"*="===b?c&&e.indexOf(c)>-1:"$="===b?c&&e.slice(-c.length)===c:"~="===b?(" "+e.replace(Q," ")+" ").indexOf(c)>-1:"|="===b?e===c||e.slice(0,c.length+1)===c+"-":!1):!0}},CHILD:function(a,b,c,d,e){var f="nth"!==a.slice(0,3),g="last"!==a.slice(-4),h="of-type"===b;return 1===d&&0===e?function(a){return!!a.parentNode}:function(b,c,i){var j,k,l,m,n,o,p=f!==g?"nextSibling":"previousSibling",q=b.parentNode,r=h&&b.nodeName.toLowerCase(),s=!i&&!h;if(q){if(f){while(p){l=b;while(l=l[p])if(h?l.nodeName.toLowerCase()===r:1===l.nodeType)return!1;o=p="only"===a&&!o&&"nextSibling"}return!0}if(o=[g?q.firstChild:q.lastChild],g&&s){k=q[u]||(q[u]={}),j=k[a]||[],n=j[0]===w&&j[1],m=j[0]===w&&j[2],l=n&&q.childNodes[n];while(l=++n&&l&&l[p]||(m=n=0)||o.pop())if(1===l.nodeType&&++m&&l===b){k[a]=[w,n,m];break}}else if(s&&(j=(b[u]||(b[u]={}))[a])&&j[0]===w)m=j[1];else while(l=++n&&l&&l[p]||(m=n=0)||o.pop())if((h?l.nodeName.toLowerCase()===r:1===l.nodeType)&&++m&&(s&&((l[u]||(l[u]={}))[a]=[w,m]),l===b))break;return m-=e,m===d||m%d===0&&m/d>=0}}},PSEUDO:function(a,b){var c,e=d.pseudos[a]||d.setFilters[a.toLowerCase()]||ga.error("unsupported pseudo: "+a);return e[u]?e(b):e.length>1?(c=[a,a,"",b],d.setFilters.hasOwnProperty(a.toLowerCase())?ia(function(a,c){var d,f=e(a,b),g=f.length;while(g--)d=J(a,f[g]),a[d]=!(c[d]=f[g])}):function(a){return e(a,0,c)}):e}},pseudos:{not:ia(function(a){var b=[],c=[],d=h(a.replace(R,"$1"));return d[u]?ia(function(a,b,c,e){var f,g=d(a,null,e,[]),h=a.length;while(h--)(f=g[h])&&(a[h]=!(b[h]=f))}):function(a,e,f){return b[0]=a,d(b,null,f,c),b[0]=null,!c.pop()}}),has:ia(function(a){return function(b){return ga(a,b).length>0}}),contains:ia(function(a){return a=a.replace(ca,da),function(b){return(b.textContent||b.innerText||e(b)).indexOf(a)>-1}}),lang:ia(function(a){return W.test(a||"")||ga.error("unsupported lang: "+a),a=a.replace(ca,da).toLowerCase(),function(b){var c;do if(c=p?b.lang:b.getAttribute("xml:lang")||b.getAttribute("lang"))return c=c.toLowerCase(),c===a||0===c.indexOf(a+"-");while((b=b.parentNode)&&1===b.nodeType);return!1}}),target:function(b){var c=a.location&&a.location.hash;return c&&c.slice(1)===b.id},root:function(a){return a===o},focus:function(a){return a===n.activeElement&&(!n.hasFocus||n.hasFocus())&&!!(a.type||a.href||~a.tabIndex)},enabled:function(a){return a.disabled===!1},disabled:function(a){return a.disabled===!0},checked:function(a){var b=a.nodeName.toLowerCase();return"input"===b&&!!a.checked||"option"===b&&!!a.selected},selected:function(a){return a.parentNode&&a.parentNode.selectedIndex,a.selected===!0},empty:function(a){for(a=a.firstChild;a;a=a.nextSibling)if(a.nodeType<6)return!1;return!0},parent:function(a){return!d.pseudos.empty(a)},header:function(a){return Z.test(a.nodeName)},input:function(a){return Y.test(a.nodeName)},button:function(a){var b=a.nodeName.toLowerCase();return"input"===b&&"button"===a.type||"button"===b},text:function(a){var b;return"input"===a.nodeName.toLowerCase()&&"text"===a.type&&(null==(b=a.getAttribute("type"))||"text"===b.toLowerCase())},first:oa(function(){return[0]}),last:oa(function(a,b){return[b-1]}),eq:oa(function(a,b,c){return[0>c?c+b:c]}),even:oa(function(a,b){for(var c=0;b>c;c+=2)a.push(c);return a}),odd:oa(function(a,b){for(var c=1;b>c;c+=2)a.push(c);return a}),lt:oa(function(a,b,c){for(var d=0>c?c+b:c;--d>=0;)a.push(d);return a}),gt:oa(function(a,b,c){for(var d=0>c?c+b:c;++d<b;)a.push(d);return a})}},d.pseudos.nth=d.pseudos.eq;for(b in{radio:!0,checkbox:!0,file:!0,password:!0,image:!0})d.pseudos[b]=ma(b);for(b in{submit:!0,reset:!0})d.pseudos[b]=na(b);function qa(){}qa.prototype=d.filters=d.pseudos,d.setFilters=new qa,g=ga.tokenize=function(a,b){var c,e,f,g,h,i,j,k=z[a+" "];if(k)return b?0:k.slice(0);h=a,i=[],j=d.preFilter;while(h){(!c||(e=S.exec(h)))&&(e&&(h=h.slice(e[0].length)||h),i.push(f=[])),c=!1,(e=T.exec(h))&&(c=e.shift(),f.push({value:c,type:e[0].replace(R," ")}),h=h.slice(c.length));for(g in d.filter)!(e=X[g].exec(h))||j[g]&&!(e=j[g](e))||(c=e.shift(),f.push({value:c,type:g,matches:e}),h=h.slice(c.length));if(!c)break}return b?h.length:h?ga.error(a):z(a,i).slice(0)};function ra(a){for(var b=0,c=a.length,d="";c>b;b++)d+=a[b].value;return d}function sa(a,b,c){var d=b.dir,e=c&&"parentNode"===d,f=x++;return b.first?function(b,c,f){while(b=b[d])if(1===b.nodeType||e)return a(b,c,f)}:function(b,c,g){var h,i,j=[w,f];if(g){while(b=b[d])if((1===b.nodeType||e)&&a(b,c,g))return!0}else while(b=b[d])if(1===b.nodeType||e){if(i=b[u]||(b[u]={}),(h=i[d])&&h[0]===w&&h[1]===f)return j[2]=h[2];if(i[d]=j,j[2]=a(b,c,g))return!0}}}function ta(a){return a.length>1?function(b,c,d){var e=a.length;while(e--)if(!a[e](b,c,d))return!1;return!0}:a[0]}function ua(a,b,c){for(var d=0,e=b.length;e>d;d++)ga(a,b[d],c);return c}function va(a,b,c,d,e){for(var f,g=[],h=0,i=a.length,j=null!=b;i>h;h++)(f=a[h])&&(!c||c(f,d,e))&&(g.push(f),j&&b.push(h));return g}function wa(a,b,c,d,e,f){return d&&!d[u]&&(d=wa(d)),e&&!e[u]&&(e=wa(e,f)),ia(function(f,g,h,i){var j,k,l,m=[],n=[],o=g.length,p=f||ua(b||"*",h.nodeType?[h]:h,[]),q=!a||!f&&b?p:va(p,m,a,h,i),r=c?e||(f?a:o||d)?[]:g:q;if(c&&c(q,r,h,i),d){j=va(r,n),d(j,[],h,i),k=j.length;while(k--)(l=j[k])&&(r[n[k]]=!(q[n[k]]=l))}if(f){if(e||a){if(e){j=[],k=r.length;while(k--)(l=r[k])&&j.push(q[k]=l);e(null,r=[],j,i)}k=r.length;while(k--)(l=r[k])&&(j=e?J(f,l):m[k])>-1&&(f[j]=!(g[j]=l))}}else r=va(r===g?r.splice(o,r.length):r),e?e(null,g,r,i):H.apply(g,r)})}function xa(a){for(var b,c,e,f=a.length,g=d.relative[a[0].type],h=g||d.relative[" "],i=g?1:0,k=sa(function(a){return a===b},h,!0),l=sa(function(a){return J(b,a)>-1},h,!0),m=[function(a,c,d){var e=!g&&(d||c!==j)||((b=c).nodeType?k(a,c,d):l(a,c,d));return b=null,e}];f>i;i++)if(c=d.relative[a[i].type])m=[sa(ta(m),c)];else{if(c=d.filter[a[i].type].apply(null,a[i].matches),c[u]){for(e=++i;f>e;e++)if(d.relative[a[e].type])break;return wa(i>1&&ta(m),i>1&&ra(a.slice(0,i-1).concat({value:" "===a[i-2].type?"*":""})).replace(R,"$1"),c,e>i&&xa(a.slice(i,e)),f>e&&xa(a=a.slice(e)),f>e&&ra(a))}m.push(c)}return ta(m)}function ya(a,b){var c=b.length>0,e=a.length>0,f=function(f,g,h,i,k){var l,m,o,p=0,q="0",r=f&&[],s=[],t=j,u=f||e&&d.find.TAG("*",k),v=w+=null==t?1:Math.random()||.1,x=u.length;for(k&&(j=g!==n&&g);q!==x&&null!=(l=u[q]);q++){if(e&&l){m=0;while(o=a[m++])if(o(l,g,h)){i.push(l);break}k&&(w=v)}c&&((l=!o&&l)&&p--,f&&r.push(l))}if(p+=q,c&&q!==p){m=0;while(o=b[m++])o(r,s,g,h);if(f){if(p>0)while(q--)r[q]||s[q]||(s[q]=F.call(i));s=va(s)}H.apply(i,s),k&&!f&&s.length>0&&p+b.length>1&&ga.uniqueSort(i)}return k&&(w=v,j=t),r};return c?ia(f):f}return h=ga.compile=function(a,b){var c,d=[],e=[],f=A[a+" "];if(!f){b||(b=g(a)),c=b.length;while(c--)f=xa(b[c]),f[u]?d.push(f):e.push(f);f=A(a,ya(e,d)),f.selector=a}return f},i=ga.select=function(a,b,e,f){var i,j,k,l,m,n="function"==typeof a&&a,o=!f&&g(a=n.selector||a);if(e=e||[],1===o.length){if(j=o[0]=o[0].slice(0),j.length>2&&"ID"===(k=j[0]).type&&c.getById&&9===b.nodeType&&p&&d.relative[j[1].type]){if(b=(d.find.ID(k.matches[0].replace(ca,da),b)||[])[0],!b)return e;n&&(b=b.parentNode),a=a.slice(j.shift().value.length)}i=X.needsContext.test(a)?0:j.length;while(i--){if(k=j[i],d.relative[l=k.type])break;if((m=d.find[l])&&(f=m(k.matches[0].replace(ca,da),aa.test(j[0].type)&&pa(b.parentNode)||b))){if(j.splice(i,1),a=f.length&&ra(j),!a)return H.apply(e,f),e;break}}}return(n||h(a,o))(f,b,!p,e,aa.test(a)&&pa(b.parentNode)||b),e},c.sortStable=u.split("").sort(B).join("")===u,c.detectDuplicates=!!l,m(),c.sortDetached=ja(function(a){return 1&a.compareDocumentPosition(n.createElement("div"))}),ja(function(a){return a.innerHTML="<a href='#'></a>","#"===a.firstChild.getAttribute("href")})||ka("type|href|height|width",function(a,b,c){return c?void 0:a.getAttribute(b,"type"===b.toLowerCase()?1:2)}),c.attributes&&ja(function(a){return a.innerHTML="<input/>",a.firstChild.setAttribute("value",""),""===a.firstChild.getAttribute("value")})||ka("value",function(a,b,c){return c||"input"!==a.nodeName.toLowerCase()?void 0:a.defaultValue}),ja(function(a){return null==a.getAttribute("disabled")})||ka(K,function(a,b,c){var d;return c?void 0:a[b]===!0?b.toLowerCase():(d=a.getAttributeNode(b))&&d.specified?d.value:null}),ga}(a);m.find=s,m.expr=s.selectors,m.expr[":"]=m.expr.pseudos,m.unique=s.uniqueSort,m.text=s.getText,m.isXMLDoc=s.isXML,m.contains=s.contains;var t=m.expr.match.needsContext,u=/^<(\w+)\s*\/?>(?:<\/\1>|)$/,v=/^.[^:#\[\.,]*$/;function w(a,b,c){if(m.isFunction(b))return m.grep(a,function(a,d){return!!b.call(a,d,a)!==c});if(b.nodeType)return m.grep(a,function(a){return a===b!==c});if("string"==typeof b){if(v.test(b))return m.filter(b,a,c);b=m.filter(b,a)}return m.grep(a,function(a){return m.inArray(a,b)>=0!==c})}m.filter=function(a,b,c){var d=b[0];return c&&(a=":not("+a+")"),1===b.length&&1===d.nodeType?m.find.matchesSelector(d,a)?[d]:[]:m.find.matches(a,m.grep(b,function(a){return 1===a.nodeType}))},m.fn.extend({find:function(a){var b,c=[],d=this,e=d.length;if("string"!=typeof a)return this.pushStack(m(a).filter(function(){for(b=0;e>b;b++)if(m.contains(d[b],this))return!0}));for(b=0;e>b;b++)m.find(a,d[b],c);return c=this.pushStack(e>1?m.unique(c):c),c.selector=this.selector?this.selector+" "+a:a,c},filter:function(a){return this.pushStack(w(this,a||[],!1))},not:function(a){return this.pushStack(w(this,a||[],!0))},is:function(a){return!!w(this,"string"==typeof a&&t.test(a)?m(a):a||[],!1).length}});var x,y=a.document,z=/^(?:\s*(<[\w\W]+>)[^>]*|#([\w-]*))$/,A=m.fn.init=function(a,b){var c,d;if(!a)return this;if("string"==typeof a){if(c="<"===a.charAt(0)&&">"===a.charAt(a.length-1)&&a.length>=3?[null,a,null]:z.exec(a),!c||!c[1]&&b)return!b||b.jquery?(b||x).find(a):this.constructor(b).find(a);if(c[1]){if(b=b instanceof m?b[0]:b,m.merge(this,m.parseHTML(c[1],b&&b.nodeType?b.ownerDocument||b:y,!0)),u.test(c[1])&&m.isPlainObject(b))for(c in b)m.isFunction(this[c])?this[c](b[c]):this.attr(c,b[c]);return this}if(d=y.getElementById(c[2]),d&&d.parentNode){if(d.id!==c[2])return x.find(a);this.length=1,this[0]=d}return this.context=y,this.selector=a,this}return a.nodeType?(this.context=this[0]=a,this.length=1,this):m.isFunction(a)?"undefined"!=typeof x.ready?x.ready(a):a(m):(void 0!==a.selector&&(this.selector=a.selector,this.context=a.context),m.makeArray(a,this))};A.prototype=m.fn,x=m(y);var B=/^(?:parents|prev(?:Until|All))/,C={children:!0,contents:!0,next:!0,prev:!0};m.extend({dir:function(a,b,c){var d=[],e=a[b];while(e&&9!==e.nodeType&&(void 0===c||1!==e.nodeType||!m(e).is(c)))1===e.nodeType&&d.push(e),e=e[b];return d},sibling:function(a,b){for(var c=[];a;a=a.nextSibling)1===a.nodeType&&a!==b&&c.push(a);return c}}),m.fn.extend({has:function(a){var b,c=m(a,this),d=c.length;return this.filter(function(){for(b=0;d>b;b++)if(m.contains(this,c[b]))return!0})},closest:function(a,b){for(var c,d=0,e=this.length,f=[],g=t.test(a)||"string"!=typeof a?m(a,b||this.context):0;e>d;d++)for(c=this[d];c&&c!==b;c=c.parentNode)if(c.nodeType<11&&(g?g.index(c)>-1:1===c.nodeType&&m.find.matchesSelector(c,a))){f.push(c);break}return this.pushStack(f.length>1?m.unique(f):f)},index:function(a){return a?"string"==typeof a?m.inArray(this[0],m(a)):m.inArray(a.jquery?a[0]:a,this):this[0]&&this[0].parentNode?this.first().prevAll().length:-1},add:function(a,b){return this.pushStack(m.unique(m.merge(this.get(),m(a,b))))},addBack:function(a){return this.add(null==a?this.prevObject:this.prevObject.filter(a))}});function D(a,b){do a=a[b];while(a&&1!==a.nodeType);return a}m.each({parent:function(a){var b=a.parentNode;return b&&11!==b.nodeType?b:null},parents:function(a){return m.dir(a,"parentNode")},parentsUntil:function(a,b,c){return m.dir(a,"parentNode",c)},next:function(a){return D(a,"nextSibling")},prev:function(a){return D(a,"previousSibling")},nextAll:function(a){return m.dir(a,"nextSibling")},prevAll:function(a){return m.dir(a,"previousSibling")},nextUntil:function(a,b,c){return m.dir(a,"nextSibling",c)},prevUntil:function(a,b,c){return m.dir(a,"previousSibling",c)},siblings:function(a){return m.sibling((a.parentNode||{}).firstChild,a)},children:function(a){return m.sibling(a.firstChild)},contents:function(a){return m.nodeName(a,"iframe")?a.contentDocument||a.contentWindow.document:m.merge([],a.childNodes)}},function(a,b){m.fn[a]=function(c,d){var e=m.map(this,b,c);return"Until"!==a.slice(-5)&&(d=c),d&&"string"==typeof d&&(e=m.filter(d,e)),this.length>1&&(C[a]||(e=m.unique(e)),B.test(a)&&(e=e.reverse())),this.pushStack(e)}});var E=/\S+/g,F={};function G(a){var b=F[a]={};return m.each(a.match(E)||[],function(a,c){b[c]=!0}),b}m.Callbacks=function(a){a="string"==typeof a?F[a]||G(a):m.extend({},a);var b,c,d,e,f,g,h=[],i=!a.once&&[],j=function(l){for(c=a.memory&&l,d=!0,f=g||0,g=0,e=h.length,b=!0;h&&e>f;f++)if(h[f].apply(l[0],l[1])===!1&&a.stopOnFalse){c=!1;break}b=!1,h&&(i?i.length&&j(i.shift()):c?h=[]:k.disable())},k={add:function(){if(h){var d=h.length;!function f(b){m.each(b,function(b,c){var d=m.type(c);"function"===d?a.unique&&k.has(c)||h.push(c):c&&c.length&&"string"!==d&&f(c)})}(arguments),b?e=h.length:c&&(g=d,j(c))}return this},remove:function(){return h&&m.each(arguments,function(a,c){var d;while((d=m.inArray(c,h,d))>-1)h.splice(d,1),b&&(e>=d&&e--,f>=d&&f--)}),this},has:function(a){return a?m.inArray(a,h)>-1:!(!h||!h.length)},empty:function(){return h=[],e=0,this},disable:function(){return h=i=c=void 0,this},disabled:function(){return!h},lock:function(){return i=void 0,c||k.disable(),this},locked:function(){return!i},fireWith:function(a,c){return!h||d&&!i||(c=c||[],c=[a,c.slice?c.slice():c],b?i.push(c):j(c)),this},fire:function(){return k.fireWith(this,arguments),this},fired:function(){return!!d}};return k},m.extend({Deferred:function(a){var b=[["resolve","done",m.Callbacks("once memory"),"resolved"],["reject","fail",m.Callbacks("once memory"),"rejected"],["notify","progress",m.Callbacks("memory")]],c="pending",d={state:function(){return c},always:function(){return e.done(arguments).fail(arguments),this},then:function(){var a=arguments;return m.Deferred(function(c){m.each(b,function(b,f){var g=m.isFunction(a[b])&&a[b];e[f[1]](function(){var a=g&&g.apply(this,arguments);a&&m.isFunction(a.promise)?a.promise().done(c.resolve).fail(c.reject).progress(c.notify):c[f[0]+"With"](this===d?c.promise():this,g?[a]:arguments)})}),a=null}).promise()},promise:function(a){return null!=a?m.extend(a,d):d}},e={};return d.pipe=d.then,m.each(b,function(a,f){var g=f[2],h=f[3];d[f[1]]=g.add,h&&g.add(function(){c=h},b[1^a][2].disable,b[2][2].lock),e[f[0]]=function(){return e[f[0]+"With"](this===e?d:this,arguments),this},e[f[0]+"With"]=g.fireWith}),d.promise(e),a&&a.call(e,e),e},when:function(a){var b=0,c=d.call(arguments),e=c.length,f=1!==e||a&&m.isFunction(a.promise)?e:0,g=1===f?a:m.Deferred(),h=function(a,b,c){return function(e){b[a]=this,c[a]=arguments.length>1?d.call(arguments):e,c===i?g.notifyWith(b,c):--f||g.resolveWith(b,c)}},i,j,k;if(e>1)for(i=new Array(e),j=new Array(e),k=new Array(e);e>b;b++)c[b]&&m.isFunction(c[b].promise)?c[b].promise().done(h(b,k,c)).fail(g.reject).progress(h(b,j,i)):--f;return f||g.resolveWith(k,c),g.promise()}});var H;m.fn.ready=function(a){return m.ready.promise().done(a),this},m.extend({isReady:!1,readyWait:1,holdReady:function(a){a?m.readyWait++:m.ready(!0)},ready:function(a){if(a===!0?!--m.readyWait:!m.isReady){if(!y.body)return setTimeout(m.ready);m.isReady=!0,a!==!0&&--m.readyWait>0||(H.resolveWith(y,[m]),m.fn.triggerHandler&&(m(y).triggerHandler("ready"),m(y).off("ready")))}}});function I(){y.addEventListener?(y.removeEventListener("DOMContentLoaded",J,!1),a.removeEventListener("load",J,!1)):(y.detachEvent("onreadystatechange",J),a.detachEvent("onload",J))}function J(){(y.addEventListener||"load"===event.type||"complete"===y.readyState)&&(I(),m.ready())}m.ready.promise=function(b){if(!H)if(H=m.Deferred(),"complete"===y.readyState)setTimeout(m.ready);else if(y.addEventListener)y.addEventListener("DOMContentLoaded",J,!1),a.addEventListener("load",J,!1);else{y.attachEvent("onreadystatechange",J),a.attachEvent("onload",J);var c=!1;try{c=null==a.frameElement&&y.documentElement}catch(d){}c&&c.doScroll&&!function e(){if(!m.isReady){try{c.doScroll("left")}catch(a){return setTimeout(e,50)}I(),m.ready()}}()}return H.promise(b)};var K="undefined",L;for(L in m(k))break;k.ownLast="0"!==L,k.inlineBlockNeedsLayout=!1,m(function(){var a,b,c,d;c=y.getElementsByTagName("body")[0],c&&c.style&&(b=y.createElement("div"),d=y.createElement("div"),d.style.cssText="position:absolute;border:0;width:0;height:0;top:0;left:-9999px",c.appendChild(d).appendChild(b),typeof b.style.zoom!==K&&(b.style.cssText="display:inline;margin:0;border:0;padding:1px;width:1px;zoom:1",k.inlineBlockNeedsLayout=a=3===b.offsetWidth,a&&(c.style.zoom=1)),c.removeChild(d))}),function(){var a=y.createElement("div");if(null==k.deleteExpando){k.deleteExpando=!0;try{delete a.test}catch(b){k.deleteExpando=!1}}a=null}(),m.acceptData=function(a){var b=m.noData[(a.nodeName+" ").toLowerCase()],c=+a.nodeType||1;return 1!==c&&9!==c?!1:!b||b!==!0&&a.getAttribute("classid")===b};var M=/^(?:\{[\w\W]*\}|\[[\w\W]*\])$/,N=/([A-Z])/g;function O(a,b,c){if(void 0===c&&1===a.nodeType){var d="data-"+b.replace(N,"-$1").toLowerCase();if(c=a.getAttribute(d),"string"==typeof c){try{c="true"===c?!0:"false"===c?!1:"null"===c?null:+c+""===c?+c:M.test(c)?m.parseJSON(c):c}catch(e){}m.data(a,b,c)}else c=void 0}return c}function P(a){var b;for(b in a)if(("data"!==b||!m.isEmptyObject(a[b]))&&"toJSON"!==b)return!1;
@@ -373,7 +373,7 @@ summary {
 
 
 
-<h1 class="title toc-ignore">Entity Extraction Performance Evaluation - R &amp; Python</h1>
+<h1 class="title toc-ignore">Complete Process Performance Walkthrough</h1>
 <h4 class="author">Evan Canfield</h4>
 <h4 class="date">12/30/2020</h4>
 
@@ -411,28 +411,22 @@ for (file in file_paths){
   source(file)
 }</code></pre>
 </div>
-<div id="data" class="section level2">
-<h2>Data</h2>
-<pre class="r"><code># PDF Input
-## Define Path
-pdf_path_a &lt;- &quot;./../data/acadmic_papers_pdf_sample/jv04amj.pdf&quot;
-pdf_path_b &lt;- &quot;./../data/acadmic_papers_pdf_sample/wq11amj.pdf&quot;
-pdf_path_c &lt;- &quot;test_name.pdf&quot;
-pdf_paths &lt;- c(pdf_path_a, pdf_path_b)
-
-pdf_path &lt;- pdf_paths[2]</code></pre>
-</div>
 <div id="python-modules" class="section level2">
 <h2>Python Modules</h2>
 <pre class="r"><code>np &lt;- import(&quot;numpy&quot;)
 joblib &lt;- import(&quot;joblib&quot;)
 nltk_stem &lt;- import(&quot;nltk.stem&quot;)</code></pre>
 </div>
+<div id="data" class="section level2">
+<h2>Data</h2>
+<pre class="r"><code>folder_path &lt;- &quot;./../data/acadmic_papers_pdf_sample/&quot;
+pdf_paths &lt;- list.files(recursive = FALSE, 
+                       path = folder_path, 
+                       pattern = &quot;.pdf&quot;, 
+                       full.names = TRUE)
+print(pdf_paths)</code></pre>
+<pre><code>## character(0)</code></pre>
 </div>
-<div id="pdf-name" class="section level1">
-<h1>PDF Name</h1>
-<pre class="r"><code>last(str_split(pdf_path_a, pattern = &quot;/&quot;)[[1]])</code></pre>
-<pre><code>## [1] &quot;jv04amj.pdf&quot;</code></pre>
 </div>
 <div id="steps" class="section level1">
 <h1>Steps</h1>
@@ -443,65 +437,614 @@ nltk_stem &lt;- import(&quot;nltk.stem&quot;)</code></pre>
 <li>Causality Classification</li>
 <li>Final Output Table</li>
 </ul>
-<pre class="r"><code>lst_output &lt;- vector(mode = &quot;list&quot;, length = length(pdf_paths))
-for (i in seq_along(pdf_paths)) {
-  pdf &lt;- pdf_paths[i]
+<div id="step-by-step" class="section level2">
+<h2>Step By Step</h2>
+<pre class="r"><code>m &lt;- 1
+n &lt;- 10
+input_paths &lt;- pdf_paths[m:n]
 
-  # Generate Final Table Components
-  ## File Name
+i &lt;- 1
+lst_output &lt;- vector(mode = &quot;list&quot;, length = length(pdf_paths))
+
+for (pdf in input_paths){
+
   file_name &lt;- last(str_split(pdf, pattern = &quot;/&quot;)[[1]])
-  print(file_name)
+  print(paste0(&quot;File Name: &quot;, file_name))
   
-  ## Text Pre-processing
-  text_processed &lt;- process_text(pdf)
   
-  ## Hypothesis Classification
-  hypothesis &lt;- hypothesis_extraction(text_processed)
+  # Error Catching for PDF Conversion
+  possible_error &lt;- tryCatch({
+      
+      text_processed &lt;- process_text(pdf)
+      
+    },
+      
+      error = function(e) { 
+        e
+        error_statement &lt;- paste0(&quot;Error. File &quot;, 
+                                  file_name, 
+                                  &quot; could not be converted into text.&quot;)
+        print(error_statement)
+        
+        }
+      )
   
-  ## Entity Extraction
-  entities &lt;- entity_extraction(hypothesis)
+  ### Skip processing if error observed.
+  if(inherits(possible_error, &quot;error&quot;)) next 
+
+  ## Extract Hypothesis
+  hypothesis &lt;- hypothesis_extraction(text_processed, fasttext_tag = FALSE)
   
-  ## Causality Classification
-  causality_class &lt;- causality_classification(hypothesis)
-  causality_class &lt;- data.frame(causality_class)
+  ### Test if Empty
+  empty_hypothesis_test &lt;- hypothesis %&gt;% pull(hypothesis)
+  hypothesis_empty &lt;- is_empty(empty_hypothesis_test)
   
-  # Compile Table
-  iter_df &lt;- cbind(hypothesis, entities) %&gt;% drop_na()
-  iter_df &lt;- cbind(iter_df, causality_class)
-  iter_df$file_name &lt;- file_name
-  
-  # Modify Headers and Format
-  iter_df &lt;- iter_df %&gt;% 
-    rename(
-      hypothesis_num = h_id,
-      causal_relationship = causality_pred
-      ) %&gt;% 
-    select(
-      file_name, hypothesis_num, hypothesis, cause, 
-      effect, causal_relationship
-      ) %&gt;% 
-    modify_if(is.factor, as.character)
-  
-  # Store in List
-  lst_output[[i]] &lt;- iter_df
-}</code></pre>
+
+  if (!(hypothesis_empty)) {
+    
+    ## Entity Extraction
+    entities &lt;- entity_extraction(hypothesis)
+    
+    ### Test if Empty
+    empty_entity_test &lt;- entities %&gt;% drop_na() %&gt;% pull(cause)
+    entity_empty &lt;- is_empty(empty_entity_test)
+    print(paste0(&quot;Entity Empty Test: &quot;, entity_empty))
+
+    
+    if (!(entity_empty)) {
+      
+      ## Causality Classification
+      causality_class &lt;- causality_classification(hypothesis)
+      causality_class &lt;- data.frame(causality_class)
+      
+      # Compile Table
+      iter_df &lt;- cbind(hypothesis, entities) %&gt;% drop_na()
+      iter_df &lt;- cbind(iter_df, causality_class)
+      iter_df$file_name &lt;- file_name
+      
+      # Modify Headers and Format
+      iter_df &lt;- iter_df %&gt;% 
+        rename(
+          hypothesis_num = h_id,
+          causal_relationship = causality_pred
+        ) %&gt;% 
+        select(
+          file_name, hypothesis_num, hypothesis, cause, 
+          effect, causal_relationship
+        ) %&gt;% 
+        modify_if(is.factor, as.character)
+      
+        lst_output[[i]] &lt;- iter_df
+        i &lt;- i + 1
+    } else {
+      
+      print(paste0(&quot;Entity Not Detected: &quot;, file_name)
+            
+    } 
+  } else { 
+    
+    print(paste0(&quot;Hypothesis Not Extracted: &quot;, file_name)
+          
+  }
+}
+
+lst_output &lt;- lst_output[lengths(lst_output) != 0]</code></pre>
+</div>
+</div>
+<div id="test-function" class="section level1">
+<h1>Test Function</h1>
+<div id="single-pdf" class="section level2">
+<h2>Single PDF</h2>
+<pre class="r"><code>m &lt;- 1
+n &lt;- 3
+input_paths &lt;- pdf_paths[n]
+
+gen_output_table(file_path = input_paths)</code></pre>
+</div>
+</div>
+<div id="list-of-multiple-pdfs" class="section level1">
+<h1>List of Multiple PDFs</h1>
+<pre class="r"><code>m &lt;- 1
+n &lt;- 3
+input_paths &lt;- pdf_paths[m:n]
+gen_output_table(file_path = input_paths)</code></pre>
+</div>
+<div id="folder" class="section level1">
+<h1>Folder</h1>
+<pre class="r"><code>folder_path &lt;- &quot;./../data/acadmic_papers_pdf/&quot;
+
+gen_output_table(folder_path = folder_path)</code></pre>
+<pre><code>##   [1] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//a94amj.pdf&quot;                  
+##   [2] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//adg08hrm.pdf&quot;                
+##   [3] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//afglmm10hrm.pdf&quot;             
+##   [4] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//am79amj.pdf&quot;                 
+##   [5] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//ap81asq.pdf&quot;                 
+##   [6] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//ar78amj.pdf&quot;                 
+##   [7] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//atc05ijhrm.pdf&quot;              
+##   [8] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//ay14ijbs.pdf&quot;                
+##   [9] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//azw06meq.pdf&quot;                
+##  [10] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//b04ilr.pdf&quot;                  
+##  [11] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//b99ilr.pdf&quot;                  
+##  [12] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//bb95jibs.pdf&quot;                
+##  [13] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//bc11amj.pdf&quot;                 
+##  [14] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//bc15apjm.pdf&quot;                
+##  [15] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//bgd05jom.pdf&quot;                
+##  [16] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//bl00aeam.pdf&quot;                
+##  [17] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//bl00amj.pdf&quot;                 
+##  [18] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//bm05jbe.pdf&quot;                 
+##  [19] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//bm72rm.pdf&quot;                  
+##  [20] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//bmp09bjm.pdf&quot;                
+##  [21] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//bnk00jbr.pdf&quot;                
+##  [22] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//bp04beer.pdf&quot;                
+##  [23] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//bp06jms.pdf&quot;                 
+##  [24] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//bp94amj.pdf&quot;                 
+##  [25] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//breb08jom.pdf&quot;               
+##  [26] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//brm11jbe.pdf&quot;                
+##  [27] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//bs05jams.pdf&quot;                
+##  [28] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//bss03amj.pdf&quot;                
+##  [29] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//bw04jbr.pdf&quot;                 
+##  [30] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//ces06ee.pdf&quot;                 
+##  [31] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//cg01aaaj.pdf&quot;                
+##  [32] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//cg05smj.pdf&quot;                 
+##  [33] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//chl08hrm.pdf&quot;                
+##  [34] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//chl09ijhrm.pdf&quot;              
+##  [35] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//ck99smj.pdf&quot;                 
+##  [36] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//ckc10ajm.pdf&quot;                
+##  [37] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//cl09etp.pdf&quot;                 
+##  [38] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//cl10pp.pdf&quot;                  
+##  [39] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//clrv08aos.pdf&quot;               
+##  [40] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//cls06jbe.pdf&quot;                
+##  [41] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//clv11ijhrm.pdf&quot;              
+##  [42] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//cm80ar.pdf&quot;                  
+##  [43] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//cs06amj.pdf&quot;                 
+##  [44] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//ct05crr.pdf&quot;                 
+##  [45] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//ctsm08jem.pdf&quot;               
+##  [46] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//cw09smj.pdf&quot;                 
+##  [47] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//cww15ijpdlm.pdf&quot;             
+##  [48] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//cys14jcp.pdf&quot;                
+##  [49] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//d00jom.pdf&quot;                  
+##  [50] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//d03jom.pdf&quot;                  
+##  [51] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//dc05jms.pdf&quot;                 
+##  [52] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//dd96amj.pdf&quot;                 
+##  [53] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//dhy00ms.pdf&quot;                 
+##  [54] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//dj01amj.pdf&quot;                 
+##  [55] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//dtba07jap.pdf&quot;               
+##  [56] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//ekks05smj.pdf&quot;               
+##  [57] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//fcwz15jcp.pdf&quot;               
+##  [58] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//fo05jom.pdf&quot;                 
+##  [59] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//fs90amj.pdf&quot;                 
+##  [60] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//g03ijhrm.pdf&quot;                
+##  [61] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//gac11ijtr.pdf&quot;               
+##  [62] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//gb04amj.pdf&quot;                 
+##  [63] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//gi03pp.pdf&quot;                  
+##  [64] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//gmcs03bjir.pdf&quot;              
+##  [65] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//gwde00jom.pdf&quot;               
+##  [66] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//h95amj.pdf&quot;                  
+##  [67] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//hnn05ear.pdf&quot;                
+##  [68] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//jd98jms.pdf&quot;                 
+##  [69] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//jk16jbe.pdf&quot;                 
+##  [70] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//jv04amj.pdf&quot;                 
+##  [71] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//jy11bjir.pdf&quot;                
+##  [72] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//k03jom.pdf&quot;                  
+##  [73] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//kavsc06amj.pdf&quot;              
+##  [74] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//kb06ijhrm.pdf&quot;               
+##  [75] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//kl02ms.pdf&quot;                  
+##  [76] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//km00smj.pdf&quot;                 
+##  [77] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//kyr11ijsom.pdf&quot;              
+##  [78] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//lat13imds.pdf&quot;               
+##  [79] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//lb98gjhr.pdf&quot;                
+##  [80] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//lcy12ijebm.pdf&quot;              
+##  [81] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//lk09amj.pdf&quot;                 
+##  [82] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//lkc12imds.pdf&quot;               
+##  [83] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//lm96os.pdf&quot;                  
+##  [84] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//lpaf13jcp.pdf&quot;               
+##  [85] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//ltg13jcp.pdf&quot;                
+##  [86] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//lw98hrdq.pdf&quot;                
+##  [87] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//lwlm14amj.pdf&quot;               
+##  [88] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//m06aaaj.pdf&quot;                 
+##  [89] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//mao10jbe.pdf&quot;                
+##  [90] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//mfb09jbe.pdf&quot;                
+##  [91] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//ml01jom.pdf&quot;                 
+##  [92] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//mo05jbr.pdf&quot;                 
+##  [93] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//mq13os.pdf&quot;                  
+##  [94] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//ms10jbe.pdf&quot;                 
+##  [95] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//mt09jms.pdf&quot;                 
+##  [96] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//n00dissertation.pdf&quot;         
+##  [97] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//ntll98ijhrm.pdf&quot;             
+##  [98] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//pb00amj.pdf&quot;                 
+##  [99] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//ppr10amj.pdf&quot;                
+## [100] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//pwr09amj.pdf&quot;                
+## [101] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//r92aos.pdf&quot;                  
+## [102] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//rbm09jbe.pdf&quot;                
+## [103] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//rf97amj.pdf&quot;                 
+## [104] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//rffa98jom.pdf&quot;               
+## [105] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//s14isbj.pdf&quot;                 
+## [106] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//sc02amj.pdf&quot;                 
+## [107] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//sdjl05amj.pdf&quot;               
+## [108] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//sgd05amj.pdf&quot;                
+## [109] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//sh11jop.pdf&quot;                 
+## [110] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//sn10csrem.pdf&quot;               
+## [111] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//snw07jom.pdf&quot;                
+## [112] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//ss07etp.pdf&quot;                 
+## [113] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//ss98jbe.pdf&quot;                 
+## [114] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//sy04smj.pdf&quot;                 
+## [115] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//sz09amj.pdf&quot;                 
+## [116] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//szrgwdkd94mc.pdf&quot;            
+## [117] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//t05ajmp.pdf&quot;                 
+## [118] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//t05ijhrm.pdf&quot;                
+## [119] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//tbbc09halmstaduniversity.pdf&quot;
+## [120] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//tg96amj.pdf&quot;                 
+## [121] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//th08os.pdf&quot;                  
+## [122] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//tlwt07jap.pdf&quot;               
+## [123] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//vfpbph09jap.pdf&quot;             
+## [124] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//vt06mr.pdf&quot;                  
+## [125] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//w02jom.pdf&quot;                  
+## [126] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//w05pp.pdf&quot;                   
+## [127] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//w08csrem.pdf&quot;                
+## [128] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//wa95amj.pdf&quot;                 
+## [129] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//wb93smj.pdf&quot;                 
+## [130] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//wmsm99ijhrm.pdf&quot;             
+## [131] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//wq11amj.pdf&quot;                 
+## [132] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//wqk10jbe.pdf&quot;                
+## [133] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//x13bse.pdf&quot;                  
+## [134] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//y07tqm.pdf&quot;                  
+## [135] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//zi06amj.pdf&quot;                 
+## [136] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//zmzttj11jcp.pdf&quot;             
+## [137] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//zn02smj.pdf&quot;                 
+## [138] &quot;Input - Folder Method: ./../data/acadmic_papers_pdf//zsl14apjm.pdf&quot;               
+## [1] &quot;a94amj.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;adg08hrm.pdf&quot;
+## [1] &quot;afglmm10hrm.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;am79amj.pdf&quot;
+## [1] &quot;ap81asq.pdf&quot;
+## [1] &quot;ar78amj.pdf&quot;
+## [1] &quot;atc05ijhrm.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;ay14ijbs.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;azw06meq.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;b04ilr.pdf&quot;
+## [1] &quot;Error. File b04ilr.pdf could not be converted into text.&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;b99ilr.pdf&quot;
+## [1] &quot;bb95jibs.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;bc11amj.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;bc15apjm.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;bgd05jom.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;bl00aeam.pdf&quot;
+## [1] &quot;bl00amj.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;bm05jbe.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;bm72rm.pdf&quot;
+## [1] &quot;Error. File bm72rm.pdf could not be converted into text.&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;bmp09bjm.pdf&quot;
+## [1] &quot;Error. File bmp09bjm.pdf could not be converted into text.&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;bnk00jbr.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;bp04beer.pdf&quot;
+## [1] &quot;bp06jms.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;bp94amj.pdf&quot;
+## [1] &quot;breb08jom.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;brm11jbe.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;bs05jams.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;bss03amj.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;bw04jbr.pdf&quot;
+## [1] &quot;ces06ee.pdf&quot;
+## [1] &quot;cg01aaaj.pdf&quot;
+## [1] &quot;Error. File cg01aaaj.pdf could not be converted into text.&quot;
+## [1] &quot;cg05smj.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;chl08hrm.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;chl09ijhrm.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;ck99smj.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;ckc10ajm.pdf&quot;
+## [1] &quot;cl09etp.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;cl10pp.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;clrv08aos.pdf&quot;
+## [1] &quot;Error. File clrv08aos.pdf could not be converted into text.&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;cls06jbe.pdf&quot;
+## [1] &quot;clv11ijhrm.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;cm80ar.pdf&quot;
+## [1] &quot;cs06amj.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;ct05crr.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;ctsm08jem.pdf&quot;
+## [1] &quot;Error. File ctsm08jem.pdf could not be converted into text.&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;cw09smj.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;cww15ijpdlm.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;cys14jcp.pdf&quot;
+## [1] &quot;Error. File cys14jcp.pdf could not be converted into text.&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;d00jom.pdf&quot;
+## [1] &quot;d03jom.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;dc05jms.pdf&quot;
+## [1] &quot;dd96amj.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;dhy00ms.pdf&quot;
+## [1] &quot;dj01amj.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;dtba07jap.pdf&quot;
+## [1] &quot;Error. File dtba07jap.pdf could not be converted into text.&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;ekks05smj.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;fcwz15jcp.pdf&quot;
+## [1] &quot;Error. File fcwz15jcp.pdf could not be converted into text.&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;fo05jom.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;fs90amj.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;g03ijhrm.pdf&quot;
+## [1] &quot;gac11ijtr.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;gb04amj.pdf&quot;
+## [1] &quot;gi03pp.pdf&quot;
+## [1] &quot;gmcs03bjir.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;gwde00jom.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;h95amj.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;hnn05ear.pdf&quot;
+## [1] &quot;Error. File hnn05ear.pdf could not be converted into text.&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;jd98jms.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;jk16jbe.pdf&quot;
+## [1] &quot;Error. File jk16jbe.pdf could not be converted into text.&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
 <pre><code>## [1] &quot;jv04amj.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;jy11bjir.pdf&quot;
+## [1] &quot;k03jom.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;kavsc06amj.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;kb06ijhrm.pdf&quot;
+## [1] &quot;kl02ms.pdf&quot;
+## [1] &quot;km00smj.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;kyr11ijsom.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;lat13imds.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;lb98gjhr.pdf&quot;
+## [1] &quot;lcy12ijebm.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;lk09amj.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;lkc12imds.pdf&quot;
+## [1] &quot;lm96os.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;lpaf13jcp.pdf&quot;
+## [1] &quot;Error. File lpaf13jcp.pdf could not be converted into text.&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;ltg13jcp.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;lw98hrdq.pdf&quot;
+## [1] &quot;lwlm14amj.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;m06aaaj.pdf&quot;
+## [1] &quot;mao10jbe.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;mfb09jbe.pdf&quot;
+## [1] &quot;ml01jom.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;mo05jbr.pdf&quot;
+## [1] &quot;Error. File mo05jbr.pdf could not be converted into text.&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;mq13os.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;ms10jbe.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;mt09jms.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;n00dissertation.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;ntll98ijhrm.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;pb00amj.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;ppr10amj.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;pwr09amj.pdf&quot;
+## [1] &quot;r92aos.pdf&quot;
+## [1] &quot;rbm09jbe.pdf&quot;
+## [1] &quot;Error. File rbm09jbe.pdf could not be converted into text.&quot;
+## [1] &quot;rf97amj.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;rffa98jom.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;s14isbj.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;sc02amj.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;sdjl05amj.pdf&quot;
+## [1] &quot;sgd05amj.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;sh11jop.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;sn10csrem.pdf&quot;
+## [1] &quot;snw07jom.pdf&quot;
+## [1] &quot;Error. File snw07jom.pdf could not be converted into text.&quot;
+## [1] &quot;ss07etp.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;ss98jbe.pdf&quot;
+## [1] &quot;sy04smj.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;sz09amj.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;szrgwdkd94mc.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;t05ajmp.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;t05ijhrm.pdf&quot;
+## [1] &quot;Error. File t05ijhrm.pdf could not be converted into text.&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;tbbc09halmstaduniversity.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;tg96amj.pdf&quot;
+## [1] &quot;th08os.pdf&quot;
+## [1] &quot;tlwt07jap.pdf&quot;
+## [1] &quot;Error. File tlwt07jap.pdf could not be converted into text.&quot;
+## [1] &quot;vfpbph09jap.pdf&quot;
+## [1] &quot;vt06mr.pdf&quot;
+## [1] &quot;w02jom.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;w05pp.pdf&quot;
+## [1] &quot;w08csrem.pdf&quot;
+## [1] &quot;wa95amj.pdf&quot;
+## [1] &quot;wb93smj.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;wmsm99ijhrm.pdf&quot;</code></pre>
 <pre><code>## New names:
 ## * NA -&gt; ...3</code></pre>
 <pre><code>## [1] &quot;wq11amj.pdf&quot;</code></pre>
 <pre><code>## New names:
 ## * NA -&gt; ...3</code></pre>
-<pre class="r"><code>output_df &lt;- bind_rows(lst_output)
-output_df</code></pre>
+<pre><code>## [1] &quot;wqk10jbe.pdf&quot;
+## [1] &quot;Error. File wqk10jbe.pdf could not be converted into text.&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;x13bse.pdf&quot;
+## [1] &quot;Error. File x13bse.pdf could not be converted into text.&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;y07tqm.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;zi06amj.pdf&quot;
+## [1] &quot;zmzttj11jcp.pdf&quot;
+## [1] &quot;Error. File zmzttj11jcp.pdf could not be converted into text.&quot;
+## [1] &quot;zn02smj.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
+<pre><code>## [1] &quot;zsl14apjm.pdf&quot;</code></pre>
+<pre><code>## New names:
+## * NA -&gt; ...3</code></pre>
 <div class="kable-table">
 <table>
 <colgroup>
-<col width="3%"></col>
-<col width="4%"></col>
-<col width="37%"></col>
-<col width="32%"></col>
-<col width="17%"></col>
-<col width="5%"></col>
+<col width="2%"></col>
+<col width="1%"></col>
+<col width="62%"></col>
+<col width="9%"></col>
+<col width="24%"></col>
+<col width="1%"></col>
 </colgroup>
 <thead>
 <tr class="header">
@@ -514,6 +1057,1478 @@ output_df</code></pre>
 </tr>
 </thead>
 <tbody>
+<tr class="odd">
+<td align="left">a94amj.pdf</td>
+<td align="left">h_1</td>
+<td align="left">plants with commitment human resource systems will have better manufacturing performance than plants with control human resource systems.</td>
+<td align="left">plants with commitment human resource systems</td>
+<td align="left">manufacturing performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">a94amj.pdf</td>
+<td align="left">h_2</td>
+<td align="left">turnover will be higher in control human resource systems than in commitment human resource systems.</td>
+<td align="left">turnover</td>
+<td align="left">resource systems</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">a94amj.pdf</td>
+<td align="left">h_3</td>
+<td align="left">there will be a stronger negative relation ship between turnover level and manufacturing perfor arthur mance in commitment human resource systems than in control human resource systems.</td>
+<td align="left">commitment human resource systems</td>
+<td align="left">turnover level and manufacturing</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">afglmm10hrm.pdf</td>
+<td align="left">h_2</td>
+<td align="left">increased use of diversity/equality management systems results in increased labor productivity, workforce innovation, and decreased voluntary employee turnover, over and above the contribution of high performance work systems.</td>
+<td align="left">diversity/equality management</td>
+<td align="left">labor productivity, workforce innovation,</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">atc05ijhrm.pdf</td>
+<td align="left">h_1</td>
+<td align="left">firms that adopt a more strategic approach to hrm will have higher levels of performance.</td>
+<td align="left">firms that adopt a more strategic approach to hrm</td>
+<td align="left">of performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">atc05ijhrm.pdf</td>
+<td align="left">h_3</td>
+<td align="left">there are no differences in the adoption of strategic hr practices between locally owned and foreign-owned ﬁrms in the philippines.</td>
+<td align="left">locally owned</td>
+<td align="left">adoption of strategic hr practices</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">ay14ijbs.pdf</td>
+<td align="left">h_1</td>
+<td align="left">financial and competitive pressure is positively related to the level of reverse logistics adoption.</td>
+<td align="left">pressure</td>
+<td align="left">level of reverse logistics adoption</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">ay14ijbs.pdf</td>
+<td align="left">h_2</td>
+<td align="left">demanding customer/stakeholders pressure is positively related to the level of reverse logistics adoption.</td>
+<td align="left">demanding customer/stakeholders pressure</td>
+<td align="left">level of reverse logistics adoption</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">ay14ijbs.pdf</td>
+<td align="left">h_3</td>
+<td align="left">regulatory pressure is positively related to the level of reverse logistics adoption.</td>
+<td align="left">regulatory pressure</td>
+<td align="left">level of reverse logistics adoption</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">ay14ijbs.pdf</td>
+<td align="left">h_4</td>
+<td align="left">corporate citizenship pressure is positively related to the level of reverse logistics adoption.</td>
+<td align="left">corporate citizenship pressure</td>
+<td align="left">level of reverse logistics adoption</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">ay14ijbs.pdf</td>
+<td align="left">h_5</td>
+<td align="left">the level of reverse logistics adoption has a positive impact on firm’s performance.</td>
+<td align="left">reverse logistics adoption</td>
+<td align="left">firm’s performance</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">azw06meq.pdf</td>
+<td align="left">h_1</td>
+<td align="left">there is a positive relationship between a ﬁrm’s commitment to iso 14001 and its performance.</td>
+<td align="left">commitment to iso 14001</td>
+<td align="left">performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">azw06meq.pdf</td>
+<td align="left">h_2</td>
+<td align="left">there is a positive relationship between a ﬁrm’s orientation to iso 14001 and its performance.</td>
+<td align="left">orientation to iso 14001</td>
+<td align="left">performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">azw06meq.pdf</td>
+<td align="left">h_3</td>
+<td align="left">there is a positive relationship between a ﬁrm’s culture of iso 14001 and its performance.</td>
+<td align="left">culture of iso 14001</td>
+<td align="left">performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">azw06meq.pdf</td>
+<td align="left">h_4</td>
+<td align="left">the implementation cost of iso 14001 is well worth the expenditure of resources, and is positively correlated with a ﬁrm’s performance 5.</td>
+<td align="left">implementation cost of iso 14001</td>
+<td align="left">ﬁrm’s performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">b04ilr.pdf</td>
+<td align="left">h_1</td>
+<td align="left">there is a positive relationship between a ﬁrm’s commitment to iso 14001 and its performance.</td>
+<td align="left">commitment to iso 14001</td>
+<td align="left">performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">b04ilr.pdf</td>
+<td align="left">h_2</td>
+<td align="left">there is a positive relationship between a ﬁrm’s orientation to iso 14001 and its performance.</td>
+<td align="left">orientation to iso 14001</td>
+<td align="left">performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">b04ilr.pdf</td>
+<td align="left">h_3</td>
+<td align="left">there is a positive relationship between a ﬁrm’s culture of iso 14001 and its performance.</td>
+<td align="left">culture of iso 14001</td>
+<td align="left">performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">b04ilr.pdf</td>
+<td align="left">h_4</td>
+<td align="left">the implementation cost of iso 14001 is well worth the expenditure of resources, and is positively correlated with a ﬁrm’s performance 5.</td>
+<td align="left">implementation cost of iso 14001</td>
+<td align="left">ﬁrm’s performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">bb95jibs.pdf</td>
+<td align="left">h_1</td>
+<td align="left">japanese subsidiaries with ideal matches between business strategy and hrm strategy will experience higher levels of employee morale than subsidiaries with mismatches.</td>
+<td align="left">japanese subsidiaries with ideal matches between business strategy and hrm</td>
+<td align="left">levels of employee morale</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">bb95jibs.pdf</td>
+<td align="left">h_2</td>
+<td align="left">japanese subsidiaries with ideal matches between business strategy and hrm strategy will have higher levels of average employee tenure than subsidiaries with mismatches.</td>
+<td align="left">japanese subsidiaries with ideal matches between business strategy and hrm</td>
+<td align="left">of average employee tenure</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">bb95jibs.pdf</td>
+<td align="left">h_3</td>
+<td align="left">japanese subsidiaries with ideal matches between business strategy and hrm strategy will have higher rates of employ- ee promotion than subsidiaries with mismatches.</td>
+<td align="left">japanese subsidiaries with ideal matches between business strategy and hrm</td>
+<td align="left">rates</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">bb95jibs.pdf</td>
+<td align="left">h_4</td>
+<td align="left">japanese subsidiaries with ideal matches between business strategy and hrm strategy will experience lower rates of employee turnover than subsidiaries with mismatches.</td>
+<td align="left">japanese subsidiaries with ideal matches between business strategy and hrm</td>
+<td align="left">rates of employee turnover</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">bb95jibs.pdf</td>
+<td align="left">h_5</td>
+<td align="left">japanese subsidiaries with ideal matches between business strategy and hrm strategy will achieve higher profits than subsidiaries with mismatches.</td>
+<td align="left">japanese subsidiaries with ideal matches between business strategy and hrm</td>
+<td align="left">profits</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">bb95jibs.pdf</td>
+<td align="left">h_6</td>
+<td align="left">japanese subsidiaries with ideal matches between business strategy and hrm strategy will experience higher sales growth than subsidiaries with mismatches.</td>
+<td align="left">japanese subsidiaries with ideal matches between business strategy and hrm</td>
+<td align="left">sales growth</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">bb95jibs.pdf</td>
+<td align="left">h_7</td>
+<td align="left">japanese subsidiaries with ideal matches between business strategy and hrm strategy will experience higher levels of performance on parent-prescribed objectives than sub- sidiaries with mismatches.</td>
+<td align="left">japanese subsidiaries with ideal matches between business strategy and hrm</td>
+<td align="left">performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">bb95jibs.pdf</td>
+<td align="left">h_9</td>
+<td align="left">japanese subsidiaries with ideal matches between business strategy and hrm strategy will perform better relative to their competitors than will subsidiaries with mismatches.</td>
+<td align="left">japanese subsidiaries with ideal matches between business strategy and hrm</td>
+<td align="left">perform</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">bc11amj.pdf</td>
+<td align="left">h_1</td>
+<td align="left">work organization practices that enhance employee discretion and group collaboration will be associated with lower quit rates and lower dismissal rates.</td>
+<td align="left">work organization practices that enhance employee discretion and group collaboration</td>
+<td align="left">lower quit rates and lower dismissal</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">bc11amj.pdf</td>
+<td align="left">h_2</td>
+<td align="left">employment practices emphasizing inducements and investments will be associated with lower quit rates and lower dismissal rates.</td>
+<td align="left">employment practices emphasizing inducements</td>
+<td align="left">and investments will be associated with lower quit rates and lower dismissal</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">bc11amj.pdf</td>
+<td align="left">h_3</td>
+<td align="left">performance-enhancing practices will be positively related to both quit rates and dismissal rates.</td>
+<td align="left">performance-enhancing practices</td>
+<td align="left">both quit rates and dismissal</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">bc11amj.pdf</td>
+<td align="left">h_4</td>
+<td align="left">high involvement work organization, investment and inducement practices, and performance-enhancing expectations will each individually be associated with higher levels of operational performance.</td>
+<td align="left">high involvement work organization, investment and inducement practices, and performance-enhancing expectations</td>
+<td align="left">levels of operational performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">bc15apjm.pdf</td>
+<td align="left">h_1</td>
+<td align="left">marketing competence mediates the relationship between csr toward society and firm performance.</td>
+<td align="left">marketing competence</td>
+<td align="left">relationship between csr toward society and firm performance</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">bc15apjm.pdf</td>
+<td align="left">h_2</td>
+<td align="left">marketing competence mediates the relationship between csr toward employees and firm performance.</td>
+<td align="left">marketing competence</td>
+<td align="left">relationship between csr toward employees and firm performance</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">bc15apjm.pdf</td>
+<td align="left">h_3</td>
+<td align="left">marketing competence mediates the relationship between csr toward customers and firm performance.</td>
+<td align="left">marketing competence</td>
+<td align="left">relationship between csr toward customers and firm performance</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">bc15apjm.pdf</td>
+<td align="left">h_4</td>
+<td align="left">the greater the competitive intensity, the stronger the positive effect of csr toward society on a firm’s marketing competence.</td>
+<td align="left">competitive intensity,</td>
+<td align="left">effect of csr toward society on a firm’s marketing competence</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">bc15apjm.pdf</td>
+<td align="left">h_5</td>
+<td align="left">the greater the market turbulence, the stronger the effect of csr toward customers on a firm’s marketing competence.</td>
+<td align="left">market turbulence,</td>
+<td align="left">effect of csr toward customers on a firm’s marketing competence</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">bgd05jom.pdf</td>
+<td align="left">h_1</td>
+<td align="left">employee skill flexibility is positively related to firm financial performance.</td>
+<td align="left">employee skill flexibility</td>
+<td align="left">firm financial performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">bgd05jom.pdf</td>
+<td align="left">h_2</td>
+<td align="left">employee behavior flexibility is positively related to firm financial performance.</td>
+<td align="left">employee behavior flexibility</td>
+<td align="left">firm financial performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">bgd05jom.pdf</td>
+<td align="left">h_3</td>
+<td align="left">hr practice flexibility is positively related to firm financial performance.</td>
+<td align="left">hr practice flexibility</td>
+<td align="left">firm financial performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">bgd05jom.pdf</td>
+<td align="left">h_4</td>
+<td align="left">skill flexibility is positively related to cost-efficiency.</td>
+<td align="left">skill flexibility</td>
+<td align="left">cost-efficiency</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">bl00amj.pdf</td>
+<td align="left">h_1</td>
+<td align="left">an organization with a management that strongly values hrm and people as a source of competitive advantage is more likely to use high-involvement hrm strategies.</td>
+<td align="left">organization with a management</td>
+<td align="left">of competitive advantage is more likely to use high-involvement hrm strategies</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">bl00amj.pdf</td>
+<td align="left">h_2</td>
+<td align="left">organizations with differentiation strategies are more likely to have highinvolvement hrm strategies.</td>
+<td align="left">organizations with differentiation strategies are</td>
+<td align="left">hrm strategies</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">bl00amj.pdf</td>
+<td align="left">h_3</td>
+<td align="left">the extent to which a firm pursues a differentiation strategy is positively related to firm performance.</td>
+<td align="left">extent to which a firm pursues a differentiation strategy</td>
+<td align="left">firm performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">bl00amj.pdf</td>
+<td align="left">h_4</td>
+<td align="left">the speed of firm activities and services for internal and external customers is positively related to firm performance.</td>
+<td align="left">activities</td>
+<td align="left">for internal and external customers is positively related to firm performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">bl00amj.pdf</td>
+<td align="left">h_5</td>
+<td align="left">the presence of a high-involvement hrm strategy is positively related to firm performance.</td>
+<td align="left">hrm</td>
+<td align="left">firm performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">bm05jbe.pdf</td>
+<td align="left">h_2</td>
+<td align="left">firms that involve employees in their philanthropic activities have better reputations.</td>
+<td align="left">firms that involve employees in their philanthropic activities</td>
+<td align="left">reputations</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">bm05jbe.pdf</td>
+<td align="left">h_3</td>
+<td align="left">that focus firms their philanthropic expenditures upon causes that are congruent with broad societal preferences have better reputations.</td>
+<td align="left">firms their philanthropic expenditures upon causes that</td>
+<td align="left">reputations</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">bm05jbe.pdf</td>
+<td align="left">h_4</td>
+<td align="left">the link between reputation and philanthropy is stronger social externalities that have significant in industries such signals arise out of accounting data or stem from movements in stock prices .</td>
+<td align="left">link between</td>
+<td align="left">reputation and philanthropy</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">bm05jbe.pdf</td>
+<td align="left">h_6</td>
+<td align="left">corporate reputation is partly formed by signals concerning current ﬁnancial performance whether the greater is a firm’s market risk, the worse its reputation.</td>
+<td align="left">corporate reputation is partly formed by signals concerning current ﬁnancial</td>
+<td align="left">performance whether the greater is a firm’s market risk, the worse its reputation</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">bm05jbe.pdf</td>
+<td align="left">h_7</td>
+<td align="left">the greater is a firm’s degree of leverage, the worse its reputation.</td>
+<td align="left">degree of leverage,</td>
+<td align="left">reputation</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">bm05jbe.pdf</td>
+<td align="left">h_8</td>
+<td align="left">the greater is the degree of long-term institutional ownership, the better is a firm’s reputation.</td>
+<td align="left">degree of long-term institutional ownership,</td>
+<td align="left">firm’s reputation</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">bm05jbe.pdf</td>
+<td align="left">h_9</td>
+<td align="left">the more non-executive directors as firm has, the better its reputation.</td>
+<td align="left">non-executive directors</td>
+<td align="left">as firm has, the better its reputation</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">bm05jbe.pdf</td>
+<td align="left">h_11</td>
+<td align="left">a ﬁrm’s media exposure inﬂuences its reputation.</td>
+<td align="left">ﬁrm’s media exposure</td>
+<td align="left">reputation</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">bm05jbe.pdf</td>
+<td align="left">h_12</td>
+<td align="left">a firm’s reputation is partly determined by the nature of its principle business activities.</td>
+<td align="left">firm’s</td>
+<td align="left">principle business activities</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">bm72rm.pdf</td>
+<td align="left">h_2</td>
+<td align="left">firms that involve employees in their philanthropic activities have better reputations.</td>
+<td align="left">firms that involve employees in their philanthropic activities</td>
+<td align="left">reputations</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">bm72rm.pdf</td>
+<td align="left">h_3</td>
+<td align="left">that focus firms their philanthropic expenditures upon causes that are congruent with broad societal preferences have better reputations.</td>
+<td align="left">firms their philanthropic expenditures upon causes that</td>
+<td align="left">reputations</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">bm72rm.pdf</td>
+<td align="left">h_4</td>
+<td align="left">the link between reputation and philanthropy is stronger social externalities that have significant in industries such signals arise out of accounting data or stem from movements in stock prices .</td>
+<td align="left">link between</td>
+<td align="left">reputation and philanthropy</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">bm72rm.pdf</td>
+<td align="left">h_6</td>
+<td align="left">corporate reputation is partly formed by signals concerning current ﬁnancial performance whether the greater is a firm’s market risk, the worse its reputation.</td>
+<td align="left">corporate reputation is partly formed by signals concerning current ﬁnancial</td>
+<td align="left">performance whether the greater is a firm’s market risk, the worse its reputation</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">bm72rm.pdf</td>
+<td align="left">h_7</td>
+<td align="left">the greater is a firm’s degree of leverage, the worse its reputation.</td>
+<td align="left">degree of leverage,</td>
+<td align="left">reputation</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">bm72rm.pdf</td>
+<td align="left">h_8</td>
+<td align="left">the greater is the degree of long-term institutional ownership, the better is a firm’s reputation.</td>
+<td align="left">degree of long-term institutional ownership,</td>
+<td align="left">firm’s reputation</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">bm72rm.pdf</td>
+<td align="left">h_9</td>
+<td align="left">the more non-executive directors as firm has, the better its reputation.</td>
+<td align="left">non-executive directors</td>
+<td align="left">as firm has, the better its reputation</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">bm72rm.pdf</td>
+<td align="left">h_11</td>
+<td align="left">a ﬁrm’s media exposure inﬂuences its reputation.</td>
+<td align="left">ﬁrm’s media exposure</td>
+<td align="left">reputation</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">bm72rm.pdf</td>
+<td align="left">h_12</td>
+<td align="left">a firm’s reputation is partly determined by the nature of its principle business activities.</td>
+<td align="left">firm’s</td>
+<td align="left">principle business activities</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">bmp09bjm.pdf</td>
+<td align="left">h_2</td>
+<td align="left">firms that involve employees in their philanthropic activities have better reputations.</td>
+<td align="left">firms that involve employees in their philanthropic activities</td>
+<td align="left">reputations</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">bmp09bjm.pdf</td>
+<td align="left">h_3</td>
+<td align="left">that focus firms their philanthropic expenditures upon causes that are congruent with broad societal preferences have better reputations.</td>
+<td align="left">firms their philanthropic expenditures upon causes that</td>
+<td align="left">reputations</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">bmp09bjm.pdf</td>
+<td align="left">h_4</td>
+<td align="left">the link between reputation and philanthropy is stronger social externalities that have significant in industries such signals arise out of accounting data or stem from movements in stock prices .</td>
+<td align="left">link between</td>
+<td align="left">reputation and philanthropy</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">bmp09bjm.pdf</td>
+<td align="left">h_6</td>
+<td align="left">corporate reputation is partly formed by signals concerning current ﬁnancial performance whether the greater is a firm’s market risk, the worse its reputation.</td>
+<td align="left">corporate reputation is partly formed by signals concerning current ﬁnancial</td>
+<td align="left">performance whether the greater is a firm’s market risk, the worse its reputation</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">bmp09bjm.pdf</td>
+<td align="left">h_7</td>
+<td align="left">the greater is a firm’s degree of leverage, the worse its reputation.</td>
+<td align="left">degree of leverage,</td>
+<td align="left">reputation</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">bmp09bjm.pdf</td>
+<td align="left">h_8</td>
+<td align="left">the greater is the degree of long-term institutional ownership, the better is a firm’s reputation.</td>
+<td align="left">degree of long-term institutional ownership,</td>
+<td align="left">firm’s reputation</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">bmp09bjm.pdf</td>
+<td align="left">h_9</td>
+<td align="left">the more non-executive directors as firm has, the better its reputation.</td>
+<td align="left">non-executive directors</td>
+<td align="left">as firm has, the better its reputation</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">bmp09bjm.pdf</td>
+<td align="left">h_11</td>
+<td align="left">a ﬁrm’s media exposure inﬂuences its reputation.</td>
+<td align="left">ﬁrm’s media exposure</td>
+<td align="left">reputation</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">bmp09bjm.pdf</td>
+<td align="left">h_12</td>
+<td align="left">a firm’s reputation is partly determined by the nature of its principle business activities.</td>
+<td align="left">firm’s</td>
+<td align="left">principle business activities</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">bnk00jbr.pdf</td>
+<td align="left">h_3</td>
+<td align="left">there is an insignificant relationship between employee satisfaction at time period t and profit/sales in time period t.</td>
+<td align="left">employee</td>
+<td align="left">satisfaction</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">bp06jms.pdf</td>
+<td align="left">h_1</td>
+<td align="left">there is a positive relationship between corporate social performance and reputation.</td>
+<td align="left">corporate</td>
+<td align="left">social performance and reputation</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">breb08jom.pdf</td>
+<td align="left">h_1</td>
+<td align="left">hpws will have a positive effect on organizational performance.</td>
+<td align="left">hpws</td>
+<td align="left">organizational performance</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">breb08jom.pdf</td>
+<td align="left">h_2</td>
+<td align="left">hr flexibility will mediate the relationship between hpws and organizational performance.</td>
+<td align="left">hr flexibility</td>
+<td align="left">hpws and organizational performance</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">brm11jbe.pdf</td>
+<td align="left">h_1</td>
+<td align="left">market orientation has a positive association with business performance.</td>
+<td align="left">market orientation</td>
+<td align="left">business performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">brm11jbe.pdf</td>
+<td align="left">h_2</td>
+<td align="left">csr has a positive inﬂuence on the relationship between market orientation and business performance such that at a higher level of csr, market orientation has a stronger association with performance than at a lower level of csr.</td>
+<td align="left">csr</td>
+<td align="left">market orientation and business performance such that at a higher level of csr, market orientation has a stronger association with performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">brm11jbe.pdf</td>
+<td align="left">h_3</td>
+<td align="left">csr has a positive inﬂuence on the relationship between customer orientation and performance such that at a higher level of csr, the association between customer orientation and performance is stronger than at a lower level of csr.</td>
+<td align="left">csr</td>
+<td align="left">orientation and performance such that at a higher level of csr, the association between customer orientation and performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">brm11jbe.pdf</td>
+<td align="left">h_4</td>
+<td align="left">csr has a negative inﬂuence on the relationship between competitive orientation and performance such that at a higher level of csr, competitive orientation has a negative relationship with performance, and at a lower level of csr, competitive orientation has a positive relationship with performance.</td>
+<td align="left">csr</td>
+<td align="left">orientation and performance such that at a higher level of csr, competitive orientation has a negative relationship with performance, and at a lower level of csr, competitive orientation has a positive relationship with performance</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">bs05jams.pdf</td>
+<td align="left">h_1</td>
+<td align="left">em is directly and positively related to the firm’s new product success in its principal market segment.</td>
+<td align="left">em</td>
+<td align="left">firm’s new product success in its principal market segment</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">bs05jams.pdf</td>
+<td align="left">h_2</td>
+<td align="left">new product success is directly and positively related to changes in market share in the firm’s principal market segment.</td>
+<td align="left">new product success</td>
+<td align="left">changes in market share in the firm’s principal market segment</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">bs05jams.pdf</td>
+<td align="left">h_3</td>
+<td align="left">market turbulence is directly and positively related to the firm’s new product success.</td>
+<td align="left">market turbulence</td>
+<td align="left">firm’s new product success</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">bss03amj.pdf</td>
+<td align="left">h_2</td>
+<td align="left">fi nancial performance will be lower with low pay levels and lower with high pay levels.</td>
+<td align="left">fi nancial</td>
+<td align="left">performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">cg05smj.pdf</td>
+<td align="left">h_1</td>
+<td align="left">stakeholder management will have a positive effect on ceo compensation levels.</td>
+<td align="left">stakeholder management</td>
+<td align="left">ceo compensation</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">cg05smj.pdf</td>
+<td align="left">h_2</td>
+<td align="left">stakeholder management and ﬁnancial performance interact to predict ceo compensation levels, such that ceos simultaneously achieving higher levels of both will be the most highly compensated.</td>
+<td align="left">stakeholder management and ﬁnancial</td>
+<td align="left">performance interact to predict ceo compensation</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">chl08hrm.pdf</td>
+<td align="left">h_1</td>
+<td align="left">commitment configuration is positively associated with firm performance.</td>
+<td align="left">commitment configuration</td>
+<td align="left">firm performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">chl08hrm.pdf</td>
+<td align="left">h_2</td>
+<td align="left">cost-reduction strategy is positively associated with compliance.</td>
+<td align="left">cost-reduction strategy</td>
+<td align="left">compliance</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">chl08hrm.pdf</td>
+<td align="left">h_3</td>
+<td align="left">the interaction of cost-reduction strategy with compliance configuration will further enhance organizational performance.</td>
+<td align="left">interaction of cost-reduction strategy with compliance configuration</td>
+<td align="left">organizational performance</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">chl09ijhrm.pdf</td>
+<td align="left">h_1</td>
+<td align="left">both inducement-hr and involvement-hr systems are positively associated with performance outcomes and negatively associated with turnover rate.</td>
+<td align="left">inducement-hr and involvement-hr systems</td>
+<td align="left">performance outcomes</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">chl09ijhrm.pdf</td>
+<td align="left">h_2</td>
+<td align="left">a bureaucratic culture combining both inducement- and involvementhr shows no signiﬁcant relationship to performance and turnover.</td>
+<td align="left">culture combining both inducement- and involvementhr</td>
+<td align="left">performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">chl09ijhrm.pdf</td>
+<td align="left">h_3</td>
+<td align="left">firms pursuing a quality strategy with both inducement-hr and involvement-hr systems will be positively associated with performance outcome and negatively with staff turnover.</td>
+<td align="left">firms pursuing a quality strategy with both inducement-hr and involvement-hr systems</td>
+<td align="left">performance outcome and negatively with staff</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">ck99smj.pdf</td>
+<td align="left">h_1</td>
+<td align="left">outlet-level asset specificity and interfirm cooperation will be positively related.</td>
+<td align="left">outlet-level asset specificity</td>
+<td align="left">interfirm cooperation</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">ck99smj.pdf</td>
+<td align="left">h_3</td>
+<td align="left">brand name reputation and performance will be positively related.</td>
+<td align="left">brand name</td>
+<td align="left">reputation and performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">ck99smj.pdf</td>
+<td align="left">h_4</td>
+<td align="left">the interaction of exchange conditions and interfirm cooperation will be significantly related to firm performance.</td>
+<td align="left">interaction of exchange conditions and</td>
+<td align="left">interfirm cooperation will be significantly related to firm performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">cl09etp.pdf</td>
+<td align="left">h_1</td>
+<td align="left">the congenital learning of the venture team as measured by prestart level of education and years of industry experience is positively associated with venture performance.</td>
+<td align="left">level</td>
+<td align="left">the congenital learning of the venture team as measured by prestart</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">cl09etp.pdf</td>
+<td align="left">h_2</td>
+<td align="left">participation of team members in knowledge-acquisition activities is positively related to venture performance.</td>
+<td align="left">participation of team members in knowledge-acquisition activities</td>
+<td align="left">venture performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">cl09etp.pdf</td>
+<td align="left">h_3</td>
+<td align="left">the grafting of new management team members after venture start-up is positively related to venture performance.</td>
+<td align="left">grafting of new management team members after venture start-up</td>
+<td align="left">venture performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">cl09etp.pdf</td>
+<td align="left">h_4</td>
+<td align="left">task environment dynamism is a positive moderator of the relationship between congenital learning as measured by education and venture performance.</td>
+<td align="left">task environment dynamism</td>
+<td align="left">relationship between congenital learning as measured by education and venture performance</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">cl09etp.pdf</td>
+<td align="left">h_5</td>
+<td align="left">task environment dynamism is a positive moderator of the relationship between congenital learning as measured by experience and venture performance.</td>
+<td align="left">task environment dynamism</td>
+<td align="left">relationship between congenital learning as measured by experience and venture performance</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">cl09etp.pdf</td>
+<td align="left">h_6</td>
+<td align="left">task environment dynamism is a positive moderator of the relationship between participation of team members in vicarious learning and search-andnotice learning and venture performance.</td>
+<td align="left">task environment dynamism</td>
+<td align="left">relationship between participation of team members in vicarious learning and search-andnotice learning and venture performance</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">cl09etp.pdf</td>
+<td align="left">h_7</td>
+<td align="left">task environment dynamism is a positive moderator of the relationship between grafting and venture performance.</td>
+<td align="left">task environment dynamism</td>
+<td align="left">relationship between grafting and venture performance</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">cl10pp.pdf</td>
+<td align="left">h_1</td>
+<td align="left">service performance high performance work system h1a h1b h2b h3a concern for employees h4a h4b market performance helping behavior h3b h5 note.</td>
+<td align="left">h1a h1b h2b h3a concern for employees h4a h4b market performance helping behavior</td>
+<td align="left">service performance high performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">cl10pp.pdf</td>
+<td align="left">h_3</td>
+<td align="left">hpws is positively related to employees’ shared climate perception about the unit’s concern for customers.</td>
+<td align="left">hpws</td>
+<td align="left">employees’ shared climate perception about the unit’s concern</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">cl10pp.pdf</td>
+<td align="left">h_4</td>
+<td align="left">employees’ shared climate perception of the unit’s concern for employees is positively related to collective employee service performance.</td>
+<td align="left">employees’ shared climate perception of the unit’s concern for employees</td>
+<td align="left">collective employee service performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">cl10pp.pdf</td>
+<td align="left">h_5</td>
+<td align="left">collective employee service performance contributes to the business unit’s market performance.</td>
+<td align="left">collective employee</td>
+<td align="left">service performance contributes to the business unit’s market performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">clrv08aos.pdf</td>
+<td align="left">h_1</td>
+<td align="left">service performance high performance work system h1a h1b h2b h3a concern for employees h4a h4b market performance helping behavior h3b h5 note.</td>
+<td align="left">h1a h1b h2b h3a concern for employees h4a h4b market performance helping behavior</td>
+<td align="left">service performance high performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">clrv08aos.pdf</td>
+<td align="left">h_3</td>
+<td align="left">hpws is positively related to employees’ shared climate perception about the unit’s concern for customers.</td>
+<td align="left">hpws</td>
+<td align="left">employees’ shared climate perception about the unit’s concern</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">clrv08aos.pdf</td>
+<td align="left">h_4</td>
+<td align="left">employees’ shared climate perception of the unit’s concern for employees is positively related to collective employee service performance.</td>
+<td align="left">employees’ shared climate perception of the unit’s concern for employees</td>
+<td align="left">collective employee service performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">clrv08aos.pdf</td>
+<td align="left">h_5</td>
+<td align="left">collective employee service performance contributes to the business unit’s market performance.</td>
+<td align="left">collective employee</td>
+<td align="left">service performance contributes to the business unit’s market performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">clv11ijhrm.pdf</td>
+<td align="left">h_1</td>
+<td align="left">valuable human capital human capital is positively associated with innovative performance. is positively associated with innovative performance.</td>
+<td align="left">valuable human capital human capital</td>
+<td align="left">innovative performance is positively associated with innovative performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">clv11ijhrm.pdf</td>
+<td align="left">h_2</td>
+<td align="left">the relational side of social capital innovative performance. is positively associated with however, we assume that social capital not only has a direct effect on innovation but also affects innovation through its effect on human capital.</td>
+<td align="left">relational side</td>
+<td align="left">of social capital innovative performance is positively associated with however, we assume that social capital not only has a direct effect on innovation but also affects innovation through its effect on human capital</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">clv11ijhrm.pdf</td>
+<td align="left">h_3</td>
+<td align="left">the relational side of social capital has a positive effect on human capital.</td>
+<td align="left">relational side</td>
+<td align="left">of social capital has a positive effect on human capital</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">clv11ijhrm.pdf</td>
+<td align="left">h_4</td>
+<td align="left">hrm practices, such as selection processes based on employees’ potential to learn, have a positive inﬂuence on the value and uniqueness of human capital.</td>
+<td align="left">hrm</td>
+<td align="left">value and uniqueness of human capital</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">clv11ijhrm.pdf</td>
+<td align="left">h_5</td>
+<td align="left">hrm practices, such as selection processes based on interpersonal skills, have a positive inﬂuence on social capital.</td>
+<td align="left">hrm</td>
+<td align="left">practices, such as selection processes based on interpersonal skills, have a positive inﬂuence on social capital</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">clv11ijhrm.pdf</td>
+<td align="left">h_6</td>
+<td align="left">developmental hrm practices, such as speciﬁc training, career management, mentoring programmes and feedback appraisals, have a positive inﬂuence on the value and uniqueness of human capital.</td>
+<td align="left">developmental hrm practices,</td>
+<td align="left">value and uniqueness of human capital</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">clv11ijhrm.pdf</td>
+<td align="left">h_7</td>
+<td align="left">developmental hrm practices, such as empowerment and employees’ participation in decision making, have a positive inﬂuence on social capital.</td>
+<td align="left">developmental hrm practices,</td>
+<td align="left">participation in decision making, have a positive inﬂuence on social capital</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">clv11ijhrm.pdf</td>
+<td align="left">h_8</td>
+<td align="left">hrm practices, such as the use of individual compensation incentives, have a positive inﬂuence on the value and uniqueness of human capital.</td>
+<td align="left">hrm</td>
+<td align="left">value and uniqueness of human capital</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">clv11ijhrm.pdf</td>
+<td align="left">h_9</td>
+<td align="left">hrm practices such as the use of team-based incentives in compensation have a positive inﬂuence on the ﬁrm’s social capital.</td>
+<td align="left">hrm</td>
+<td align="left">practices such as the use of team-based incentives in compensation have a positive inﬂuence on the ﬁrm’s social capital</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">clv11ijhrm.pdf</td>
+<td align="left">h_10</td>
+<td align="left">innovative performance is positively associated with a higher level of ﬁrm performance.</td>
+<td align="left">innovative</td>
+<td align="left">level of ﬁrm performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">cs06amj.pdf</td>
+<td align="left">h_1</td>
+<td align="left">commitment-based hr practices are positively related to an organization’s so cial climates for trust, cooperation, and shared codes and language.</td>
+<td align="left">commitment-based hr practices</td>
+<td align="left">so cial climates for trust, cooperation, and shared codes</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">cs06amj.pdf</td>
+<td align="left">h_2</td>
+<td align="left">organizational social climates for trust, cooperation, and shared codes and lan guage are positively related to firm performance through their effects on knowledge exchange and combination.</td>
+<td align="left">organizational social climates for trust, cooperation, and shared</td>
+<td align="left">codes and lan guage are positively related to firm performance through their effects on knowledge exchange</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">cs06amj.pdf</td>
+<td align="left">h_3</td>
+<td align="left">commitment-based hr practices partially affect employee knowledge exchange and combination and subsequent firm performance through organizational social climates for trust, cooperation, and shared codes and language.</td>
+<td align="left">commitment-based hr practices</td>
+<td align="left">exchange and combination and subsequent firm performance through organizational social climates for trust, cooperation, and shared codes</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">ct05crr.pdf</td>
+<td align="left">h_1</td>
+<td align="left">a ﬁrm’s quality of products/services is positively related to organizational reputation.</td>
+<td align="left">ﬁrm’s quality of products/services</td>
+<td align="left">organizational reputation</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">ctsm08jem.pdf</td>
+<td align="left">h_1</td>
+<td align="left">a ﬁrm’s quality of products/services is positively related to organizational reputation.</td>
+<td align="left">ﬁrm’s quality of products/services</td>
+<td align="left">organizational reputation</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">cw09smj.pdf</td>
+<td align="left">h_1</td>
+<td align="left">stakeholder relations are positively associated with the persistence of superior ﬁnancial performance.</td>
+<td align="left">stakeholder relations</td>
+<td align="left">ﬁnancial performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">cw09smj.pdf</td>
+<td align="left">h_2</td>
+<td align="left">stakeholder relations are negatively associated with the persistence of inferior ﬁnancial performance.</td>
+<td align="left">stakeholder relations</td>
+<td align="left">persistence of inferior ﬁnancial performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">cww15ijpdlm.pdf</td>
+<td align="left">h_2</td>
+<td align="left">, h3b - environmental collaboration with customers h4a, h4b downloaded by national taiwan normal university at 02:19 24 september 2015 environmental supply chain collaboration efforts and resources in product, process, and management systems can enhance profitability.</td>
+<td align="left">, h3b - environmental collaboration with customers h4a, h4b downloaded by national taiwan</td>
+<td align="left">supply chain collaboration efforts and resources in product, process, and management systems can</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">cww15ijpdlm.pdf</td>
+<td align="left">h_3</td>
+<td align="left">a high gps level of a firm is positively associated with firm competitiveness.</td>
+<td align="left">high gps level of a firm</td>
+<td align="left">firm competitiveness</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">cys14jcp.pdf</td>
+<td align="left">h_2</td>
+<td align="left">, h3b - environmental collaboration with customers h4a, h4b downloaded by national taiwan normal university at 02:19 24 september 2015 environmental supply chain collaboration efforts and resources in product, process, and management systems can enhance profitability.</td>
+<td align="left">, h3b - environmental collaboration with customers h4a, h4b downloaded by national taiwan</td>
+<td align="left">supply chain collaboration efforts and resources in product, process, and management systems can</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">cys14jcp.pdf</td>
+<td align="left">h_3</td>
+<td align="left">a high gps level of a firm is positively associated with firm competitiveness.</td>
+<td align="left">high gps level of a firm</td>
+<td align="left">firm competitiveness</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">d03jom.pdf</td>
+<td align="left">h_1</td>
+<td align="left">there will be a positive relationship between technological competence and ﬁrm performance.</td>
+<td align="left">competence</td>
+<td align="left">and ﬁrm performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">d03jom.pdf</td>
+<td align="left">h_2</td>
+<td align="left">imitability of ﬁrm knowledge has an inverse relationship with ﬁrm performance.</td>
+<td align="left">imitability of</td>
+<td align="left">ﬁrm knowledge has an inverse relationship with ﬁrm performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">d03jom.pdf</td>
+<td align="left">h_3</td>
+<td align="left">marketing competencies have a positive relationship with ﬁrm performance.</td>
+<td align="left">marketing competencies</td>
+<td align="left">ﬁrm performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">d03jom.pdf</td>
+<td align="left">h_4</td>
+<td align="left">regulatory competencies have a positive relationship with ﬁrm performance.</td>
+<td align="left">regulatory competencies</td>
+<td align="left">ﬁrm performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">dd96amj.pdf</td>
+<td align="left">h_2</td>
+<td align="left">the relationship between human resource practices and financial performance will be contingent on an organization’s strategy.</td>
+<td align="left">organization’s strategy.</td>
+<td align="left">human resource practices and financial performance</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">dd96amj.pdf</td>
+<td align="left">h_3</td>
+<td align="left">the greater the similarity to the ideal-type employment system that is most similar to an organiza tion’s employment system, the higher the financial performance.</td>
+<td align="left">similarity to the ideal-type employment system that is most similar to an organiza tion’s employment system,</td>
+<td align="left">financial performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">dd96amj.pdf</td>
+<td align="left">h_4</td>
+<td align="left">an employment system’s similarity to the one ideal-type employment system that is appropriate for an organization’s strategy will be positively related to fi nancial performance.</td>
+<td align="left">an employment system’s similarity to the one ideal-type employment system that is appropriate for an organization’s strategy</td>
+<td align="left">performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">dd96amj.pdf</td>
+<td align="left">h_5</td>
+<td align="left">an employment system’s similarity to the one hybrid employment system that is appropriate for an organization’s strategy will be positively related to finan cial performance.</td>
+<td align="left">an employment system’s similarity to the one hybrid employment system that is appropriate for an organization’s strategy</td>
+<td align="left">performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">dj01amj.pdf</td>
+<td align="left">h_1</td>
+<td align="left">the degree of implementation of tqm practices in a hospital is positively re lated to the hospital’s performance.</td>
+<td align="left">degree of implementation of tqm practices in a hospital</td>
+<td align="left">hospital’s performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">dj01amj.pdf</td>
+<td align="left">h_2</td>
+<td align="left">in a hospital characterized by a greater focus on control in its structure, the 160 academy of management joural february degree of implementation of tqm practices will be more strongly, positively related to hos pital performance.</td>
+<td align="left">degree of implementation of tqm practices</td>
+<td align="left">performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">dj01amj.pdf</td>
+<td align="left">h_3</td>
+<td align="left">in a hospital characterized by a greater focus on exploration in its structure, the degree of implementation of tqmpractices will be more strongly, positively related to hos pital performance.</td>
+<td align="left">degree of implementation</td>
+<td align="left">performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">dtba07jap.pdf</td>
+<td align="left">h_1</td>
+<td align="left">the degree of implementation of tqm practices in a hospital is positively re lated to the hospital’s performance.</td>
+<td align="left">degree of implementation of tqm practices in a hospital</td>
+<td align="left">hospital’s performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">dtba07jap.pdf</td>
+<td align="left">h_2</td>
+<td align="left">in a hospital characterized by a greater focus on control in its structure, the 160 academy of management joural february degree of implementation of tqm practices will be more strongly, positively related to hos pital performance.</td>
+<td align="left">degree of implementation of tqm practices</td>
+<td align="left">performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">dtba07jap.pdf</td>
+<td align="left">h_3</td>
+<td align="left">in a hospital characterized by a greater focus on exploration in its structure, the degree of implementation of tqmpractices will be more strongly, positively related to hos pital performance.</td>
+<td align="left">degree of implementation</td>
+<td align="left">performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">ekks05smj.pdf</td>
+<td align="left">h_1</td>
+<td align="left">visas to overseas software professionals requires the sponsoring ﬁrm to certify that the professionals are being paid wages commensurate with what a u.s.based employee with similar qualiﬁcations would obtain.</td>
+<td align="left">visas</td>
+<td align="left">being paid wages</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">fcwz15jcp.pdf</td>
+<td align="left">h_1</td>
+<td align="left">visas to overseas software professionals requires the sponsoring ﬁrm to certify that the professionals are being paid wages commensurate with what a u.s.based employee with similar qualiﬁcations would obtain.</td>
+<td align="left">visas</td>
+<td align="left">being paid wages</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">fo05jom.pdf</td>
+<td align="left">h_2</td>
+<td align="left">the negative impact of a layoff on a firm’s reputation will be moderated by firm performance.</td>
+<td align="left">firm</td>
+<td align="left">of a layoff on a firm’s reputation</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">fo05jom.pdf</td>
+<td align="left">h_3</td>
+<td align="left">the negative impact of a layoff on a firm’s reputation will be moderated by firm age.</td>
+<td align="left">firm age.</td>
+<td align="left">of a layoff on a firm’s reputation</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">fo05jom.pdf</td>
+<td align="left">h_4</td>
+<td align="left">the negative impact of a layoff on a firm’s reputation will be moderated by firm size.</td>
+<td align="left">firm size.</td>
+<td align="left">of a layoff on a firm’s reputation</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">fs90amj.pdf</td>
+<td align="left">h_1</td>
+<td align="left">the greater a firm’s current market performance, the better its reputation.</td>
+<td align="left">firm’s current market performance,</td>
+<td align="left">reputation</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">fs90amj.pdf</td>
+<td align="left">h_2</td>
+<td align="left">the greater a firm’s current performance adjusted market risk, the worse its reputation.</td>
+<td align="left">firm’s current performance adjusted market risk,</td>
+<td align="left">reputation</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">fs90amj.pdf</td>
+<td align="left">h_3</td>
+<td align="left">the greater a firm’s current dividend yield, the worse its reputation.</td>
+<td align="left">firm’s current dividend</td>
+<td align="left">reputation</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">fs90amj.pdf</td>
+<td align="left">h_4</td>
+<td align="left">the greater a firm’s prior accounting prof itability, the better its reputation.</td>
+<td align="left">firm’s prior accounting prof itability,</td>
+<td align="left">reputation</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">fs90amj.pdf</td>
+<td align="left">h_5</td>
+<td align="left">the greater a firm’s prior performance adjusted accounting risk, the worse its reputation.</td>
+<td align="left">firm’s prior performance adjusted accounting risk,</td>
+<td align="left">reputation</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">fs90amj.pdf</td>
+<td align="left">h_6</td>
+<td align="left">the greater the concentration of a firm’s equity among institutions, the better its reputation.</td>
+<td align="left">concentration of a firm’s equity among institutions,</td>
+<td align="left">reputation</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">fs90amj.pdf</td>
+<td align="left">h_7</td>
+<td align="left">the greater a firm’s contributions to social welfare, the better its reputation.</td>
+<td align="left">firm’s contributions</td>
+<td align="left">reputation</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">fs90amj.pdf</td>
+<td align="left">h_8</td>
+<td align="left">the greater a firm’s current media visibil ity, the better its reputation.</td>
+<td align="left">firm’s current media visibil ity,</td>
+<td align="left">reputation</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">fs90amj.pdf</td>
+<td align="left">h_9</td>
+<td align="left">the more nonnegative a firm’s current me dia coverage, the better its reputation.</td>
+<td align="left">firm’s current me dia coverage,</td>
+<td align="left">reputation</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">fs90amj.pdf</td>
+<td align="left">h_10</td>
+<td align="left">nonnegative coverage and visibility have a positive, interactive effect on reputation.</td>
+<td align="left">nonnegative coverage</td>
+<td align="left">visibility have a positive, interactive effect on reputation</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">fs90amj.pdf</td>
+<td align="left">h_12</td>
+<td align="left">the greater a firm’s advertising intensity, the better its reputation.</td>
+<td align="left">firm’s advertising intensity,</td>
+<td align="left">reputation</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">fs90amj.pdf</td>
+<td align="left">h_13</td>
+<td align="left">the greater a firm’s unrelated diversifica tion, the worse its reputation.</td>
+<td align="left">unrelated diversifica tion,</td>
+<td align="left">reputation</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">gac11ijtr.pdf</td>
+<td align="left">h_1</td>
+<td align="left">the environmental legislation exerts a positive inﬂ uence on the manager’s perception about the environment as a competitive opportunity.</td>
+<td align="left">legislation exerts a positive inﬂ uence</td>
+<td align="left">manager’s perception about the environment as a competitive opportunity</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">gac11ijtr.pdf</td>
+<td align="left">h_2</td>
+<td align="left">a stronger pressure exerted by stakeholders on the ﬁ rm has a positive impact on the perception of managers about the environment as a competitive opportunity.</td>
+<td align="left">pressure exerted by stakeholders on the ﬁ rm</td>
+<td align="left">perception of managers about the environment as a competitive opportunity</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">gac11ijtr.pdf</td>
+<td align="left">h_3</td>
+<td align="left">the complementary resources and capabilities available to the ﬁ rm positively inﬂ uence the perception of managers about the environment as a competitive opportunity.</td>
+<td align="left">complementary resources and capabilities available to the ﬁ</td>
+<td align="left">rm positively inﬂ uence the perception of managers about the environment as a competitive opportunity</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">gac11ijtr.pdf</td>
+<td align="left">h_4</td>
+<td align="left">the higher the degree to which the manager sees the natural environment as a competitive opportunity, the higher the likelihood of developing a proactive environmental management scheme.</td>
+<td align="left">degree to which the manager sees</td>
+<td align="left">natural environment as a competitive opportunity, the higher the likelihood of developing a proactive environmental management scheme</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">gac11ijtr.pdf</td>
+<td align="left">h_5</td>
+<td align="left">the greater the availability of complementary resources and capabilities in the ﬁ rm, the higher the likelihood of developing a proactive environmental management scheme.</td>
+<td align="left">complementary resources and capabilities in the ﬁ</td>
+<td align="left">proactive environmental management scheme</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">gac11ijtr.pdf</td>
+<td align="left">h_7</td>
+<td align="left">the ﬁ rm resources generated through proactive environmental management mediate the positive relationship between proactive environmental management and cost competitive advantage.</td>
+<td align="left">ﬁ rm resources generated</td>
+<td align="left">through proactive environmental management mediate the positive relationship between proactive environmental management and cost competitive advantage</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">gac11ijtr.pdf</td>
+<td align="left">h_8</td>
+<td align="left">the ﬁ rm resources generated through proactive environmental management mediate the positive relationship between environmental performance improvement and cost competitive advantage.</td>
+<td align="left">ﬁ rm resources generated</td>
+<td align="left">through proactive environmental management mediate the positive relationship between environmental performance improvement and cost competitive advantage</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">gac11ijtr.pdf</td>
+<td align="left">h_9</td>
+<td align="left">cost competitive advantage has a positive effect on ﬁ nancial performance.</td>
+<td align="left">cost competitive advantage</td>
+<td align="left">performance</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">gmcs03bjir.pdf</td>
+<td align="left">h_1</td>
+<td align="left">there will be an association between greater use of hr hr practices and higher labour productivity. practices and lower labour turnover. practices and higher proﬁtability.</td>
+<td align="left">use of hr hr practices</td>
+<td align="left">productivity practices and lower labour turnover practices and higher proﬁtability</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">gwde00jom.pdf</td>
+<td align="left">h_1</td>
+<td align="left">announcements of product-driven environmental initiatives will have a more positive impact on anticipated ﬁrm performance than will announcements of process-driven initiatives.</td>
+<td align="left">announcements</td>
+<td align="left">environmental initiatives will have a more positive impact on anticipated ﬁrm performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">h95amj.pdf</td>
+<td align="left">h_1</td>
+<td align="left">complementarities or synergies among high performance work practices will diminish em- ployee turnover and increase productivity and corporate financial performance.</td>
+<td align="left">complementarities or synergies among high performance work practices</td>
+<td align="left">em- ployee turnover and increase productivity and corporate financial performance</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">h95amj.pdf</td>
+<td align="left">h_2</td>
+<td align="left">alignment of a firm’s system of high per- formance work practices with its competitive strategy will diminish employee turnover and increase produc- tivity and corporate financial performance.</td>
+<td align="left">alignment of a firm’s system of high per- formance work practices with its competitive strategy</td>
+<td align="left">turnover and increase produc- tivity and corporate financial performance</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">hnn05ear.pdf</td>
+<td align="left">h_1</td>
+<td align="left">complementarities or synergies among high performance work practices will diminish em- ployee turnover and increase productivity and corporate financial performance.</td>
+<td align="left">complementarities or synergies among high performance work practices</td>
+<td align="left">em- ployee turnover and increase productivity and corporate financial performance</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">hnn05ear.pdf</td>
+<td align="left">h_2</td>
+<td align="left">alignment of a firm’s system of high per- formance work practices with its competitive strategy will diminish employee turnover and increase produc- tivity and corporate financial performance.</td>
+<td align="left">alignment of a firm’s system of high per- formance work practices with its competitive strategy</td>
+<td align="left">turnover and increase produc- tivity and corporate financial performance</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">jd98jms.pdf</td>
+<td align="left">h_1</td>
+<td align="left">there will be a positive relationship between the level of integration of environmental issues into the strategic planning process and the ﬁrm’s ﬁnancial performance. outcomes.</td>
+<td align="left">strategic planning process</td>
+<td align="left">of integration of environmental issues into</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">jd98jms.pdf</td>
+<td align="left">h_2</td>
+<td align="left">there will be a positive relationship between the level of integration of environmental issues into the strategic planning process and the ﬁrm’s environmental performance.</td>
+<td align="left">strategic planning process</td>
+<td align="left">of integration of environmental issues into</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">jd98jms.pdf</td>
+<td align="left">h_3</td>
+<td align="left">there will be a positive relationship between the amount of resources provided to attend to natural environmental issues and the level of integration of environmental issues into the strategic planning process.</td>
+<td align="left">resources provided to attend</td>
+<td align="left">environmental issues and the level of integration of environmental issues into the strategic planning process</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">jd98jms.pdf</td>
+<td align="left">h_4</td>
+<td align="left">there will be a positive relationship between the degree of functional coverage of natural environmental issues and the level of integration of environmental issues into the strategic planning process.</td>
+<td align="left">degree of functional coverage of</td>
+<td align="left">environmental issues and the level of integration of environmental issues into the strategic planning process</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">jk16jbe.pdf</td>
+<td align="left">h_1</td>
+<td align="left">there will be a positive relationship between the level of integration of environmental issues into the strategic planning process and the ﬁrm’s ﬁnancial performance. outcomes.</td>
+<td align="left">strategic planning process</td>
+<td align="left">of integration of environmental issues into</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">jk16jbe.pdf</td>
+<td align="left">h_2</td>
+<td align="left">there will be a positive relationship between the level of integration of environmental issues into the strategic planning process and the ﬁrm’s environmental performance.</td>
+<td align="left">strategic planning process</td>
+<td align="left">of integration of environmental issues into</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">jk16jbe.pdf</td>
+<td align="left">h_3</td>
+<td align="left">there will be a positive relationship between the amount of resources provided to attend to natural environmental issues and the level of integration of environmental issues into the strategic planning process.</td>
+<td align="left">resources provided to attend</td>
+<td align="left">environmental issues and the level of integration of environmental issues into the strategic planning process</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">jk16jbe.pdf</td>
+<td align="left">h_4</td>
+<td align="left">there will be a positive relationship between the degree of functional coverage of natural environmental issues and the level of integration of environmental issues into the strategic planning process.</td>
+<td align="left">degree of functional coverage of</td>
+<td align="left">environmental issues and the level of integration of environmental issues into the strategic planning process</td>
+<td align="right">0</td>
+</tr>
 <tr class="odd">
 <td align="left">jv04amj.pdf</td>
 <td align="left">h_1</td>
@@ -619,6 +2634,1142 @@ output_df</code></pre>
 <td align="right">0</td>
 </tr>
 <tr class="even">
+<td align="left">k03jom.pdf</td>
+<td align="left">h_1</td>
+<td align="left">management leadership is positively related to training.</td>
+<td align="left">management leadership</td>
+<td align="left">training</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">k03jom.pdf</td>
+<td align="left">h_2</td>
+<td align="left">training is positively related to employee relations.</td>
+<td align="left">training</td>
+<td align="left">employee relations</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">k03jom.pdf</td>
+<td align="left">h_3</td>
+<td align="left">employee relations is positively related to quality data and reporting.</td>
+<td align="left">employee relations</td>
+<td align="left">quality data and reporting</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">k03jom.pdf</td>
+<td align="left">h_4</td>
+<td align="left">quality data and reporting is positively related to supplier quality management.</td>
+<td align="left">quality data and reporting</td>
+<td align="left">supplier quality management</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">k03jom.pdf</td>
+<td align="left">h_5</td>
+<td align="left">supplier quality management is positively related to product/service design.</td>
+<td align="left">supplier quality management</td>
+<td align="left">product/service design</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">k03jom.pdf</td>
+<td align="left">h_6</td>
+<td align="left">product design is positively related to process management.</td>
+<td align="left">product</td>
+<td align="left">design is positively related to process management</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">k03jom.pdf</td>
+<td align="left">h_7</td>
+<td align="left">process management quality performance. is positively related to 2.1.8.</td>
+<td align="left">management quality</td>
+<td align="left">process</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">k03jom.pdf</td>
+<td align="left">h_8</td>
+<td align="left">inventory management performance is positively related to quality performance.</td>
+<td align="left">management</td>
+<td align="left">performance is positively related to quality performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">kavsc06amj.pdf</td>
+<td align="left">h_1</td>
+<td align="left">customer wait time, timel h6 sales, time 2 crew turnover, timel h3 food waste, timel h8 profit, time 2 2006 kacmar, andrews, van rooy, steilberg, and cerrone 135 a marathon rather than a sprint.</td>
+<td align="left">customer wait time, timel h6 sales, time 2 crew turnover, timel h3 food waste, timel h8</td>
+<td align="left">profit,</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">kavsc06amj.pdf</td>
+<td align="left">h_3</td>
+<td align="left">crew turnover is related to longer customer wait time.</td>
+<td align="left">crew turnover</td>
+<td align="left">customer wait</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">kavsc06amj.pdf</td>
+<td align="left">h_4</td>
+<td align="left">crew turnover is related to higher food waste.</td>
+<td align="left">crew turnover</td>
+<td align="left">food waste</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">kavsc06amj.pdf</td>
+<td align="left">h_6</td>
+<td align="left">customer wait time is negatively related to profit.</td>
+<td align="left">customer wait time</td>
+<td align="left">profit</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">kavsc06amj.pdf</td>
+<td align="left">h_7</td>
+<td align="left">food waste is negatively related to profit.</td>
+<td align="left">food waste</td>
+<td align="left">profit</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">km00smj.pdf</td>
+<td align="left">h_3</td>
+<td align="left">the extensiveness of a work life program is more strongly positively related life program is more strongly positively related to productivity in firms investing in workers’ to productivity in firms investing in workers’ firm-specific skills, as indicated by the presence firm-specific skills, as indicated by the presence of career ladders. of career ladders. yet on which the organization is highly dependent yet on which the organization is highly dependent for achieving success’ .</td>
+<td align="left">career ladders. of career</td>
+<td align="left">workers’ firm-specific skills, as indicated by the presence firm-specific skills,</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">km00smj.pdf</td>
+<td align="left">h_4</td>
+<td align="left">firms investing in workers’ firm-specific skills, as indicated by the presence firm-specific skills, as indicated by the presence of career ladders, develop more extensive of career ladders, develop more extensive work-life programs. work-life programs.</td>
+<td align="left">skills, as indicated by the presence firm-specific skills, as indicated by the presence of career ladders, develop</td>
+<td align="left">workers’</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">km00smj.pdf</td>
+<td align="left">h_6</td>
+<td align="left">when a firm employs a higher percentage of female employees, the exten percentage of female employees, the exten siveness of its work-life program is more siveness of its work-life program is more strongly positively related to productivity strongly positively related to productivity measures measures professional employees professional employees method method data data towers perrin, a human resources consulting towers perrin, a human resources consulting firm, and the hudson institute, a research firm, firm, and the hudson institute, a research firm, conducted a survey in 1990 that examined a conducted a survey in 1990 that examined a wide variety of human resource practices, with wide variety of human resource practices, with an emphasis on employers’ responses to shifting an emphasis on employers’ responses to shifting demographics.</td>
+<td align="left">firm employs a higher percentage of female employees, the exten percentage of female employees,</td>
+<td align="left">to productivity measures measures professional employees professional employees method method data data towers perrin, a human resources consulting towers perrin, a human resources consulting firm,</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">kyr11ijsom.pdf</td>
+<td align="left">h_1</td>
+<td align="left">gscm orientation is positively related to partner’s trust.</td>
+<td align="left">gscm orientation</td>
+<td align="left">trust</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">kyr11ijsom.pdf</td>
+<td align="left">h_2</td>
+<td align="left">gscm orientation is positively related to the sharing of partners’ risk information and product information.</td>
+<td align="left">gscm orientation</td>
+<td align="left">sharing of partners’ risk information and product</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">kyr11ijsom.pdf</td>
+<td align="left">h_3</td>
+<td align="left">partner’s trust is positively related to the sharing of the risk information and the product information.</td>
+<td align="left">partner’s trust</td>
+<td align="left">sharing of the risk information and the product</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">kyr11ijsom.pdf</td>
+<td align="left">h_4</td>
+<td align="left">partner’s trust is positively related to customer service performance, operational effectiveness, and financial performance.</td>
+<td align="left">partner’s trust</td>
+<td align="left">customer service performance, operational effectiveness, and financial performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">kyr11ijsom.pdf</td>
+<td align="left">h_5</td>
+<td align="left">risk information sharing with supply chain partners is positively related to customer service performance, operational effectiveness, and financial performance.</td>
+<td align="left">risk information sharing</td>
+<td align="left">customer service performance, operational effectiveness, and financial performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">kyr11ijsom.pdf</td>
+<td align="left">h_6</td>
+<td align="left">product information sharing with supply chain partners is positively related to customer service performance, operational effectiveness, and financial performance.</td>
+<td align="left">product information sharing</td>
+<td align="left">customer service performance, operational effectiveness, and financial performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">lat13imds.pdf</td>
+<td align="left">h_1</td>
+<td align="left">a low-cost business strategy is inversely associated with environmental performance.</td>
+<td align="left">low-cost business strategy</td>
+<td align="left">environmental performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">lat13imds.pdf</td>
+<td align="left">h_2</td>
+<td align="left">a low-cost business strategy is inversely associated with economic performance.</td>
+<td align="left">low-cost business strategy</td>
+<td align="left">economic performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">lat13imds.pdf</td>
+<td align="left">h_3</td>
+<td align="left">a low-cost business strategy is inversely associated with intangible performance.</td>
+<td align="left">low-cost business strategy</td>
+<td align="left">intangible performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">lat13imds.pdf</td>
+<td align="left">h_4</td>
+<td align="left">a quality and time-based business strategy is positively associated with environmental performance.</td>
+<td align="left">quality and time-based business strategy</td>
+<td align="left">environmental performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">lat13imds.pdf</td>
+<td align="left">h_5</td>
+<td align="left">a quality and time-based business strategy is positively associated with economic performance.</td>
+<td align="left">quality and time-based business strategy</td>
+<td align="left">economic performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">lat13imds.pdf</td>
+<td align="left">h_6</td>
+<td align="left">a quality and time-based business strategy is positively associated with intangible performance.</td>
+<td align="left">quality and time-based business strategy</td>
+<td align="left">intangible performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">lat13imds.pdf</td>
+<td align="left">h_7</td>
+<td align="left">green purchasing has a positive impact on environmental performance.</td>
+<td align="left">green purchasing</td>
+<td align="left">environmental performance</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">lat13imds.pdf</td>
+<td align="left">h_8</td>
+<td align="left">product-related eco-design has a positive impact on environmental performance.</td>
+<td align="left">product-related eco-design</td>
+<td align="left">environmental performance</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">lat13imds.pdf</td>
+<td align="left">h_9</td>
+<td align="left">packaging-related eco-design has a positive impact on environmental performance.</td>
+<td align="left">packaging-related eco-design</td>
+<td align="left">environmental performance</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">lat13imds.pdf</td>
+<td align="left">h_10</td>
+<td align="left">reverse logistics has a positive impact on environmental performance.</td>
+<td align="left">reverse logistics</td>
+<td align="left">environmental performance</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">lat13imds.pdf</td>
+<td align="left">h_11</td>
+<td align="left">legislation and regulation have a positive impact on environmental performance.</td>
+<td align="left">legislation and regulation</td>
+<td align="left">environmental performance</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">lat13imds.pdf</td>
+<td align="left">h_12</td>
+<td align="left">green purchasing has a positive impact on economic performance.</td>
+<td align="left">green purchasing</td>
+<td align="left">economic performance</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">lat13imds.pdf</td>
+<td align="left">h_13</td>
+<td align="left">product-related eco-design has a positive impact on economic performance.</td>
+<td align="left">product-related eco-design</td>
+<td align="left">economic performance</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">lat13imds.pdf</td>
+<td align="left">h_14</td>
+<td align="left">packaging-related eco-design has a positive impact on economic performance.</td>
+<td align="left">packaging-related eco-design</td>
+<td align="left">economic performance</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">lat13imds.pdf</td>
+<td align="left">h_15</td>
+<td align="left">reverse logistics has a positive impact on economic performance.</td>
+<td align="left">reverse logistics</td>
+<td align="left">economic performance</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">lat13imds.pdf</td>
+<td align="left">h_16</td>
+<td align="left">legislation and regulation have a positively impact on economic performance.</td>
+<td align="left">legislation and regulation</td>
+<td align="left">economic performance</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">lat13imds.pdf</td>
+<td align="left">h_17</td>
+<td align="left">green purchasing has a positive impact on intangible performance.</td>
+<td align="left">green purchasing</td>
+<td align="left">intangible performance</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">lat13imds.pdf</td>
+<td align="left">h_18</td>
+<td align="left">product-related eco-design has a positive impact on intangible performance.</td>
+<td align="left">product-related eco-design</td>
+<td align="left">intangible performance</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">lat13imds.pdf</td>
+<td align="left">h_19</td>
+<td align="left">packaging-related eco-design has a positive impact on intangible performance.</td>
+<td align="left">packaging-related eco-design</td>
+<td align="left">intangible performance</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">lat13imds.pdf</td>
+<td align="left">h_20</td>
+<td align="left">reverse logistics has a positive impact on intangible performance.</td>
+<td align="left">reverse logistics</td>
+<td align="left">intangible performance</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">lat13imds.pdf</td>
+<td align="left">h_21</td>
+<td align="left">legislation and regulation have a positive impact on intangible performance.</td>
+<td align="left">legislation and regulation</td>
+<td align="left">intangible performance</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">lcy12ijebm.pdf</td>
+<td align="left">h_1</td>
+<td align="left">the greater the customer involvement, the design greater performance and market performance. new product’s the 2.2 effects of supplier involvement innovation performance research on new product development shows that three of these firm-centered factors include design for cost, design for quality, and design for manufacturability are important for the creation of product [14].</td>
+<td align="left">customer involvement,</td>
+<td align="left">design greater performance and market performance new product’s the 22 effects of supplier involvement innovation performance research on new product development shows that three of these firm-centered factors include design for cost, design for quality, and design for manufacturability are important for the creation of product</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">lcy12ijebm.pdf</td>
+<td align="left">h_3</td>
+<td align="left">supplier involvement creates a stronger, positive relationship with design, and market performance when the involvement of third party research institutions or universities is high.</td>
+<td align="left">supplier involvement</td>
+<td align="left">design, and market performance</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">lcy12ijebm.pdf</td>
+<td align="left">h_4</td>
+<td align="left">customer involvement creates a stronger, positive relationship with design, and market performance when the involvement of third party research institutions or universities is high.</td>
+<td align="left">customer involvement</td>
+<td align="left">design, and market performance</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">lk09amj.pdf</td>
+<td align="left">h_2</td>
+<td align="left">short-term market reaction to downsizing positively moderates its effects on a firm’s ascribed reputation.</td>
+<td align="left">short-term market reaction</td>
+<td align="left">firm’s ascribed reputation</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">lk09amj.pdf</td>
+<td align="left">h_3</td>
+<td align="left">recent changes in a firm’s performance negatively moderate downsizing’s effects on the firm’s ascribed reputation.</td>
+<td align="left">recent changes</td>
+<td align="left">firm’s performance negatively moderate downsizing’s effects on the firm’s ascribed reputation</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">lk09amj.pdf</td>
+<td align="left">h_4</td>
+<td align="left">prior reputation positively moderates downsizing’s effects on a firm’s ascribed reputation.</td>
+<td align="left">prior</td>
+<td align="left">firm’s ascribed reputation</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">lk09amj.pdf</td>
+<td align="left">h_6</td>
+<td align="left">downsizing’s prevalence weakens the moderating effects of the performance contingencies specified in hypotheses 2 and 3.</td>
+<td align="left">of</td>
+<td align="left">performance</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">lm96os.pdf</td>
+<td align="left">h_2</td>
+<td align="left">that firms using traditional technologies were not expected to be under as much pressure to match environment and strategy.</td>
+<td align="left">firms</td>
+<td align="left">much pressure to match environment</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">lpaf13jcp.pdf</td>
+<td align="left">h_2</td>
+<td align="left">that firms using traditional technologies were not expected to be under as much pressure to match environment and strategy.</td>
+<td align="left">firms</td>
+<td align="left">much pressure to match environment</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">ltg13jcp.pdf</td>
+<td align="left">h_1</td>
+<td align="left">market demand is positively associated with economic performance dangelico and pontrandolfo report a signiﬁcant increase in green production innovation in today’s businesses.</td>
+<td align="left">market demand</td>
+<td align="left">economic performance dangelico and pontrandolfo report a signiﬁcant increase in green production innovation</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">ltg13jcp.pdf</td>
+<td align="left">h_2</td>
+<td align="left">environmental performance is positively associated with 3.2.</td>
+<td align="left">environmental</td>
+<td align="left">performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">ltg13jcp.pdf</td>
+<td align="left">h_3</td>
+<td align="left">market demand is positively performance associated with ﬁrm fig. 2 shows the relationship among market demand, green product innovation and ﬁrm performance.</td>
+<td align="left">market demand</td>
+<td align="left">ﬁrm fig 2 shows the relationship among market demand, green product innovation and ﬁrm performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">lwlm14amj.pdf</td>
+<td align="left">h_2</td>
+<td align="left">serving culture is positively related to store performance .</td>
+<td align="left">serving culture</td>
+<td align="left">performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">lwlm14amj.pdf</td>
+<td align="left">h_3</td>
+<td align="left">serving culture mediates the relationship between store manager servant leadership and store performance .</td>
+<td align="left">serving culture</td>
+<td align="left">store manager servant leadership and store performance</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">lwlm14amj.pdf</td>
+<td align="left">h_4</td>
+<td align="left">serving culture is positively related to employee identification with the store.</td>
+<td align="left">serving culture</td>
+<td align="left">employee identification</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">lwlm14amj.pdf</td>
+<td align="left">h_5</td>
+<td align="left">serving culture mediates the positive relationship between store manager servant leadership behaviors and employee identification with the store.</td>
+<td align="left">manager servant leadership behaviors and employee</td>
+<td align="left">relationship between store</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">lwlm14amj.pdf</td>
+<td align="left">h_6</td>
+<td align="left">employee identification with the store is positively related to employee inrole performance, creativity, and customer service behaviors, and negatively related to turnover intentions. the culture by modeling the behaviors of members of the collective, including both their leaders and colleagues .</td>
+<td align="left">employee</td>
+<td align="left">identification with the store is positively related to employee inrole performance, creativity, and customer service behaviors, and negatively related to turnover intentions the culture by modeling the behaviors of members</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">lwlm14amj.pdf</td>
+<td align="left">h_7</td>
+<td align="left">serving culture is positively related to employee in-role performance, creativity, and customer service behaviors, and negatively related to turnover intentions.</td>
+<td align="left">serving culture</td>
+<td align="left">employee in-role performance, creativity, and customer service behaviors, and negatively related to turnover</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">lwlm14amj.pdf</td>
+<td align="left">h_8</td>
+<td align="left">employee identification with the store partially mediates the relationships between serving culture and employee in-role performance, creativity, customer service behaviors, and turnover intentions.</td>
+<td align="left">employee identification with the store partially mediates the relationships between serving culture</td>
+<td align="left">and employee in-role performance, creativity, customer service behaviors, and turnover</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">mao10jbe.pdf</td>
+<td align="left">h_1</td>
+<td align="left">a ﬁrm’s entrepreneurial orientation is related environmental proactive positively strategy. to a moderating role of intensity of government regulation institutional pressures are deﬁned as social, legal, and cultural forces outside the ﬁrm that exert inﬂuence on how managers perceive the environment and eventually shape and determine strategic decisions and behaviors .</td>
+<td align="left">ﬁrm’s entrepreneurial orientation</td>
+<td align="left">role of intensity of government regulation institutional pressures are deﬁned as social, legal, and cultural forces outside the ﬁrm that exert inﬂuence on how managers perceive the environment and eventually shape and determine strategic decisions and behaviors</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">mao10jbe.pdf</td>
+<td align="left">h_2</td>
+<td align="left">the interaction effect between entrepreneurial orientation and intensity of government regulations will be related positively to a pes.</td>
+<td align="left">interaction effect between entrepreneurial orientation and intensity of government regulations</td>
+<td align="left">pes</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">mao10jbe.pdf</td>
+<td align="left">h_3</td>
+<td align="left">the interaction effect between entrepreneurial orientation and customers’ sensitivity to environmental issues will be related positively to a pes.</td>
+<td align="left">interaction effect between entrepreneurial orientation and customers’ sensitivity to environmental issues</td>
+<td align="left">pes</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">ml01jom.pdf</td>
+<td align="left">h_1</td>
+<td align="left">2a7, canada bcolumbia university, new york, ny, usa cdepartment of economics and business, kyungpook national university, taegu, south korea received 24 november 1999; received in revised form 30 june 2000; accepted 3 august 2000 abstract this study argues that a well designed decision making process will have its most positive impact on company ﬁnancial performance when it is carried out by a capable, motivated and dedicated workforce.</td>
+<td align="left">2a7, canada bcolumbia university, new york,</td>
+<td align="left">process will have its most positive impact on company ﬁnancial performance when it is carried out by a capable, motivated and dedicated workforce</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">ml01jom.pdf</td>
+<td align="left">h_2</td>
+<td align="left">financial returns will be positively inﬂuenced by the interaction between oce and information processing.</td>
+<td align="left">oce and information</td>
+<td align="left">financial returns</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">ml01jom.pdf</td>
+<td align="left">h_3</td>
+<td align="left">financial returns will be positively inﬂuenced by the interaction between oce and collaboration.</td>
+<td align="left">oce and collaboration.</td>
+<td align="left">financial returns</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">ml01jom.pdf</td>
+<td align="left">h_4</td>
+<td align="left">the interactions between oce and all three of our process dimensions will contribute more to performance in uncertain than in stable environments.</td>
+<td align="left">interactions between oce and all three of our process dimensions</td>
+<td align="left">performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">mo05jbr.pdf</td>
+<td align="left">h_1</td>
+<td align="left">2a7, canada bcolumbia university, new york, ny, usa cdepartment of economics and business, kyungpook national university, taegu, south korea received 24 november 1999; received in revised form 30 june 2000; accepted 3 august 2000 abstract this study argues that a well designed decision making process will have its most positive impact on company ﬁnancial performance when it is carried out by a capable, motivated and dedicated workforce.</td>
+<td align="left">2a7, canada bcolumbia university, new york,</td>
+<td align="left">process will have its most positive impact on company ﬁnancial performance when it is carried out by a capable, motivated and dedicated workforce</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">mo05jbr.pdf</td>
+<td align="left">h_2</td>
+<td align="left">financial returns will be positively inﬂuenced by the interaction between oce and information processing.</td>
+<td align="left">oce and information</td>
+<td align="left">financial returns</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">mo05jbr.pdf</td>
+<td align="left">h_3</td>
+<td align="left">financial returns will be positively inﬂuenced by the interaction between oce and collaboration.</td>
+<td align="left">oce and collaboration.</td>
+<td align="left">financial returns</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">mo05jbr.pdf</td>
+<td align="left">h_4</td>
+<td align="left">the interactions between oce and all three of our process dimensions will contribute more to performance in uncertain than in stable environments.</td>
+<td align="left">interactions between oce and all three of our process dimensions</td>
+<td align="left">performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">mq13os.pdf</td>
+<td align="left">h_1</td>
+<td align="left">privately controlled ﬁrms are more likely than other types of ﬁrms to issue csr reports.</td>
+<td align="left">privately controlled ﬁrms</td>
+<td align="left">issue csr reports</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">mq13os.pdf</td>
+<td align="left">h_2</td>
+<td align="left">firms whose chief executive ofﬁcers are members of national political councils are more likely to issue csr reports.</td>
+<td align="left">firms whose chief executive ofﬁcers are members of national political councils are</td>
+<td align="left">issue csr reports</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">mq13os.pdf</td>
+<td align="left">h_3</td>
+<td align="left">older ﬁrms are less likely to issue csr reports.</td>
+<td align="left">older ﬁrms</td>
+<td align="left">issue csr reports</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">mq13os.pdf</td>
+<td align="left">h_4</td>
+<td align="left">firms with greater ﬁnancial resources are more likely to issue csr reports.</td>
+<td align="left">firms with greater ﬁnancial resources</td>
+<td align="left">issue csr reports</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">mq13os.pdf</td>
+<td align="left">h_5</td>
+<td align="left">firms whose leaders hold positions as government ofﬁcials will be more likely to engage in more substantive csr reporting.</td>
+<td align="left">firms whose leaders hold positions as government ofﬁcials</td>
+<td align="left">substantive csr reporting</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">mq13os.pdf</td>
+<td align="left">h_6</td>
+<td align="left">firms headquartered in more institutionally developed regions will be more likely to engage in more substantive csr reporting.</td>
+<td align="left">firms headquartered in more institutionally developed regions</td>
+<td align="left">substantive csr reporting</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">ms10jbe.pdf</td>
+<td align="left">h_1</td>
+<td align="left">the favorable csr towards stakeholders will positively impact the ﬁrms’ fp and nfp.</td>
+<td align="left">favorable csr towards stakeholders</td>
+<td align="left">ﬁrms’ fp and nfp</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">mt09jms.pdf</td>
+<td align="left">h_1</td>
+<td align="left">board gender diversity is positively related to ﬁrm innovation.</td>
+<td align="left">board gender diversity</td>
+<td align="left">ﬁrm innovation</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">mt09jms.pdf</td>
+<td align="left">h_2</td>
+<td align="left">board gender diversity is positively related to ﬁrm reputation.</td>
+<td align="left">board gender diversity</td>
+<td align="left">ﬁrm reputation</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">n00dissertation.pdf</td>
+<td align="left">h_1</td>
+<td align="left">firms which screen for personality pay higher wages, are more likely to provide their workforce additional beneﬁts, should have a higher likelihood to provide their workers higher amounts of on-the-job training, in particular more general training, and should be more inclined to provide job security to their employees.</td>
+<td align="left">firms which screen for</td>
+<td align="left">personality pay higher wages, are more likely to provide their workforce additional beneﬁts, should have a higher likelihood to provide their workers higher amounts of on-the-job training, in particular more general training, and should be more inclined to provide job security to their employees</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">n00dissertation.pdf</td>
+<td align="left">h_2</td>
+<td align="left">firms which screen for personality should have more leeway to organise tasks in teams and should perform better in the market.</td>
+<td align="left">firms which screen for</td>
+<td align="left">personality should have more leeway to organise tasks in teams and should perform</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">ntll98ijhrm.pdf</td>
+<td align="left">h_1</td>
+<td align="left">country origin of mncs will in uence the human resource practices used by  rms.</td>
+<td align="left">country origin of mncs</td>
+<td align="left">human resource practices used</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">ntll98ijhrm.pdf</td>
+<td align="left">h_3</td>
+<td align="left">country origin will moderate the relationships of human resource practices with  rm performance.</td>
+<td align="left">country origin</td>
+<td align="left">resource practices with  rm performance</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">pb00amj.pdf</td>
+<td align="left">h_1</td>
+<td align="left">firms with more comprehensive bundles of work-family policies will have higher organizational performance than firms with less comprehensive bundles.</td>
+<td align="left">firms with more comprehensive bundles of work-family policies</td>
+<td align="left">organizational performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">pb00amj.pdf</td>
+<td align="left">h_2</td>
+<td align="left">the relationship between work family human resource bundles and firm performance will be stronger for larger firms than for smaller firms.</td>
+<td align="left">work family human resource bundles and firm</td>
+<td align="left">performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">ppr10amj.pdf</td>
+<td align="left">h_1</td>
+<td align="left">firms with high reputation are less likely to generate positive material earnings surprises than firms that do not possess this asset.</td>
+<td align="left">firms with high</td>
+<td align="left">positive material earnings surprises</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">ppr10amj.pdf</td>
+<td align="left">h_2</td>
+<td align="left">firms with celebrity are more likely to generate positive material earnings surprises than firms that do not possess this asset.</td>
+<td align="left">firms with celebrity</td>
+<td align="left">positive material earnings surprises</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">ppr10amj.pdf</td>
+<td align="left">h_3</td>
+<td align="left">high-reputation firms experience more positive investor reactions to their material positive earnings surprises than firms that do not possess either high reputation or celebrity.</td>
+<td align="left">high-reputation firms</td>
+<td align="left">positive investor reactions to their material positive earnings surprises</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">ppr10amj.pdf</td>
+<td align="left">h_4</td>
+<td align="left">high-reputation firms experience less negative investor reactions to their material negative earnings surprises than firms that do not possess either high reputation or celebrity.</td>
+<td align="left">high-reputation firms</td>
+<td align="left">negative investor reactions to their material negative earnings surprises</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">rf97amj.pdf</td>
+<td align="left">h_1</td>
+<td align="left">high levels of environmental performance will be associated with enhanced profitability.</td>
+<td align="left">levels of environmental</td>
+<td align="left">performance will be associated with enhanced profitability</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">rffa98jom.pdf</td>
+<td align="left">h_3</td>
+<td align="left">internal and external cooperation is not positively related to process management.</td>
+<td align="left">internal</td>
+<td align="left">and external cooperation is not positively related to process management</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">rffa98jom.pdf</td>
+<td align="left">h_5</td>
+<td align="left">process management is not positively related to continuous improvement.</td>
+<td align="left">management</td>
+<td align="left">continuous improvement</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">rffa98jom.pdf</td>
+<td align="left">h_6</td>
+<td align="left">process management is not positively related to employee fulfillment.</td>
+<td align="left">management</td>
+<td align="left">process</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">rffa98jom.pdf</td>
+<td align="left">h_7</td>
+<td align="left">continuous improvement is not positively related to customer satisfaction.</td>
+<td align="left">continuous</td>
+<td align="left">improvement is not positively related to customer satisfaction</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">rffa98jom.pdf</td>
+<td align="left">h_8</td>
+<td align="left">employee fulfillment tively related to customer satisfaction. is not posi3.4.</td>
+<td align="left">employee fulfillment</td>
+<td align="left">satisfaction</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">s14isbj.pdf</td>
+<td align="left">h_1</td>
+<td align="left">there will be a positive association between the number of selected formal human resource practices and reported firm performance .</td>
+<td align="left">number of selected formal human resource practices</td>
+<td align="left">reported firm performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">s14isbj.pdf</td>
+<td align="left">h_2</td>
+<td align="left">there will be a positive association between the number of selected formal human resource practices and reported firm performance .</td>
+<td align="left">number of selected formal human resource practices</td>
+<td align="left">reported firm performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">s14isbj.pdf</td>
+<td align="left">h_3</td>
+<td align="left">the positive association between the number of selected formal human resource practices and reported firm performance will be sustained after controlling for previous performance if h3 is not rejected, this implies that human resource practices in an earlier period positively contribute to sustained competitive advantage in smes.</td>
+<td align="left">number of selected formal human resource</td>
+<td align="left">practices and reported firm performance will be sustained after controlling for previous performance if h3 is not rejected, this implies that human resource practices in an earlier period positively contribute to sustained competitive advantage in smes</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">sc02amj.pdf</td>
+<td align="left">h_1</td>
+<td align="left">contender successors will be positively associated with postsuccession op- erational performance.</td>
+<td align="left">contender successors</td>
+<td align="left">postsuccession op- erational performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">sc02amj.pdf</td>
+<td align="left">h_2</td>
+<td align="left">outsider successors will be neg- atively associated with postsuccession opera- tional performance.</td>
+<td align="left">outsider successors</td>
+<td align="left">postsuccession opera- tional performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">sc02amj.pdf</td>
+<td align="left">h_3</td>
+<td align="left">senior executive turnover fol- lowing a contender succession will be posi- tively associated with postsuccession opera- tional performance.</td>
+<td align="left">senior executive turnover fol- lowing a contender succession</td>
+<td align="left">postsuccession opera- tional performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">sc02amj.pdf</td>
+<td align="left">h_4</td>
+<td align="left">senior executive turnover fol- lowing an outsider succession will be nega- tively associated with postsuccession opera- tional performance.</td>
+<td align="left">senior executive turnover fol- lowing an outsider succession</td>
+<td align="left">postsuccession opera- tional performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">sgd05amj.pdf</td>
+<td align="left">h_2</td>
+<td align="left">the direct relationship between voluntary turnover and financial performance is partially mediated by workforce performance.</td>
+<td align="left">turnover</td>
+<td align="left">and financial performance is partially mediated by workforce performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">sh11jop.pdf</td>
+<td align="left">h_1</td>
+<td align="left">the rate of unit-level voluntary and involuntary turnover will be negatively related to customer satisfaction.</td>
+<td align="left">rate of unit-level voluntary and involuntary turnover</td>
+<td align="left">satisfaction</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">sh11jop.pdf</td>
+<td align="left">h_2</td>
+<td align="left">customer satisfaction will be positively related to unit-level financial performance.</td>
+<td align="left">customer satisfaction</td>
+<td align="left">unit-level financial performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">sh11jop.pdf</td>
+<td align="left">h_3</td>
+<td align="left">the negative relationship between unit-level voluntary and involuntary turnover and unit-level financial performance will be fully mediated by customer satisfaction.</td>
+<td align="left">customer satisfaction.</td>
+<td align="left">unit-level voluntary and involuntary turnover and unit-level financial performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">ss07etp.pdf</td>
+<td align="left">h_1</td>
+<td align="left">among high-performing, technology-based ventures, the experience of the entrepreneurial team will be signiﬁcantly related to the strategies pursued by those ﬁrms.</td>
+<td align="left">technology-based ventures, the experience of the entrepreneurial team</td>
+<td align="left">strategies pursued by those</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">ss07etp.pdf</td>
+<td align="left">h_2</td>
+<td align="left">entrepreneurial team experience will not be directly related to the performance of technology-based new ventures.</td>
+<td align="left">entrepreneurial team</td>
+<td align="left">performance of technology-based new</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">ss07etp.pdf</td>
+<td align="left">h_3</td>
+<td align="left">the ﬁt between strategy and entrepreneurial team experience will be signiﬁcantly related to the performance of technology-based new ventures.</td>
+<td align="left">ﬁt between strategy and entrepreneurial team experience</td>
+<td align="left">performance of technology-based new</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">sy04smj.pdf</td>
+<td align="left">h_1</td>
+<td align="left">customer co-production will be negatively related to human capital.</td>
+<td align="left">customer</td>
+<td align="left">human capital</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">sy04smj.pdf</td>
+<td align="left">h_2</td>
+<td align="left">customer contact will be positively related to human capital.</td>
+<td align="left">customer</td>
+<td align="left">human capital</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">sy04smj.pdf</td>
+<td align="left">h_3</td>
+<td align="left">human capital will negatively moderate the relationship between customer co production and firm performance.</td>
+<td align="left">human capital</td>
+<td align="left">co production and firm performance</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">sy04smj.pdf</td>
+<td align="left">h_4</td>
+<td align="left">human capital will positively moderate the relationship between customer contact and firm performance.</td>
+<td align="left">human capital</td>
+<td align="left">and firm performance</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">sy04smj.pdf</td>
+<td align="left">h_5</td>
+<td align="left">human capital will positively moderate the relationship between service cus tomization and firm performance.</td>
+<td align="left">human capital</td>
+<td align="left">relationship between service cus tomization and firm performance</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">sz09amj.pdf</td>
+<td align="left">h_2</td>
+<td align="left">under a commitment work system, there will be less of an inverted u-shaped relationship between employee turnover and performance than under a secondary system, and more of a straight, negative turnover-performance relationship.</td>
+<td align="left">commitment work system,</td>
+<td align="left">employee turnover and performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">szrgwdkd94mc.pdf</td>
+<td align="left">h_3</td>
+<td align="left">the greater the quality of caregiver interaction among physicians and nurses in the unit, the better the unit’s performance; particularly regarding efficiency of utiliza- tion, evaluated quality of care and evaluated ability to meet family member needs.</td>
+<td align="left">quality of caregiver interaction among physicians</td>
+<td align="left">performance; particularly regarding efficiency</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">t05ajmp.pdf</td>
+<td align="left">h_1</td>
+<td align="left">training and perceived organizational performance are related to each other and are not time-speciﬁc.</td>
+<td align="left">training</td>
+<td align="left">perceived organizational performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">t05ajmp.pdf</td>
+<td align="left">h_2</td>
+<td align="left">employee participation and perceived organizational performance are related to each other and are not time-speciﬁc.</td>
+<td align="left">employee participation</td>
+<td align="left">perceived organizational performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">t05ajmp.pdf</td>
+<td align="left">h_3</td>
+<td align="left">compensation and perceived organizational performance are related to each other and are not time-speciﬁc.</td>
+<td align="left">compensation</td>
+<td align="left">perceived organizational performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">t05ajmp.pdf</td>
+<td align="left">h_4</td>
+<td align="left">internal labor market and perceived organizational performance are related to each other and are not time-speciﬁc.</td>
+<td align="left">internal labor market</td>
+<td align="left">perceived organizational performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">t05ajmp.pdf</td>
+<td align="left">h_5</td>
+<td align="left">selection and perceived organizational performance are related to each other and are not time-speciﬁc.</td>
+<td align="left">selection</td>
+<td align="left">perceived organizational performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">t05ijhrm.pdf</td>
+<td align="left">h_1</td>
+<td align="left">training and perceived organizational performance are related to each other and are not time-speciﬁc.</td>
+<td align="left">training</td>
+<td align="left">perceived organizational performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">t05ijhrm.pdf</td>
+<td align="left">h_2</td>
+<td align="left">employee participation and perceived organizational performance are related to each other and are not time-speciﬁc.</td>
+<td align="left">employee participation</td>
+<td align="left">perceived organizational performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">t05ijhrm.pdf</td>
+<td align="left">h_3</td>
+<td align="left">compensation and perceived organizational performance are related to each other and are not time-speciﬁc.</td>
+<td align="left">compensation</td>
+<td align="left">perceived organizational performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">t05ijhrm.pdf</td>
+<td align="left">h_4</td>
+<td align="left">internal labor market and perceived organizational performance are related to each other and are not time-speciﬁc.</td>
+<td align="left">internal labor market</td>
+<td align="left">perceived organizational performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">t05ijhrm.pdf</td>
+<td align="left">h_5</td>
+<td align="left">selection and perceived organizational performance are related to each other and are not time-speciﬁc.</td>
+<td align="left">selection</td>
+<td align="left">perceived organizational performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">tbbc09halmstaduniversity.pdf</td>
+<td align="left">h_1</td>
+<td align="left">there is a positive relationship between a firm’s size and the social information disclosed on its website.</td>
+<td align="left">size</td>
+<td align="left">social information disclosed on its website</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">tbbc09halmstaduniversity.pdf</td>
+<td align="left">h_4</td>
+<td align="left">there is a negative relationship between the ownership concentration of a firm and the social information disclosed on its website.</td>
+<td align="left">concentration of a firm</td>
+<td align="left">social information disclosed on its website</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">w02jom.pdf</td>
+<td align="left">h_1</td>
+<td align="left">among small us ﬁrms there is a negative association between the use of hpws and workforce turnover.</td>
+<td align="left">small us ﬁrms</td>
+<td align="left">use of hpws and workforce</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">w02jom.pdf</td>
+<td align="left">h_2</td>
+<td align="left">among small us ﬁrms there is a positive association between the use of hpws and labor productivity.</td>
+<td align="left">small us ﬁrms</td>
+<td align="left">use of hpws and labor</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">wb93smj.pdf</td>
+<td align="left">h_1</td>
+<td align="left">environmental munificence will be negatively associated with turnover within the top management team.</td>
+<td align="left">environmental munificence</td>
+<td align="left">turnover</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">wb93smj.pdf</td>
+<td align="left">h_2</td>
+<td align="left">environmental instability will be positively associated with turnover within the top management team.</td>
+<td align="left">environmental instability</td>
+<td align="left">turnover</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">wb93smj.pdf</td>
+<td align="left">h_3</td>
+<td align="left">environmental complexity will be positively associated with turnover within the top management team.</td>
+<td align="left">environmental complexity</td>
+<td align="left">turnover</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">wb93smj.pdf</td>
+<td align="left">h_4</td>
+<td align="left">environmental munijicence will be positively associated with jim performance.</td>
+<td align="left">environmental</td>
+<td align="left">performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">wb93smj.pdf</td>
+<td align="left">h_5</td>
+<td align="left">environmental munificence will be negatively associated with strategic change.</td>
+<td align="left">environmental munificence</td>
+<td align="left">strategic change</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">wb93smj.pdf</td>
+<td align="left">h_7</td>
+<td align="left">demographic heterogeneity will be positively associated with turnover within the top management team.</td>
+<td align="left">demographic heterogeneity</td>
+<td align="left">turnover</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">wmsm99ijhrm.pdf</td>
+<td align="left">h_1</td>
+<td align="left">human resource practices that consist of an emphasis on selection, training, appraisal and compensation should be positively related to the skills and motivation of the workforce.</td>
+<td align="left">human resource practices that consist of an emphasis on selection, training, appraisal</td>
+<td align="left">and compensation should be positively related to the skills and motivation of the workforce</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">wmsm99ijhrm.pdf</td>
+<td align="left">h_2</td>
+<td align="left">emphasis on selection, training, appraisal, compensation systems should be positively related to organizational performance.</td>
+<td align="left">emphasis on selection, training, appraisal, compensation systems</td>
+<td align="left">organizational performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">wmsm99ijhrm.pdf</td>
+<td align="left">h_3</td>
+<td align="left">employee participation will be positively related to organizational performance.</td>
+<td align="left">employee participation</td>
+<td align="left">organizational performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
 <td align="left">wq11amj.pdf</td>
 <td align="left">h_1</td>
 <td align="left">corporate philanthropy is positively related to a firm’s financial performance .</td>
@@ -633,6 +3784,118 @@ output_df</code></pre>
 <td align="left">corporate philanthropy and a firm’s fi nancial performance</td>
 <td align="left">intensity</td>
 <td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">wqk10jbe.pdf</td>
+<td align="left">h_1</td>
+<td align="left">corporate philanthropy is positively related to a firm’s financial performance .</td>
+<td align="left">corporate philanthropy</td>
+<td align="left">firm’s financial performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">wqk10jbe.pdf</td>
+<td align="left">h_2</td>
+<td align="left">the positive relationship be tween corporate philanthropy and a firm’s fi nancial performance increases with its adver tising intensity.</td>
+<td align="left">corporate philanthropy and a firm’s fi nancial performance</td>
+<td align="left">intensity</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">x13bse.pdf</td>
+<td align="left">h_1</td>
+<td align="left">corporate philanthropy is positively related to a firm’s financial performance .</td>
+<td align="left">corporate philanthropy</td>
+<td align="left">firm’s financial performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">x13bse.pdf</td>
+<td align="left">h_2</td>
+<td align="left">the positive relationship be tween corporate philanthropy and a firm’s fi nancial performance increases with its adver tising intensity.</td>
+<td align="left">corporate philanthropy and a firm’s fi nancial performance</td>
+<td align="left">intensity</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">y07tqm.pdf</td>
+<td align="left">h_1</td>
+<td align="left">h2 h3 g1 g2 g3 g4 b1 b2 b3 b4 b5 b6 total customer satisfaction repurchase intentions reputation p-value in parentheses.  ,  and þ indicate signiﬁcance at 1%, 5%, and 10% two-tails, respectively.</td>
+<td align="left">h2 h3 g1</td>
+<td align="left">total customer satisfaction repurchase intentions reputation</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">zn02smj.pdf</td>
+<td align="left">h_1</td>
+<td align="left">use of internal hr-based manufacturing sources leads to successful tc.</td>
+<td align="left">use of internal hr-based manufacturing sources</td>
+<td align="left">successful tc</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">zn02smj.pdf</td>
+<td align="left">h_2</td>
+<td align="left">use of external hr-based manufacturing sources leads to successful tc.</td>
+<td align="left">use of external hr-based manufacturing sources</td>
+<td align="left">successful tc</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">zn02smj.pdf</td>
+<td align="left">h_3</td>
+<td align="left">use of internal technical manufacturing sources leads to successful tc.</td>
+<td align="left">use of internal technical manufacturing</td>
+<td align="left">sources leads to successful tc</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">zn02smj.pdf</td>
+<td align="left">h_4</td>
+<td align="left">use of external technical manufacturing sources leads to successful tc.</td>
+<td align="left">use</td>
+<td align="left">of external technical manufacturing sources leads to successful tc</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">zsl14apjm.pdf</td>
+<td align="left">h_2</td>
+<td align="left">csr is positively related to firm reputation.</td>
+<td align="left">csr</td>
+<td align="left">firm reputation</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">zsl14apjm.pdf</td>
+<td align="left">h_3</td>
+<td align="left">firm reputation is positively related to firm performance.</td>
+<td align="left">firm</td>
+<td align="left">reputation is positively related to firm performance</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">zsl14apjm.pdf</td>
+<td align="left">h_4</td>
+<td align="left">ethical leadership moderates the relationship between csr and firm reputation such that perceived csr positively affects firm reputation when leaders display strong but not weak ethical display strong, but not weak, ethical leadership.</td>
+<td align="left">ethical leadership</td>
+<td align="left">relationship between csr and firm reputation such that perceived</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">zsl14apjm.pdf</td>
+<td align="left">h_5</td>
+<td align="left">ethical leadership moderates its indirect effect on firm reputation through csr.</td>
+<td align="left">ethical leadership</td>
+<td align="left">indirect effect on firm reputation through</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">zsl14apjm.pdf</td>
+<td align="left">h_6</td>
+<td align="left">ethical leadership moderates the indirect effect of csr on firm performance through firm reputation.</td>
+<td align="left">ethical leadership</td>
+<td align="left">indirect effect of csr on firm performance through firm reputation</td>
+<td align="right">1</td>
 </tr>
 </tbody>
 </table>
